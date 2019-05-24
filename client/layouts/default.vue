@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app :dark="dark">
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -8,6 +8,7 @@
       app
     >
       <v-list>
+		  
         <v-list-tile
           v-for="(item, i) in items"
           :key="i"
@@ -23,6 +24,9 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
+	  <v-list align-end justify-start class="dark-switch">
+		  <v-list-tile><v-switch v-model="dark" primary label="Dark"></v-switch></v-list-tile>
+	  </v-list>
     </v-navigation-drawer>
     <v-toolbar
       :clipped-left="clipped"
@@ -76,6 +80,7 @@
           <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
         </v-list-tile>
       </v-list>
+	  
     </v-navigation-drawer>
     <v-footer
       :fixed="fixed"
@@ -92,7 +97,8 @@ export default {
     return {
       clipped: false,
       drawer: false,
-      fixed: false,
+	  fixed: false,
+	  dark: true,
       items: [
         {
           icon: 'apps',
@@ -103,7 +109,27 @@ export default {
           icon: 'bubble_chart',
           title: 'Inspire',
           to: '/inspire'
-        }
+		},
+		{
+			title: 'Forum',
+			to: '/'
+		},
+		{
+			title: 'Exams',
+			to: '/'
+		},
+		{
+			title: 'Calender',
+			path: '/'
+		},
+		{
+			title: 'Fees',
+			path: '/'
+		},
+		{
+			title: 'Help desk',
+			path: '/'
+		}
       ],
       miniVariant: false,
       right: true,
@@ -113,3 +139,11 @@ export default {
   }
 }
 </script>
+
+<style>
+.dark-switch{
+	margin-top: 30%;
+	margin-left:10%;
+}
+</style>
+
