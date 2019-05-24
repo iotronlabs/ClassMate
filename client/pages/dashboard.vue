@@ -17,6 +17,7 @@
 
 <script>
 export default {
+	middleware: 'auth',
     data: () => ({
 		dark: true,
 		drawers: ['Default (no property)', 'Permanent', 'Temporary'],

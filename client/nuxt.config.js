@@ -73,7 +73,7 @@ export default {
 			}
 		},
 		redirect: {
-			login: '/auth/login',
+			login: '/login',
 			home: '/'
 		}
 	},
