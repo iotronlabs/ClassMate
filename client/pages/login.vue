@@ -79,14 +79,21 @@ import axios from 'axios'
 	},
 	methods: {
 		async checkLogin() {
-			await axios({
-				method: 'post',
-				url: 'http://localhost:8000/api/auth/login',
-				data : {
-					email: this.email,
-					password: this.password
-				}
+			// const response = await this.$auth.login({
+			// 	data: {
+			// 		email: this.email,
+			// 		password: this.password
+			// 	}
+			// })
+			// this.$router.push('/')
+			const response = await this.$axios.post('auth/login',{
+				email: this.email,
+				password: this.password
 			})
+			if(response.data.success == true)
+			{
+				this.$router.push('/')
+			}
 		}
 	}
 }
