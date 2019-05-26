@@ -1,73 +1,86 @@
 <template>
-  <v-layout
-    column
-    justify-center
-    align-center
-  >
-    <v-flex
-      xs12
-      sm8
-      md6
-    >
-      <div class="text-xs-center">
-        <logo />
-        <vuetify-logo />
-      </div>
-      <v-card>
-        <v-card-title class="headline">Welcome to the Vuetify + Nuxt.js template</v-card-title>
-        <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
-          <p>For more information on Vuetify, check out the <a
-            href="https://vuetifyjs.com"
-            target="_blank"
-          >documentation</a>.</p>
-          <p>If you have questions, please join the official <a
-            href="https://chat.vuetifyjs.com/"
-            target="_blank"
-            title="chat"
-          >discord</a>.</p>
-          <p>Find a bug? Report it on the github <a
-            href="https://github.com/vuetifyjs/vuetify/issues"
-            target="_blank"
-            title="contribute"
-          >issue board</a>.</p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-          >Nuxt Documentation</a>
-          <br>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-          >Nuxt GitHub</a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            flat
-            nuxt
-            to="/inspire"
-          >Continue</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-flex>
-  </v-layout>
+  <v-app id="inspire">
+    <v-content>
+      <v-container fluid fill-height>
+        <v-layout align-center justify-center>
+          <v-flex xs12 sm8 md8>
+            <v-card class="elevation-12">
+              <v-toolbar dark color="primary">
+                <v-toolbar-title>Login form</v-toolbar-title>
+              </v-toolbar>
+              <v-card-text>
+                <v-form @submit.prevent="checkLogin" id="login-form">
+                  <v-text-field 
+					prepend-icon="person" 
+					name="email" 
+					type="email"
+					v-model="email"
+					:rules="[rules.required,rules.emailValid]"
+					label="Email"
+					required></v-text-field>
+				<v-text-field id="password" 
+					prepend-icon="lock" 
+					v-model="password"
+					:append-icon="show ? 'visibility' : 'visibility_off'"
+					:rules="[rules.required, rules.min]"
+					:type="show ? 'text' : 'password'"
+					name="password"
+					label="Password"
+					hint="At least 8 characters"
+					counter
+					@click:append="show = !show"></v-text-field>
+						<v-spacer></v-spacer>
+						<div class="text-xs-center">
+							<v-btn :disabled="disabled" round color="primary" type="submit" form="login-form">LogIn</v-btn>
+							<v-btn round color="primary">SignUp</v-btn><br><br>Not Registered, Click Sign Up
+						</div>
+						{{message}}
+				</v-form>
+              </v-card-text>
+            </v-card>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
-
-export default {
-  components: {
-    Logo,
-    VuetifyLogo
-  }
+import { Promise } from 'q';
+  export default {
+    props: {
+      source: String
+	},
+	data() {
+		return {
+			// drawer: null,
+			email: '',
+			password: '',
+			show: false,
+			rules: {
+				required: v => !!v || 'Required.',
+				min: v => v.length >= 8 || 'Min 8 characters',
+				emailValid : v=> /.+@.+/.test(v) || 'E-mail must be valid'
+			},
+			message: ''
+		}
+	},
+	computed: {
+		disabled() {
+			if(this.email.length==0 || this.password.length<8 || this.email==/.+@.+/.test(this.email))
+			{
+				return true
+			}
+			else
+			{
+				return false
+			}
+		}
+	},
+	methods: {
+		checkLogin() {
+			this.$router.push('/dashboard')
+		}
+	}
 }
 </script>

@@ -2,11 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _f35b17e8 = () => interopDefault(import('..\\pages\\chat.vue' /* webpackChunkName: "pages_chat" */))
-const _bd38eae0 = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages_dashboard" */))
-const _62d208d6 = () => interopDefault(import('..\\pages\\inspire.vue' /* webpackChunkName: "pages_inspire" */))
-const _7f916ee5 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages_login" */))
-const _942c6864 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
+const _3585169c = () => interopDefault(import('..\\pages\\chat.vue' /* webpackChunkName: "pages_chat" */))
+const _0ec5fcac = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages_dashboard" */))
+const _18527e70 = () => interopDefault(import('..\\pages\\inspire.vue' /* webpackChunkName: "pages_inspire" */))
+const _345edfe8 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
 Vue.use(Router)
 
@@ -84,23 +83,19 @@ export function createRouter() {
 
     routes: [{
       path: "/chat",
-      component: _f35b17e8,
+      component: _3585169c,
       name: "chat"
     }, {
       path: "/dashboard",
-      component: _bd38eae0,
+      component: _0ec5fcac,
       name: "dashboard"
     }, {
       path: "/inspire",
-      component: _62d208d6,
+      component: _18527e70,
       name: "inspire"
     }, {
-      path: "/login",
-      component: _7f916ee5,
-      name: "login"
-    }, {
       path: "/",
-      component: _942c6864,
+      component: _345edfe8,
       name: "index"
     }],
 

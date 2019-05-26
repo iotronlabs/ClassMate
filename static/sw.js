@@ -2,44 +2,40 @@ importScripts('/_nuxt/workbox.4c4f5ca6.js')
 
 workbox.precaching.precacheAndRoute([
   {
-    "url": "/_nuxt/295e2d7ad177e1b7ebf8.js",
-    "revision": "f6b4e8cc3616302386a009028cfaf5a0"
+    "url": "/_nuxt/09ca99a9a4f16e504620.js",
+    "revision": "eef445402cc71cae7e183071595323e8"
   },
   {
-    "url": "/_nuxt/2d6a84f116fce9a3df7b.js",
-    "revision": "06da722a693ae73ec69f9d97d89aa859"
+    "url": "/_nuxt/2d780df59298fd612253.js",
+    "revision": "a261e592d221b24942db8996fc64dc6a"
   },
   {
-    "url": "/_nuxt/34eec4e6ab735f50a979.js",
-    "revision": "539c68a940ea590b856acc9c4f14c4c6"
+    "url": "/_nuxt/5246e8d7fed1a6bdc67a.js",
+    "revision": "cef0b558acbada1e141999b15cee89b7"
   },
   {
-    "url": "/_nuxt/49c7eb68186815434bee.js",
-    "revision": "d48ba9d9ee5dfcb30249863dc32b4fcf"
+    "url": "/_nuxt/52f4db1f665fdc9a0b02.js",
+    "revision": "cae04c24a470a60bacc7172f5727b891"
   },
   {
-    "url": "/_nuxt/4b2b4813ee0d05b9f0a1.js",
-    "revision": "1ce0ffab0111f8d229cf11b6b593a704"
+    "url": "/_nuxt/978c4da1f2ace001447a.js",
+    "revision": "50e9e162cd2f72303eee03b97cb5aa69"
   },
   {
-    "url": "/_nuxt/5667da00efc381ee9dfb.js",
-    "revision": "9a7bf07798d754e60c060b86447ac368"
+    "url": "/_nuxt/9d355cee5161a3b08bba.js",
+    "revision": "15e9a243595f727aba1166dfc9c58e61"
   },
   {
-    "url": "/_nuxt/72f1cc6e8e99ec231348.js",
-    "revision": "dfb1f753b9201de2fb4f6d9ee851e5f0"
+    "url": "/_nuxt/a1ed541895af6ae0cc2f.js",
+    "revision": "ed7d45f1249c5026a7b238b1e054236a"
   },
   {
-    "url": "/_nuxt/9705056736d111796307.js",
-    "revision": "32f8bce3f489db81b5b6939d8981678b"
+    "url": "/_nuxt/a87fbd57e54239c99379.js",
+    "revision": "6cb5ef877bc64065233c4958a2b71a65"
   },
   {
-    "url": "/_nuxt/bdd0630a3e387c5e0aeb.js",
-    "revision": "01b3d62219b7997da70d07820be71cff"
-  },
-  {
-    "url": "/_nuxt/feb9661e9cec7001f809.js",
-    "revision": "beaead2d3ba607d42c94a78089a1a30e"
+    "url": "/_nuxt/dfb8a40f83df10f15e12.js",
+    "revision": "22722338cc0d62e3ff45893a6134b0d4"
   }
 ], {
   "cacheId": "client",

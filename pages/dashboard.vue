@@ -17,6 +17,7 @@
 
 <script>
 export default {
+	layout: 'NavigationLayout',
     data: () => ({
 		dark: true,
 		drawers: ['Default (no property)', 'Permanent', 'Temporary'],
