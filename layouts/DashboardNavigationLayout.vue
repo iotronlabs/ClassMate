@@ -22,6 +22,7 @@
 
 					<v-list-tile-action>
 						<v-btn icon
+							v-if="this.$vuetify.breakpoint.smAndDown == true"
 							@click.stop="closeDrawerModel">
 						<v-icon>chevron_left</v-icon>
 						</v-btn>
@@ -44,12 +45,16 @@
 				</v-list-tile>
 			</v-list>
 			<v-list align-end justify-start class="dark-switch">
-				<v-list-tile><v-switch v-model="dark" primary label="Dark"></v-switch></v-list-tile>
+				<v-list-tile>
+					<v-flex>
+						<v-switch v-model="dark" primary color="indigo" :label="switchLabel"></v-switch>
+					</v-flex>
+				</v-list-tile>
 			</v-list>
 		</v-navigation-drawer>
 		<v-toolbar :clipped-left="primaryDrawer.clipped" app absolute>
 			<v-toolbar-side-icon
-				v-if="primaryDrawer.type !== 'permanent'"
+				v-if="primaryDrawer.type !== 'permanent' && this.$vuetify.breakpoint.smAndDown == true"
 				@click.stop="primaryDrawer.model = !primaryDrawer.model"
 			></v-toolbar-side-icon>
 			<v-toolbar-title>Vuetify</v-toolbar-title>
@@ -132,6 +137,19 @@ export default {
 		fixed: false
 	}),
 	computed: {
+		switchLabel() {
+			console.log(this.dark)
+			if(this.dark == true)
+			{
+				return 'Light'
+			}
+			else
+			{
+				return 'Dark'
+			}
+		},
+	},
+	methods: {
 		closeDrawerModel() {
 			this.primaryDrawer.type='default (no property)'
 			this.primaryDrawer.model = !this.primaryDrawer.model

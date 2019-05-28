@@ -12,10 +12,8 @@ import { createStore } from './store.js'
 /* Plugins */
 
 import nuxt_plugin_swplugin_89c29602 from 'nuxt_plugin_swplugin_89c29602' // Source: .\\sw.plugin.js (mode: 'client')
-import nuxt_plugin_axios_17f09266 from 'nuxt_plugin_axios_17f09266' // Source: .\\axios.js (mode: 'all')
 import nuxt_plugin_nuxticons_b137b2bc from 'nuxt_plugin_nuxticons_b137b2bc' // Source: .\\nuxt-icons.js (mode: 'all')
 import nuxt_plugin_vuetify_e5914fcc from 'nuxt_plugin_vuetify_e5914fcc' // Source: ..\\plugins\\vuetify (mode: 'all')
-import nuxt_plugin_plugin_72a69d95 from 'nuxt_plugin_plugin_72a69d95' // Source: .\\auth\\plugin.js (mode: 'all')
 
 // Component: <NoSsr>
 Vue.component(NoSsr.name, NoSsr)
@@ -155,20 +153,12 @@ async function createApp(ssrContext) {
     await nuxt_plugin_swplugin_89c29602(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_17f09266 === 'function') {
-    await nuxt_plugin_axios_17f09266(app.context, inject)
-  }
-
   if (typeof nuxt_plugin_nuxticons_b137b2bc === 'function') {
     await nuxt_plugin_nuxticons_b137b2bc(app.context, inject)
   }
 
   if (typeof nuxt_plugin_vuetify_e5914fcc === 'function') {
     await nuxt_plugin_vuetify_e5914fcc(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_plugin_72a69d95 === 'function') {
-    await nuxt_plugin_plugin_72a69d95(app.context, inject)
   }
 
   // If server-side, wait for async component to be resolved first
