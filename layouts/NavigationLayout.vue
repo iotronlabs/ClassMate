@@ -8,7 +8,7 @@
       app
     >
       <v-list>
-		  
+
         <v-list-tile
           v-for="(item, i) in items"
           :key="i"
@@ -70,8 +70,7 @@
       v-model="rightDrawer"
       :right="right"
       temporary
-      fixed
-    >
+      fixed>
       <v-list>
         <v-list-tile @click.native="right = !right">
           <v-list-tile-action>
@@ -80,8 +79,7 @@
           <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
         </v-list-tile>
       </v-list>
-	  
-    </v-navigation-drawer>
+	</v-navigation-drawer>
     <v-footer
       :fixed="fixed"
       app

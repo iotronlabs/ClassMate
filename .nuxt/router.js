@@ -4,7 +4,6 @@ import { interopDefault } from './utils'
 
 const _3585169c = () => interopDefault(import('..\\pages\\chat.vue' /* webpackChunkName: "pages_chat" */))
 const _0ec5fcac = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages_dashboard" */))
-const _18527e70 = () => interopDefault(import('..\\pages\\inspire.vue' /* webpackChunkName: "pages_inspire" */))
 const _345edfe8 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
 Vue.use(Router)
@@ -89,10 +88,6 @@ export function createRouter() {
       path: "/dashboard",
       component: _0ec5fcac,
       name: "dashboard"
-    }, {
-      path: "/inspire",
-      component: _18527e70,
-      name: "inspire"
     }, {
       path: "/",
       component: _345edfe8,
