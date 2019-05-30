@@ -84,8 +84,13 @@ import LoginChips from '@/components/LogInChips'
 		}
 	},
 	methods: {
-		checkLogin() {
-			this.$router.push('/dashboard')
+		async checkLogin() {
+			const response = await this.$axios.$post('/api/auth/login',{
+				email: this.email,
+				password: this.password
+			})
+			this.message = response.data.toString()
+			// this.$router.push('/dashboard')
 		}
 	}
 }
