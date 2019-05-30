@@ -19,7 +19,11 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
+<<<<<<< HEAD
         \App\Http\Middlwware\Cors::class,
+=======
+        \Barryvdh\Cors\HandleCors::class,
+>>>>>>> 7a8493142b1cc43eb81130ba114a0829fdd0c4fb
     ];
 
     /**
@@ -41,6 +45,7 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:60,1',
             'bindings',
+            \Barryvdh\Cors\HandleCors::class,
         ],
     ];
 
