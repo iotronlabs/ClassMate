@@ -52,7 +52,9 @@ export default {
 	'@nuxtjs/axios',
   ],
   axios: {
-	baseURL: 'http://api.thebutick.com'
+	baseURL: 'http://api.thebutick.com',
+	proxyHeaders: false,
+    credentials: false
   },
   /*
   ** Build configuration
