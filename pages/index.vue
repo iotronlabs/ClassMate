@@ -24,6 +24,7 @@
 							v-model="email"
 							:rules="[rules.required,rules.emailValid]"
 							label="Enter your email id"
+							autocomplete="off"
 							required>
 						</v-text-field>
 						<v-text-field id="password"
@@ -36,6 +37,7 @@
 							label="Enter your password"
 							hint="At least 8 characters"
 							counter
+							autocomplete="off"
 							@click:append="show = !show">
 						</v-text-field>
 						<v-spacer></v-spacer><br>
@@ -99,15 +101,16 @@ import LoginChips from '@/components/LogInChips'
 
 <style scoped>
 	.container-grad {
-		background-image: linear-gradient(to bottom,#4e54c8 0%, #8f94fb 100%);
+		background-image: linear-gradient(to top,#4e54c8 0%, #8f94fb 100%);
 	}
 	.btn-login {
-		background-image: linear-gradient(to bottom,#4e54c8 0%, #8f94fb 100%);
+		background-image: linear-gradient(to top,#4e54c8 0%, #8f94fb 100%);
 		color: aliceblue;
 	}
 
 	.login-grad {
 		background-image: linear-gradient(to right,#434343 0%, black 100%);
+		border-radius: 0px 0px 15px 15px;
 	}
 	img {
 		height: 40%;
@@ -117,7 +120,7 @@ import LoginChips from '@/components/LogInChips'
 		margin-right: auto;
 	}
 	.card-design {
-		border-radius: 5px;
+		border-radius: 15px;
 	}
 	.toolbar-text {
 		font-size: 1.5em;
