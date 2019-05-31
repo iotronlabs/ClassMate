@@ -48,9 +48,14 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/pwa',
+	'@nuxtjs/pwa',
+	'@nuxtjs/axios',
   ],
-
+  axios: {
+	baseURL: 'http://api.thebutick.com',
+	proxyHeaders: false,
+    credentials: false
+  },
   /*
   ** Build configuration
   */

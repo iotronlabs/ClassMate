@@ -5,6 +5,9 @@ import { interopDefault } from './utils'
 const _ec95537a = () => interopDefault(import('..\\pages\\chat.vue' /* webpackChunkName: "pages_chat" */))
 const _705872b9 = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages_dashboard" */))
 const _1ee33077 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
+const _f35b17e8 = () => interopDefault(import('..\\pages\\chat.vue' /* webpackChunkName: "pages_chat" */))
+const _bd38eae0 = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages_dashboard" */))
+const _942c6864 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
 Vue.use(Router)
 
@@ -91,6 +94,15 @@ export function createRouter() {
     }, {
       path: "/",
       component: _1ee33077,
+      component: _f35b17e8,
+      name: "chat"
+    }, {
+      path: "/dashboard",
+      component: _bd38eae0,
+      name: "dashboard"
+    }, {
+      path: "/",
+      component: _942c6864,
       name: "index"
     }],
 
