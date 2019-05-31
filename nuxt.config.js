@@ -49,35 +49,7 @@ export default {
   */
   modules: [
     '@nuxtjs/pwa',
-    '@nuxtjs/axios',
-    '@nuxtjs/auth'
   ],
-
-  axios: {
-	baseURL: 'http://localhost:8000/api/'
-  },
-
-	auth: {
-		strategies: {
-			local: {
-				endpoints: {
-					login: {
-						url: 'auth/login',
-						method: 'post',
-						propertyName: 'token'
-					},
-					logout: {
-						url: 'auth/logout',
-						method: 'get'
-					}
-				}
-			}
-		},
-		redirect: {
-			login: '/login',
-			home: '/'
-		}
-	},
 
   /*
   ** Build configuration
