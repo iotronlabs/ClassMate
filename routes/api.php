@@ -14,10 +14,12 @@ use Illuminate\Http\Request;
 */
 
 Route::group([ 'prefix' =>'/auth',
-             [ 'middleware' =>'throttle:20,5' ]],function()
+             [ 'middleware' =>'throttle:20,5','cors' ]],function()
              {
                  Route::post('/register','Auth\RegisterController@register');
                  Route::post('/login','Auth\LoginController@login');
              }
     
 );
+
+//Route::group(['middleware' => 'cors'], function () {
