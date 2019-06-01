@@ -6,18 +6,15 @@
           <v-flex xs12 sm8 md7>
             <v-card class="elevation-12 card-design">
               	<v-toolbar class="login-grad">
-									<span class="toolbar-text">Login form</span>
-									<img src="/classmate.png">
-										
-									
-								</v-toolbar>
+					<span class="toolbar-text">Login form</span>
+					<img src="/classmate.png">
+				</v-toolbar>
 				<v-card-text>
-						<br>					
+					<br>
 				  	<LoginChips />
-						<br>
-
+					<br>
 					<v-form @submit.prevent="checkLogin" id="login-form" class="login-form">
-						<v-text-field 
+						<v-text-field
 							prepend-icon="person"
 							name="email"
 							type="email"
@@ -127,9 +124,9 @@ import LoginChips from '@/components/LogInChips'
 	}
 	img {
 		height: 40%;
-		width: 20%;	
+		width: 20%;
 		/* display: block; */
-		margin-left: auto;	
+		margin-left: auto;
 		margin-right: auto;
 	}
 	.card-design {
@@ -143,5 +140,4 @@ import LoginChips from '@/components/LogInChips'
 		padding-left: 15%;
 		padding-right: 15%;
 	}
-	
 </style>

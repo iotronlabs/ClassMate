@@ -2,12 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _ec95537a = () => interopDefault(import('..\\pages\\chat.vue' /* webpackChunkName: "pages_chat" */))
-const _705872b9 = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages_dashboard" */))
-const _1ee33077 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
-const _f35b17e8 = () => interopDefault(import('..\\pages\\chat.vue' /* webpackChunkName: "pages_chat" */))
-const _bd38eae0 = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages_dashboard" */))
-const _942c6864 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
+const _3585169c = () => interopDefault(import('..\\pages\\chat.vue' /* webpackChunkName: "pages_chat" */))
+const _0ec5fcac = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages_dashboard" */))
+const _345edfe8 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
 Vue.use(Router)
 
@@ -85,24 +82,15 @@ export function createRouter() {
 
     routes: [{
       path: "/chat",
-      component: _ec95537a,
+      component: _3585169c,
       name: "chat"
     }, {
       path: "/dashboard",
-      component: _705872b9,
+      component: _0ec5fcac,
       name: "dashboard"
     }, {
       path: "/",
-      component: _1ee33077,
-      component: _f35b17e8,
-      name: "chat"
-    }, {
-      path: "/dashboard",
-      component: _bd38eae0,
-      name: "dashboard"
-    }, {
-      path: "/",
-      component: _942c6864,
+      component: _345edfe8,
       name: "index"
     }],
 
