@@ -77,7 +77,8 @@
 			v-model="rightDrawer"
 			:right="right"
 			temporary
-			fixed>
+			fixed
+		>
 			<v-list>
 				<v-list-tile @click.native="right = !right">
 				<v-list-tile-action>
@@ -149,7 +150,7 @@ export default {
 			{
 				return 'Dark'
 			}
-		},
+		}
 	},
 	methods: {
 		closeDrawerModel() {

@@ -3,7 +3,7 @@
 		<v-container fluid>
 			<v-layout align-center justify-center>
 				<v-flex xs12>
-					<Calendar />
+					<DashboardCalendar />
 				</v-flex>
 			</v-layout>
 		</v-container>
@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import Calendar from '../components/Calendar'
+import DashboardCalendar from '../components/DashboardCalendar'
 export default {
 	components: {
-		Calendar
+		DashboardCalendar
 	},
 	layout: 'DashboardNavigationLayout'
 }
