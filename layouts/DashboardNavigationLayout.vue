@@ -68,7 +68,9 @@
 		</v-toolbar>
 
 		<v-content>
-
+			 <v-container>
+				<nuxt />
+			</v-container>
 		</v-content>
 
 		<v-navigation-drawer
