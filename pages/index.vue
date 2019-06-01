@@ -90,7 +90,7 @@ import LoginChips from '@/components/LogInChips'
 	},
 	methods: {
 		async checkLogin() {
-			const response = await this.$axios.post('/api/auth/login',{
+			const response = await this.$axios.post('/public/api/auth/login',{
 				email: this.email,
 				password: this.password
 			})

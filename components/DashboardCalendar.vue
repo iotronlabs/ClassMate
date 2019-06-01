@@ -1,12 +1,12 @@
 <template>
 <div class="container-fluid">
-	<v-layout>
-		<v-flex xs12 s10 md8 class="text-md-left text-xs-center tag-list">
+	<v-layout wrap :class="checkDevice ? content : ''">
+		<v-flex xs10 sm10 md6 class="tag-list">
 			<DashboardCalendarTags />
 		</v-flex>
 		<v-spacer></v-spacer>
-		<v-flex	xs12 s12 md11 class="mb-2">
-			<v-sheet height="300">
+		<v-flex	xs10 sm10 md6 class="mb-2">
+			<v-sheet height="500">
 				<v-calendar
 					ref="calendar"
 					v-model="start"
@@ -49,18 +49,27 @@ export default{
 			type: '4day',
 			start: Date.now().toString(),
 		}
+	},
+	computed: {
+		checkDevice() {
+			if(this.$vuetify.breakpoint.smAndDown==true)
+			{
+				return true
+			}
+		}
 	}
 }
 </script>
 
 <style scoped>
-.container-fluid
+/* .container-fluid
 {
 	margin-top: -10%;
-}
-.tag-list
+} */
+.content
 {
 	margin-left: -60%;
+	margin-top : -10%;
 }
 </style>
 
