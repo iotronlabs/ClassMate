@@ -29,20 +29,39 @@
 					</v-list-tile-action>
 				</v-list-tile>
 				<hr>
-				<v-list-tile
+				<v-list-group
 					v-for="(item, i) in items"
 					:key="i"
 					:to="item.to"
 					router
 					exact
 				>
-				<v-list-tile-action>
-					<v-icon>{{ item.icon }}</v-icon>
-				</v-list-tile-action>
-				<v-list-tile-content>
-					<v-list-tile-title v-text="item.title" />
-				</v-list-tile-content>
-				</v-list-tile>
+					<template v-slot:activator >
+						<v-list-tile>
+							<v-list-tile-action>
+								<v-icon>{{ item.icon }}</v-icon>
+							</v-list-tile-action>
+							<v-list-tile-content>
+								<v-list-tile-title>{{ item.title }}</v-list-tile-title>
+							</v-list-tile-content>
+						</v-list-tile>
+					</template>
+
+						<v-list-tile
+							v-for="subItem in item.items"
+							:key="subItem.title"
+						>
+							<v-list-tile-content>
+								<!-- <v-list-tile-action><v-icon>{{ subItem.icon }}</v-icon></v-list-tile-action> -->
+								<v-spacer />
+								<v-list  class="menu-sublist">
+									<v-list-tile>
+										{{ subItem.title }}
+									</v-list-tile>
+								</v-list>
+							</v-list-tile-content>
+						</v-list-tile>
+				</v-list-group>
 			</v-list>
 			<v-list align-end justify-start class="dark-switch">
 				<v-list-tile>
@@ -67,11 +86,8 @@
 			</v-btn>
 		</v-toolbar>
 
-		<v-content>
-			 <v-container>
-				<nuxt />
-			</v-container>
-		</v-content>
+
+		<nuxt />
 
 		<v-navigation-drawer
 			v-model="rightDrawer"
@@ -112,27 +128,63 @@ export default {
 			{
 				icon: 'apps',
 				title: 'Welcome',
-				to: '/'
+				to: '/',
+				items: []
 			},
 			{
 				title: 'Forum',
-				to: '/'
+				to: '/',
+				items: [
+					{
+						title: 'Saved Posts'
+					},
+					{
+						title: 'Create Post'
+					},
+					{
+						title: 'My Posts'
+					}
+				]
 			},
 			{
 				title: 'Exams',
-				to: '/'
+				to: '/',
+				items:[]
 			},
 			{
-				title: 'Calender',
-				path: '/'
+				title: 'Calendar',
+				to: '/',
+				items: [
+					{
+						title: 'Notice'
+					},
+					{
+						title: 'Time-table'
+					},
+					{
+						title: 'Assignments'
+					},
+					{
+						title: 'Events and Activities'
+					}
+				]
 			},
 			{
-				title: 'Fees',
-				path: '/'
+				title: 'Reports',
+				to: '/',
+				items: [
+					{
+						title: 'Attendance'
+					},
+					{
+						title: 'Exam'
+					}
+				]
 			},
 			{
 				title: 'Help desk',
-				path: '/'
+				to: '/',
+				items: []
 			}
 		],
 		right: true,
@@ -170,3 +222,10 @@ export default {
 	}
 }
 </script>
+
+<style scoped>
+.menu-sublist
+{
+	margin-left: 20%;
+}
+</style>

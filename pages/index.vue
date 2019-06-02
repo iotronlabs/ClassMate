@@ -131,10 +131,10 @@ import LoginChips from '@/components/LogInChips'
 </script>
 
 <style lang="css" scoped>
-@import url('https://fonts.googleapis.com/css?family=Fira Sans');
+	@import url('https://fonts.googleapis.com/css?family=Fira Sans');
 	.container-grad {
 		background-image: linear-gradient(to top,#4e54c8 0%, #8f94fb 100%);
-		font-family: 'Fira Sans'
+		font-family: 'Fira Sans';
 	}
 	.btn-login {
 		background-image: linear-gradient(to top,#4e54c8 0%, #8f94fb 100%);

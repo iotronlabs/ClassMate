@@ -50,6 +50,7 @@ export default {
   modules: [
 	'@nuxtjs/pwa',
 	'@nuxtjs/axios',
+	'bootstrap-vue/nuxt'
   ],
   axios: {
 	baseURL: 'http://api.thebutick.com',

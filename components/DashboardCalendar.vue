@@ -1,11 +1,11 @@
 <template>
-<div class="container-fluid">
-	<v-layout wrap class="content">
-		<v-flex xs10 sm10 md6 class="tag-list">
+<div>
+	<v-layout wrap >
+		<v-flex xs12 sm12 md4 offset-md-1 offset-lg-1 class="tag-list">
 			<DashboardCalendarTags />
 		</v-flex>
 		<v-spacer></v-spacer>
-		<v-flex	xs10 sm10 md6 class="mb-2">
+		<v-flex	xs12 sm12 md6 offset-md-1 offset-lg-1 :class="$vuetify.breakpoint.smAndDown ? smCalendar : ''">
 			<v-sheet height="500">
 				<v-calendar
 					ref="calendar"
@@ -14,19 +14,11 @@
 					color="secondary"
 				></v-calendar>
 			</v-sheet>
-		</v-flex>
-	</v-layout>
-	<v-layout>
-		<v-spacer />
-		<v-flex	sm4	xs12 class="text-sm-left text-xs-center">
 			<v-btn @click="$refs.calendar.prev()">
 				<v-icon	dark left>keyboard_arrow_left</v-icon>
 				Prev
 			</v-btn>
-		</v-flex>
-		<v-spacer></v-spacer>
-		<v-flex	sm4	xs12 class="text-sm-right text-xs-center">
-			<v-btn @click="$refs.calendar.next()">
+			<v-btn @click="$refs.calendar.next()" class="calendar-navigation-icons-right">
 				Next
 				<v-icon right dark>
 					keyboard_arrow_right
@@ -48,6 +40,7 @@ export default{
 		return{
 			type: '4day',
 			start: Date.now().toString(),
+			smCalendar : 'sm-calendar'
 		}
 	},
 	computed: {
@@ -62,14 +55,13 @@ export default{
 </script>
 
 <style scoped>
-/* .container-fluid
+.sm-calendar
 {
-	margin-top: -10%;
-} */
-.content
+	margin-top: 30%;
+}
+.calendar-navigation-icons-right
 {
-	margin-left: -60%;
-	margin-top : -10%;
+	float: right;
 }
 </style>
 
