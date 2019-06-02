@@ -6,8 +6,7 @@
           <v-flex xs12 sm8 md7>
             <v-card class="elevation-12 card-design">
               	<v-toolbar class="login-grad">
-					<span class="toolbar-text">Login form</span>
-					<img src="/classmate.png">
+					<center><img src="/classmate.png"></center>
 				</v-toolbar>
 				<v-card-text>
 					<br>
@@ -16,11 +15,12 @@
 					<v-form @submit.prevent="checkLogin" id="login-form" class="login-form">
 						<v-text-field
 							prepend-icon="person"
+							label="EmailId"
+							placeholder="Enter your EmailId"
 							name="email"
 							type="email"
 							v-model="email"
 							:rules="[rules.required,rules.emailValid]"
-							label="Enter your email id"
 							autocomplete="off"
 							required>
 						</v-text-field>
@@ -31,16 +31,27 @@
 							:rules="[rules.required, rules.min]"
 							:type="show ? 'text' : 'password'"
 							name="password"
-							label="Enter your password"
+							label="Password"
+							placeholder="Enter your password"
 							hint="At least 8 characters"
 							counter
 							autocomplete="off"
 							@click:append="show = !show">
 						</v-text-field>
-						<v-spacer></v-spacer><br>
+						<v-checkbox
+							v-model="checkbox"
+							label="Remember Me"
+						></v-checkbox>
+						<v-spacer></v-spacer>
 						<div class="text-xs-center">
-							<v-btn :disabled="disabled" round color="primary" type="submit" form="login-form">LogIn</v-btn>
-							<v-btn round class="btn-login">SignUp</v-btn><br><br>Not Registered? Click Sign Up
+							<v-btn
+								:disabled="disabled"
+								round
+								type="submit"
+								form="login-form"
+								:class="disabled ? '' : button"
+							>LogIn</v-btn>
+							<v-btn disabled="true" round>SignUp</v-btn>
 						</div>
 						{{message}}
 					</v-form>
@@ -50,6 +61,14 @@
         </v-layout>
       </v-container>
     </v-content>
+	<v-footer class="footer">
+			<v-layout>
+				<v-flex>
+					Made with <span class="heart">&hearts;</span> at
+					<a href="http://www.iotronlabs.com" target="_blank" class="footer-link">Iotronlabs</a>
+				</v-flex>
+			</v-layout>
+		</v-footer>
   </v-app>
 </template>
 
@@ -73,6 +92,8 @@ import LoginChips from '@/components/LogInChips'
 				min: v => v.length >= 8 || 'Min 8 characters',
 				emailValid : v=> /.+@.+/.test(v) || 'E-mail must be valid'
 			},
+			checkbox: false,
+			button: 'btn-login',
 			message: ''
 		}
 	},
@@ -109,9 +130,11 @@ import LoginChips from '@/components/LogInChips'
 }
 </script>
 
-<style scoped>
+<style lang="css" scoped>
+@import url('https://fonts.googleapis.com/css?family=Fira Sans');
 	.container-grad {
 		background-image: linear-gradient(to top,#4e54c8 0%, #8f94fb 100%);
+		font-family: 'Fira Sans'
 	}
 	.btn-login {
 		background-image: linear-gradient(to top,#4e54c8 0%, #8f94fb 100%);
@@ -139,5 +162,21 @@ import LoginChips from '@/components/LogInChips'
 	.login-form {
 		padding-left: 15%;
 		padding-right: 15%;
+	}
+	.footer
+	{
+		background-image: linear-gradient(to top,#4e54c8 0%, #8f94fb 100%);
+		text-align: center;
+		color: white;
+		font-family: 'Fira Sans'
+	}
+	.heart
+	{
+		color: #e25555;
+	}
+	.footer-link
+	{
+		text-decoration: none;
+		color: #fff;
 	}
 </style>

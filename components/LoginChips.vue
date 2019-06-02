@@ -20,7 +20,7 @@ export default {
 				{
 					avatar : 'S',
 					title: 'Student',
-					selected: true,
+					selected: false,
 					id: 'student'
 				},
 				{
@@ -30,7 +30,7 @@ export default {
 					id: 'teacher'
 				},
 				{
-					avatar: 'Ad',
+					avatar: 'A',
 					title: 'Admin',
 					selected: false,
 					id: 'admin'

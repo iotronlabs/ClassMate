@@ -1,6 +1,6 @@
 <template>
 <div class="container-fluid">
-	<v-layout wrap :class="checkDevice ? content : ''">
+	<v-layout wrap class="content">
 		<v-flex xs10 sm10 md6 class="tag-list">
 			<DashboardCalendarTags />
 		</v-flex>
