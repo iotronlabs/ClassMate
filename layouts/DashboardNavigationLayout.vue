@@ -30,7 +30,7 @@
 				</v-list-tile>
 				<hr>
 				<v-list-group
-					v-for="(item, i) in selectItems.items"
+					v-for="(item, i) in selectItems"
 					:key="i"
 					:to="item.to"
 					router
