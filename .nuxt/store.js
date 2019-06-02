@@ -19,11 +19,14 @@ void (function updateModules() {
   // Enforce store modules
   store.modules = store.modules || {}
 
+  resolveStoreModules(require('..\\store\\dashboard.js'), 'dashboard.js')
+
   // If the environment supports hot reloading...
 
   if (process.client && module.hot) {
     // Whenever any Vuex module is updated...
     module.hot.accept([
+      '..\\store\\dashboard.js',
       '..\\store\\index.js',
     ], () => {
       // Update `root.modules` with the latest definitions.

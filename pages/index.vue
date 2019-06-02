@@ -51,7 +51,7 @@
 								form="login-form"
 								:class="disabled ? '' : button"
 							>LogIn</v-btn>
-							<v-btn disabled="true" round>SignUp</v-btn>
+							<v-btn :disabled=true round>SignUp</v-btn>
 						</div>
 						{{message}}
 					</v-form>

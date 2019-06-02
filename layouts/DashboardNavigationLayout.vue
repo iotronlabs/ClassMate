@@ -30,7 +30,7 @@
 				</v-list-tile>
 				<hr>
 				<v-list-group
-					v-for="(item, i) in items"
+					v-for="(item, i) in selectItems.items"
 					:key="i"
 					:to="item.to"
 					router
@@ -47,12 +47,11 @@
 						</v-list-tile>
 					</template>
 
-						<v-list-tile
+						<!-- <v-list-tile
 							v-for="subItem in item.items"
 							:key="subItem.title"
 						>
 							<v-list-tile-content>
-								<!-- <v-list-tile-action><v-icon>{{ subItem.icon }}</v-icon></v-list-tile-action> -->
 								<v-spacer />
 								<v-list  class="menu-sublist">
 									<v-list-tile>
@@ -60,7 +59,7 @@
 									</v-list-tile>
 								</v-list>
 							</v-list-tile-content>
-						</v-list-tile>
+						</v-list-tile> -->
 				</v-list-group>
 			</v-list>
 			<v-list align-end justify-start class="dark-switch">
@@ -111,6 +110,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
     data: () => ({
 		dark: true,
@@ -124,76 +124,42 @@ export default {
 		footer: {
 			inset: false
 		},
-      	items: [
-			{
-				icon: 'apps',
-				title: 'Welcome',
-				to: '/',
-				items: []
-			},
-			{
-				title: 'Forum',
-				to: '/',
-				items: [
-					{
-						title: 'Saved Posts'
-					},
-					{
-						title: 'Create Post'
-					},
-					{
-						title: 'My Posts'
-					}
-				]
-			},
-			{
-				title: 'Exams',
-				to: '/',
-				items:[]
-			},
-			{
-				title: 'Calendar',
-				to: '/',
-				items: [
-					{
-						title: 'Notice'
-					},
-					{
-						title: 'Time-table'
-					},
-					{
-						title: 'Assignments'
-					},
-					{
-						title: 'Events and Activities'
-					}
-				]
-			},
-			{
-				title: 'Reports',
-				to: '/',
-				items: [
-					{
-						title: 'Attendance'
-					},
-					{
-						title: 'Exam'
-					}
-				]
-			},
-			{
-				title: 'Help desk',
-				to: '/',
-				items: []
-			}
-		],
 		right: true,
 		rightDrawer: false,
 		fixed: false
 	}),
 	computed: {
+		...mapState({
+			studentItems : state => state.dashboard.studentItems,
+			teacherItems : state => state.dashboard.teacherItems,
+			staffItems : state => state. dashboard.staffItems,
+			adminItems : state => state.dashboard.adminItems,
+			auditItems : state => state.dashboard.auditItems
+		}),
+		selectItems() {
+			if(this.studentItems.active==true)
+			{
+				console.log(this.studentItems)
+				return this.studentItems.items
+			}
+			else if(this.teacherItems.active==true)
+			{
+				return this.teacherItems.items
+			}
+			else if(this.staffItems.active==true)
+			{
+				return this.staffItems.items
+			}
+			else if(this.adminItems.active==true)
+			{
+				return this.adminItems.items
+			}
+			else if(this.auditItems.active==true)
+			{
+				return this.auditItems.items
+			}
+		},
 		switchLabel() {
-			console.log(this.dark)
 			if(this.dark == true)
 			{
 				return 'Light'

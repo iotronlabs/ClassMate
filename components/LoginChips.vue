@@ -3,7 +3,7 @@
 		<v-chip small outline
 			v-for="chip in chips"
 			v-bind:key="chip.avatar"
-			:selected="chip.selected"
+			@click.prevent="chipSelection(chip.title)"
 		>
 			<v-avatar :id="chip.id">{{ chip.avatar }}</v-avatar>
 			{{ chip.title }}
@@ -13,9 +13,11 @@
 </template>
 
 <script>
+import { mapActions,mapMutations } from 'vuex';
 export default {
 	data() {
 		return {
+			value: '',
 			chips: [
 				{
 					avatar : 'S',
@@ -48,6 +50,17 @@ export default {
 					id: 'audit'
 				}
 			],
+		}
+	},
+	methods:{
+		// ...mapActions({
+		// 	setActiveUser: actions => actions.dashboard.setActiveUser
+		// }),
+		chipSelection(title) {
+			this.value=title
+			console.log(this.value)
+			// var user = title + 'items'
+			// this.$store.state.dashboard.dispatch('setActiveUser', user)
 		}
 	}
 }
