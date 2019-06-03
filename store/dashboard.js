@@ -12,7 +12,8 @@ const studentItems = {
 			to: '/',
 			items: [
 				{
-					title: 'Saved Posts'
+					title: 'Saved Posts',
+					
 				},
 				{
 					title: 'Create Post'
@@ -22,11 +23,7 @@ const studentItems = {
 				}
 			]
 		},
-		{
-			title: 'Exams',
-			to: '/',
-			items:[]
-		},
+		
 		{
 			title: 'Calendar',
 			to: '/',
@@ -44,6 +41,11 @@ const studentItems = {
 					title: 'Events and Activities'
 				}
 			]
+		},
+		{
+			title: 'Exams',
+			to: '/',
+			items:[]
 		},
 		{
 			title: 'Reports',
@@ -67,123 +69,221 @@ const studentItems = {
 
 const teacherItems = {
 	active: false,
-	items: [
+	items:[
+	{
+		icon: 'apps',
+		title: 'Welcome',
+		to: '/',
+		items: []
+	},
 		{
-			icon: 'apps',
-			title: 'Welcome to teacher dashboard',
-			to: '/'
+			title: 'Forum',
+			to: '/',
+			items: [
+				{
+					title: 'Saved Posts'
+				},
+				{
+					title: 'Create Post'
+				},
+				{
+					title: 'My Posts'
+				}
+			]
 		},
 		{
-			icon: 'bubble_chart',
-			title: 'forum',
-			to: '/receipe'
+			title: 'Calendar',
+			to: '/',
+			items: [
+				{
+					title: 'Notice'
+				},
+				{
+					title: 'Time-table'
+				},
+				{
+					title: 'Assignments'
+				},
+				{
+					title: 'Events and Activities'
+				}
+			]
 		},
 		{
-
-			title:'calender',
-			to:'/charts'
-
+			title: 'Exams',
+			to: '/',
+			items:[]
 		},
 		{
-			icon:'apps',
-			title:'exams',
-			to:'/about'
-
+			title: 'Reports',
+			to: '/',
+			items: [
+				{
+					title: 'Attendance'
+				},
+				{
+					title: 'Exam'
+				}
+			]
 		},
 		{
-			icon:'apps',
-			title:'reports',
-			to:'/done'
-
-		},
-		{
-			icon:'apps',
-			title:'helpdesk',
-			to:'/done'
+			title: 'Help desk',
+			to: '/',
+			items: []
 		}
 	]
 }
 
 const staffItems = {
 	active: false,
-	menus: [
+	items: [
 		{
 			icon: 'apps',
 			title: 'Welcome to staff dashboard',
 			to: '/'
 		},
 		{
-			icon: 'loader',
-			title: 'add user',
-			to: '/receipe'
+			title: 'Add User',
+			to: '/',
+			items: [
+				{
+					title: 'Student'
+				},
+				{
+					title: 'Teacher'
+				}
+			]
 		},
 		{
-			title:'configuration',
-			to:'/charts'
+			title: 'Configuration',
+			to: '/',
+			items: [
+				{
+					title: 'Stream'
+				},
+				{
+					title: 'Class'
+				},
+				{
+					title:'Subject'
+				}
+			]
 		},
 		{
-			title:'calender',
-			to:'/charts'
+			title: 'Calender',
+			to: '/',
+			items: [
+				{
+					title: 'Notice'
+				},
+				{
+					title: 'Time-table'
+				},
+				{
+					title:'Events and Activities'
+				}
+			]
 		},
 		{
-			icon:'apps',
+			
 			title:'exams',
-			to:'/'
+			to:'/',
+			items:[]
 		},
 		{
-			icon:'apps',
-			title:'reports',
-			to:'/'
+			title:'Reports',
+			to:'/',
+			items:[
+				{
+					title:'Attendance'
+				},
+				{
+					title:'Exam'
+				}
+			]
 		},
 		{
-			icon:'apps',
+			
 			title:'helpdesk',
-			to:'/'
+			to:'/',
+			items:[]
 		}
 	]
 }
 
 const adminItems = {
 	active: false,
-	menus: [
+	items: [
 		{
 			icon: 'apps',
-			title: 'Welcome to admin dashboard',
+			title: 'Welcome',
 			to: '/'
 		},
 		{
-			icon: 'bubble_chart',
-			title: 'add user',
-			to: '/receipe'
+			title: 'Add User',
+			to: '/',
+			items: [
+				{
+					title: 'Student'
+				},
+				{
+					title: 'Teacher'
+				}
+			]
 		},
 		{
-
-			title:'configuration',
-			to:'/charts'
-
+			title: 'Configuration',
+			to: '/',
+			items: [
+				{
+					title: 'Stream'
+				},
+				{
+					title: 'Class'
+				},
+				{
+					title:'Subject'
+				}
+			]
 		},
 		{
-
-			title:'calender',
-			to:'/charts'
-
+			title: 'Calender',
+			to: '/',
+			items: [
+				{
+					title: 'Notice'
+				},
+				{
+					title: 'Time-table'
+				},
+				{
+					title:'Events and Activities'
+				}
+			]
 		},
 		{
-			// icon:'mdi-watch',
+			
 			title:'exams',
-			to:'/about'
-
+			to:'/',
+			studentItems:[]
 		},
 		{
-			icon:'apps',
-			title:'reports',
-			to:'/done'
-
+			title:'Reports',
+			to:'/',
+			items:[
+				{
+					title:'Attendance'
+				},
+				{
+					title:'Exam'
+				}
+			]
 		},
 		{
-			icon:'apps',
+			
 			title:'helpdesk',
-			to:'/done'
+			to:'/',
+			items:[]
 		}
 	]
 }
