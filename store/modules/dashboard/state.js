@@ -13,7 +13,7 @@ const studentItems = {
 			items: [
 				{
 					title: 'Saved Posts',
-					
+
 				},
 				{
 					title: 'Create Post'
@@ -23,7 +23,7 @@ const studentItems = {
 				}
 			]
 		},
-		
+
 		{
 			title: 'Calendar',
 			to: '/',
@@ -185,7 +185,7 @@ const staffItems = {
 			]
 		},
 		{
-			
+
 			title:'exams',
 			to:'/',
 			items:[]
@@ -203,7 +203,7 @@ const staffItems = {
 			]
 		},
 		{
-			
+
 			title:'helpdesk',
 			to:'/',
 			items:[]
@@ -262,7 +262,7 @@ const adminItems = {
 			]
 		},
 		{
-			
+
 			title:'exams',
 			to:'/',
 			studentItems:[]
@@ -280,7 +280,7 @@ const adminItems = {
 			]
 		},
 		{
-			
+
 			title:'helpdesk',
 			to:'/',
 			items:[]
@@ -289,25 +289,21 @@ const adminItems = {
 }
 
 const auditItems = {
-
+	active: false
 }
-export const state = () => ({
+
+// export const state = () => ({
+// 	studentItems,
+// 	teacherItems,
+// 	staffItems,
+// 	adminItems,
+// 	auditItems
+// })
+
+export default {
 	studentItems,
 	teacherItems,
 	staffItems,
 	adminItems,
 	auditItems
-})
-
-// export const actions= {
-// 	setActiveUser ({commit}, user) {
-// 		commit('setActiveUser',user)
-// 	}
-// }
-
-// export const mutations = {
-// 	setActiveUser(state,user)
-// 	{
-// 		state.user.active=true
-// 	}
-// }
+}

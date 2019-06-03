@@ -12,7 +12,7 @@
 					<br>
 				  	<LoginChips />
 					<br>
-					<v-form @submit.prevent="checkLogin" id="login-form" class="login-form">
+					<v-form @submit.prevent="checkLogin" id="login-form" class="login-form" method="post">
 						<v-text-field
 							prepend-icon="person"
 							label="EmailId"

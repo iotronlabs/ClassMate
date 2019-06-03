@@ -1,4 +1,13 @@
 import vuex from 'vuex'
-export const state= () => ({
+import dashboard from './modules/dashboard'
 
-})
+const createStore = () => {
+	return new vuex.Store({
+		namespaced: true,
+		modules: {
+			dashboard
+		}
+	})
+}
+
+export default createStore

@@ -47,7 +47,7 @@
 						</v-list-tile>
 					</template>
 
-						<!-- <v-list-tile
+						<v-list-tile
 							v-for="subItem in item.items"
 							:key="subItem.title"
 						>
@@ -59,7 +59,7 @@
 									</v-list-tile>
 								</v-list>
 							</v-list-tile-content>
-						</v-list-tile> -->
+						</v-list-tile>
 				</v-list-group>
 			</v-list>
 			<v-list align-end justify-start class="dark-switch">
@@ -132,7 +132,7 @@ export default {
 		...mapState({
 			studentItems : state => state.dashboard.studentItems,
 			teacherItems : state => state.dashboard.teacherItems,
-			staffItems : state => state. dashboard.staffItems,
+			staffItems : state => state.dashboard.staffItems,
 			adminItems : state => state.dashboard.adminItems,
 			auditItems : state => state.dashboard.auditItems
 		}),

@@ -1,10 +1,6 @@
 import Vue from 'vue'
 import NuxtLoading from './components/nuxt-loading.vue'
 
-import '..\\node_modules\\bootstrap\\dist\\css\\bootstrap.css'
-
-import '..\\node_modules\\bootstrap-vue\\dist\\bootstrap-vue.css'
-
 import '..\\assets\\style\\app.styl'
 
 import _288aadbc from '..\\layouts\\DashboardNavigationLayout.vue'

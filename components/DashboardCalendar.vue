@@ -1,11 +1,11 @@
 <template>
 <div>
 	<v-layout wrap >
-		<v-flex xs12 sm12 md4 offset-md-1 offset-lg-1 class="tag-list">
+		<v-flex xs12 sm12 md5 offset-md-1 offset-lg-1 class="tag-list">
 			<DashboardCalendarTags />
 		</v-flex>
 		<v-spacer></v-spacer>
-		<v-flex	xs12 sm12 md6 offset-md-1 offset-lg-1 :class="$vuetify.breakpoint.smAndDown ? smCalendar : ''">
+		<v-flex	xs12 sm12 md6 :class="$vuetify.breakpoint.smAndDown ? smCalendar : ''">
 			<v-sheet height="500">
 				<v-calendar
 					ref="calendar"
