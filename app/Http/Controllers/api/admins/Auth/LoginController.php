@@ -94,7 +94,7 @@ public function login(Request $request)
     return response()->json
            ([
                'success' =>true,
-               'data' => $request->user_admin(),
+               'data' => $request->all(),
                'token' =>$token
                ],200);
 
