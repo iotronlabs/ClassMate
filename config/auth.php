@@ -39,7 +39,12 @@ return [
         'web' => [
             'driver' => 'session',
             'provider' => 'user_admins',
+            'provider' => 'user_students',
+            'provider' => 'user_teachers',
+            
         ],
+
+        
 
         'api' => [
             'driver' => 'token',
@@ -74,6 +79,16 @@ return [
         'user_admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\admin\user_admin::class,
+        ],
+
+        'user_students' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\student\user_student::class,
+        ],
+
+        'user_teachers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\teacher\user_teacher::class,
         ],
 
         // 'users' => [

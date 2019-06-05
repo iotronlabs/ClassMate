@@ -13,7 +13,7 @@ class CreateUserStudentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user__students', function (Blueprint $table) {
+        Schema::create('user_students', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
@@ -31,6 +31,6 @@ class CreateUserStudentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user__students');
+        Schema::dropIfExists('user_students');
     }
 }

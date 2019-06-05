@@ -31,4 +31,22 @@ Route::group([ 'prefix' =>'/admins',
     
 );
 
+Route::group([ 'prefix' =>'/students',
+             [ 'middleware' =>'throttle:20,5','cors' ]],function()
+             {
+                 Route::post('/register','students\Auth\RegisterController@register');
+                 Route::post('/login','students\Auth\LoginController@login');
+             }
+    
+);
+
+Route::group([ 'prefix' =>'/teachers',
+             [ 'middleware' =>'throttle:20,5','cors' ]],function()
+             {
+                 Route::post('/register','teachers\Auth\RegisterController@register');
+                 Route::post('/login','teachers\Auth\LoginController@login');
+             }
+    
+);
+
 //Route::group(['middleware' => 'cors'], function () {
