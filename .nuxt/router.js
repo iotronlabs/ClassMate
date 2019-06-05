@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
+const _5f6fa302 = () => interopDefault(import('..\\pages\\addStaff.vue' /* webpackChunkName: "pages_addStaff" */))
 const _348fca98 = () => interopDefault(import('..\\pages\\chat.vue' /* webpackChunkName: "pages_chat" */))
 const _00f26b84 = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages_dashboard" */))
 const _6e21eb14 = () => interopDefault(import('..\\pages\\UserLogin\\loginAdmin.vue' /* webpackChunkName: "pages_UserLogin_loginAdmin" */))
@@ -85,6 +86,10 @@ export function createRouter() {
     scrollBehavior,
 
     routes: [{
+      path: "/addStaff",
+      component: _5f6fa302,
+      name: "addStaff"
+    }, {
       path: "/chat",
       component: _348fca98,
       name: "chat"
