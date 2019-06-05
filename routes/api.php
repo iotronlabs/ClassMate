@@ -22,4 +22,13 @@ Route::group([ 'prefix' =>'/auth',
     
 );
 
+Route::group([ 'prefix' =>'/admins',
+             [ 'middleware' =>'throttle:20,5','cors' ]],function()
+             {
+                 Route::post('/register','admins\Auth\RegisterController@register');
+                 Route::post('/login','admins\Auth\LoginController@login');
+             }
+    
+);
+
 //Route::group(['middleware' => 'cors'], function () {
