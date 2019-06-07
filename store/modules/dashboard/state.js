@@ -1,5 +1,5 @@
 const studentItems = {
-	active: false,
+	active: true,
 	items: [
 		{
 			icon: 'apps',

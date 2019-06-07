@@ -19,6 +19,7 @@
 					<v-list-tile-content>
 						<v-list-tile-title>John Leider</v-list-tile-title>
 					</v-list-tile-content>
+					
 
 					<v-list-tile-action>
 						<v-btn icon
@@ -75,34 +76,20 @@
 				v-if="primaryDrawer.type !== 'permanent' && this.$vuetify.breakpoint.smAndDown == true"
 				@click.stop="primaryDrawer.model = !primaryDrawer.model"
 			></v-toolbar-side-icon>
-			<v-toolbar-title>Vuetify</v-toolbar-title>
+			<v-toolbar-title>Classmate</v-toolbar-title>
 			<v-spacer />
-			<v-btn
+			<!-- <v-btn
 				icon
 				@click.stop="rightDrawer = !rightDrawer"
 			>
 				<v-icon>menu</v-icon>
-			</v-btn>
+			</v-btn> -->
 		</v-toolbar>
 
 
 		<nuxt />
 
-		<v-navigation-drawer
-			v-model="rightDrawer"
-			:right="right"
-			temporary
-			fixed
-		>
-			<v-list>
-				<v-list-tile @click.native="right = !right">
-				<v-list-tile-action>
-					<v-icon light>compare_arrows</v-icon>
-				</v-list-tile-action>
-				<v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
-				</v-list-tile>
-			</v-list>
-		</v-navigation-drawer>
+		
         <v-footer :inset="footer.inset" app>
         	<span class="px-3">&copy; {{ new Date().getFullYear() }}</span>
         </v-footer>

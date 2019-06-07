@@ -2,14 +2,15 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _e1d82788 = () => interopDefault(import('..\\pages\\addStaff.vue' /* webpackChunkName: "pages_addStaff" */))
-const _55b1eed5 = () => interopDefault(import('..\\pages\\chat.vue' /* webpackChunkName: "pages_chat" */))
-const _1b9e6567 = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages_dashboard" */))
-const _6061af12 = () => interopDefault(import('..\\pages\\UserLogin\\loginAdmin.vue' /* webpackChunkName: "pages_UserLogin_loginAdmin" */))
-const _4c00c9fa = () => interopDefault(import('..\\pages\\UserLogin\\loginAudit.vue' /* webpackChunkName: "pages_UserLogin_loginAudit" */))
-const _3a57b788 = () => interopDefault(import('..\\pages\\UserLogin\\loginStaff.vue' /* webpackChunkName: "pages_UserLogin_loginStaff" */))
-const _50eba8ec = () => interopDefault(import('..\\pages\\UserLogin\\loginTeacher.vue' /* webpackChunkName: "pages_UserLogin_loginTeacher" */))
-const _5b0cabb6 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
+const _41238cca = () => interopDefault(import('..\\pages\\addStaff.vue' /* webpackChunkName: "pages_addStaff" */))
+const _1cd40663 = () => interopDefault(import('..\\pages\\chat.vue' /* webpackChunkName: "pages_chat" */))
+const _a8fa52ce = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages_dashboard" */))
+const _044bbb23 = () => interopDefault(import('..\\pages\\userProfile.vue' /* webpackChunkName: "pages_userProfile" */))
+const _15295ea9 = () => interopDefault(import('..\\pages\\UserLogin\\loginAdmin.vue' /* webpackChunkName: "pages_UserLogin_loginAdmin" */))
+const _1f59d135 = () => interopDefault(import('..\\pages\\UserLogin\\loginAudit.vue' /* webpackChunkName: "pages_UserLogin_loginAudit" */))
+const _7fb1edba = () => interopDefault(import('..\\pages\\UserLogin\\loginStaff.vue' /* webpackChunkName: "pages_UserLogin_loginStaff" */))
+const _2f2f9d3c = () => interopDefault(import('..\\pages\\UserLogin\\loginTeacher.vue' /* webpackChunkName: "pages_UserLogin_loginTeacher" */))
+const _20caf752 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
 Vue.use(Router)
 
@@ -87,35 +88,39 @@ export function createRouter() {
 
     routes: [{
       path: "/addStaff",
-      component: _e1d82788,
+      component: _41238cca,
       name: "addStaff"
     }, {
       path: "/chat",
-      component: _55b1eed5,
+      component: _1cd40663,
       name: "chat"
     }, {
       path: "/dashboard",
-      component: _1b9e6567,
+      component: _a8fa52ce,
       name: "dashboard"
     }, {
+      path: "/userProfile",
+      component: _044bbb23,
+      name: "userProfile"
+    }, {
       path: "/UserLogin/loginAdmin",
-      component: _6061af12,
+      component: _15295ea9,
       name: "UserLogin-loginAdmin"
     }, {
       path: "/UserLogin/loginAudit",
-      component: _4c00c9fa,
+      component: _1f59d135,
       name: "UserLogin-loginAudit"
     }, {
       path: "/UserLogin/loginStaff",
-      component: _3a57b788,
+      component: _7fb1edba,
       name: "UserLogin-loginStaff"
     }, {
       path: "/UserLogin/loginTeacher",
-      component: _50eba8ec,
+      component: _2f2f9d3c,
       name: "UserLogin-loginTeacher"
     }, {
       path: "/",
-      component: _5b0cabb6,
+      component: _20caf752,
       name: "index"
     }],
 

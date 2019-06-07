@@ -108,31 +108,29 @@
                   </v-text-field> 
               </v-flex>
               <br>
+              
               <!-- contact  -->
               <v-flex xs12 sm12 md3>
               <v-text-field 
               v-model="contact"
               type="tel"
-              
               label="contact no"
-              placeholder="+91"
-              
-              
-              
+              placeholder="+91"       
               >
               </v-text-field>
               </v-flex>
               </v-layout>
+              
               <!-- religion nationality -->
               <v-layout row wrap>
               <v-flex xs12 sm6 md3>
-              <v-select
-                v-model="religion"
-                :items="religions"
-                label="Religion"
-                solo
-              ></v-select>
-              </v-flex>
+            <v-text-field
+            v-model="middlename"
+             type="text"
+            placeholder="Middle"
+            >
+            </v-text-field>
+          </v-flex>
               <v-flex xs12 sm6 md3>
               <v-select
                 v-model="nationality"
@@ -238,15 +236,7 @@ export default {
         menu: false,
      
       
-         religions:[
-          'Hindu',
-         ' Muslim',
-          'Sikhs',
-          'Christian',
-          'Bhudhist',
-          'Others'
-           
-        ],
+        
         nations:[
            'Afghan','Albanian','Algerian','American','Andorran','Angolan','Antiguans and Barbudans','indian'
 

@@ -10,7 +10,14 @@
 				</v-toolbar>
 				<v-card-text>
 					<br>
-				  	<LoginChips />
+				  	<!-- <LoginChips /> -->
+						<div class="text-xs-center">
+							<v-chip small outline color="#5753C9">
+								<v-avatar id="teacher"> T </v-avatar>
+								Teacher
+								<v-spacer />
+							</v-chip>
+						</div>
 					<br>
 					<v-form @submit.prevent="checkLogin" id="login-form" class="login-form" method="post">
 						<v-text-field
@@ -135,6 +142,10 @@ import LoginChips from '@/components/LogInChips'
 	.container-grad {
 		background-image: linear-gradient(to top,#4e54c8 0%, #8f94fb 100%);
 		font-family: 'Fira Sans';
+	}
+	#teacher {
+		background-image: linear-gradient(30deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%);
+		color: aliceblue;
 	}
 	.btn-login {
 		background-image: linear-gradient(to top,#4e54c8 0%, #8f94fb 100%);
