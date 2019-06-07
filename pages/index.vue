@@ -7,7 +7,7 @@
             <v-card class="elevation-12 card-design">
               	<v-toolbar class="login-grad">
 					<center><img src="/classmate.png"></center>
-				</v-toolbar>
+				        </v-toolbar>
 				<v-card-text>
 					<br>
 				  	<LoginChips />
@@ -15,8 +15,8 @@
 					<v-form @submit.prevent="checkLogin" id="login-form" class="login-form" method="post">
 						<v-text-field
 							prepend-icon="person"
-							label="EmailId"
-							placeholder="Enter your EmailId"
+							label="Email ID"
+							placeholder=" "
 							name="email"
 							type="email"
 							v-model="email"
@@ -32,7 +32,7 @@
 							:type="show ? 'text' : 'password'"
 							name="password"
 							label="Password"
-							placeholder="Enter your password"
+							placeholder=" "
 							hint="At least 8 characters"
 							counter
 							autocomplete="off"
@@ -131,10 +131,10 @@ import LoginChips from '@/components/LogInChips'
 </script>
 
 <style lang="css" scoped>
-	@import url('https://fonts.googleapis.com/css?family=Fira Sans');
+	@import url('https://fonts.googleapis.com/css?family=Fira+Sans&display=swap');
 	.container-grad {
 		background-image: linear-gradient(to top,#4e54c8 0%, #8f94fb 100%);
-		font-family: 'Fira Sans';
+		font-family: 'Fira Sans', sans-serif;
 	}
 	.btn-login {
 		background-image: linear-gradient(to top,#4e54c8 0%, #8f94fb 100%);
@@ -168,7 +168,7 @@ import LoginChips from '@/components/LogInChips'
 		background-image: linear-gradient(to top,#4e54c8 0%, #8f94fb 100%);
 		text-align: center;
 		color: white;
-		font-family: 'Fira Sans'
+		font-family: 'Fira Sans', sans-serif;
 	}
 	.heart
 	{
