@@ -7,7 +7,7 @@
             <v-card class="elevation-12 card-design">
               	<v-toolbar class="login-grad">
 					<center><img src="/classmate.png"></center>
-				        </v-toolbar>
+			    </v-toolbar>
 				<v-card-text>
 					<br>
 				  	<LoginChips />
