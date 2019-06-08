@@ -29,7 +29,7 @@ class CreateUserStudentsTable extends Migration
             $table->string('password');
             $table->unsignedInteger('guardian_id')->length(10);
             $table->unsignedInteger('class_id')->length(10);
-            $table->integer('status')->length(3);
+            $table->unsignedTinyinteger('status')->length(3);
             $table->rememberToken();
             $table->timestamps();
 

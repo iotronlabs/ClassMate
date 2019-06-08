@@ -25,16 +25,10 @@ class CreateTableClassesTable extends Migration
             $table->unsignedInteger('ct_id')->length(10);
             $table->unsignedInteger('course_id')->length(10);
             $table->integer('count')->length(10);
-            $table->integer('status')->length(10);
+            $table->unsignedTinyinteger('status')->length(10);
             $table->timestamps();
 
-/*
-            $table->foreign('ct_id')
-                  ->references('u_id')->on('user_teachers')
-                  ->onDelete('cascade');
-            $table->foreign('course_id')
-                  ->references('u_id')->on('table_courses')
-                  ->onDelete('cascade');      */
+
         });
     }
 

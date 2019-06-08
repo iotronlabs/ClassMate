@@ -29,12 +29,7 @@ class CreateTableCoursesTable extends Migration
             $table->timestamps();
 
 /*
-            $table->foreign('t_id')
-                  ->references('u_id')->on('user_teachers')
-                  ->onDelete('cascade');
-            $table->foreign('c_id')
-                  ->references('u_id')->on('table_classes')
-                  ->onDelete('cascade'); */
+             */
         });
     }
 
