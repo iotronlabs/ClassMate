@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserTeachersTable extends Migration
+class CreateUserStaffsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,7 @@ class CreateUserTeachersTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_teachers', function (Blueprint $table) {
-
+        Schema::create('user_staffs', function (Blueprint $table) {
 
             $table->engine = 'InnoDB';
 
@@ -40,6 +39,6 @@ class CreateUserTeachersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_teachers');
+        Schema::dropIfExists('user_staffs');
     }
 }

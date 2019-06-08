@@ -41,6 +41,7 @@ return [
             'provider' => 'user_admins',
             'provider' => 'user_students',
             'provider' => 'user_teachers',
+            'provider' => 'user_staffs',
             
         ],
 
@@ -48,7 +49,10 @@ return [
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'user_admins',
+            'provider' => 'user_students',
+            'provider' => 'user_teachers',
+            'provider' => 'user_staffs',
             'hash' => false,
         ],
     ],
@@ -89,6 +93,11 @@ return [
         'user_teachers' => [
             'driver' => 'eloquent',
             'model' => App\Models\teacher\user_teacher::class,
+        ],
+
+        'user_staffs' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\staff\user_staff::class,
         ],
 
         // 'users' => [

@@ -49,4 +49,13 @@ Route::group([ 'prefix' =>'/teachers',
     
 );
 
+Route::group([ 'prefix' =>'/staffs',
+             [ 'middleware' =>'throttle:20,5','cors' ]],function()
+             {
+                 Route::post('/register','staffs\Auth\RegisterController@register');
+                 Route::post('/login','staffs\Auth\LoginController@login');
+             }
+    
+);
+
 //Route::group(['middleware' => 'cors'], function () {
