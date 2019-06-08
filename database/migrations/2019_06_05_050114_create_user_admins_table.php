@@ -26,7 +26,7 @@ class CreateUserAdminsTable extends Migration
             $table->string('email')->unique();
             $table->char('gender',1);
             $table->unsignedInteger('contact')->length(15);
-          
+           // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
           
             $table->rememberToken();

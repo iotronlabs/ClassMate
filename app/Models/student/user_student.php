@@ -20,7 +20,7 @@ class user_student extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','gender','contact','d_o_b','u_id','t_ref_id','guardian_id','class_id','status',
     ];
 
     /**
@@ -38,7 +38,7 @@ class user_student extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+      //  'email_verified_at' => 'datetime',
     ];
     
     
