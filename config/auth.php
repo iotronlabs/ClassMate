@@ -49,10 +49,10 @@ return [
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'user_admins',
-            'provider' => 'user_students',
-            'provider' => 'user_teachers',
-            'provider' => 'user_staffs',
+            // 'provider' => 'user_admins',
+            // 'provider' => 'user_students',
+            // 'provider' => 'user_teachers',
+            // 'provider' => 'user_staffs',
             'hash' => false,
         ],
     ],
