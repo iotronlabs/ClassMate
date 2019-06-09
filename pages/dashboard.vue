@@ -4,7 +4,7 @@
 			<v-layout align-center justify-center>
 				<v-flex xs12>
 					<!-- <Calendar /> -->
-					<!-- <Forum2 /> -->
+					<!-- <Forum2 />	 -->
 				</v-flex>
 			</v-layout>
 		</v-container>

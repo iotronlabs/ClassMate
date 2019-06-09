@@ -28,7 +28,7 @@
 	          					</v-btn>
 	        				</template>
 	        				<v-list>
-	          					<v-list-tile  v-for="(item, index) in hello" :key="index" >
+	          					<v-list-tile  v-for="(item, index) in semester" :key="index" >
 	           						<v-list-tile-title>{{ item.title }}</v-list-tile-title>
 	          					</v-list-tile>
 	       					 </v-list>
@@ -115,7 +115,7 @@ export default{
       }
     ],
 
-    hello :
+	semester :
     [
 
       { title: 'First' },

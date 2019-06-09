@@ -14,12 +14,10 @@
 </template>
 
 <script>
-import LoginChips from '@/components/LogInChips'
 import LoginForm from '@/components/LoginForm'
   export default {
 	layout : 'LoginLayout',
 	components: {
-		LoginChips,
 		LoginForm
 	}
 }
