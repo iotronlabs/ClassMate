@@ -5,7 +5,7 @@
 			<v-flex d-flex xs12 sm12 md12>
 	        	<v-card >
 	        		<v-card-text>
-	            	
+
 		            	<v-breadcrumbs :items="items">
 		    				<template v-slot:divider>
 	     						<v-icon>chevron_right</v-icon>
@@ -37,9 +37,9 @@
 	            			 	<v-tabs v-model="active" color="cyan" dark slider-color="yellow" class = "card1">
         							<v-tab v-for="n in 3" :key="n" ripple>
          								Topic {{ n }}
-  
+
        								</v-tab>
-       								<v-tab-item v-for="n in 3":key="n">
+       								<v-tab-item v-for="n in 3" :key="n">
           								<v-card flat>
             								<v-card-text>{{ text }}<br><br><br>{{text2}}</v-card-text>
           								</v-card>
@@ -59,7 +59,7 @@
 	            	<br>
 
 	        	</v-card>
-	       
+
         	</v-flex>
     	</v-layout>
 	</v-container>

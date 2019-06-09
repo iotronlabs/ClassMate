@@ -4,9 +4,8 @@
 		<v-layout wrap justify-start>
 			<v-flex d-flex xs12 sm12 md12>
 	        	<v-card >
-	           		<!--<v-card-title primary class="title">Lorem</v-card-title>-->
 	            	<v-card-text>
-	            	
+
 		            	<v-breadcrumbs :items="items">
 		    				<template v-slot:divider>
 		     					<v-icon>chevron_right</v-icon>
@@ -14,7 +13,7 @@
 		 				</v-breadcrumbs>
 	            	</v-card-text>
 	            	<v-card-text class = "heading">
-	            		Electronic and telecommunication 
+	            		Electronic and telecommunication
 	            		<v-btn class = "subscribe" >Subscribe</v-btn>
 	            		<br><br>
 	            	</v-card-text>
@@ -29,13 +28,13 @@
 	          					</v-btn>
 	        				</template>
 	        				<v-list>
-	          					<v-list-tile  v-for="(item, index) in hello" :key="index"  @click="">
+	          					<v-list-tile  v-for="(item, index) in hello" :key="index" >
 	           						<v-list-tile-title>{{ item.title }}</v-list-tile-title>
 	          					</v-list-tile>
 	       					 </v-list>
       					</v-menu>
 			           <br>
-			           
+
 			           <v-card class = "card">
 			           		<v-card-text>
 			           			<v-card class = "post1" >
@@ -56,10 +55,10 @@
 				           				99
 				           			</center>
 			           			</v-card>
-			           			
+
 
 				           		<font size = "5" > &nbsp; Analog Electronics (AEC)</font>
-				           		
+
 				           		<br><br>
 				           		<v-chip>Topic chip</v-chip>&nbsp;
 				           		<v-chip>Topic chip</v-chip>&nbsp;
@@ -83,11 +82,11 @@
 		            </v-card>
 	          		<br>
 	        	</v-card>
-	        		
-        
-	          
+
+
+
 	    	</v-flex>
-			
+
 		</v-layout>
 	</v-container>
 </div>
@@ -102,23 +101,23 @@ export default{
       {
         text: 'Dashboard',
         disabled: false,
-        href: '/'
+        to: '/'
       },
       {
         text: 'Forum',
         disabled: false,
-        href: '/'
+        to: '/'
       },
       {
         text: 'subject',
         disabled: false,
-        href: '/'
+        to: '/'
       }
     ],
 
     hello :
     [
-       
+
       { title: 'First' },
       { title: 'Second' },
       { title: 'Third' },

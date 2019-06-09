@@ -19,7 +19,7 @@
 					<v-list-tile-content>
 						<v-list-tile-title>John Leider</v-list-tile-title>
 					</v-list-tile-content>
-					
+
 
 					<v-list-tile-action>
 						<v-btn icon
@@ -37,6 +37,7 @@
 					router
 					exact
 				>
+
 					<template v-slot:activator >
 						<v-list-tile>
 							<v-list-tile-action>
@@ -89,7 +90,7 @@
 
 		<nuxt />
 
-		
+
         <v-footer :inset="footer.inset" app>
         	<span class="px-3">&copy; {{ new Date().getFullYear() }}</span>
         </v-footer>
@@ -126,7 +127,6 @@ export default {
 		selectItems() {
 			if(this.studentItems.active==true)
 			{
-				console.log(this.studentItems)
 				return this.studentItems.items
 			}
 			else if(this.teacherItems.active==true)

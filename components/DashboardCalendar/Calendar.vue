@@ -2,7 +2,7 @@
 <div>
 	<v-layout wrap >
 		<v-flex xs12 sm12 md5 offset-md-1 offset-lg-1 class="tag-list">
-			<DashboardCalendarTags />
+			<CalendarTags />
 		</v-flex>
 		<v-spacer></v-spacer>
 		<v-flex	xs12 sm12 md6 :class="$vuetify.breakpoint.smAndDown ? smCalendar : ''">
@@ -30,11 +30,11 @@
 </template>
 
 <script>
-import DashboardCalendarTags from '@/components/DashboardCalendarTags'
+import CalendarTags from '@/components/DashboardCalendar/CalendarTags'
 export default{
-	name: 'DashboardCalendar',
+	name: 'Calendar',
 	components: {
-		DashboardCalendarTags
+		CalendarTags
 	},
 	data() {
 		return{

@@ -1,5 +1,5 @@
 const studentItems = {
-	active: true,
+	active: false,
 	items: [
 		{
 			icon: 'apps',
@@ -13,7 +13,6 @@ const studentItems = {
 			items: [
 				{
 					title: 'Saved Posts',
-
 				},
 				{
 					title: 'Create Post'
