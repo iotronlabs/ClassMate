@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2019 at 02:57 PM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.2.0
+-- Generation Time: Jun 09, 2019 at 04:44 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -54,19 +54,7 @@ CREATE TABLE `migrations` (
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2019_06_04_172032_create_threads_table', 1),
-(4, '2019_06_04_172338_create_replies_table', 1),
-(5, '2019_06_04_172500_create_channels_table', 1),
-(6, '2019_06_04_172631_create_saves_table', 1),
-(7, '2019_06_05_050114_create_user_admins_table', 1),
-(8, '2019_06_05_102850_create_user_students_table', 1),
-(9, '2019_06_05_103015_create_user_teachers_table', 1),
-(10, '2019_06_08_051750_create_user_staffs_table', 1),
-(11, '2019_06_08_061720_create_table_guardians_table', 1),
-(12, '2019_06_08_062021_create_table_classes_table', 1),
-(13, '2019_06_08_062712_create_table_courses_table', 1),
-(14, '2019_06_08_134336_create_foreign_keys', 1);
+(2, '2014_10_12_100000_create_password_resets_table', 1);
 
 -- --------------------------------------------------------
 
@@ -211,6 +199,15 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(9, '1234Anand', '4567@tdsting.com', NULL, '$2y$10$ClGcaDtokMWM2Ch5oZrZNOYBQpSCeMPedkH2zASdRmN/8dzr7P616', NULL, '2019-05-24 00:53:38', '2019-05-24 00:53:38'),
+(10, 'Anand Maurya', 'iotron@gmail.com', NULL, '$2y$10$vc/fHdvEOcvVA/6rWZFUj.qA4hZJnTXH1kRD.PeIo3cFTX9nNDuBW', NULL, '2019-05-24 01:21:27', '2019-05-24 01:21:27'),
+(11, 'Axle10', 'abc@gmail.com', NULL, '$2y$10$RWho74k3/fL9CmuuefkZB.g9V7RSoDT28DdvQfs/jm9L6gl9qca86', NULL, '2019-05-24 03:30:44', '2019-05-24 03:30:44');
+
 -- --------------------------------------------------------
 
 --
@@ -229,6 +226,13 @@ CREATE TABLE `user_admins` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `user_admins`
+--
+
+INSERT INTO `user_admins` (`id`, `u_id`, `name`, `email`, `gender`, `contact`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 123456, 'admin', 'admin@gmail.com', 'M', 2176568769, '$2y$10$l1Fx7H5XyjHETI83WjZzxO2knAY5.A/SLq1eXQ11OSynKw6DCwrOe', NULL, '2019-06-09 09:11:42', '2019-06-09 09:11:42');
 
 -- --------------------------------------------------------
 
@@ -274,6 +278,13 @@ CREATE TABLE `user_students` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `user_students`
+--
+
+INSERT INTO `user_students` (`id`, `u_id`, `t_ref_id`, `name`, `email`, `gender`, `contact`, `d_o_b`, `password`, `guardian_id`, `class_id`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 123456, 1, 'iotron', 'abc@gmail.com', 'M', 2176568769, '2019-01-01', '$2y$10$mfzzbHAVqzJjFtqcJUjtvufUcP2tQt1/2hb.JdKqn7XZlutbknU.i', 1, 1, 1, NULL, '2019-06-09 09:08:50', '2019-06-09 09:08:50');
 
 -- --------------------------------------------------------
 
@@ -460,13 +471,13 @@ ALTER TABLE `threads`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `user_admins`
 --
 ALTER TABLE `user_admins`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user_staffs`
@@ -478,38 +489,13 @@ ALTER TABLE `user_staffs`
 -- AUTO_INCREMENT for table `user_students`
 --
 ALTER TABLE `user_students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user_teachers`
 --
 ALTER TABLE `user_teachers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `table_classes`
---
-ALTER TABLE `table_classes`
-  ADD CONSTRAINT `table_classes_course_id_foreign` FOREIGN KEY (`course_id`) REFERENCES `table_courses` (`u_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `table_classes_ct_id_foreign` FOREIGN KEY (`ct_id`) REFERENCES `user_teachers` (`u_id`) ON DELETE CASCADE;
-
---
--- Constraints for table `table_courses`
---
-ALTER TABLE `table_courses`
-  ADD CONSTRAINT `table_courses_c_id_foreign` FOREIGN KEY (`c_id`) REFERENCES `table_classes` (`u_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `table_courses_t_id_foreign` FOREIGN KEY (`t_id`) REFERENCES `user_teachers` (`u_id`) ON DELETE CASCADE;
-
---
--- Constraints for table `user_students`
---
-ALTER TABLE `user_students`
-  ADD CONSTRAINT `user_students_class_id_foreign` FOREIGN KEY (`class_id`) REFERENCES `table_classes` (`u_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `user_students_guardian_id_foreign` FOREIGN KEY (`guardian_id`) REFERENCES `table_guardians` (`u_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
