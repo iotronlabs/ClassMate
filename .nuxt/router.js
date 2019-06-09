@@ -2,17 +2,16 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _810188ce = () => interopDefault(import('..\\pages\\addStaff.vue' /* webpackChunkName: "pages_addStaff" */))
-const _3585169c = () => interopDefault(import('..\\pages\\chat.vue' /* webpackChunkName: "pages_chat" */))
-const _0ec5fcac = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages_dashboard" */))
-const _738765f4 = () => interopDefault(import('..\\pages\\userProfile.vue' /* webpackChunkName: "pages_userProfile" */))
-const _04ad1078 = () => interopDefault(import('..\\pages\\addUsersForms\\addStudent.vue' /* webpackChunkName: "pages_addUsersForms_addStudent" */))
-const _4975a2c2 = () => interopDefault(import('..\\pages\\addUsersForms\\addTeacher.vue' /* webpackChunkName: "pages_addUsersForms_addTeacher" */))
-const _640e783a = () => interopDefault(import('..\\pages\\UserLogin\\loginAdmin.vue' /* webpackChunkName: "pages_UserLogin_loginAdmin" */))
-const _6e3eeac6 = () => interopDefault(import('..\\pages\\UserLogin\\loginAudit.vue' /* webpackChunkName: "pages_UserLogin_loginAudit" */))
-const _62d1f16a = () => interopDefault(import('..\\pages\\UserLogin\\loginStaff.vue' /* webpackChunkName: "pages_UserLogin_loginStaff" */))
-const _5934968d = () => interopDefault(import('..\\pages\\UserLogin\\loginTeacher.vue' /* webpackChunkName: "pages_UserLogin_loginTeacher" */))
-const _345edfe8 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
+const _41238cca = () => interopDefault(import('..\\pages\\addStaff.vue' /* webpackChunkName: "pages_addStaff" */))
+const _1cd40663 = () => interopDefault(import('..\\pages\\chat.vue' /* webpackChunkName: "pages_chat" */))
+const _a8fa52ce = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages_dashboard" */))
+const _48012767 = () => interopDefault(import('..\\pages\\addUsersForms\\addStudent.vue' /* webpackChunkName: "pages_addUsersForms_addStudent" */))
+const _1e99458e = () => interopDefault(import('..\\pages\\addUsersForms\\addTeacher.vue' /* webpackChunkName: "pages_addUsersForms_addTeacher" */))
+const _15295ea9 = () => interopDefault(import('..\\pages\\UserLogin\\loginAdmin.vue' /* webpackChunkName: "pages_UserLogin_loginAdmin" */))
+const _1f59d135 = () => interopDefault(import('..\\pages\\UserLogin\\loginAudit.vue' /* webpackChunkName: "pages_UserLogin_loginAudit" */))
+const _7fb1edba = () => interopDefault(import('..\\pages\\UserLogin\\loginStaff.vue' /* webpackChunkName: "pages_UserLogin_loginStaff" */))
+const _2f2f9d3c = () => interopDefault(import('..\\pages\\UserLogin\\loginTeacher.vue' /* webpackChunkName: "pages_UserLogin_loginTeacher" */))
+const _20caf752 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
 Vue.use(Router)
 
@@ -90,47 +89,43 @@ export function createRouter() {
 
     routes: [{
       path: "/addStaff",
-      component: _810188ce,
+      component: _41238cca,
       name: "addStaff"
     }, {
       path: "/chat",
-      component: _3585169c,
+      component: _1cd40663,
       name: "chat"
     }, {
       path: "/dashboard",
-      component: _0ec5fcac,
+      component: _a8fa52ce,
       name: "dashboard"
     }, {
-      path: "/userProfile",
-      component: _738765f4,
-      name: "userProfile"
-    }, {
       path: "/addUsersForms/addStudent",
-      component: _04ad1078,
+      component: _48012767,
       name: "addUsersForms-addStudent"
     }, {
       path: "/addUsersForms/addTeacher",
-      component: _4975a2c2,
+      component: _1e99458e,
       name: "addUsersForms-addTeacher"
     }, {
       path: "/UserLogin/loginAdmin",
-      component: _640e783a,
+      component: _15295ea9,
       name: "UserLogin-loginAdmin"
     }, {
       path: "/UserLogin/loginAudit",
-      component: _6e3eeac6,
+      component: _1f59d135,
       name: "UserLogin-loginAudit"
     }, {
       path: "/UserLogin/loginStaff",
-      component: _62d1f16a,
+      component: _7fb1edba,
       name: "UserLogin-loginStaff"
     }, {
       path: "/UserLogin/loginTeacher",
-      component: _5934968d,
+      component: _2f2f9d3c,
       name: "UserLogin-loginTeacher"
     }, {
       path: "/",
-      component: _345edfe8,
+      component: _20caf752,
       name: "index"
     }],
 
