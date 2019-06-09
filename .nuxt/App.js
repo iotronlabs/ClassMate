@@ -3,6 +3,8 @@ import NuxtLoading from './components/nuxt-loading.vue'
 
 import '..\\assets\\style\\app.styl'
 
+import '..\\assets\\scss\\app.scss'
+
 import _288aadbc from '..\\layouts\\DashboardNavigationLayout.vue'
 import _1ee80a1d from '..\\layouts\\LoginLayout.vue'
 import _6f6c098b from './layouts/default.vue'

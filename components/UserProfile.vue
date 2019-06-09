@@ -39,10 +39,7 @@
 </template>
 
 <style scoped>
-     #student-color {
-		background-image: linear-gradient(30deg, #087a49 0%, #3cba92 100%);
-		color: aliceblue;
-	}
+    
     #subject-color {
         background-color: #4e54c8;
         color: aliceblue;

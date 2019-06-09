@@ -1,1 +1,25 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto);
+//Global scss file
+
+// @import url(https://fonts.googleapis.com/css?family=Roboto);
+
+
+#student-color{
+	background-image: linear-gradient(30deg, #087a49 0%, #3cba92 100%);
+	color: aliceblue;
+}
+#teacher-color {
+	background-image: linear-gradient(30deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%);
+	color: aliceblue;
+}
+#admin-color {
+	background-image: linear-gradient(30deg, #fa2912 0%, #fe51a7 100%);
+	color: aliceblue;
+}
+#staff-color {
+	background-image: linear-gradient(30deg, #f2994a 0%, #f2c94c 100%);
+	color: aliceblue;
+}
+//#audit-color {
+// 		background-image: linear-gradient(30deg, #5614b0 0%, #d04ed6 100%);
+// 		color: aliceblue;
+// }

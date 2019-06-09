@@ -2,7 +2,7 @@
 	<div>
 		<div class="text-xs-center">
 			<v-chip small outline color="#087a49">
-				<v-avatar id="student"> S </v-avatar>
+				<v-avatar id="student-color"> S </v-avatar>
 				Student
 				<v-spacer />
 			</v-chip>
@@ -24,10 +24,6 @@ import LoginForm from '@/components/LoginForm'
 </script>
 
 <style scoped>
-#student
-{
-	background-image: linear-gradient(30deg, #087a49 0%, #3cba92 100%);
-	color: aliceblue;
-}
+
 </style>
 

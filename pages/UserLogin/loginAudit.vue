@@ -2,13 +2,13 @@
   	<div>
 		<div class="text-xs-center">
 			<v-chip small outline color="#5614b0">
-				<v-avatar id="audit"> Au </v-avatar>
+				<v-avatar id="audit-color"> Au </v-avatar>
 				Audit
 				<v-spacer />
 			</v-chip>
 		</div>
 		<br>
-		<LoginForm id="audit" />
+		<LoginForm id="audit-color" />
 	</div>
 </template>
 
@@ -24,8 +24,5 @@ export default {
 </script>
 
 <style scoped>
-#audit {
-		background-image: linear-gradient(30deg, #5614b0 0%, #d04ed6 100%);
-		color: aliceblue;
-	}
+
 </style>
