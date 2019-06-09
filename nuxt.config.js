@@ -50,7 +50,25 @@ export default {
   */
   modules: [
 	'@nuxtjs/pwa',
-	'@nuxtjs/axios'
+  '@nuxtjs/axios',
+    [
+      'nuxt-fontawesome', {
+        imports: [
+          {
+            set: '@fortawesome/free-solid-svg-icons',
+            icons: ['fas']
+          },
+          {
+            set: '@fortawesome/free-regular-svg-icons',
+            icons: ['far']
+          },
+          {
+            set: '@fortawesome/free-brands-svg-icons',
+            icons: ['fab']
+          }
+        ]
+      }
+    ]
 ],
   axios: {
 	baseURL: 'http://api.thebutick.com/public',

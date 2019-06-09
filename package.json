@@ -12,12 +12,18 @@
     "test": "jest"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.19",
+    "@fortawesome/free-brands-svg-icons": "^5.9.0",
+    "@fortawesome/free-regular-svg-icons": "^5.9.0",
+    "@fortawesome/free-solid-svg-icons": "^5.9.0",
+    "@fortawesome/vue-fontawesome": "^0.1.6",
     "@nuxtjs/auth": "^4.5.3",
     "@nuxtjs/axios": "^5.5.1",
     "@nuxtjs/pwa": "^2.6.0",
     "bootstrap-vue": "^2.0.0-rc.22",
     "cross-env": "^5.2.0",
     "nuxt": "^2.4.0",
+    "nuxt-fontawesome": "^0.4.0",
     "vuetify": "^1.5.5",
     "vuetify-loader": "^1.2.1"
   },

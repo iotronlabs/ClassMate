@@ -1,5 +1,5 @@
 const studentItems = {
-	active: false,
+	active: true,
 	items: [
 		{
 			icon: 'apps',
@@ -8,6 +8,10 @@ const studentItems = {
 			items: []
 		},
 		{
+			icon: {
+				prefix: 'fas',
+				name: 'users'
+			},
 			title: 'Forum',
 			to: '/',
 			items: [
@@ -24,6 +28,10 @@ const studentItems = {
 		},
 
 		{
+			icon: {
+				prefix:'far', 
+				name:'calendar-alt'
+			},
 			title: 'Calendar',
 			to: '/',
 			items: [
@@ -42,11 +50,19 @@ const studentItems = {
 			]
 		},
 		{
+			icon: {
+				prefix: 'far',
+				name: 'clipboard'
+			},
 			title: 'Exams',
 			to: '/',
 			items:[]
 		},
 		{
+			icon: {
+				prefix: 'fas',
+				name: 'chart-area'
+			},
 			title: 'Reports',
 			to: '/',
 			items: [
@@ -59,6 +75,10 @@ const studentItems = {
 			]
 		},
 		{
+			icon: {
+				prefix: 'far',
+				name: 'question-circle'
+			},
 			title: 'Help desk',
 			to: '/',
 			items: []
@@ -76,6 +96,10 @@ const teacherItems = {
 		items: []
 	},
 		{
+			icon: {
+				prefix: 'fas',
+				name: 'users'
+			},
 			title: 'Forum',
 			to: '/',
 			items: [
@@ -91,6 +115,10 @@ const teacherItems = {
 			]
 		},
 		{
+			icon: {
+				prefix: 'far',
+				name: 'calendar-alt'
+			},
 			title: 'Calendar',
 			to: '/',
 			items: [
@@ -109,11 +137,19 @@ const teacherItems = {
 			]
 		},
 		{
+			icon: {
+				prefix: 'far',
+				name: 'clipboard'
+			},
 			title: 'Exams',
 			to: '/',
 			items:[]
 		},
 		{
+			icon: {
+				prefix: 'fas',
+				name: 'chart-area'
+			},
 			title: 'Reports',
 			to: '/',
 			items: [
@@ -125,7 +161,11 @@ const teacherItems = {
 				}
 			]
 		},
-		{
+		{	
+			icon: {
+				prefix: 'far',
+				name: 'question-circle'
+			},
 			title: 'Help desk',
 			to: '/',
 			items: []
@@ -142,6 +182,10 @@ const staffItems = {
 			to: '/'
 		},
 		{
+			icon: {
+				prefix: 'fas',
+				name: 'user-plus'
+			},
 			title: 'Add User',
 			to: '/',
 			items: [
@@ -154,6 +198,10 @@ const staffItems = {
 			]
 		},
 		{
+			icon: {
+				prefix: 'fas',
+				name: 'user-cog'
+			},
 			title: 'Configuration',
 			to: '/',
 			items: [
@@ -169,6 +217,10 @@ const staffItems = {
 			]
 		},
 		{
+			icon: {
+				prefix: 'far',
+				name: 'calendar-alt'
+			},
 			title: 'Calender',
 			to: '/',
 			items: [
@@ -184,12 +236,19 @@ const staffItems = {
 			]
 		},
 		{
-
+			icon: {
+				prefix: 'far',
+				name: 'clipboard'
+			},
 			title:'exams',
 			to:'/',
 			items:[]
 		},
 		{
+			icon: {
+				prefix: 'fas',
+				name: 'chart-area'
+			},
 			title:'Reports',
 			to:'/',
 			items:[
@@ -202,7 +261,10 @@ const staffItems = {
 			]
 		},
 		{
-
+			icon: {
+				prefix: 'far',
+				name: 'question-circle'
+			},
 			title:'helpdesk',
 			to:'/',
 			items:[]
@@ -215,10 +277,14 @@ const adminItems = {
 	items: [
 		{
 			icon: 'apps',
-			title: 'Welcome',
+			title: 'Welcome to admin dashboard',
 			to: '/'
 		},
 		{
+			icon: {
+				prefix: 'fas',
+				name: 'user-plus'
+			},
 			title: 'Add User',
 			to: '/',
 			items: [
@@ -231,6 +297,10 @@ const adminItems = {
 			]
 		},
 		{
+			icon: {
+				prefix: 'fas',
+				name: 'user-cog'
+			},
 			title: 'Configuration',
 			to: '/',
 			items: [
@@ -241,11 +311,15 @@ const adminItems = {
 					title: 'Class'
 				},
 				{
-					title:'Subject'
+					title: 'Subject'
 				}
 			]
 		},
 		{
+			icon: {
+				prefix: 'far',
+				name: 'calendar-alt'
+			},
 			title: 'Calender',
 			to: '/',
 			items: [
@@ -256,35 +330,46 @@ const adminItems = {
 					title: 'Time-table'
 				},
 				{
-					title:'Events and Activities'
+					title: 'Events and Activities'
 				}
 			]
 		},
 		{
-
-			title:'exams',
-			to:'/',
-			studentItems:[]
+			icon: {
+				prefix: 'far',
+				name: 'clipboard'
+			},
+			title: 'exams',
+			to: '/',
+			items: []
 		},
 		{
-			title:'Reports',
-			to:'/',
-			items:[
+			icon: {
+				prefix: 'fas',
+				name: 'chart-area'
+			},
+			title: 'Reports',
+			to: '/',
+			items: [
 				{
-					title:'Attendance'
+					title: 'Attendance'
 				},
 				{
-					title:'Exam'
+					title: 'Exam'
 				}
 			]
 		},
 		{
-
-			title:'helpdesk',
-			to:'/',
-			items:[]
+			icon: {
+				prefix: 'far',
+				name: 'question-circle'
+			},
+			title: 'helpdesk',
+			to: '/',
+			items: []
 		}
 	]
+
 }
 
 const auditItems = {

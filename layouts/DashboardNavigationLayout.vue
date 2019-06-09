@@ -21,7 +21,6 @@
 						<v-list-tile-title>John Leider</v-list-tile-title>
 					</v-list-tile-content> -->
 					
-
 					<v-list-tile-action>
 						<v-btn icon
 							v-if="this.$vuetify.breakpoint.smAndDown == true"
@@ -42,7 +41,8 @@
 					<template v-slot:activator >
 						<v-list-tile>
 							<v-list-tile-action>
-								<v-icon>{{ item.icon }}</v-icon>
+								<!-- <v-icon>{{ item.icon }}</v-icon> -->
+								<font-awesome-icon :icon="[item.icon.prefix, item.icon.name]"/>
 							</v-list-tile-action>
 							<v-list-tile-content>
 								<v-list-tile-title>{{ item.title }}</v-list-tile-title>
