@@ -13,6 +13,16 @@ const _1f59d135 = () => interopDefault(import('..\\pages\\UserLogin\\loginAudit.
 const _7fb1edba = () => interopDefault(import('..\\pages\\UserLogin\\loginStaff.vue' /* webpackChunkName: "pages_UserLogin_loginStaff" */))
 const _2f2f9d3c = () => interopDefault(import('..\\pages\\UserLogin\\loginTeacher.vue' /* webpackChunkName: "pages_UserLogin_loginTeacher" */))
 const _20caf752 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
+const _810188ce = () => interopDefault(import('..\\pages\\addStaff.vue' /* webpackChunkName: "pages_addStaff" */))
+const _3585169c = () => interopDefault(import('..\\pages\\chat.vue' /* webpackChunkName: "pages_chat" */))
+const _0ec5fcac = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages_dashboard" */))
+const _04ad1078 = () => interopDefault(import('..\\pages\\addUsersForms\\addStudent.vue' /* webpackChunkName: "pages_addUsersForms_addStudent" */))
+const _4975a2c2 = () => interopDefault(import('..\\pages\\addUsersForms\\addTeacher.vue' /* webpackChunkName: "pages_addUsersForms_addTeacher" */))
+const _5368d93a = () => interopDefault(import('..\\pages\\user\\admin.vue' /* webpackChunkName: "pages_user_admin" */))
+const _5d994bc6 = () => interopDefault(import('..\\pages\\user\\audit.vue' /* webpackChunkName: "pages_user_audit" */))
+const _841d2f6a = () => interopDefault(import('..\\pages\\user\\staff.vue' /* webpackChunkName: "pages_user_staff" */))
+const _490a90e6 = () => interopDefault(import('..\\pages\\user\\teacher.vue' /* webpackChunkName: "pages_user_teacher" */))
+const _345edfe8 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
 Vue.use(Router)
 
@@ -90,15 +100,15 @@ export function createRouter() {
 
     routes: [{
       path: "/addStaff",
-      component: _41238cca,
+      component: _810188ce,
       name: "addStaff"
     }, {
       path: "/chat",
-      component: _1cd40663,
+      component: _3585169c,
       name: "chat"
     }, {
       path: "/dashboard",
-      component: _a8fa52ce,
+      component: _0ec5fcac,
       name: "dashboard"
     }, {
       path: "/table",
@@ -106,31 +116,31 @@ export function createRouter() {
       name: "table"
     }, {
       path: "/addUsersForms/addStudent",
-      component: _48012767,
+      component: _04ad1078,
       name: "addUsersForms-addStudent"
     }, {
       path: "/addUsersForms/addTeacher",
-      component: _1e99458e,
+      component: _4975a2c2,
       name: "addUsersForms-addTeacher"
     }, {
-      path: "/UserLogin/loginAdmin",
-      component: _15295ea9,
-      name: "UserLogin-loginAdmin"
+      path: "/user/admin",
+      component: _5368d93a,
+      name: "user-admin"
     }, {
-      path: "/UserLogin/loginAudit",
-      component: _1f59d135,
-      name: "UserLogin-loginAudit"
+      path: "/user/audit",
+      component: _5d994bc6,
+      name: "user-audit"
     }, {
-      path: "/UserLogin/loginStaff",
-      component: _7fb1edba,
-      name: "UserLogin-loginStaff"
+      path: "/user/staff",
+      component: _841d2f6a,
+      name: "user-staff"
     }, {
-      path: "/UserLogin/loginTeacher",
-      component: _2f2f9d3c,
-      name: "UserLogin-loginTeacher"
+      path: "/user/teacher",
+      component: _490a90e6,
+      name: "user-teacher"
     }, {
       path: "/",
-      component: _20caf752,
+      component: _345edfe8,
       name: "index"
     }],
 
