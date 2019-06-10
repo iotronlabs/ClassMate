@@ -19,12 +19,12 @@ class CreateUserTeachersTable extends Migration
             $table->engine = 'InnoDB';
 
             $table->bigIncrements('id');
-            $table->unsignedInteger('u_id')->length(10)->unique();
-            $table->integer('t_ref_id')->length(10);
+            $table->string('u_id')->length(10)->unique();
+            $table->string('t_ref_id')->length(10);
             $table->string('name');
             $table->string('email')->unique();
             $table->char('gender',1);
-            $table->unsignedInteger('contact')->length(15);
+            $table->unsignedBiginteger('contact')->length(10);
           //  $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->unsignedTinyinteger('status')->length(3);

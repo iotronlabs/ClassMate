@@ -21,6 +21,7 @@ return array(
     'App\\Http\\Controllers\\api\\teachers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/api/teachers/Auth/LoginController.php',
     'App\\Http\\Controllers\\api\\teachers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/api/teachers/Auth/RegisterController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
+    'App\\Http\\Middleware\\AssignGuard' => $baseDir . '/app/Http/Middleware/AssignGuard.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\CheckForMaintenanceMode' => $baseDir . '/app/Http/Middleware/CheckForMaintenanceMode.php',
     'App\\Http\\Middleware\\Cors' => $baseDir . '/app/Http/Middleware/Cors.php',

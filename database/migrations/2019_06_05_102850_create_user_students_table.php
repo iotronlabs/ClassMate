@@ -18,17 +18,17 @@ class CreateUserStudentsTable extends Migration
             $table->engine = 'InnoDB';
 
             $table->bigIncrements('id');
-            $table->unsignedInteger('u_id')->length(10)->unique();
-            $table->integer('t_ref_id')->length(10);
+            $table->string('u_id')->length(10)->unique();
+            $table->string('t_ref_id')->length(10);
             $table->string('name',100);
             $table->string('email',100)->unique();
             $table->char('gender',1);
-            $table->unsignedInteger('contact')->length(15);
+            $table->unsignedBiginteger('contact')->length(10);
             $table->date('d_o_b');
            // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->unsignedInteger('guardian_id')->length(10);
-            $table->unsignedInteger('class_id')->length(10);
+            $table->string('guardian_id')->length(10);
+            $table->string('class_id')->length(10);
             $table->unsignedTinyinteger('status')->length(3);
             $table->rememberToken();
             $table->timestamps();

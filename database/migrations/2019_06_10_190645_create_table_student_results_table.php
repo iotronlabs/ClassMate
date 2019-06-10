@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableCoursesTable extends Migration
+class CreateTableStudentResultsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,26 +13,19 @@ class CreateTableCoursesTable extends Migration
      */
     public function up()
     {
-        Schema::create('table_courses', function (Blueprint $table) {
-
-            $table->engine = 'InnoDB';
-
+        Schema::create('table_student_results', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('u_id')->length(10)->unique();
             $table->string('t_ref_id')->length(10);
-            $table->string('c_id')->length(10);
-            $table->string('t_id')->length(10);
+            $table->string('class_id')->length(10);
+            $table->string('s_id')->length(10);
             $table->string('s_name',100);
             $table->tinyinteger('c_day')->length(1);
-            $table->tinyinteger('sem')->length(2);
-            $table->tinyinteger('current_sem')->length(2);
-            $table->tinyinteger('status')->length(1);
-            $table->time('time_start');
-            $table->time('time_end');
+            $table->tinyinteger('marks')->length(3);
+            $table->char('grade',1);
+            $table->tinyinteger('backlog_status')->length(1);
+            $table->time('taken_at');
             $table->timestamps();
-
-/*
-             */
         });
     }
 
@@ -43,6 +36,6 @@ class CreateTableCoursesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_courses');
+        Schema::dropIfExists('table_student_results');
     }
 }

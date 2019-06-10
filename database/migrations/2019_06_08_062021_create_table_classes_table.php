@@ -18,13 +18,15 @@ class CreateTableClassesTable extends Migration
             $table->engine = 'InnoDB';
 
             $table->bigIncrements('id');
-            $table->unsignedInteger('u_id')->length(10)->unique();
-            $table->integer('t_ref_id')->length(10);
+            $table->string('u_id')->length(10)->unique();
+            $table->string('t_ref_id')->length(10);
+            $table->integer('starting_year')->length(4);
+            $table->integer('passing_year')->length(4);
             $table->unsignedInteger('standard')->length(2);
             $table->char('section',1);
-            $table->unsignedInteger('ct_id')->length(10);
-            $table->unsignedInteger('course_id')->length(10);
-            $table->integer('count')->length(10);
+            $table->string('ct_id')->length(10);
+            $table->string('course_id')->length(10);
+            $table->tinyinteger('count')->length(3);
             $table->unsignedTinyinteger('status')->length(10);
             $table->timestamps();
 

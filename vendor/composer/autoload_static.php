@@ -411,6 +411,7 @@ class ComposerStaticInit027345a21b1f8c7a82a8ca87a554c9e0
         'App\\Http\\Controllers\\api\\teachers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/api/teachers/Auth/LoginController.php',
         'App\\Http\\Controllers\\api\\teachers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/api/teachers/Auth/RegisterController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
+        'App\\Http\\Middleware\\AssignGuard' => __DIR__ . '/../..' . '/app/Http/Middleware/AssignGuard.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
         'App\\Http\\Middleware\\Cors' => __DIR__ . '/../..' . '/app/Http/Middleware/Cors.php',
