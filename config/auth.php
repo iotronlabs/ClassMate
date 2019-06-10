@@ -40,13 +40,13 @@ return [
        
 
         'user_admins' => [
-            'driver' => 'session',
+            'driver' => 'jwt',
             'provider' => 'user_admins',
             
         ],
 
         'students' => [
-            'driver' => 'session',
+            'driver' => 'jwt',
             'provider' => 'user_students',
             
         ],
@@ -58,7 +58,7 @@ return [
         ],
 
         'user_staffs' => [
-            'driver' => 'session',
+            'driver' => 'jwt',
             'provider' => 'user_staffs',
             
         ],

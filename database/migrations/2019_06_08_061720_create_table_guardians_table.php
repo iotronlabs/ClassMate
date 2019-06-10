@@ -25,7 +25,7 @@ class CreateTableGuardiansTable extends Migration
             $table->char('gender',1);
             $table->unsignedInteger('contact')->length(15);
             $table->string('password');
-            $table->integer('status')->length(3);
+            $table->unsignedTinyinteger('status')->length(3);
             $table->timestamps();
         });
     }
