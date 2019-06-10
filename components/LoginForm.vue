@@ -102,7 +102,6 @@ export default {
 		...mapActions('dashboard',['getActiveUser']),
 		async checkLogin() {
 			await this.getActiveUser(this.id)
-			console.log(this.url)
 			const response = await this.$axios.post(this.url,{
 				email: this.email,
 				password: this.password
