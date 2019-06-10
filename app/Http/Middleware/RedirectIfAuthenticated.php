@@ -17,9 +17,19 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect('/home');
-        }
+         if ($guard == "students" && Auth::guard($guard)->check()) {
+                return redirect('/api/students/register');
+            }
+         if ($guard == "user_admins" && Auth::guard($guard)->check()) {
+                return redirect('/api/admins/register');
+            }
+        if ($guard == "user_teachers" && Auth::guard($guard)->check()) {
+                return redirect('/api/teachers/register');
+            }
+        if ($guard == "user_staffs" && Auth::guard($guard)->check()) {
+                return redirect('/api/staffs/register');
+            }    
+
 
         return $next($request);
     }

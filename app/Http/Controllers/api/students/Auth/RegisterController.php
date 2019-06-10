@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use  Tymon\JWTAuth\Facades\JWTAuth;
+use Config; 
+use Auth;
 
 class RegisterController extends Controller
 {
@@ -27,10 +29,22 @@ class RegisterController extends Controller
      * @return void
    */
 
-    public function __construct(JWTAuth $auth)
+    public function __construct()
     {
-        $this->auth= $auth;
+
+       $this->middleware('guest:students');
+       $this->middleware('guest');
+      
+      // $this->auth= $auth;
+       
     }
+     
+    
+      protected function guard()
+    {
+        return Auth::guard('students');
+    }
+
 
     /**
      * Get a validator for an incoming registration request.
@@ -67,8 +81,10 @@ class RegisterController extends Controller
        {
            $user= $this->create($request->all());
            
+           Config::set('jwt.user', 'App\Models\student\user_student'); 
+           Config::set('auth.providers.users.model', \App\Models\student\user_student::class);
            
-           $token= JWTAuth::attempt($request->only('email','password'));
+           $token= Auth::guard('students')->attempt($request->only('email','password'));
            
            
            
@@ -87,6 +103,7 @@ class RegisterController extends Controller
        ]);
     }
 
+   
     
     /**
      * Create a new user instance after a valid registration.

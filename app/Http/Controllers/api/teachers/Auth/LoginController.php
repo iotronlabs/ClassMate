@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use  Tymon\JWTAuth\Facades\JWTAuth;
-
+use Auth;
 class LoginController extends Controller
 {
      use AuthenticatesUsers;
@@ -24,9 +24,11 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function __construct(JWTAuth $auth)
+    public function __construct()//JWTAuth $auth)
     {
-        $this->auth = $auth;
+       // $this->auth = $auth;
+          $this->middleware('guest');
+          $this->middleware('guest:user_teachers');
     }
 
 
@@ -62,7 +64,7 @@ public function login(Request $request)
 
                 //return $this->sendFailedLoginResponse($request);
         try{
-            if(!$token= JWTAuth::attempt($request->only('email','password')) )
+            if(!$token= Auth::guard('user_teachers')->attempt($request->only('email','password')) )
                     {
                         return response()->json
                             ([

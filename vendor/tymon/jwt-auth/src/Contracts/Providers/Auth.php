@@ -37,4 +37,6 @@ interface Auth
      * @return mixed
      */
     public function user();
+
+    
 }

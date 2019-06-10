@@ -14,8 +14,9 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
+        'guard' => 'students',
+        'guard' => 'user_teachers'
+         //'passwords' => 'users',
     ],
 
     /*
@@ -36,25 +37,46 @@ return [
     */
 
     'guards' => [
-        'web' => [
+       
+
+        'user_admins' => [
             'driver' => 'session',
             'provider' => 'user_admins',
+            
+        ],
+
+        'students' => [
+            'driver' => 'session',
             'provider' => 'user_students',
+            
+        ],
+
+         'user_teachers' => [
+            'driver' => 'session',
             'provider' => 'user_teachers',
+            
+        ],
+
+        'user_staffs' => [
+            'driver' => 'session',
             'provider' => 'user_staffs',
             
         ],
 
-        
-
-        'api' => [
-            'driver' => 'token',
-            // 'provider' => 'user_admins',
-            // 'provider' => 'user_students',
-            // 'provider' => 'user_teachers',
-            // 'provider' => 'user_staffs',
-            'hash' => false,
+         'web' => [
+            'driver' => 'session',
+            'provider' => 'user_teachers',
+            
         ],
+
+        // 'api' => [
+        //     'driver' => 'token',
+        //     'provider' => 'user_admins',
+        //     'provider' => 'user_students',
+        //     'provider' => 'user_teachers',
+        //     'provider' => 'user_staffs',
+        //     'hash' => false,
+        // ],
     ],
 
     /*

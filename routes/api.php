@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::group([ 'prefix' =>'/auth',
-             [ 'middleware' =>'throttle:20,5','cors' ]],function()
+             [ 'middleware' =>'assign.guard:admins','jwt.auth' ]],function()
              {
                  Route::post('/register','Auth\RegisterController@register');
                  Route::post('/login','Auth\LoginController@login');
@@ -23,7 +23,7 @@ Route::group([ 'prefix' =>'/auth',
 );
 
 Route::group([ 'prefix' =>'/admins',
-             [ 'middleware' =>'throttle:20,5','cors' ]],function()
+             [ 'middleware' =>'user_admins','jwt.auth']],function()
              {
                  Route::post('/register','admins\Auth\RegisterController@register');
                  Route::post('/login','admins\Auth\LoginController@login');
@@ -32,7 +32,7 @@ Route::group([ 'prefix' =>'/admins',
 );
 
 Route::group([ 'prefix' =>'/students',
-             [ 'middleware' =>'throttle:20,5','cors' ]],function()
+             [ 'middleware' =>'students','jwt.auth' ]],function()
              {
                  Route::post('/register','students\Auth\RegisterController@register');
                  Route::post('/login','students\Auth\LoginController@login');
@@ -41,7 +41,7 @@ Route::group([ 'prefix' =>'/students',
 );
 
 Route::group([ 'prefix' =>'/teachers',
-             [ 'middleware' =>'throttle:20,5','cors' ]],function()
+             [ 'middleware' =>'user_teachers','jwt.auth' ]],function()
              {
                  Route::post('/register','teachers\Auth\RegisterController@register');
                  Route::post('/login','teachers\Auth\LoginController@login');
@@ -50,7 +50,7 @@ Route::group([ 'prefix' =>'/teachers',
 );
 
 Route::group([ 'prefix' =>'/staffs',
-             [ 'middleware' =>'throttle:20,5','cors' ]],function()
+             [ 'middleware' =>'user_staffs','jwt.auth' ]],function()
              {
                  Route::post('/register','staffs\Auth\RegisterController@register');
                  Route::post('/login','staffs\Auth\LoginController@login');

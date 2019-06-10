@@ -54,6 +54,12 @@ class JWTAuth extends JWT
         return $this->fromUser($this->user());
     }
 
+    protected function guard(string $guard)
+    {
+        return Auth::guard($guard);
+    }
+
+
     /**
      * Authenticate a user via a token.
      *

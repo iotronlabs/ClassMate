@@ -14,6 +14,8 @@ class user_student extends Authenticatable implements JWTSubject
 {
      use Notifiable;
 
+
+    protected $guard = 'students';
     /**
      * The attributes that are mass assignable.
      *

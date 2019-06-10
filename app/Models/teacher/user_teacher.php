@@ -13,7 +13,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 class user_teacher extends Authenticatable implements JWTSubject
 {
      use Notifiable;
-
+     protected $guard = 'user_teachers';
     /**
      * The attributes that are mass assignable.
      *
