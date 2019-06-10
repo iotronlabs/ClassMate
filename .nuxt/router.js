@@ -5,6 +5,7 @@ import { interopDefault } from './utils'
 const _41238cca = () => interopDefault(import('..\\pages\\addStaff.vue' /* webpackChunkName: "pages_addStaff" */))
 const _1cd40663 = () => interopDefault(import('..\\pages\\chat.vue' /* webpackChunkName: "pages_chat" */))
 const _a8fa52ce = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages_dashboard" */))
+const _ad948d5a = () => interopDefault(import('..\\pages\\table.vue' /* webpackChunkName: "pages_table" */))
 const _48012767 = () => interopDefault(import('..\\pages\\addUsersForms\\addStudent.vue' /* webpackChunkName: "pages_addUsersForms_addStudent" */))
 const _1e99458e = () => interopDefault(import('..\\pages\\addUsersForms\\addTeacher.vue' /* webpackChunkName: "pages_addUsersForms_addTeacher" */))
 const _15295ea9 = () => interopDefault(import('..\\pages\\UserLogin\\loginAdmin.vue' /* webpackChunkName: "pages_UserLogin_loginAdmin" */))
@@ -99,6 +100,10 @@ export function createRouter() {
       path: "/dashboard",
       component: _a8fa52ce,
       name: "dashboard"
+    }, {
+      path: "/table",
+      component: _ad948d5a,
+      name: "table"
     }, {
       path: "/addUsersForms/addStudent",
       component: _48012767,

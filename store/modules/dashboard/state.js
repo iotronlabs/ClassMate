@@ -1,8 +1,17 @@
 const studentItems = {
-	active: true,
+	active:false,
+	chipdata: {
+		avatar_1: "S",
+		avatar_2: "St",
+		title_1: "Student",
+		title_2: "Stream"
+	},
 	items: [
 		{
-			icon: 'apps',
+			icon: {
+				prefix: 'fas',
+				name: 'border-all'
+			},
 			title: 'Welcome',
 			to: '/',
 			items: []
@@ -87,10 +96,19 @@ const studentItems = {
 }
 
 const teacherItems = {
-	active: false,
+	active: true,
+	chipdata: {
+		avatar_1: "T",
+		avatar_2: "Sb",
+		title_1: "Teacher",
+		title_2: "Subject"
+	},
 	items:[
 	{
-		icon: 'apps',
+		icon: {
+			prefix: 'fas',
+			name: 'border-all'
+		},
 		title: 'Welcome',
 		to: '/',
 		items: []
@@ -177,7 +195,10 @@ const staffItems = {
 	active: false,
 	items: [
 		{
-			icon: 'apps',
+			icon: {
+				prefix: 'fas',
+				name: 'border-all'
+			},
 			title: 'Welcome to staff dashboard',
 			to: '/'
 		},
@@ -276,7 +297,10 @@ const adminItems = {
 	active: false,
 	items: [
 		{
-			icon: 'apps',
+			icon: {
+				prefix: 'fas',
+				name: 'border-all'
+			},
 			title: 'Welcome to admin dashboard',
 			to: '/'
 		},

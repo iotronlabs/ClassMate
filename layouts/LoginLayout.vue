@@ -1,5 +1,5 @@
 <template>
-	<v-app>
+	<v-app class="global-font">
 		<v-content>
 			<v-container fluid fill-height class="container-grad">
 				<v-layout align-center justify-center>
@@ -39,11 +39,10 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans&display=swap');
+
 .container-grad
 {
 	background-image: linear-gradient(to top,#4e54c8 0%, #8f94fb 100%);
-	font-family: 'Fira Sans', sans-serif;
 }
 .login-grad
 {
@@ -60,8 +59,8 @@ export default {
 }
 img
 {
-	height: 40%;
-	width: 20%;
+	height: 2em;
+	width: 25%;
 	/* display: block; */
 	margin-left: auto;
 	margin-right: auto;
@@ -71,7 +70,7 @@ img
 	background-image: linear-gradient(to top,#4e54c8 0%, #8f94fb 100%);
 	text-align: center;
 	color: white;
-	font-family: 'Fira Sans', sans-serif;
+	
 }
 .heart
 {

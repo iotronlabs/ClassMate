@@ -2,13 +2,13 @@
   	<div>
 		<div class="text-xs-center">
 			<v-chip small outline color="#5614b0">
-				<v-avatar id="audit-color"> Au </v-avatar>
+				<v-avatar class="audit-color"> Au </v-avatar>
 				Audit
 				<v-spacer />
 			</v-chip>
 		</div>
 		<br>
-		<LoginForm id="audit-color" />
+		<LoginForm id="audit" />
 	</div>
 </template>
 

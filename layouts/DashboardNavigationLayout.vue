@@ -1,5 +1,5 @@
 <template>
-	<v-app :dark="dark">
+	<v-app :dark="dark" class="global-font">
 		<v-navigation-drawer
 			v-model="primaryDrawer.model"
 			:permanent="primaryDrawer.type === 'permanent'"
@@ -10,16 +10,17 @@
 			overflow
 			app
 		>
-			<UserProfile />
+			
 			<v-list>
-				<v-list-tile avatar tag="div">
-					<!-- <v-list-tile-avatar>
+				<UserProfile />
+				<!-- <v-list-tile>
+					 <v-list-tile-avatar>
 						<img src="https://randomuser.me/api/portraits/men/85.jpg">
 					</v-list-tile-avatar>
 
 					<v-list-tile-content>
 						<v-list-tile-title>John Leider</v-list-tile-title>
-					</v-list-tile-content> -->
+					</v-list-tile-content>
 					
 					<v-list-tile-action>
 						<v-btn icon
@@ -28,7 +29,8 @@
 						<v-icon>chevron_left</v-icon>
 						</v-btn>
 					</v-list-tile-action>
-				</v-list-tile>
+				</v-list-tile> -->
+			
 				<hr>
 				<v-list-group
 					v-for="(item, i) in selectItems"

@@ -2,7 +2,7 @@
   <div>
 		<div class="text-xs-center">
 			<v-chip small outline color="#fa2912">
-				<v-avatar id="admin-color"> A </v-avatar>
+				<v-avatar class="admin-color"> A </v-avatar>
 				Admin
 				<v-spacer />
 			</v-chip>

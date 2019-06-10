@@ -1,5 +1,5 @@
 <template>
-	<v-content>
+	<v-content class="global-font">
 		<v-container fluid>
 			<v-layout align-center justify-center>
 				<v-flex xs12>
