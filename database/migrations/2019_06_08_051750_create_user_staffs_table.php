@@ -26,7 +26,7 @@ class CreateUserStaffsTable extends Migration
             $table->unsignedInteger('contact')->length(15);
           //  $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('status')->length(3);
+            $table->unsignedTinyinteger('status')->length(3);
             $table->rememberToken();
             $table->timestamps();
         });
