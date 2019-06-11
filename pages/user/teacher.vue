@@ -1,7 +1,7 @@
 <template>
   	<div>
 		<div class="text-xs-center">
-			<v-chip small outline color="#5753C9">
+			<v-chip small outline color="blue">
 				<v-avatar class="teacher-color"> T </v-avatar>
 				Teacher
 				<v-spacer />

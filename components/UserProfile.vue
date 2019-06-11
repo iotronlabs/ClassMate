@@ -26,7 +26,7 @@
                     </v-chip>
                     
                     
-                    <v-chip small outline color="#4e54c8" >
+                    <v-chip small outline color="#4e54c8">
                         <v-avatar class="subject-color"> {{selectItems.avatar_2}} </v-avatar>    
                             {{selectItems.title_2}}
                             <v-spacer />
