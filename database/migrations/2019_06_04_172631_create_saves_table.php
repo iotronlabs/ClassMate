@@ -13,10 +13,11 @@ class CreateSavesTable extends Migration
      */
     public function up()
     {
-        Schema::create('saves', function (Blueprint $table) {
+        Schema::create('forum_saves', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('user_id');
-            $table->unsignedInteger('saved_id');
+            $table->string('saved_id');
+             $table->string('t_ref_id')->length(10);
             $table->timestamps();
 
 

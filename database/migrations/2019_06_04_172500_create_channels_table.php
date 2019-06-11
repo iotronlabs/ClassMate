@@ -13,10 +13,11 @@ class CreateChannelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('channels', function (Blueprint $table) {
+        Schema::create('forum_channels', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('slug');
+             $table->string('t_ref_id')->length(10);
             $table->timestamps();
         });
     }

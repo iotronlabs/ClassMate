@@ -13,13 +13,14 @@ class CreateThreadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('threads', function (Blueprint $table) {
+        Schema::create('forum_threads', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('user_id');
-            $table->unsignedInteger('channel_id');
+            $table->string('channel_id');
             $table->unsignedInteger('replies_count')->default(0);
             $table->string('title');
             $table->text('body');
+             $table->string('t_ref_id')->length(10);
             $table->string('slug');
             $table->timestamps();
         });
