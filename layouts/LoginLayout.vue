@@ -42,7 +42,7 @@ export default {
 
 .container-grad
 {
-	background-image: linear-gradient(to top,#4e54c8 0%, #8f94fb 100%);
+	background-image: linear-gradient(to top,#4e54c8 0%, #8f94fb 100%);	
 }
 .login-grad
 {
