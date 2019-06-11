@@ -50,8 +50,4 @@ hr
 {
 	float: right;
 }
-.forum-content-subheader
-{
-	font-size: 30px;
-}
 </style>

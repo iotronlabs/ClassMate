@@ -42,8 +42,6 @@ export default {
 				to: '/'
 			}
 		],
-
-
 	})
 }
 </script>

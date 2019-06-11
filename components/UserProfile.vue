@@ -5,38 +5,10 @@
 				<v-list-tile-avatar>
 					<img src="https://randomuser.me/api/portraits/men/85.jpg">
 				</v-list-tile-avatar>
-
-<<<<<<< HEAD
 				<v-list-tile-content>
 					<v-list-tile-title><h3>John Leider</h3></v-list-tile-title>
 				</v-list-tile-content>
 			</v-list-tile>
-=======
-					<v-list-tile-content>
-						<v-list-tile-title><h3>John Leider</h3></v-list-tile-title>
-					</v-list-tile-content>
-                    
-                </v-list-tile> 
-                  
-                
-                <div>
-                    
-                    <v-chip small outline color="#087a49" >
-                        <v-avatar class="student-color"> {{selectItems.avatar_1}} </v-avatar>
-                            {{selectItems.title_1}} 
-                            <v-spacer />
-                    </v-chip>
-                    
-                    
-                    <v-chip small outline color="#4e54c8">
-                        <v-avatar class="subject-color"> {{selectItems.avatar_2}} </v-avatar>    
-                            {{selectItems.title_2}}
-                            <v-spacer />
-                    </v-chip>
-                    
-                </div>				
-                
->>>>>>> 11d8b1284147d7bcfdd02bb6e9ab8b0d16c83222
 
 			<div>
 				<v-chip small outline color="#087a49" >
