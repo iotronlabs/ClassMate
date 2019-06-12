@@ -3,9 +3,14 @@
   <v-container fluid>
     
     <v-tabs v-model="active" color="cyan" dark slider-color="yellow">
-          <v-tab v-for="n in 3" :key="n" ripple>
+         <!-- <v-tab v-for="n in 3" :key="n" ripple>
             Item {{ n }}
+        </v-tab>-->
+
+        <v-tab v-for="head in heading"  ripple>
+            {{ head}}
         </v-tab>
+
           <v-tab-item v-for="n in 3" :key="n" >
               <v-card flat>
                 <v-card-text>
@@ -16,6 +21,8 @@
                   <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details>
                 </v-text-field>
                   <v-spacer></v-spacer>
+
+                  
                   <v-dialog v-model="dialog" max-width="500px">
                     <template v-slot:activator="{ on }">
                         <v-btn color="primary" dark class="mb-2" v-on="on">New Item</v-btn>
@@ -132,6 +139,7 @@
                   <v-icon small @click="deleteItem(props.item)">
                     delete
                   </v-icon>
+                  
                 </td>
                   
                 </template>
@@ -161,6 +169,8 @@
 <script>
 export default{
   data: () => ({
+
+  heading : ['Teacher' , 'Student' , 'Staff'],
     items: ['A', 'B', 'C', 'D'],
 
     dialog: false,
@@ -316,4 +326,45 @@ export default{
 
 }
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
