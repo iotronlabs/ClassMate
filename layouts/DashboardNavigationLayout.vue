@@ -70,13 +70,13 @@
 						
 				</v-list-group>
 			</v-list>
-			<v-list align-end justify-start class="dark-switch">
+			<!-- <v-list align-end justify-start class="dark-switch">
 				<v-list-tile>
 					<v-flex>
 						<v-switch v-model="dark" primary color="indigo" :label="switchLabel"></v-switch>
 					</v-flex>
 				</v-list-tile>
-			</v-list>
+			</v-list> -->
 		</v-navigation-drawer>
 		<v-toolbar :clipped-left="primaryDrawer.clipped" app absolute>
 			<v-toolbar-side-icon
@@ -84,15 +84,60 @@
 			></v-toolbar-side-icon>
 			<v-toolbar-title>Classmate</v-toolbar-title>
 			<v-spacer />
-			<!-- <v-btn
-				icon
-				@click.stop="rightDrawer = !rightDrawer"
+		
+			<span class="toolbar-icons">
+			<v-menu offset-y>
+			<template v-slot:activator="{ on }">
+				<v-badge
+			overlap
+			color="orange"
 			>
-				<v-icon>menu</v-icon>
-			</v-btn> -->
-			<span class="toolbar-icons"><font-awesome-icon :icon="['far', 'bell']"/></span>
+				<template v-slot:badge>
+					<span>2</span>
+				</template>
+				<v-btn icon v-on="on"><font-awesome-icon :icon="['far', 'bell']"/></v-btn>
+			</v-badge>
+				
+			</template>
+			<v-list>
+				<v-list-tile>
+					<v-list-tile-title>Notification 1</v-list-tile-title>
+				</v-list-tile>
+				<v-list-tile>
+					<v-list-tile-title>Notification 2</v-list-tile-title>
+				</v-list-tile>
+				<v-list-tile>
+					<v-list-tile-title>Notification 3</v-list-tile-title>
+				</v-list-tile>
+				<v-list-tile>
+					<v-list-tile-title>Notification 4</v-list-tile-title>
+				</v-list-tile>
+			</v-list>
+			</v-menu>
+			</span>
 			
-			<span class="toolbar-icons"><font-awesome-icon :icon="['fas', 'cog']"/></span>
+			<v-menu :nudge-width="100">
+				<template v-slot:activator="{ on }">
+				<v-toolbar-title v-on="on">
+					<span class="toolbar-icons"><v-btn icon><font-awesome-icon :icon="['fas', 'cog']"/></v-btn></span>
+				</v-toolbar-title>
+				</template>
+
+				<v-list>
+				<v-list-tile
+				>
+					<v-list-tile-action><v-switch v-model="dark" primary color="indigo" :label="switchLabel"></v-switch></v-list-tile-action>
+					
+					
+				</v-list-tile>
+				<v-list-tile
+				>
+					<v-list-tile-action><v-btn icon><font-awesome-icon :icon="['fas', 'sign-out-alt']"/></v-btn></v-list-tile-action>
+					<v-list-tile-title >Logout</v-list-tile-title>
+				</v-list-tile>
+				</v-list>
+     		</v-menu>
+		
 		</v-toolbar>
 
 
@@ -163,11 +208,11 @@ export default {
 		switchLabel() {
 			if(this.dark == true)
 			{
-				return 'Light'
+				return 'Light Mode'
 			}
 			else
 			{
-				return 'Dark'
+				return 'Dark Mode'
 			}
 		}
 	},
@@ -208,7 +253,7 @@ export default {
 // 	color: $primary-gradient;
 // }
 .toolbar-icons {
-	margin: 15px;
+	margin: 10px;
 }
 
 
