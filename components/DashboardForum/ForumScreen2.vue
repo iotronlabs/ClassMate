@@ -6,11 +6,12 @@
 		<v-card-text>
 			<font size = "5" > Analog Electronics (AEC)</font>
 			<br><br>
-			<v-chip>Topic chip</v-chip>&nbsp;
-			<v-chip>Topic chip</v-chip>&nbsp;
-			<v-chip>Topic chip</v-chip>&nbsp;
-			<v-chip>Topic chip</v-chip>&nbsp;
-			<v-chip>Topic chip</v-chip>&nbsp;
+			<v-chip
+				v-for="chip in chips"
+				v-bind:key="chip.id"
+				@click="activeSubject(chip.id)"
+				>{{ chip.title }}
+			</v-chip>
 		</v-card-text>
 	</v-card>
 </div>
@@ -18,31 +19,35 @@
 
 
 <script>
+import { mapActions } from 'vuex'
 import Searchbox from '@/components/Searchbox'
 export default {
 	components: {
 		Searchbox
 	},
-	data: () => ({
-		items:
-		[
-			{
-				text: 'Dashboard',
-				disabled: false,
-				to: '/'
-			},
-			{
-				text: 'Forum',
-				disabled: false,
-				to: '/'
-			},
-			{
-				text: 'subject',
-				disabled: false,
-				to: '/'
-			}
-		],
-	})
+	data() {
+		return {
+			chips: [
+				{
+					title: 'Subject1',
+					id: 'Subject1'
+				},
+				{
+					title: 'Subject 2',
+					id: 'Subject2'
+				}
+			]
+		}
+	},
+	methods: {
+		...mapActions('forum',['getActiveForumMenu']),
+		activeSubject(subject) {
+			this.getActiveForumMenu('Subject')
+		}
+	},
+	created() {
+		this.getActiveForumMenu('Stream')
+	}
 }
 </script>
 

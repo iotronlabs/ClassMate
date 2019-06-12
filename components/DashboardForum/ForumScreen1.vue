@@ -5,7 +5,12 @@
 			<v-subheader class="forum-content-subheader">
 				Electronic and Telecommunication
 			</v-subheader>
-			<v-chip>Topic chip</v-chip>&nbsp;
+			<v-chip
+				v-for="chip in chips"
+				v-bind:key="chip.id"
+				@click="activeStream(chip.id)">
+				{{chip.title}}
+			</v-chip>
 			<v-card-text>
 				Top Authors
 				<v-spacer />
@@ -18,21 +23,28 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 export default {
-	data: () => ({
-		items:[
-			{
-				text: 'Dashboard',
-				disabled: false,
-				href: '/'
-			},
-			{
-				text: 'Forum',
-				disabled: false,
-				href: '/'
-			}
-		]
-	})
+	data() {
+		return {
+			chips: [
+				{
+					title: 'Stream 1',
+					id: 'Stream 1'
+				},
+				{
+					title: 'Stream 2',
+					id: 'Stream 2'
+				}
+			]
+		}
+	},
+	methods: {
+		...mapActions('forum',['getActiveForumMenu']),
+		activeStream(branch) {
+			this.getActiveForumMenu('Stream')
+		}
+	}
 }
 </script>
 

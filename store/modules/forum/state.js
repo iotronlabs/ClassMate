@@ -3,7 +3,7 @@ const breadcrumbs = {
 		active: true
 	},
 	stream: {
-		active: true
+		active: false
 	},
 	subject: {
 		active: false
