@@ -33,6 +33,7 @@
 			
 				<hr>
 				<v-list-group
+					class="tile"
 					v-for="(item, i) in selectItems"
 					:key="i"
 					:to="item.to"
@@ -41,7 +42,7 @@
 				>
 
 					<template v-slot:activator >
-						<v-list-tile>
+						<v-list-tile >
 							<v-list-tile-action>
 								<!-- <v-icon>{{ item.icon }}</v-icon> -->
 								<font-awesome-icon :icon="[item.icon.prefix, item.icon.name]"/>
@@ -51,20 +52,24 @@
 							</v-list-tile-content>
 						</v-list-tile>
 					</template>
-
+						
 						<v-list-tile
+							
 							v-for="subItem in item.items"
 							:key="subItem.title"
 						>
+						
 							<v-list-tile-content>
-								<v-spacer />
+								
 								<v-list  class="menu-sublist">
 									<v-list-tile>
 										{{ subItem.title }}
 									</v-list-tile>
 								</v-list>
 							</v-list-tile-content>
+							
 						</v-list-tile>
+						
 				</v-list-group>
 			</v-list>
 			<v-list align-end justify-start class="dark-switch">
@@ -103,6 +108,7 @@
 <script>
 import {mapState} from 'vuex'
 import UserProfile from '@/components/UserProfile.vue'
+
 export default {
 		name: 'DashboardNavigationLayout',
 		components: {
@@ -184,9 +190,31 @@ export default {
 }
 </script>
 
-<style scoped>
+
+<style lang="scss" scoped >
+@import '~/assets/scss/_variables.scss'; 
+
 .menu-sublist
 {
 	margin-left: 20%;
 }
+
+.tile:hover {
+	background: $primary-gradient;
+	color: aliceblue;
+}
+.tile:active {
+	background: $primary-gradient;
+	color: aliceblue;
+}
+.subtile {
+	background-color: aliceblue;
+	color: blue;
+}
+// .subtile:active {
+// 	background: aliceblue;
+// 	color: $primary-gradient;
+// }
+
+
 </style>
