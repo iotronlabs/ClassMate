@@ -90,6 +90,9 @@
 			>
 				<v-icon>menu</v-icon>
 			</v-btn> -->
+			<span class="toolbar-icons"><font-awesome-icon :icon="['far', 'bell']"/></span>
+			
+			<span class="toolbar-icons"><font-awesome-icon :icon="['fas', 'cog']"/></span>
 		</v-toolbar>
 
 
@@ -204,6 +207,9 @@ export default {
 // 	background: aliceblue;
 // 	color: $primary-gradient;
 // }
+.toolbar-icons {
+	margin: 15px;
+}
 
 
 </style>
