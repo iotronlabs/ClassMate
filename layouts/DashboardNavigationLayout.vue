@@ -10,27 +10,25 @@
 			overflow
 			app
 		>
-			
-			<v-list>
-				<UserProfile />
-				<!-- <v-list-tile>
-					 <v-list-tile-avatar>
-						<img src="https://randomuser.me/api/portraits/men/85.jpg">
-					</v-list-tile-avatar>
 
-					<v-list-tile-content>
-						<v-list-tile-title>John Leider</v-list-tile-title>
-					</v-list-tile-content>
-					
-					<v-list-tile-action>
-						<v-btn icon
-							v-if="this.$vuetify.breakpoint.smAndDown == true"
-							@click.stop="closeDrawerModel">
-						<v-icon>chevron_left</v-icon>
-						</v-btn>
-					</v-list-tile-action>
-				</v-list-tile> -->
-			
+			<v-list>
+				<div>
+					<v-layout row>
+						<v-flex xs10 sm10 md10 lg10>
+							<UserProfile />
+						</v-flex>
+						<v-flex xs2 sm2 lg2 md2>
+							<v-list>
+								<v-list-tile-action>
+									<v-btn icon
+										@click.stop="closeDrawerModel">
+									<v-icon>chevron_left</v-icon>
+									</v-btn>
+								</v-list-tile-action>
+							</v-list>
+						</v-flex>
+					</v-layout>
+				</div>
 				<hr>
 				<v-list-group
 					class="tile"
@@ -82,7 +80,6 @@
 		</v-navigation-drawer>
 		<v-toolbar :clipped-left="primaryDrawer.clipped" app absolute>
 			<v-toolbar-side-icon
-				v-if="primaryDrawer.type !== 'permanent' && this.$vuetify.breakpoint.smAndDown == true"
 				@click.stop="primaryDrawer.model = !primaryDrawer.model"
 			></v-toolbar-side-icon>
 			<v-toolbar-title>Classmate</v-toolbar-title>
@@ -95,7 +92,7 @@
 			</v-btn> -->
 		</v-toolbar>
 
-	
+
 		<nuxt />
 
 
@@ -110,8 +107,8 @@ import {mapState} from 'vuex'
 import UserProfile from '@/components/UserProfile.vue'
 
 export default {
-		name: 'DashboardNavigationLayout',
-		components: {
+	name: 'DashboardNavigationLayout',
+	components: {
 		UserProfile
 	},
     data: () => ({
@@ -173,19 +170,11 @@ export default {
 	},
 	methods: {
 		closeDrawerModel() {
-			this.primaryDrawer.type='default (no property)'
 			this.primaryDrawer.model = !this.primaryDrawer.model
 		}
 	},
 	created() {
-		if(this.$vuetify.breakpoint.mdAndUp === true)
-		{
-			this.primaryDrawer.type='permanent'
-		}
-		else
-		{
-			this.primaryDrawer.type='default (no property)'
-		}
+		this.primaryDrawer.model = false
 	}
 }
 </script>

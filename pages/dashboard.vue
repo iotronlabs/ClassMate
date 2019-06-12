@@ -3,8 +3,10 @@
 		<v-container fluid>
 			<v-layout align-center justify-center>
 				<v-flex xs12>
-					<!-- <Calendar /> -->
-					<!-- <Forum2 />	 -->
+					 
+						<Table />
+					 <!--<Calendar /> -->
+					
 				</v-flex>
 			</v-layout>
 		</v-container>
@@ -12,12 +14,14 @@
 </template>
 
 <script>
-import Calendar from '../components/DashboardCalendar/Calendar'
-import Forum2 from '../components/DashboardForum/ForumScreen2'
+import Table from '../components/table'
+//import Calendar from '../components/DashboardCalendar/Calendar'
+
 export default {
 	components: {
-		Calendar,
-		Forum2
+		//Calendar,
+		
+		Table,
 	},
 	layout: 'DashboardNavigationLayout'
 }
