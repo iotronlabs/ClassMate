@@ -19,17 +19,30 @@ class CreateUserTeachersTable extends Migration
             $table->engine = 'InnoDB';
 
             $table->bigIncrements('id');
-            $table->string('u_id')->length(10)->unique();
+            $table->string('t_id')->length(10)->unique();
             $table->string('t_ref_id')->length(10);
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->char('gender',1);
-            $table->unsignedBiginteger('contact')->length(10);
-          //  $table->timestamp('email_verified_at')->nullable();
+            $table->string('t_fname')->length(100);
+            $table->string('t_mname')->lenth(100);
+            $table->string('t_surname')->length(100);
+            $table->string('t_dob');
+            $table->integer('t_age');
+            $table->string('t_email')->unique();
+            $table->char('t_gender',1);
+            $table->unsignedBiginteger('t_contact')->length(10);
+          
+            $table->string('t_nationality')->length(100);
+            $table->string('t_address')->length(100);
+            $table->integer('t_address_pin')->length(6);
+            $table->string('t_address_state')->length(100);
+
+
             $table->string('password');
+            $table->string('t_sub')->length(200);
+
             $table->unsignedTinyinteger('status')->length(3);
             $table->rememberToken();
             $table->timestamps();
+            $table->integer('t_authentication')->length(1);
         });
     }
 

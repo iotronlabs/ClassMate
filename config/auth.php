@@ -52,7 +52,7 @@ return [
         ],
 
          'user_teachers' => [
-            'driver' => 'session',
+            'driver' => 'jwt',
             'provider' => 'user_teachers',
             
         ],

@@ -20,9 +20,12 @@ class user_staff extends Authenticatable implements JWTSubject
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password','gender','contact','u_id','t_ref_id','status',
-    ];
+    // protected $fillable = [
+    //     'name', 'email', 'password','gender','contact','u_id','t_ref_id','status',
+    // ];
+
+    protected $guarded = [];
+    
 
     /**
      * The attributes that should be hidden for arrays.

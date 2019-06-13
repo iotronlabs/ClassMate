@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use  Tymon\JWTAuth\Facades\JWTAuth;
 use Auth;
+use Config;
 class RegisterController extends Controller
 {
     use RegistersUsers;
@@ -34,6 +35,12 @@ class RegisterController extends Controller
           $this->middleware('guest:user_teachers');
     }
 
+    //   protected function guard()
+    // {
+    //     return Auth::guard('teachers');
+    // }
+
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -43,11 +50,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255','unique:user_admins'],
+            't_fname' => ['required', 'string', 'max:255'],
+            't_email' => ['required', 'string', 'email', 'max:255','unique:user_teachers'],
             'password' => ['required', 'string', 'min:8'],
-            'gender' => ['required', 'max:1'],
-            'contact' => ['required', 'min:10'],
+            't_gender' => ['required', 'max:1'],
+            't_contact' => ['required', 'min:10'],
         ]);
     }
 
@@ -59,7 +66,7 @@ class RegisterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function register(Request $request)
+        public function register(Request $request)
     {
         $validator=$this->validator($request->all());
         
@@ -68,7 +75,7 @@ class RegisterController extends Controller
            $user= $this->create($request->all());
            
            
-           $token= Auth::guard('user_teachers')->attempt($request->only('email','password'));
+           $token= Auth::guard('user_teachers')->attempt($request->only('t_email','password'));
            
            
            
@@ -87,6 +94,7 @@ class RegisterController extends Controller
        ]);
     }
 
+
     
     /**
      * Create a new user instance after a valid registration.
@@ -97,14 +105,27 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return user_teacher::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            't_fname' => $data['t_fname'],
+            
             'password' => Hash::make($data['password']),
-            'gender' => $data['gender'],
-            'contact' => $data['contact'],
-            'u_id' => $data['u_id'],
+            't_gender' => $data['t_gender'],
+            't_contact' => $data['t_contact'],
+            't_id' => $data['t_id'],
             't_ref_id' => $data['t_ref_id'],
             'status' => $data['status'],
+            't_mname' => $data['t_mname'],
+            't_surname' => $data['t_surname'],
+            't_dob' => $data['t_dob'],
+            't_age' => $data['t_age'],
+            't_email' =>  $data['t_email'],
+            't_nationality' => $data['t_nationality'],
+            't_address'  => $data['t_address'],
+            't_address_pin' => $data['t_address_pin'],
+            't_address_state' => $data['t_address_state'],
+            't_sub' => $data['t_sub'],
+            //'t_status' => $data['t_status'],
+            't_authentication'  => $data['t_authentication'],
+
         ]);
     }
 }

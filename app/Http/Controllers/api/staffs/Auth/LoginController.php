@@ -63,7 +63,7 @@ public function login(Request $request)
 
                 //return $this->sendFailedLoginResponse($request);
        try{
-            if(!$token= Auth::guard('user_staffs')->attempt($request->only('email','password')) )
+            if(!$token= Auth::guard('user_staffs')->attempt($request->only('st_email','password')) )
                     {
                         return response()->json
                             ([

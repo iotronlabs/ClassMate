@@ -43,11 +43,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255','unique:user_admins'],
+            'st_fname' => ['required', 'string', 'max:255'],
+            'st_email' => ['required', 'string', 'email', 'max:255','unique:user_staffs'],
             'password' => ['required', 'string', 'min:8'],
-            'gender' => ['required', 'max:1'],
-            'contact' => ['required', 'min:10'],
+            'st_gender' => ['required', 'max:1'],
+            'st_contact' => ['required', 'min:10'],
         ]);
     }
 
@@ -68,7 +68,7 @@ class RegisterController extends Controller
            $user= $this->create($request->all());
            
            
-            $token= Auth::guard('user_staffs')->attempt($request->only('email','password'));
+            $token= Auth::guard('user_staffs')->attempt($request->only('st_email','password'));
            
            
            return response()->json
@@ -96,14 +96,25 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return user_staff::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'st_fname' => $data['st_fname'],
+            'st_email' => $data['st_email'],
             'password' => Hash::make($data['password']),
-            'gender' => $data['gender'],
-            'contact' => $data['contact'],
-            'u_id' => $data['u_id'],
+            'st_gender' => $data['st_gender'],
+            'st_contact' => $data['st_contact'],
+            'st_id' => $data['st_id'],
             't_ref_id' => $data['t_ref_id'],
             'status' => $data['status'],
+            'st_mname' => $data['st_mname'],
+            'st_dob' => $data['st_dob'],
+            'st_age' =>$data['st_age'],
+            'st_nationality' => $data['st_nationality'],
+            'st_address' => $data['st_address'],
+            'st_address_pin' => $data['st_address_pin'],
+            'st_address_state' => $data['st_address_state'],
+            'st_sub' => $data['st_sub'],
+            'st_surname' => $data['st_surname'],
+            'st_authentication' => $data['st_authentication'],
+
         ]);
     }
 }

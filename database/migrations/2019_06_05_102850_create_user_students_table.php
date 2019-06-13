@@ -18,35 +18,45 @@ class CreateUserStudentsTable extends Migration
             $table->engine = 'InnoDB';
 
             $table->bigIncrements('id');
-            $table->string('u_id')->length(10)->unique();
+            $table->string('s_id')->length(10)->unique();
             $table->string('t_ref_id')->length(10);
-            $table->string('name',100);
-            $table->string('email',100)->unique();
-            $table->char('gender',1);
-            $table->unsignedBiginteger('contact')->length(10);
-            $table->date('d_o_b');
+            $table->string('s_fname',100);
+            $table->string('s_mname',100);
+            $table->string('s_surname',100);
+            $table->string('s_email',100)->unique();
+            $table->char('s_gender',1);
+            $table->unsignedBiginteger('s_contact')->length(10);
+            $table->date('s_dob');
+            $table->integer('s_age')->length(2);
+            $table->string('s_nationality')->length(50);
+
+            $table->string('s_address')->length(200);
+            $table->string('s_address_pin')->length(6);
+            $table->string('s_address_state')->length(20);
+            $table->string('guardian_fname')->length(100);
+            $table->string('guardian_mname')->length(100);
+            $table->string('guardian_surname')->length(100);
+            $table->string('guardian_email')->lenght(30);
+            $table->string('guardian_contact')->length(10);
+            $table->string('guardian_address')->length(100);
+            $table->integer('guardian_pin')->length(6);
+            $table->string('guardian_state')->length(50);
+
            // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('guardian_id')->length(10);
+            //$table->string('guardian_id')->length(10);
             $table->string('class_id')->length(10);
             $table->unsignedTinyinteger('status')->length(3);
+            $table->integer('s_authentication')->lenght(1);
             $table->rememberToken();
             $table->timestamps();
 
 
         });
 
-      /*  
+      
 
-        Schema::table('user_students', function(Blueprint $table){
-
-            $table->foreign('guardian_id')
-                  ->references('u_id')->on('table_guardians')
-                  ->onDelete('cascade');
-            $table->foreign('class_id')
-                  ->references('u_id')->on('table_classes')
-                  ->onDelete('cascade');     
-        });*/
+        
     }
 
     /**

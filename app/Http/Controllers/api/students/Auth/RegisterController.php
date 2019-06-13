@@ -40,10 +40,10 @@ class RegisterController extends Controller
     }
      
     
-      protected function guard()
-    {
-        return Auth::guard('students');
-    }
+    //   protected function guard()
+    // {
+    //     return Auth::guard('students');
+    // }
 
 
     /**
@@ -55,12 +55,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255','unique:user_students'],
-            'password' => ['required', 'string', 'min:8'],
-            'gender' => ['required', 'max:1'],
-            'contact' => ['required', 'min:10'],
-            'd_o_b' => ['required'],
+            's_fname' => ['required', 'string', 'max:255'],
+            's_email' => ['required', 'string', 'email', 'max:255','unique:user_students'],
+            'password' => ['required', 'string', 'min:5'],
+            's_gender' => ['required', 'max:1'],
+            's_contact' => ['required', 'min:10'],
+            's_dob' => ['required'],
 
         ]);
     }
@@ -81,10 +81,10 @@ class RegisterController extends Controller
        {
            $user= $this->create($request->all());
            
-           Config::set('jwt.user', 'App\Models\student\user_student'); 
-           Config::set('auth.providers.users.model', \App\Models\student\user_student::class);
+           // Config::set('jwt.user', 'App\Models\student\user_student'); 
+           // Config::set('auth.providers.users.model', \App\Models\student\user_student::class);
            
-           $token= Auth::guard('students')->attempt($request->only('email','password'));
+           $token= Auth::guard('students')->attempt($request->only('s_email','password'));
            
            
            
@@ -114,17 +114,35 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return user_student::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            's_fname' => $data['s_fname'],
+             's_mname' => $data['s_mname'],
+              's_surname' => $data['s_surname'],
+            's_email' => $data['s_email'],
             'password' => Hash::make($data['password']),
-            'gender' => $data['gender'],
-            'contact' => $data['contact'],
-            'd_o_b' => $data['d_o_b'],
-            'u_id' => $data['u_id'],
+            's_gender' => $data['s_gender'],
+            's_contact' => $data['s_contact'],
+            's_dob' => $data['s_dob'],
+            's_id' => $data['s_id'],
             't_ref_id' => $data['t_ref_id'],
-            'guardian_id' => $data['guardian_id'],
-            'class_id' => $data['class_id'],
+            
+            
             'status' => $data['status'],
+            's_age' => $data['s_age'],
+            's_nationality' => $data['s_nationality'],
+            's_address' => $data['s_address'],
+            's_address_pin' => $data['s_address_pin'],
+            's_address_state' => $data['s_address_state'],
+            'guardian_fname' => $data['guardian_fname'],
+            'guardian_mname' => $data['guardian_mname'],
+            'guardian_surname' => $data['guardian_surname'],
+            'guardian_email' => $data['guardian_email'],
+            'guardian_contact' => $data['guardian_contact'],
+            'guardian_address' => $data['guardian_address'],
+            'guardian_pin' => $data['guardian_pin'],
+            'guardian_state' => $data['guardian_state'],
+            'class_id' => $data['class_id'],
+            's_authentication' => $data['s_authentication'],
+
         ]);
     }
 }
