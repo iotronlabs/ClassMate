@@ -2,28 +2,28 @@
 <v-app >
  <v-card >
   	<v-toolbar class="login-grad">
-					<span class="toolbar-text">Staff form</span>
-					
+					<span class="toolbar-text">Teacher form</span>
+
 		</v-toolbar>
     <v-form  ref="form">
       <v-container fluid>
         <v-layout row>
          <v-flex xs12 sm6 offset-s3>
           <v-btn raised class="primary" @click="onPickFile">upload image</v-btn>
-          <input 
-          type="file" 
+          <input
+          type="file"
           style="display: none"
-           ref="fileInput" 
+           ref="fileInput"
            accept="image/*"
            @change="onFilePicked"
            >
-          
+
          </v-flex>
         </v-layout>
         <v-layout row>
          <v-flex xs12 sm6 offset-s3>
           <img :src="imageUrl" height="160">
-          
+
          </v-flex>
         </v-layout>
         <v-layout row wrap>
@@ -34,9 +34,9 @@
              :rules="[rules.required]"
              label="Name"
              type="text"
-             placeholder="First"         
+             placeholder="First"
              required
-         
+
            >
            </v-text-field>
           </v-flex>
@@ -49,15 +49,15 @@
             >
             </v-text-field>
           </v-flex>
-          
+
           <v-flex xs12 sm6 md3>
               <v-text-field
               v-model="lastname"
               type="text"
-              placeholder="Last" 
+              placeholder="Last"
               >
-              </v-text-field>  
-          </v-flex>           
+              </v-text-field>
+          </v-flex>
       </v-layout >
       <br>
 
@@ -81,7 +81,7 @@
                       v-model="date"
                       label="Date of Birth"
                       placeholder="yyyy-mm-dd"
-                      
+
                       readonly
                       v-on="on"
                     ></v-text-field>
@@ -93,9 +93,9 @@
                   </v-date-picker>
                 </v-menu>
               </v-flex>
-                
-  
-       
+
+
+
                  <!-- age -->
                       <v-flex xs12 sm6 md3>
                       <v-text-field
@@ -108,12 +108,12 @@
                       </v-flex>
         </v-layout>
         <br>
-      
+
         <!-- email -->
         <v-layout row wrap >
               <v-flex xs12 sm12 md3>
                 <v-text-field
-                    
+
                     name="email"
                     type="email"
                     v-model="email"
@@ -122,19 +122,19 @@
                     placeholder="enter email id"
                     autocomplete="off"
                     required>
-                  </v-text-field> 
+                  </v-text-field>
               </v-flex>
               <br>
               <!-- contact  -->
               <v-flex xs12 sm12 md3>
-              <v-text-field 
+              <v-text-field
               v-model="contact"
               type="tel"
-              
+
               label="contact no"
-              
-              
-              
+
+
+
               >
               </v-text-field>
               </v-flex>
@@ -161,16 +161,16 @@
      <!-- address   address pincode state-->
      <v-flex xs12 sm12 md9>
          	<v-text-field
-							
+
 							name="streetaddress"
 							type="text"
 							v-model="street"
-							
+
 							label=" address"
               placeholder="street address"
 							autocomplete="off"
 						>
-						</v-text-field> 
+						</v-text-field>
         </v-flex>
         <br>
         <v-layout row wrap>
@@ -182,9 +182,9 @@
         >
         </v-text-field>
         </v-flex>
-        
-       
-        
+
+
+
         <v-flex xs12 sm6 md3>
         <v-text-field
             v-model="pincode"
@@ -203,10 +203,10 @@
         </v-layout>
         <br>
 
-        
-         
-        
-        
+
+
+
+
 
       <v-spacer></v-spacer><br>
       	<v-btn round color="success" light type="submit" form="login-form" >Submit</v-btn>
@@ -216,15 +216,15 @@
 
 
 
-  
-
-        
 
 
 
-        
 
-     
+
+
+
+
+
     </v-container>
   </v-form>
 
@@ -254,8 +254,8 @@ export default {
         menu: false,
         image:null,
         imageUrl:'',
-     
-      
+
+
          religions:[
           'Hindu',
          ' Muslim',
@@ -263,7 +263,7 @@ export default {
           'Christian',
           'Bhudhist',
           'Others'
-           
+
         ],
         nations:[
            'Afghan','Albanian','Algerian','American','Andorran','Angolan','Antiguans and Barbudans','indian'
@@ -274,17 +274,17 @@ export default {
         states:['Arunachal Pradesh','Assam', 'Bihar', 'Chhattisgarh' ,'Goa', 'Gujarat', 'Haryana' ,
         'Himachal Pradesh', 'Jammu and Kashmir',
          'Jharkhand' ,'Karnataka', 'Kerala', 'Madhya Pradesh', 'Maharashtra' ,'Manipur', 'Meghalaya ',
-         'Mizoram', 'Nagaland', 'Odisha', 'PunjabRajasthan', 
+         'Mizoram', 'Nagaland', 'Odisha', 'PunjabRajasthan',
          'Sikkim', 'Tamil' ,'Nadu' ,'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand',' West Bengal'
 
         ],
-       
+
       	rules: {
 				required: v => !!v || 'Required.',
-			
+
 				emailValid : v=> /.+@.+/.test(v) || 'E-mail must be valid'
       },
-     
+
     }
   },
   methods:{
@@ -310,7 +310,7 @@ export default {
          this.image=files[0]
 
       }
-      
+
 
   }
 }
