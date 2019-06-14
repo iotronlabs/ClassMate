@@ -122,14 +122,15 @@ class RegisterController extends Controller
             's_gender' => $data['s_gender'],
             's_contact' => $data['s_contact'],
             's_dob' => $data['s_dob'],
-            's_id' => $data['s_id'],
-            't_ref_id' => $data['t_ref_id'],
+            //'s_id' => $data['s_id'],
+            //'t_ref_id' => $data['t_ref_id'],
             
             
-            'status' => $data['status'],
+            //'status' => $data['status'],
             's_age' => $data['s_age'],
             's_nationality' => $data['s_nationality'],
             's_address' => $data['s_address'],
+            's_religion' => $data['s_religion'],
             's_address_pin' => $data['s_address_pin'],
             's_address_state' => $data['s_address_state'],
             'guardian_fname' => $data['guardian_fname'],
@@ -141,7 +142,7 @@ class RegisterController extends Controller
             'guardian_pin' => $data['guardian_pin'],
             'guardian_state' => $data['guardian_state'],
             'class_id' => $data['class_id'],
-            's_authentication' => $data['s_authentication'],
+           // 's_authentication' => $data['s_authentication'],
 
         ]);
     }

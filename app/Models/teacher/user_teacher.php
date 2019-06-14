@@ -29,7 +29,7 @@ class user_teacher extends Authenticatable implements JWTSubject
      * @var array
      */
 
-    protected  $guarded = [];
+    protected  $guarded = [ 't_id'];
     protected $hidden = [
         'password', 'remember_token',
     ];
