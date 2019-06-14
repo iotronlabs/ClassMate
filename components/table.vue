@@ -2,7 +2,7 @@
 <div>
   <v-container fluid>
     
-    <v-tabs v-model="active" color="cyan" dark slider-color="yellow">
+    <v-tabs v-model="active" color="primary" dark slider-color="yellow" >
          <!-- <v-tab v-for="n in 3" :key="n" ripple>
             Item {{ n }}
         </v-tab>-->
@@ -25,7 +25,7 @@
                   
                   <v-dialog v-model="dialog" max-width="500px">
                     <template v-slot:activator="{ on }">
-                        <v-btn color="primary" dark class="mb-2" v-on="on">New Item</v-btn>
+                        <v-btn class="mb-2 btn-grad-primary" dark v-on="on">New Item</v-btn>
                       </template>
                       <v-card>    
                         <v-card-text>
@@ -56,7 +56,7 @@
 
                                     <v-dialog mv-model="dialog" width="500" >
                                 <template v-slot:activator="{ on }" >
-                                  <v-btn  v-on="on" >
+                                  <v-btn  v-on="on" class="btn-grad-primary" text-color="white">
                                       Topics
                                   </v-btn>
                                 </template>
@@ -64,7 +64,7 @@
                                 <v-card>
                                 <v-card-actions>
                                       <v-spacer></v-spacer>
-                                      <v-btn color="primary" flat @click="dialog = false">
+                                      <v-btn flat @click="dialog = false">
                                         <v-icon>close</v-icon>
                                       </v-btn>
                                   </v-card-actions>
@@ -88,8 +88,8 @@
             
                         <v-card-actions>
                             <v-spacer></v-spacer>
-                            <v-btn color="blue darken-1" flat @click="close">Cancel</v-btn>
-                            <v-btn color="blue darken-1" flat @click="save">Save</v-btn>
+                            <v-btn color="primary" flat @click="close">Cancel</v-btn>
+                            <v-btn color="primary" flat @click="save">Save</v-btn>
                         </v-card-actions>
                     </v-card>
                   </v-dialog>
@@ -108,16 +108,16 @@
 
                     <v-dialog mv-model="dialog" width="500" >
                       <template v-slot:activator="{ on }">
-                        <v-btn  v-on="on" >
+                        <v-btn  v-on="on" class="btn-grad-primary"
                              View All
-                         </v-btn>
+                        </v-btn>
                       </template>
         
                       <v-card>
                 
                       <v-card-actions>
                             <v-spacer></v-spacer>
-                            <v-btn color="primary" flat @click="dialog = false">
+                            <v-btn class="btn-grad-primary" flat @click="dialog = false">
                               <v-icon>close</v-icon>
                             </v-btn>
                         </v-card-actions>
@@ -154,10 +154,10 @@
           </v-tab-item>
         </v-tabs>
   
-        <div class="text-xs-center mt-3">
+        <!-- <div class="text-xs-center mt-3">
           <v-btn @click="next">next tab</v-btn>
          </div>
-         <br><br><br>
+         <br><br><br> -->
 
       
 
@@ -314,16 +314,20 @@ export default{
 </script>
 
 
-<style scoped>
+<style lang="scss" scoped>
+@import '~/assets/scss/_variables.scss'; 
+
 .place
 {
   height : 56px;
 }
 
-.btn
-{
-  margin-left : 400px ;
+.btn-grad-primary {
+  background: $primary-gradient;
+}
 
+.tab-color {
+  color: $primary-gradient; 
 }
 </style>
 
