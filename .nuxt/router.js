@@ -2,18 +2,18 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _810188ce = () => interopDefault(import('..\\pages\\addStaff.vue' /* webpackChunkName: "pages_addStaff" */))
-const _3585169c = () => interopDefault(import('..\\pages\\chat.vue' /* webpackChunkName: "pages_chat" */))
-const _0ec5fcac = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages_dashboard" */))
-const _4286f692 = () => interopDefault(import('..\\pages\\forum.vue' /* webpackChunkName: "pages_forum" */))
-const _240bd638 = () => interopDefault(import('..\\pages\\table.vue' /* webpackChunkName: "pages_table" */))
-const _04ad1078 = () => interopDefault(import('..\\pages\\addUsersForms\\addStudent.vue' /* webpackChunkName: "pages_addUsersForms_addStudent" */))
-const _4975a2c2 = () => interopDefault(import('..\\pages\\addUsersForms\\addTeacher.vue' /* webpackChunkName: "pages_addUsersForms_addTeacher" */))
-const _5368d93a = () => interopDefault(import('..\\pages\\user\\admin.vue' /* webpackChunkName: "pages_user_admin" */))
-const _5d994bc6 = () => interopDefault(import('..\\pages\\user\\audit.vue' /* webpackChunkName: "pages_user_audit" */))
-const _841d2f6a = () => interopDefault(import('..\\pages\\user\\staff.vue' /* webpackChunkName: "pages_user_staff" */))
-const _490a90e6 = () => interopDefault(import('..\\pages\\user\\teacher.vue' /* webpackChunkName: "pages_user_teacher" */))
-const _345edfe8 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
+const _41238cca = () => interopDefault(import('..\\pages\\addStaff.vue' /* webpackChunkName: "pages_addStaff" */))
+const _1cd40663 = () => interopDefault(import('..\\pages\\chat.vue' /* webpackChunkName: "pages_chat" */))
+const _a8fa52ce = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages_dashboard" */))
+const _cc0fadb4 = () => interopDefault(import('..\\pages\\forum.vue' /* webpackChunkName: "pages_forum" */))
+const _ad948d5a = () => interopDefault(import('..\\pages\\table.vue' /* webpackChunkName: "pages_table" */))
+const _48012767 = () => interopDefault(import('..\\pages\\addUsersForms\\addStudent.vue' /* webpackChunkName: "pages_addUsersForms_addStudent" */))
+const _1e99458e = () => interopDefault(import('..\\pages\\addUsersForms\\addTeacher.vue' /* webpackChunkName: "pages_addUsersForms_addTeacher" */))
+const _37a5a32e = () => interopDefault(import('..\\pages\\user\\admin.vue' /* webpackChunkName: "pages_user_admin" */))
+const _2344be16 = () => interopDefault(import('..\\pages\\user\\audit.vue' /* webpackChunkName: "pages_user_audit" */))
+const _4eb5bd7a = () => interopDefault(import('..\\pages\\user\\staff.vue' /* webpackChunkName: "pages_user_staff" */))
+const _4c7e7cfc = () => interopDefault(import('..\\pages\\user\\teacher.vue' /* webpackChunkName: "pages_user_teacher" */))
+const _20caf752 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
 Vue.use(Router)
 
@@ -91,51 +91,51 @@ export function createRouter() {
 
     routes: [{
       path: "/addStaff",
-      component: _810188ce,
+      component: _41238cca,
       name: "addStaff"
     }, {
       path: "/chat",
-      component: _3585169c,
+      component: _1cd40663,
       name: "chat"
     }, {
       path: "/dashboard",
-      component: _0ec5fcac,
+      component: _a8fa52ce,
       name: "dashboard"
     }, {
       path: "/forum",
-      component: _4286f692,
+      component: _cc0fadb4,
       name: "forum"
     }, {
       path: "/table",
-      component: _240bd638,
+      component: _ad948d5a,
       name: "table"
     }, {
       path: "/addUsersForms/addStudent",
-      component: _04ad1078,
+      component: _48012767,
       name: "addUsersForms-addStudent"
     }, {
       path: "/addUsersForms/addTeacher",
-      component: _4975a2c2,
+      component: _1e99458e,
       name: "addUsersForms-addTeacher"
     }, {
       path: "/user/admin",
-      component: _5368d93a,
+      component: _37a5a32e,
       name: "user-admin"
     }, {
       path: "/user/audit",
-      component: _5d994bc6,
+      component: _2344be16,
       name: "user-audit"
     }, {
       path: "/user/staff",
-      component: _841d2f6a,
+      component: _4eb5bd7a,
       name: "user-staff"
     }, {
       path: "/user/teacher",
-      component: _490a90e6,
+      component: _4c7e7cfc,
       name: "user-teacher"
     }, {
       path: "/",
-      component: _345edfe8,
+      component: _20caf752,
       name: "index"
     }],
 

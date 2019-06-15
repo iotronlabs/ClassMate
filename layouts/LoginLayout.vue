@@ -3,17 +3,18 @@
 		<v-content>
 			<v-container fluid fill-height class="container-grad">
 				<v-layout align-center justify-center>
-				<v-flex xs12 sm8 md7>
+				<v-flex xs12 sm8 md4>
 					<v-card class="elevation-12 card-design">
 						<v-toolbar class="login-grad">
 							<center><img src="/classmate.png"></center>
 						</v-toolbar>
 						<v-card-text>
-							<br>
+							
 
 							<nuxt />
 
 						</v-card-text>
+						<br>
 					</v-card>
 				</v-flex>
 				</v-layout>
@@ -50,8 +51,13 @@ export default {
 	border-radius: 0px 0px 15px 15px;
 }
 
+.v-toolbar {
+	height: 60px;
+}
+
 .card-design {
 	border-radius: 15px;
+	
 }
 .toolbar-text {
 	font-size: 1.5em;
@@ -59,11 +65,9 @@ export default {
 }
 img
 {
-	height: 2em;
+	height: 30px;
 	width: 25%;
-	/* display: block; */
-	margin-left: auto;
-	margin-right: auto;
+	min-width: 100px;
 }
 .footer
 {

@@ -25,21 +25,24 @@
 			autocomplete="off"
 			@click:append="show = !show">
 		</v-text-field>
+		&nbsp;&nbsp;<a href="#">forgot password?</a>
 		<v-checkbox
 			v-model="checkbox"
 			label="Remember Me"
 		></v-checkbox>
-		<v-spacer></v-spacer>
-		<div class="text-xs-center">
+		
+		
+		
 			<v-btn
 				:disabled="disabled"
-				round
+				block
+				color="primary"
 				type="submit"
 				form="login-form"
-				:class="disabled ? '' : button"
+				:class="disabled ? btn-login : btn-login-color"
 			>LogIn</v-btn>
-			<v-btn :disabled=true round>SignUp</v-btn>
-		</div>
+			
+	
 		{{message}}
 	</v-form>
 </template>
@@ -123,11 +126,16 @@ export default {
 
 <style lang="css" scoped>
 .login-form {
-	padding-left: 15%;
-	padding-right: 15%;
+	padding-left: 20px;
+	padding-right: 20px;
 }
-.btn-login {
+.btn-login-color {
+	border-radius: 10px;
 	background-image: linear-gradient(to top,#4e54c8 0%, #8f94fb 100%);
 	color: aliceblue;
+}
+.btn-login {
+	border-radius: 10px;
+	width:50%;
 }
 </style>
