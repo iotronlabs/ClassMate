@@ -39,16 +39,14 @@ export default {
 	},
 	data() {
 		return {
-			dialog: false
+			dialog: false,
+			search: ''
 		}
 	},
 	props: {
 		n: {
 			type: Number
 		}
-	},
-	mounted() {
-		console.log(this.n)
 	}
 }
 </script>

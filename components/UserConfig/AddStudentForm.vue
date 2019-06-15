@@ -2,7 +2,7 @@
 <div>
 	<v-app>
  		<v-card >
-		<v-form  ref="form" method="post" id="form">
+		<v-form  @submit.prevent="submitForm" ref="form" method="post" id="login-form">
 			<v-container fluid>
 				<v-layout>
 					<v-flex xs12 sm6 >
@@ -317,8 +317,8 @@
 					</v-flex>
 				</v-layout>
 				<v-spacer></v-spacer><br>
-				<v-btn round color="success" light type="submit" form="login-form" @click.prevent="submitForm" >Submit</v-btn>
-				<v-btn  round color="primary" type="submit" form="login-form"  @click="reset">Clear form</v-btn>
+				<v-btn round color="success" light type="submit" form="form" >Submit</v-btn>
+				<v-btn  round color="primary" form="form"  @click="reset">Clear form</v-btn>
     		</v-container>
   		</v-form>
 
@@ -344,7 +344,6 @@ export default {
 			street:'',
 			city:'',
 			pincode:'',
-			zip:'',
 			date: new Date().toISOString().substr(0, 10),
 			menu: false,
 			image:null,
@@ -410,35 +409,50 @@ export default {
 			this.image=files[0]
 
 		},
-		async submitForm() {
+		submitForm() {
 			console.log('Form submitted')
 			console.log(this.s_gender)
-			const response=await this.$axios.post('/api/students/register',{
-				s_fname: this.firstname,
-				s_mname: this.middlename,
-				s_surname: this.lastname,
-				s_email: this.email,
-				s_gender: this.s_gender,
-				password: this.contact,
-				s_contact: this.contact,
-				s_dob: this.date,
-				s_age: this.age,
-				s_religion: this.religion,
-				s_nationality: this.nationality,
-				s_address: this.street,
-				s_address_pin: this.pincode,
-				s_address_state: this.s_state,
-				guardian_fname: this.gfirstname,
-				guardian_mname: this.gmiddlename,
-				guardian_sname: this.glastname,
-				guardian_email: this.gemail,
-				guardian_contact: this.gcontact,
-				guardian_address: this.gstreet,
-				guardian_pin: this.gpincode,
-				guardian_state: this.g_state,
-				class_id: '123'
-			})
-			console.log(response.data)
+			console.log(this.firstname)
+			console.log(this.middlename)
+			console.log(this.lastname)
+			console.log(this.email)
+			console.log(this.contact)
+			console.log(this.date)
+			console.log(this.religion)
+			console.log(this.nationality)
+			console.log(this.street)
+			console.log(this.pincode)
+			console.log(this.s_state)
+			console.log(this.gfirstname)
+			console.log(this.gmiddlename)
+			console.log(this.glastname)
+			console.log(this.gemail)
+			// const response=await this.$axios.post('/api/students/register',{
+			// 	s_fname: this.firstname,
+			// 	s_mname: this.middlename,
+			// 	s_surname: this.lastname,
+			// 	s_email: this.email,
+			// 	s_gender: this.s_gender,
+			// 	password: this.contact,
+			// 	s_contact: this.contact,
+			// 	s_dob: this.date,
+			// 	s_age: this.age,
+			// 	s_religion: this.religion,
+			// 	s_nationality: this.nationality,
+			// 	s_address: this.street,
+			// 	s_address_pin: this.pincode,
+			// 	s_address_state: this.s_state,
+			// 	guardian_fname: this.gfirstname,
+			// 	guardian_mname: this.gmiddlename,
+			// 	guardian_sname: this.glastname,
+			// 	guardian_email: this.gemail,
+			// 	guardian_contact: this.gcontact,
+			// 	guardian_address: this.gstreet,
+			// 	guardian_pin: this.gpincode,
+			// 	guardian_state: this.g_state,
+			// 	class_id: '123'
+			// })
+			// console.log(response.data)
 		}
 	}
 }
