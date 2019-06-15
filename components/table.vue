@@ -11,7 +11,7 @@
 				<v-card flat>
 					<v-card-text>
 
-						<ConfigToolbar :n="n"/>
+						<ConfigToolbar :n="n" id="user" />
 
 						<v-data-table :headers="headers[n-1]" :items="selectUser(n)" select-all class="elevation-1" >
 

@@ -4,11 +4,8 @@ import { interopDefault } from './utils'
 
 const _810188ce = () => interopDefault(import('..\\pages\\addStaff.vue' /* webpackChunkName: "pages_addStaff" */))
 const _3585169c = () => interopDefault(import('..\\pages\\chat.vue' /* webpackChunkName: "pages_chat" */))
-const _2b23f398 = () => interopDefault(import('..\\pages\\ClassConfigForm.vue' /* webpackChunkName: "pages_ClassConfigForm" */))
 const _0ec5fcac = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages_dashboard" */))
-const _104fd4dc = () => interopDefault(import('..\\pages\\DepartmentConfigForm.vue' /* webpackChunkName: "pages_DepartmentConfigForm" */))
 const _4286f692 = () => interopDefault(import('..\\pages\\forum.vue' /* webpackChunkName: "pages_forum" */))
-const _2e61a768 = () => interopDefault(import('..\\pages\\SubjectConfigForm.vue' /* webpackChunkName: "pages_SubjectConfigForm" */))
 const _240bd638 = () => interopDefault(import('..\\pages\\table.vue' /* webpackChunkName: "pages_table" */))
 const _04ad1078 = () => interopDefault(import('..\\pages\\addUsersForms\\addStudent.vue' /* webpackChunkName: "pages_addUsersForms_addStudent" */))
 const _4975a2c2 = () => interopDefault(import('..\\pages\\addUsersForms\\addTeacher.vue' /* webpackChunkName: "pages_addUsersForms_addTeacher" */))
@@ -101,25 +98,13 @@ export function createRouter() {
       component: _3585169c,
       name: "chat"
     }, {
-      path: "/ClassConfigForm",
-      component: _2b23f398,
-      name: "ClassConfigForm"
-    }, {
       path: "/dashboard",
       component: _0ec5fcac,
       name: "dashboard"
     }, {
-      path: "/DepartmentConfigForm",
-      component: _104fd4dc,
-      name: "DepartmentConfigForm"
-    }, {
       path: "/forum",
       component: _4286f692,
       name: "forum"
-    }, {
-      path: "/SubjectConfigForm",
-      component: _2e61a768,
-      name: "SubjectConfigForm"
     }, {
       path: "/table",
       component: _240bd638,

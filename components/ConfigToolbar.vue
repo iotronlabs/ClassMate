@@ -10,18 +10,27 @@
       	<v-card>
 				<v-toolbar dark color="primary">
 					<v-toolbar-title>
-						<div v-if="n==1">Student Form</div>
-						<div v-if="n==2">Teacher Form</div>
-						<div v-if="n==3">Staff Form</div>
+						<div v-if="n==1 && id=='user'">Student Form</div>
+						<div v-if="n==2 && id=='user'">Teacher Form</div>
+						<div v-if="n==3 && id=='user'">Staff Form</div>
+
+						<div v-if="n==1 && id=='course'">Department Form</div>
+						<div v-if="n==2 && id=='course'">Subject Form</div>
+						<div v-if="n==3 && id=='course'">Class Form</div>
+
 					</v-toolbar-title>
 					<v-spacer></v-spacer>
 					<v-btn icon dark @click="dialog = false">
 						<v-icon>close</v-icon>
 					</v-btn>
 				</v-toolbar>
-				<div v-if="n==1"><AddStudentForm /></div>
-				<div v-if="n==2"><AddTeacherForm /></div>
-				<div v-if="n==3"><AddStudentForm /></div>
+				<div v-if="n==1 && id=='user'"><AddStudentForm /></div>
+				<div v-if="n==2 && id=='user'"><AddTeacherForm /></div>
+				<div v-if="n==3 && id=='user'"><AddStudentForm /></div>
+
+				<div v-if="n==1 && id=='course'"><DepartmentConfigForm /></div>
+				<div v-if="n==2 && id=='course'"><SubjectConfigForm /></div>
+				<div v-if="n==3 && id=='course'"><ClassConfigForm /></div>
       	</v-card>
     </v-dialog>
 </v-toolbar>
@@ -31,11 +40,19 @@
 import AddStudentForm from '@/components/UserConfig/AddStudentForm'
 import AddTeacherForm from '@/components/UserConfig/AddTeacherForm'
 import AddStaffForm from '@/components/UserConfig/AddStaffForm'
+
+import DepartmentConfigForm from '@/components/CourseConfig/DepartmentConfigForm'
+import SubjectConfigForm from '@/components/CourseConfig/SubjectConfigForm'
+import ClassConfigForm from '@/components/CourseConfig/ClassConfigForm'
+
 export default {
 	components: {
 		AddStudentForm,
 		AddTeacherForm,
-		AddStaffForm
+		AddStaffForm,
+		DepartmentConfigForm,
+		SubjectConfigForm,
+		ClassConfigForm
 	},
 	data() {
 		return {
@@ -46,6 +63,9 @@ export default {
 	props: {
 		n: {
 			type: Number
+		},
+		id: {
+			type: String
 		}
 	}
 }

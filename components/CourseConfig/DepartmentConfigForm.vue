@@ -1,15 +1,17 @@
 <template>
-<div>
-	<v-card>
-		<v-card-text>
-			<v-container grid-list-md>
-			<v-layout wrap>
+<v-app >
+<v-card >
+    <v-form ref="form" method="post" id="form" @submit.prevent="submitForm">
+		<v-container fluid>
+			<v-layout>
 				<v-flex xs12 sm6 md4>
 					<v-select v-model="department" :items="departments" label="Assign Department"></v-select>
 				</v-flex>
 				<v-flex xs12 sm6 md4>
 					<v-text-field v-model="dept_code" label="Department Code"></v-text-field>
 				</v-flex>
+			</v-layout>
+			<v-layout>
 				<v-flex xs12 sm6 md4>
 					<v-text-field v-model="dept_name" label="Department Name"></v-text-field>
 				</v-flex>
@@ -17,15 +19,17 @@
 				<v-flex xs12 sm6 md4>
 					<v-select v-model="course_length" :items="course_lengths" label="Assign course length"></v-select>
 				</v-flex>
-
+			</v-layout>
+			<v-layout>
 				<v-flex xs12 sm6 md4>
-					<v-text-field v-model="dept_code" label="Stream Code"></v-text-field>
+					<v-text-field v-model="stream_code" label="Stream Code"></v-text-field>
 				</v-flex>
 				<v-flex xs12 sm6 md4>
-					<v-text-field v-model="dept_name" label="Stream Name"></v-text-field>
+					<v-text-field v-model="stream_name" label="Stream Name"></v-text-field>
 				</v-flex>
 
-
+			</v-layout>
+			<v-layout>
 
 				<v-flex xs12 sm6 md4>
 					<v-select
@@ -41,16 +45,13 @@
 
 				</v-flex>
 			</v-layout>
-			</v-container>
-		</v-card-text>
-
-		<v-card-actions>
-			<v-spacer></v-spacer>
-			<v-btn color="blue darken-1" flat @click="close">Cancel</v-btn>
-			<v-btn color="blue darken-1" flat @click="save">Save</v-btn>
-		</v-card-actions>
-	</v-card>
-</div>
+			<v-spacer></v-spacer><br>
+      		<v-btn round color="success" light type="submit" form="login-form" >Submit</v-btn>
+       		<v-btn  round color="primary" type="submit" form="login-form"  @click="reset">Clear form</v-btn>
+    	</v-container>
+ 	</v-form>
+</v-card>
+</v-app>
 </template>
 
 <script>
@@ -98,6 +99,9 @@
  	},
 
 	methods: {
+		reset () {
+			this.$refs.form.reset()
+		},
 		editItem (item) {
 			this.editedIndex = this.Serial_No.indexOf(item)
 			this.editedItem = Object.assign({}, item)
