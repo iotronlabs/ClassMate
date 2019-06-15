@@ -21,7 +21,7 @@
 				</v-toolbar>
 				<div v-if="n==1"><AddStudentForm /></div>
 				<div v-if="n==2"><AddTeacherForm /></div>
-				<div v-if="n==3"><AddStaffForm /></div>
+				<div v-if="n==3"><AddStudentForm /></div>
       	</v-card>
     </v-dialog>
 </v-toolbar>
@@ -39,14 +39,16 @@ export default {
 	},
 	data() {
 		return {
-			dialog: false,
-			search: ''
+			dialog: false
 		}
 	},
 	props: {
 		n: {
 			type: Number
 		}
+	},
+	mounted() {
+		console.log(this.n)
 	}
 }
 </script>
