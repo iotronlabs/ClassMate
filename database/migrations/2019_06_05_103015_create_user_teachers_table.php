@@ -44,6 +44,7 @@ class CreateUserTeachersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->integer('t_authentication')->length(1)->default('2');
+            $table->string('t_profile_picture')->nullable();
         });
 
        DB::statement("ALTER TABLE user_teachers AUTO_INCREMENT = 170200;");

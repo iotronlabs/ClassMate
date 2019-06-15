@@ -32,10 +32,11 @@ class CreateUserStaffsTable extends Migration
           //  $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('st_sub')->length(50)->nullable();
-            $table->unsignedTinyinteger('status')->length(3)->default('000');
+            $table->unsignedTinyinteger('status')->default('111');
             $table->rememberToken();
             $table->timestamps();
             $table->integer('st_authentication')->length(2)->default('3');
+            $table->string('st_profile_picture')->nullable();
         });
 
         

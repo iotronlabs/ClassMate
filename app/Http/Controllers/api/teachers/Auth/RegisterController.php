@@ -55,6 +55,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8'],
             't_gender' => ['required', 'max:1'],
             't_contact' => ['required', 'min:10'],
+            't_profile_picture' => ['mimes:jpeg,jpg,png,gif|required|max:10000'],
         ]);
     }
 
@@ -103,7 +104,19 @@ class RegisterController extends Controller
      * @return \App\Models\admin\user_admin
      */
     protected function create(array $data)
-    {
+    {   
+
+             $request = request();
+
+            $profileImage = $request->file('t_profile_picture');
+            $profileImageSaveAsName = time() . Auth::id() . "-profile." . 
+                                      $profileImage->getClientOriginalExtension();
+
+            $upload_path = 'profile_images/teacher/';
+            $profile_image_url = $upload_path . $profileImageSaveAsName;
+            $success = $profileImage->move($upload_path, $profileImageSaveAsName);
+
+
         return user_teacher::create([
             't_fname' => $data['t_fname'],
             
@@ -126,6 +139,7 @@ class RegisterController extends Controller
             't_sub' => $data['t_sub'],
             //'t_status' => $data['t_status'],
             //'t_authentication'  => $data['t_authentication'],
+            't_profile_picture' => $profile_image_url,
 
         ]);
     }

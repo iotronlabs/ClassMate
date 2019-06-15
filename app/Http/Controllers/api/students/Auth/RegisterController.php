@@ -61,6 +61,7 @@ class RegisterController extends Controller
             's_gender' => ['required', 'max:1'],
             's_contact' => ['required', 'min:10'],
             's_dob' => ['required'],
+            's_profile_picture' => ['mimes:jpeg,jpg,png,gif|required|max:10000'],
 
         ]);
     }
@@ -112,7 +113,22 @@ class RegisterController extends Controller
      * @return \App\Models\admin\user_admin
      */
     protected function create(array $data)
-    {
+    { 
+
+
+
+      $request = request();
+
+            $profileImage = $request->file('s_profile_picture');
+            $profileImageSaveAsName = time() . Auth::id() . "-profile." . 
+                                      $profileImage->getClientOriginalExtension();
+
+            $upload_path = 'profile_images/student/';
+            $profile_image_url = $upload_path . $profileImageSaveAsName;
+            $success = $profileImage->move($upload_path, $profileImageSaveAsName);
+
+      
+
         return user_student::create([
             's_fname' => $data['s_fname'],
              's_mname' => $data['s_mname'],
@@ -143,6 +159,9 @@ class RegisterController extends Controller
             'guardian_state' => $data['guardian_state'],
             'class_id' => $data['class_id'],
            // 's_authentication' => $data['s_authentication'],
+             's_profile_picture' => $profile_image_url,
+
+
 
         ]);
     }

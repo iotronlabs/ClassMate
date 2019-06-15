@@ -48,7 +48,8 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:10'],
             'st_gender' => ['required', 'max:1'],
             'st_contact' => ['required', 'min:10'],
-            ''
+
+            'st_profile_picture' => ['mimes:jpeg,jpg,png,gif|required|max:10000'],
         ]);
     }
 
@@ -97,6 +98,15 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
+      $request = request();
+
+            $profileImage = $request->file('st_profile_picture');
+            $profileImageSaveAsName = time() . Auth::id() . "-profile." . 
+                                      $profileImage->getClientOriginalExtension();
+
+            $upload_path = 'profile_images/staff/';
+            $profile_image_url = $upload_path . $profileImageSaveAsName;
+            $success = $profileImage->move($upload_path, $profileImageSaveAsName);
 
       
         return user_staff::create([
@@ -119,6 +129,7 @@ class RegisterController extends Controller
             'st_surname' => $data['st_surname'],
             //'st_authentication' => $data['st_authentication'],
             'st_religion' => $data['st_religion'],
+            'st_profile_picture' => $profile_image_url,
 
         ]);
     }
