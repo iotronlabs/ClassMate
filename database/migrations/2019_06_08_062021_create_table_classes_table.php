@@ -17,21 +17,23 @@ class CreateTableClassesTable extends Migration
 
             $table->engine = 'InnoDB';
 
-            $table->bigIncrements('id');
-            $table->string('u_id')->length(10)->unique();
-            $table->string('t_ref_id')->length(10);
+            $table->bigIncrements('class_id');
+          //  $table->string('u_id')->length(10)->unique();
+            $table->string('t_ref_id')->length(10)->nullable();
             $table->integer('starting_year')->length(4);
             $table->integer('passing_year')->length(4);
             $table->unsignedInteger('standard')->length(2);
             $table->char('section',1);
             $table->string('ct_id')->length(10);
-            $table->string('course_id')->length(10);
-            $table->tinyinteger('count')->length(3);
-            $table->unsignedTinyinteger('status')->length(10);
+           // $table->string('course_id')->length(10);
+            //$table->tinyinteger('count')->length(3);
+            $table->unsignedTinyinteger('status')->length(1)->default('1');
             $table->timestamps();
 
 
         });
+
+         //DB::statement("ALTER TABLE user_students AUTO_INCREMENT = EXWE-170500;");
     }
 
     /**

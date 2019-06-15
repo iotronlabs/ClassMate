@@ -58,4 +58,28 @@ Route::group([ 'prefix' =>'/staffs',
     
 );
 
+
+
+// Route::post('/register','api\classes\RegisterClassController@register');
+// Route::post('/login','staffs\Auth\LoginController@login');
+           
+
 //Route::group(['middleware' => 'cors'], function () {
+Route::group([ 'prefix' =>'/classes',
+            ],function()
+             {
+                 Route::post('/register','classes\RegisterClassController@register');
+                
+             }
+    
+);
+
+Route::group([ 'prefix' =>'/courses',
+            ],function()
+             {
+                 Route::post('/register','courses\RegisterCourseController@register');
+                // Route::post('/login','classes\LoginController@login');
+             }
+    
+);
+
