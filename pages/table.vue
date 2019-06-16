@@ -45,10 +45,10 @@
 
 
 								<td class="justify-center layout px-0">
-									<v-icon small class="mr-2" @click="editItem(props.item)" >
+									<v-icon small class="mr-2" @click="editItem(props.item,n)" >
 										edit
 									</v-icon>
-									<v-icon small @click="deleteItem(props.item)">
+									<v-icon small @click="deleteItem(props.item,n)">
 										delete
 									</v-icon>
 
@@ -126,8 +126,8 @@ export default {
 		},
 		defaultItem: {
 			id: '1',
-			name : '--',
-			dob: '--',
+			dept_name : '--',
+			dept_code: '--',
 			email: '--',
 			contact: '--',
 			stream: '--',
@@ -155,12 +155,11 @@ export default {
 				department_data: [
 					{
 						id: '1',
-						name : '--',
-						dob: '--',
-						email: '--',
-						contact: '--',
-						stream: '--',
-						section: '24'
+						dept_name : '--',
+						dept_code: '--',
+						stream_name: '--',
+						stream_code: '--',
+						course_length: '--'
 					}
 				],
 				subject_data : [
@@ -181,7 +180,7 @@ export default {
 		selectTable(n) {
 			if(n==1)
 			{
-				return this.Serial_No.student_data
+				return this.Serial_No.department_data
 			}
 			else if(n==2)
 			{
@@ -192,14 +191,39 @@ export default {
 				return this.Serial_No.staff_data
 			}
 		},
-		editItem (item) {
-			this.editedIndex = this.Serial_No.indexOf(item)
+		editItem (item,n) {
+			if(n==1)
+			{
+				this.editedIndex = this.Serial_No.department_data.indexOf(item)
+			}
+			else if(n==2)
+			{
+				this.editedIndex = this.Serial_No.subject_data.indexOf(item)
+			}
+			else if(n==3)
+			{
+				this.editedIndex = this.Serial_No.class_data.indexOf(item)
+			}
+			// this.editedIndex = this.Serial_No.data_item.indexOf(item)
 			this.editedItem = Object.assign({}, item)
 			this.dialog = true
 		},
-		deleteItem (item) {
-			const index = this.Serial_No.indexOf(item)
-			confirm('Are you sure you want to delete this item?') && this.Serial_No.splice(index, 1)
+		deleteItem (item,n) {
+			if(n==1)
+			{
+				const index = this.Serial_No.department_data.indexOf(item)
+				confirm('Are you sure you want to delete this item?') && this.Serial_No.department_data.splice(index, 1)
+			}
+			else if(n==2)
+			{
+				const index = this.Serial_No.subject_data.indexOf(item)
+				confirm('Are you sure you want to delete this item?') && this.Serial_No.subject_data.splice(index, 1)
+			}
+			else if(n==3)
+			{
+				const index = this.Serial_No.class_data.indexOf(item)
+				confirm('Are you sure you want to delete this item?') && this.Serial_No.class_data.splice(index, 1)
+			}
 		},
 		close () {
 			this.dialog = false
