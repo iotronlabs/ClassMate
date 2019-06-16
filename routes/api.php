@@ -58,4 +58,19 @@ Route::group([ 'prefix' =>'/staffs',
     
 );
 
+
+Route::group([ 'prefix' =>'/forum'],function()
+             {
+
+                 Route::post('/threads','forum\ThreadsController@store');
+                 Route::get('/threads','forum\ThreadsController@index');
+                 Route::get('/threads/{thread}','forum\ThreadsController@show');
+                 Route::post('/threads/{thread}/replies','forum\RepliesController@store');
+
+
+             }
+    
+);
+
+
 //Route::group(['middleware' => 'cors'], function () {

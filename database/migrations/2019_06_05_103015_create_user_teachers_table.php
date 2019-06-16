@@ -42,7 +42,7 @@ class CreateUserTeachersTable extends Migration
             $table->unsignedTinyinteger('status')->length(3);
             $table->rememberToken();
             $table->timestamps();
-            $table->integer('t_authentication')->length(1);
+            $table->tinyInteger('t_authentication')->length(1);
         });
     }
 
