@@ -59,7 +59,7 @@ Route::group([ 'prefix' =>'/staffs',
 );
 
 
-<<<<<<< HEAD
+
 Route::group([ 'prefix' =>'/forum'],function()
              {
 
@@ -73,12 +73,11 @@ Route::group([ 'prefix' =>'/forum'],function()
     
 );
 
-=======
+
 
 // Route::post('/register','api\classes\RegisterClassController@register');
 // Route::post('/login','staffs\Auth\LoginController@login');
-           
->>>>>>> 2e14d49e9b080c07ddfd0e82200a716e4d6d2989
+
 
 //Route::group(['middleware' => 'cors'], function () {
 Route::group([ 'prefix' =>'/classes',

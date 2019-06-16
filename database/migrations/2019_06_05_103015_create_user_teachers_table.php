@@ -43,12 +43,11 @@ class CreateUserTeachersTable extends Migration
             $table->unsignedTinyinteger('status')->length(3)->default('111');
             $table->rememberToken();
             $table->timestamps();
-<<<<<<< HEAD
-            $table->tinyInteger('t_authentication')->length(1);
-=======
+
+
             $table->integer('t_authentication')->length(1)->default('2');
             $table->string('t_profile_picture')->nullable();
->>>>>>> 2e14d49e9b080c07ddfd0e82200a716e4d6d2989
+
         });
 
        DB::statement("ALTER TABLE user_teachers AUTO_INCREMENT = 170200;");
