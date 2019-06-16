@@ -24,7 +24,8 @@ class user_staff extends Authenticatable implements JWTSubject
     //     'name', 'email', 'password','gender','contact','u_id','t_ref_id','status',
     // ];
 
-    protected $guarded = [];
+    protected $guarded = [
+        'st_id'];
     
 
     /**

@@ -45,9 +45,11 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'st_fname' => ['required', 'string', 'max:255'],
             'st_email' => ['required', 'string', 'email', 'max:255','unique:user_staffs'],
-            'password' => ['required', 'string', 'min:8'],
+            'password' => ['required', 'string', 'min:10'],
             'st_gender' => ['required', 'max:1'],
             'st_contact' => ['required', 'min:10'],
+
+            'st_profile_picture' => ['mimes:jpeg,jpg,png,gif|required|max:10000'],
         ]);
     }
 
@@ -95,15 +97,27 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+      $request = request();
+
+            $profileImage = $request->file('st_profile_picture');
+            $profileImageSaveAsName = time() . Auth::id() . "-profile." . 
+                                      $profileImage->getClientOriginalExtension();
+
+            $upload_path = 'profile_images/staff/';
+            $profile_image_url = $upload_path . $profileImageSaveAsName;
+            $success = $profileImage->move($upload_path, $profileImageSaveAsName);
+
+      
         return user_staff::create([
             'st_fname' => $data['st_fname'],
             'st_email' => $data['st_email'],
-            'password' => Hash::make($data['password']),
+            'password' => Hash::make($data['st_contact']),
             'st_gender' => $data['st_gender'],
             'st_contact' => $data['st_contact'],
-            'st_id' => $data['st_id'],
-            't_ref_id' => $data['t_ref_id'],
-            'status' => $data['status'],
+           // 'st_id' => $data['st_id'],
+            //'t_ref_id' => $data['t_ref_id'],
+            //'status' => $data['status'],
             'st_mname' => $data['st_mname'],
             'st_dob' => $data['st_dob'],
             'st_age' =>$data['st_age'],
@@ -113,7 +127,9 @@ class RegisterController extends Controller
             'st_address_state' => $data['st_address_state'],
             'st_sub' => $data['st_sub'],
             'st_surname' => $data['st_surname'],
-            'st_authentication' => $data['st_authentication'],
+            //'st_authentication' => $data['st_authentication'],
+            'st_religion' => $data['st_religion'],
+            'st_profile_picture' => $profile_image_url,
 
         ]);
     }
