@@ -2,7 +2,7 @@
 <div>
 	<v-app>
  		<v-card >
-		<v-form  ref="addstudent-form" method="post" id="addstudent-form" enctype="multipart/form-data">
+		<v-form ref="addstudent-form" method="post" id="addstudent-form" enctype="multipart/form-data">
 			<v-container fluid>
 				<v-layout>
 					<v-flex xs12 sm6 >
@@ -317,7 +317,7 @@
 					</v-flex>
 				</v-layout>
 				<v-spacer></v-spacer><br>
-				<v-btn round color="success" light type="submit" form="addstudent-form" @click.prevent="submitForm">Submit</v-btn>
+				<v-btn round @click.prevent="submitForm" color="success" light type="submit" form="addstudent-form" >Submit</v-btn>
 				<v-btn  round color="primary" type="submit" form="addstudent-form"  @click="reset">Clear form</v-btn>
     		</v-container>
   		</v-form>
@@ -329,6 +329,8 @@
 </template>
 
 <script>
+// import axios from 'axios'
+import { Promise } from 'q';
 export default {
 	data() {
 		return{
@@ -408,7 +410,83 @@ export default {
 			console.log('Form submitted')
 			console.log(this.s_gender)
 			console.log(this.date)
-			const response=await this.$axios.post('/api/students/register',{
+			console.log(this.email)
+			// const promise_result =  new Promise((resolve,reject) => {
+			// 	const result = axios({
+			// 		method: 'post',
+			// 		url: '/user/12345',
+			// 		data: {
+			// 			s_fname: this.firstname,
+			// 			s_mname: this.middlename,
+			// 			s_surname: this.lastname,
+			// 			s_email: this.email,
+			// 			s_gender: this.s_gender,
+			// 			password: this.contact,
+			// 			s_contact: this.contact,
+			// 			s_dob: this.date,
+			// 			s_age: this.age,
+			// 			s_religion: this.religion,
+			// 			s_nationality: this.nationality,
+			// 			s_address: this.street,
+			// 			s_address_pin: this.pincode,
+			// 			s_address_state: this.s_state,
+			// 			guardian_fname: this.gfirstname,
+			// 			guardian_mname: this.gmiddlename,
+			// 			guardian_sname: this.glastname,
+			// 			guardian_email: this.gemail,
+			// 			guardian_contact: this.gcontact,
+			// 			guardian_address: this.gstreet,
+			// 			guardian_pin: this.gpincode,
+			// 			guardian_state: this.g_state,
+			// 			class_id: '123'
+			// 		}
+			// 	});
+			// 	console.log(result)
+			// 	resolve("done")
+			// 	reject(new Error("--"))
+			// })
+			// console.log(promise_result)
+
+			// const result = this.$axios.post('/api/students/register',{
+			// 	s_fname: this.firstname,
+			// 	s_mname: this.middlename,
+			// 	s_surname: this.lastname,
+			// 	s_email: this.email,
+			// 	s_gender: this.s_gender,
+			// 	password: this.contact,
+			// 	s_contact: this.contact,
+			// 	s_dob: this.date,
+			// 	s_age: this.age,
+			// 	s_religion: this.religion,
+			// 	s_nationality: this.nationality,
+			// 	s_address: this.street,
+			// 	s_address_pin: this.pincode,
+			// 	s_address_state: this.s_state,
+			// 	guardian_fname: this.gfirstname,
+			// 	guardian_mname: this.gmiddlename,
+			// 	guardian_surname: this.glastname,
+			// 	guardian_email: this.gemail,
+			// 	guardian_contact: this.gcontact,
+			// 	guardian_address: this.gstreet,
+			// 	guardian_pin: this.gpincode,
+			// 	guardian_state: this.g_state,
+			// 	class_id: '123'
+			// }).then((response)=>{
+			// 	console.log("In then")
+			// 	if(response.data.error){
+
+			// 		console.log(response.data.message);
+			// 	}
+			// 	else {
+			// 		console.log("no error then")
+			// 		console.log(response.data);
+			// 	}
+
+			// })
+			// .catch(err => console.log(err));
+			// console.log(result)
+
+			const response = await this.$axios.post('/api/students/register',{
 				s_fname: this.firstname,
 				s_mname: this.middlename,
 				s_surname: this.lastname,
@@ -425,7 +503,7 @@ export default {
 				s_address_state: this.s_state,
 				guardian_fname: this.gfirstname,
 				guardian_mname: this.gmiddlename,
-				guardian_sname: this.glastname,
+				guardian_surname: this.glastname,
 				guardian_email: this.gemail,
 				guardian_contact: this.gcontact,
 				guardian_address: this.gstreet,
@@ -433,7 +511,7 @@ export default {
 				guardian_state: this.g_state,
 				class_id: '123'
 			})
-			console.log(response.data)
+			console.log(response)
 		}
 	}
 }

@@ -74,7 +74,9 @@ export default {
 	// baseURL: 'http://api.thebutick.com/public',
 	baseURL: 'http://localhost:8000',
 	proxyHeaders: false,
-    credentials: false
+	credentials: false,
+    proxy: false,
+    debug: true
   },
   /*
   ** Build configuration

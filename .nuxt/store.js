@@ -19,8 +19,8 @@ void (function updateModules() {
   // Enforce store modules
   store.modules = store.modules || {}
 
-  resolveStoreModules(require('..\\store\\modules\\forum\\index.js'), 'modules/forum/index.js')
   resolveStoreModules(require('..\\store\\modules\\dashboard\\index.js'), 'modules/dashboard/index.js')
+  resolveStoreModules(require('..\\store\\modules\\forum\\index.js'), 'modules/forum/index.js')
   resolveStoreModules(require('..\\store\\modules\\dashboard\\actions.js'), 'modules/dashboard/actions.js')
   resolveStoreModules(require('..\\store\\modules\\dashboard\\mutations.js'), 'modules/dashboard/mutations.js')
   resolveStoreModules(require('..\\store\\modules\\dashboard\\state.js'), 'modules/dashboard/state.js')
@@ -34,8 +34,8 @@ void (function updateModules() {
     // Whenever any Vuex module is updated...
     module.hot.accept([
       '..\\store\\index.js',
-      '..\\store\\modules\\forum\\index.js',
       '..\\store\\modules\\dashboard\\index.js',
+      '..\\store\\modules\\forum\\index.js',
       '..\\store\\modules\\dashboard\\actions.js',
       '..\\store\\modules\\dashboard\\mutations.js',
       '..\\store\\modules\\dashboard\\state.js',
