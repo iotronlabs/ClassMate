@@ -30,9 +30,9 @@
 			v-model="checkbox"
 			label="Remember Me"
 		></v-checkbox>
-		
-		
-		
+
+
+
 			<v-btn
 				:disabled="disabled"
 				block
@@ -41,8 +41,8 @@
 				form="login-form"
 				:class="disabled ? btn-login : btn-login-color"
 			>LogIn</v-btn>
-			
-	
+
+
 		{{message}}
 	</v-form>
 </template>
@@ -82,33 +82,40 @@ export default {
 			}
 		}
 	},
-	created() {
-		// console.log(this.id)
-		if(this.id == 'student')
-		{
-			this.url = '/api/students/login'
-		}
-		else if(this.id == 'teacher')
-		{
-			this.url='/api/teachers/login'
-		}
-		else if(this.id == 'staff')
-		{
-			this.url='/api/staffs/login'
-		}
-		else if(this.id == 'admin')
-		{
-			this.url='/api/admins/login'
-		}
-	},
 	methods: {
 		...mapActions('dashboard',['getActiveUser']),
 		async checkLogin() {
 			await this.getActiveUser(this.id)
-			const response = await this.$axios.post(this.url,{
-				email: this.email,
-				password: this.password
-			})
+			let response
+			if(this.id=='student')
+			{
+				response = await this.$axios.post('/api/students/login',{
+					s_email: this.email,
+					password: this.password
+				})
+			}
+			else if(this.id=='teacher')
+			{
+				response = await this.$axios.post('/api/teachers/login',{
+					t_email: this.email,
+					password: this.password
+				})
+			}
+			else if(this.id=='staff')
+			{
+				response = await this.$axios.post('/api/staffs/login',{
+					st_email: this.email,
+					password: this.password
+				})
+			}
+			else if(this.id=='admin')
+			{
+				response = await this.$axios.post('/api/admins/login',{
+					email: this.email,
+					password: this.password
+				})
+			}
+
 			if(response.data.success == true)
 			{
 				this.$router.push('/dashboard')

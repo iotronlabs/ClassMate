@@ -1,7 +1,7 @@
 <template>
 <v-app >
 <v-card >
-    <v-form  ref="form" method="post" id="form" @submit.prevent="submitForm">
+    <v-form  ref="addstaff-form" method="post" id="addstaff-form" enctype="multipart/form-data">
 		<v-container fluid>
 			<v-layout>
 				<v-flex xs12 sm6 >
@@ -56,7 +56,7 @@
 			<!-- date of birth  -->
 			<v-layout  wrap>
 				<v-flex xs12 sm6 md3>
-						<v-radio-group v-model="s_gender" label="Gender">
+						<v-radio-group v-model="st_gender" label="Gender">
 						<v-radio
 							v-for="gender in genders"
 							:key="gender.value"
@@ -68,7 +68,7 @@
 				<v-flex xs12 sm6 md3>
 					<v-menu
 						ref="menu"
-						v-model="menu"
+						v-model="dob"
 						:close-on-content-click="false"
 						:nudge-right="40"
 						:return-value.sync="date"
@@ -174,7 +174,7 @@
 				<v-flex xs12 sm6 md3>
 					<v-select
 						v-if="nationality=='Indian' || nationality=='indian' || nationality=='INDIAN' || nationality=='India' || nationality=='india' || nationality=='INDIA'"
-						v-model="s_state"
+						v-model="state"
 						:items="states"
 						label="State"
 						solo
@@ -182,8 +182,8 @@
 				</v-flex>
 			</v-layout>
 			<v-spacer></v-spacer><br>
-      		<v-btn round color="success" light type="submit" form="login-form" >Submit</v-btn>
-       		<v-btn  round color="primary" type="submit" form="login-form"  @click="reset">Clear form</v-btn>
+      		<v-btn @click.prevent="submitForm" round color="success" light type="submit" form="addstaff-form" >Submit</v-btn>
+       		<v-btn  round color="primary" form="addstaff-form"  @click="reset">Clear form</v-btn>
     	</v-container>
  	</v-form>
 </v-card>
@@ -210,6 +210,7 @@ export default {
 			menu: false,
 			image:null,
 			imageUrl:'',
+			st_state: '',
 			states:['Arunachal Pradesh','Assam', 'Bihar', 'Chhattisgarh' ,'Goa', 'Gujarat', 'Haryana' ,
 			'Himachal Pradesh', 'Jammu and Kashmir',
 			'Jharkhand' ,'Karnataka', 'Kerala', 'Madhya Pradesh', 'Maharashtra' ,'Manipur', 'Meghalaya ',
@@ -218,7 +219,7 @@ export default {
 
 			],
 
-			s_gender: '',
+			st_gender: '',
 			genders: [
 				{label: 'Male', value: 'M'},
 				{label: 'Female',value: 'F'},
@@ -254,6 +255,26 @@ export default {
 			fileReader.readAsDataURL(files[0])
 			this.image=files[0]
 
+		},
+		async submitForm()
+		{
+			const response = await this.$axios.post('/api/staffs/register',{
+				st_fname: this.firstname,
+				st_email: this.email,
+				password: this.contact,
+				st_gender: this.st_gender,
+				st_contact: this.contact,
+				st_mname: this.middlename,
+				st_dob: this.date,
+				st_age: this.age,
+				st_nationality: this.nationality,
+				st_address: this.street,
+				st_address_pin: this.pincode,
+				st_address_state: this.st_state,
+				st_surname: this.lastname,
+				st_religion: this.religion
+			})
+			console.log(response.data)
 		}
 	}
 }

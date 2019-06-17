@@ -407,85 +407,6 @@ export default {
 			this.image=files[0]
 		},
 		async submitForm() {
-			console.log('Form submitted')
-			console.log(this.s_gender)
-			console.log(this.date)
-			console.log(this.email)
-			// const promise_result =  new Promise((resolve,reject) => {
-			// 	const result = axios({
-			// 		method: 'post',
-			// 		url: '/user/12345',
-			// 		data: {
-			// 			s_fname: this.firstname,
-			// 			s_mname: this.middlename,
-			// 			s_surname: this.lastname,
-			// 			s_email: this.email,
-			// 			s_gender: this.s_gender,
-			// 			password: this.contact,
-			// 			s_contact: this.contact,
-			// 			s_dob: this.date,
-			// 			s_age: this.age,
-			// 			s_religion: this.religion,
-			// 			s_nationality: this.nationality,
-			// 			s_address: this.street,
-			// 			s_address_pin: this.pincode,
-			// 			s_address_state: this.s_state,
-			// 			guardian_fname: this.gfirstname,
-			// 			guardian_mname: this.gmiddlename,
-			// 			guardian_sname: this.glastname,
-			// 			guardian_email: this.gemail,
-			// 			guardian_contact: this.gcontact,
-			// 			guardian_address: this.gstreet,
-			// 			guardian_pin: this.gpincode,
-			// 			guardian_state: this.g_state,
-			// 			class_id: '123'
-			// 		}
-			// 	});
-			// 	console.log(result)
-			// 	resolve("done")
-			// 	reject(new Error("--"))
-			// })
-			// console.log(promise_result)
-
-			// const result = this.$axios.post('/api/students/register',{
-			// 	s_fname: this.firstname,
-			// 	s_mname: this.middlename,
-			// 	s_surname: this.lastname,
-			// 	s_email: this.email,
-			// 	s_gender: this.s_gender,
-			// 	password: this.contact,
-			// 	s_contact: this.contact,
-			// 	s_dob: this.date,
-			// 	s_age: this.age,
-			// 	s_religion: this.religion,
-			// 	s_nationality: this.nationality,
-			// 	s_address: this.street,
-			// 	s_address_pin: this.pincode,
-			// 	s_address_state: this.s_state,
-			// 	guardian_fname: this.gfirstname,
-			// 	guardian_mname: this.gmiddlename,
-			// 	guardian_surname: this.glastname,
-			// 	guardian_email: this.gemail,
-			// 	guardian_contact: this.gcontact,
-			// 	guardian_address: this.gstreet,
-			// 	guardian_pin: this.gpincode,
-			// 	guardian_state: this.g_state,
-			// 	class_id: '123'
-			// }).then((response)=>{
-			// 	console.log("In then")
-			// 	if(response.data.error){
-
-			// 		console.log(response.data.message);
-			// 	}
-			// 	else {
-			// 		console.log("no error then")
-			// 		console.log(response.data);
-			// 	}
-
-			// })
-			// .catch(err => console.log(err));
-			// console.log(result)
-
 			const response = await this.$axios.post('/api/students/register',{
 				s_fname: this.firstname,
 				s_mname: this.middlename,
@@ -494,7 +415,7 @@ export default {
 				s_gender: this.s_gender,
 				password: this.contact,
 				s_contact: this.contact,
-				s_dob: this.date,
+				s_dob: this.dob,
 				s_age: this.age,
 				s_religion: this.religion,
 				s_nationality: this.nationality,
@@ -509,9 +430,10 @@ export default {
 				guardian_address: this.gstreet,
 				guardian_pin: this.gpincode,
 				guardian_state: this.g_state,
+				s_profile_picture: this.imageUrl,
 				class_id: '123'
 			})
-			console.log(response)
+			console.log(response.data)
 		}
 	}
 }

@@ -1,7 +1,7 @@
 <template>
 <v-app >
 <v-card >
-    <v-form  ref="form" method="post" id="form" @submit.prevent="submitForm">
+    <v-form  ref="addteacher-form" method="post" id="addteacher-form" enctype="multipart/form-data">
 		<v-container fluid>
 			<v-layout>
 				<v-flex xs12 sm6 >
@@ -56,7 +56,7 @@
 			<!-- date of birth  -->
 			<v-layout  wrap>
 				<v-flex xs12 sm6 md3>
-						<v-radio-group v-model="s_gender" label="Gender">
+						<v-radio-group v-model="t_gender" label="Gender">
 						<v-radio
 							v-for="gender in genders"
 							:key="gender.value"
@@ -67,32 +67,32 @@
 				</v-flex>
 				<v-flex xs12 sm6 md3>
 					<v-menu
-						ref="menu"
-						v-model="menu"
-						:close-on-content-click="false"
-						:nudge-right="40"
-						:return-value.sync="date"
-						lazy
-						transition="scale-transition"
-						offset-y
-						full-width
-						min-width="290px"
-						>
-						<template v-slot:activator="{ on }">
-							<v-text-field
-							v-model="date"
-							label="Date of Birth"
-							placeholder="yyyy-mm-dd"
-							readonly
-							v-on="on"
-							></v-text-field>
-						</template>
-						<v-date-picker v-model="date" no-title scrollable>
-							<v-spacer></v-spacer>
-							<v-btn flat color="primary" @click="menu = false">Cancel</v-btn>
-							<v-btn flat color="primary" @click="$refs.menu.save(date)">OK</v-btn>
-						</v-date-picker>
-					</v-menu>
+							ref="menu"
+							v-model="dob"
+							:close-on-content-click="false"
+							:nudge-right="40"
+							:return-value.sync="date"
+							lazy
+							transition="scale-transition"
+							offset-y
+							full-width
+							min-width="290px"
+							>
+							<template v-slot:activator="{ on }">
+								<v-text-field
+								v-model="date"
+								label="Date of Birth"
+								placeholder="yyyy-mm-dd"
+								readonly
+								v-on="on"
+								></v-text-field>
+							</template>
+							<v-date-picker v-model="date" no-title scrollable>
+								<v-spacer></v-spacer>
+								<v-btn flat color="primary" @click="menu = false">Cancel</v-btn>
+								<v-btn flat color="primary" @click="$refs.menu.save(date)">OK</v-btn>
+							</v-date-picker>
+						</v-menu>
 				</v-flex>
 
 				<!-- age -->
@@ -174,7 +174,7 @@
 				<v-flex xs12 sm6 md3>
 					<v-select
 						v-if="nationality=='Indian' || nationality=='indian' || nationality=='INDIAN' || nationality=='India' || nationality=='india' || nationality=='INDIA'"
-						v-model="s_state"
+						v-model="t_state"
 						:items="states"
 						label="State"
 						solo
@@ -194,8 +194,8 @@
 				</v-flex>
 			</v-layout>
       		<v-spacer></v-spacer><br>
-      		<v-btn round color="success" light type="submit" form="login-form" >Submit</v-btn>
-       		<v-btn  round color="primary" type="submit" form="login-form"  @click="reset">Clear form</v-btn>
+      		<v-btn @click.prevent="submitForm" round color="success" light type="submit" form="addteacher-form" >Submit</v-btn>
+       		<v-btn  round color="primary" form="addteacher-form"  @click="reset">Clear form</v-btn>
     	</v-container>
  	</v-form>
 </v-card>
@@ -217,11 +217,11 @@ export default {
 			street:'',
 			city:'',
 			pincode:'',
-			zip:'',
 			date: new Date().toISOString().substr(0, 10),
 			menu: false,
-			image:null,
+			image:'',
 			imageUrl:'',
+			t_state:'',
 			states:['Arunachal Pradesh','Assam', 'Bihar', 'Chhattisgarh' ,'Goa', 'Gujarat', 'Haryana' ,
 			'Himachal Pradesh', 'Jammu and Kashmir',
 			'Jharkhand' ,'Karnataka', 'Kerala', 'Madhya Pradesh', 'Maharashtra' ,'Manipur', 'Meghalaya ',
@@ -230,7 +230,7 @@ export default {
 
 			],
 
-			s_gender: '',
+			t_gender: '',
 			genders: [
 				{label: 'Male', value: 'M'},
 				{label: 'Female',value: 'F'},
@@ -260,15 +260,43 @@ export default {
 			let filename=files[0].name;
 			if (filename.lastIndexOf('.')<=0)
 			{
-			return alert('please add a valid file')
+				return alert('please add a valid file')
 			}
 			const fileReader=new FileReader()
 			fileReader.addEventListener ('load',() => {
-			this.imageUrl=fileReader.result
+				this.imageUrl=fileReader.result
 			})
 			fileReader.readAsDataURL(files[0])
 			this.image=files[0]
 
+		},
+		async submitForm()
+		{
+			// console.log(this.imageUrl)
+			console.log(this.image)
+			console.log(typeof this.image)
+			const response = await this.$axios.post('api/teachers/register',{
+				t_fname: this.firstname,
+				t_mname: this.middlename,
+				t_surname: this.lastname,
+				t_dob: this.date,
+				t_age: this.age,
+				t_email: this.email,
+				password: this.contact,
+				t_contact: this.contact,
+				t_gender: this.t_gender,
+				t_nationality: this.nationality,
+				t_religion: this.religion,
+				t_address: this.street,
+				t_address_pin: this.pincode,
+				t_address_state: this.t_state,
+				t_sub: this.subject,
+				// t_profile_picture: this.imageUrl
+			})
+			if(response.data.success==true)
+			{
+				// enter a snackbar message for this
+			}
 		}
 	}
 }
