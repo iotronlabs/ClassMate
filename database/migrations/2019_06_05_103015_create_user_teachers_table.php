@@ -19,7 +19,7 @@ class CreateUserTeachersTable extends Migration
             $table->engine = 'InnoDB';
 
            $table->bigIncrements('t_id')->length(7)->unique();
-            
+
             $table->string('t_ref_id')->length(10)->nullable();
             $table->string('t_fname')->length(100);
             $table->string('t_mname')->lenth(100);
@@ -29,7 +29,7 @@ class CreateUserTeachersTable extends Migration
             $table->string('t_email')->unique();
             $table->char('t_gender',1);
             $table->unsignedBiginteger('t_contact')->length(10);
-          
+
             $table->string('t_nationality')->length(100);
             $table->string('t_religion')->length(30);
             $table->string('t_address')->length(100);
@@ -48,8 +48,7 @@ class CreateUserTeachersTable extends Migration
             $table->integer('t_authentication')->length(1)->default('2');
 
            // $table->string('t_profile_picture')->nullable();
-
-            $table->string('t_profile_picture')->nullable();
+        });
 
 
        DB::statement("ALTER TABLE user_teachers AUTO_INCREMENT = 170200;");
