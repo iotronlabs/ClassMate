@@ -415,7 +415,7 @@ export default {
 				s_gender: this.s_gender,
 				password: this.contact,
 				s_contact: this.contact,
-				s_dob: this.dob,
+				s_dob: this.date,
 				s_age: this.age,
 				s_religion: this.religion,
 				s_nationality: this.nationality,
