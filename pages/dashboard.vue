@@ -4,9 +4,9 @@
 			<v-layout align-center justify-center>
 				<v-flex xs12>
 
-						<!-- <Table /> -->
+						<Table />
 					 <!--<Calendar /> -->
-					<exam />
+					<!-- <exam /> -->
 					<!-- <exam2 /> -->
 				</v-flex>
 			</v-layout>
