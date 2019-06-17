@@ -35,18 +35,56 @@ class RegisterController extends Controller
           $this->middleware('guest:user_teachers');
     }
 
-    //   protected function guard()
-    // {
-    //     return Auth::guard('teachers');
-    // }
+    public function show()
+    {
 
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
+      $user_teacher= user_teacher::all();
+
+      return response()->json
+           ([
+               'success' =>  true,
+               'data' => $user_teacher,
+               
+           ],200);
+
+
+      
+      
+    } 
+
+  public function edit($t_id)
+  {
+
+     $project = user_teacher::find($t_id);
+
+     return response()->json
+           ([
+               'success' =>  true,
+               'data' => $project,
+               
+           ],200);
+  }
+
+  public function update($t_id)
+  {
+
+
+    $project = user_teacher::find($t_id);
+
+    $project->t_fname  = request('t_fname');
+    $project->t_gender = request('t_gender');
+
+    $project->save();
+
+    redirect('/register');
+
+  }
+    
+  //   return redirect('/user_teacher/register');
+
+  // }
+
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -106,15 +144,15 @@ class RegisterController extends Controller
     protected function create(array $data)
     {   
 
-             $request = request();
+            //  $request = request();
 
-            $profileImage = $request->file('t_profile_picture');
-            $profileImageSaveAsName = time() . Auth::id() . "-profile." . 
-                                      $profileImage->getClientOriginalExtension();
+            // $profileImage = $request->file('t_profile_picture');
+            // $profileImageSaveAsName = time() . Auth::id() . "-profile." . 
+            //                           $profileImage->getClientOriginalExtension();
 
-            $upload_path = 'profile_images/teacher/';
-            $profile_image_url = $upload_path . $profileImageSaveAsName;
-            $success = $profileImage->move($upload_path, $profileImageSaveAsName);
+            // $upload_path = 'profile_images/teacher/';
+            // $profile_image_url = $upload_path . $profileImageSaveAsName;
+            // $success = $profileImage->move($upload_path, $profileImageSaveAsName);
 
 
         return user_teacher::create([

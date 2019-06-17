@@ -49,11 +49,13 @@ class CreateUserTeachersTable extends Migration
 
            // $table->string('t_profile_picture')->nullable();
 
-            $table->string('t_profile_picture')->nullable();
+            //$table->string('t_profile_picture')->nullable();
 
 
-       DB::statement("ALTER TABLE user_teachers AUTO_INCREMENT = 170200;");
-    }
+       
+    });
+    DB::statement("ALTER TABLE user_teachers AUTO_INCREMENT = 170200;");
+}
 
     /**
      * Reverse the migrations.

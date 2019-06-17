@@ -45,6 +45,10 @@ Route::group([ 'prefix' =>'/teachers',
              {
                  Route::post('/register','teachers\Auth\RegisterController@register');
                  Route::post('/login','teachers\Auth\LoginController@login');
+                 Route::get('/show',      'teachers\Auth\TeacherUpdateController@show');
+                 Route::get('/{t_id}/edit',  'teachers\Auth\TeacherUpdateController@edit');
+
+                Route::patch('/{t_id}','teachers\Auth\TeacherUpdateController@update');
              }
     
 );
@@ -57,7 +61,6 @@ Route::group([ 'prefix' =>'/staffs',
              }
     
 );
-
 
 
 Route::group([ 'prefix' =>'/forum'],function()
