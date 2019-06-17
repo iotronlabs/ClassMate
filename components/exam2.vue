@@ -1,40 +1,58 @@
 <template>
 <div>
-	<v-container fluid>
+  <v-container fluid>
 
-		<v-tabs v-model="active" color="cyan" dark slider-color="yellow" >
-      		<v-tab v-for="head in heading" :key="n" ripple >
-          		{{head}}
+    <v-tabs v-model="active" color="cyan" dark slider-color="yellow" >
+          <v-tab v-for="head in heading" :key="n" ripple >
+              {{head}}
   
-      		</v-tab>
-        	<v-tab-item v-for="n in 5" :key="n" >
-          		
-      			<v-card class = "card-content">
-      			
-      				<v-subheader> Exam Name</v-subheader>
-					<v-layout wrap align-center>
-		        
-		 				<v-flex xs12 sm6 d-flex>
-		          			<v-select :items="items" label="---Select exam---" solo outline  >
-		          			</v-select>
-		        		</v-flex>
-	        		</v-layout>
-		        	<v-subheader large> Question</v-subheader>	
-		      		<v-layout>
-			            <v-flex xs12 sm6 d-flex>
-			            	<v-text-field label="Enter Question" solo outline ></v-text-field>
-			          	</v-flex>
+          </v-tab>
+          <v-tab-item v-for="n in 2" :key="n" >
+              
+            <v-card class = "card-content">
+            
+              <v-subheader> Exam Name</v-subheader>
+               <v-layout wrap align-center>
+            
+                   <v-flex xs12 sm6 d-flex>
+                       <v-select :items="items" label="---Select exam---" solo outline  >
+                       </v-select>
+                    </v-flex>
+              </v-layout>
+              <v-subheader large > Question</v-subheader> 
+              <v-layout>
+                  <v-flex xs12 sm6 d-flex>
+                    <v-text-field label="Enter Question" solo outline ></v-text-field>
+                  </v-flex>
   
-          			 </v-layout>
-      
-    			</v-card>
+                 </v-layout>
+
+              <v-subheader large v-if = "n==2"> Answer </v-subheader>  
+              <v-layout v-if = "n==2">
+                  <v-flex xs12 sm6 d-flex>
+                    <v-text-field label="Enter Answer" solo outline ></v-text-field>
+                  </v-flex>
+  
+              </v-layout>
+
+              <v-btn v-if = "n==2"> Submit</v-btn>
+
+              <v-layout>
+
+              
+
+              </v-layout>
+
+              
+                 
+          </v-card>
  
 
-        	</v-tab-item>
-    	</v-tabs>
+          </v-tab-item>
+      </v-tabs>
 
-    	
-	</v-container>
+      
+  </v-container>
 </div>
 </template>
 
@@ -58,7 +76,7 @@ items : ['A','B' ,'C']
 
   <style scoped>
 .card-content{
-	padding : 10px 20px 10px 20px;
+  padding : 10px 20px 10px 20px;
 
 }
 
