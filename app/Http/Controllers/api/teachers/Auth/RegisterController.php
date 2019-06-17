@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8'],
             't_gender' => ['required', 'max:1'],
             't_contact' => ['required', 'min:10'],
-            't_profile_picture' => ['mimes:jpeg,jpg,png,gif|required|max:10000'],
+           // 't_profile_picture' => ['mimes:jpeg,jpg,png,gif|required|max:10000'],
         ]);
     }
 
@@ -139,7 +139,7 @@ class RegisterController extends Controller
             't_sub' => $data['t_sub'],
             //'t_status' => $data['t_status'],
             //'t_authentication'  => $data['t_authentication'],
-            't_profile_picture' => $profile_image_url,
+            //'t_profile_picture' => $profile_image_url,
 
         ]);
     }

@@ -34,7 +34,7 @@ class CreateUserTeachersTable extends Migration
             $table->string('t_religion')->length(30);
             $table->string('t_address')->length(100);
             $table->integer('t_address_pin')->length(6);
-            $table->string('t_address_state')->length(100);
+            $table->string('t_address_state')->length(100)->nullable();
 
 
             $table->string('password');
@@ -44,7 +44,7 @@ class CreateUserTeachersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->integer('t_authentication')->length(1)->default('2');
-            $table->string('t_profile_picture')->nullable();
+           // $table->string('t_profile_picture')->nullable();
         });
 
        DB::statement("ALTER TABLE user_teachers AUTO_INCREMENT = 170200;");

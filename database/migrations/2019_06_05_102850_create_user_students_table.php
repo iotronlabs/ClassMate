@@ -33,7 +33,7 @@ class CreateUserStudentsTable extends Migration
             $table->string('s_religion')->length(30);
             $table->string('s_address')->length(200);
             $table->string('s_address_pin')->length(6);
-            $table->string('s_address_state')->length(20);
+            $table->string('s_address_state')->length(20)->nullable();
             $table->string('guardian_fname')->length(100);
             $table->string('guardian_mname')->length(100);
             $table->string('guardian_surname')->length(100);
@@ -41,7 +41,7 @@ class CreateUserStudentsTable extends Migration
             $table->string('guardian_contact')->length(10);
             $table->string('guardian_address')->length(100);
             $table->integer('guardian_pin')->length(6);
-            $table->string('guardian_state')->length(50);
+            $table->string('guardian_state')->length(50)->nullable();
 
            // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -51,7 +51,7 @@ class CreateUserStudentsTable extends Migration
             $table->integer('s_authentication')->default('1')->length(1);
             $table->rememberToken();
             $table->timestamps();
-            $table->string('s_profile_picture')->nullable();
+            //$table->string('s_profile_picture')->nullable();
 
         });
 

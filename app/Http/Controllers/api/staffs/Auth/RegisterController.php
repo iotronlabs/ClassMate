@@ -49,7 +49,7 @@ class RegisterController extends Controller
             'st_gender' => ['required', 'max:1'],
             'st_contact' => ['required', 'min:10'],
 
-            'st_profile_picture' => ['mimes:jpeg,jpg,png,gif|required|max:10000'],
+            // 'st_profile_picture' => ['mimes:jpeg,jpg,png,gif|required|max:10000'],
         ]);
     }
 
@@ -129,7 +129,7 @@ class RegisterController extends Controller
             'st_surname' => $data['st_surname'],
             //'st_authentication' => $data['st_authentication'],
             'st_religion' => $data['st_religion'],
-            'st_profile_picture' => $profile_image_url,
+           // 'st_profile_picture' => $profile_image_url,
 
         ]);
     }

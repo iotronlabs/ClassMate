@@ -20,23 +20,23 @@ class CreateUserStaffsTable extends Migration
             $table->string('st_surname');
             $table->string('st_dob');
             $table->string('st_age');
-            $table->unsignedInteger('st_contact')->length(10);
+            $table->unsignedBigInteger('st_contact')->length(10);
             $table->string('st_email')->unique();
             $table->char('st_gender',1);
             $table->string('st_nationality')->length(50);
             $table->string('st_religion');
             $table->string('st_address')->length(200);
             $table->string('st_address_pin')->length(6);
-            $table->string('st_address_state')->length(20);
+            $table->string('st_address_state')->length(50)->nullable();
             //$table->unsignedInteger('contact')->length(15);
           //  $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('st_sub')->length(50)->nullable();
+            //$table->string('st_sub')->length(50)->nullable();
             $table->unsignedTinyinteger('status')->default('111');
             $table->rememberToken();
             $table->timestamps();
             $table->integer('st_authentication')->length(2)->default('3');
-            $table->string('st_profile_picture')->nullable();
+           // $table->string('st_profile_picture')->nullable();
         });
 
         
