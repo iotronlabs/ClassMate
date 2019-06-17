@@ -22,14 +22,14 @@
 											hide-details
 										></v-checkbox>
 									</td>
-									<td>{{ props.item.id }}</td>
-									<td class="text-xs">{{ props.item.name }} </td>
-									<td class="text-xs">{{ props.item.dob }}</td>
-									<td class="text-xs">{{ props.item.email }}</td>
-									<td class="text-xs">{{ props.item.contact }}</td>
-									<td class="text-xs" v-if="n==1">{{ props.item.stream }}</td>
+									<td>{{ props.item.s_id }}</td>
+									<td class="text-xs">{{ props.item.s_fname + props.item.s_mname + props.item.s_surname  }} </td>
+									<td class="text-xs">{{ props.item.s_dob }}</td>
+									<td class="text-xs">{{ props.item.s_email }}</td>
+									<td class="text-xs">{{ props.item.s_contact }}</td>
+									<!-- <td class="text-xs" v-if="n==1">{{ props.item.stream }}</td>
 									<td class="text-xs" v-if="n==1">{{ props.item.section }}</td>
-									<td class="text-xs" v-if="n==2">{{ props.item.subject}}</td>
+									<td class="text-xs" v-if="n==2">{{ props.item.subject}}</td> -->
 
 								<td class="justify-center layout px-0">
 									<v-icon small class="mr-2" @click="editItem(props.item)" >
@@ -74,13 +74,13 @@ export default {
 		dialog: false,
 		headers: [
 			[
-				{ text: 'Sl_No',	align: 'left', sortable: true,	value: 'id'},
+				{ text: 'Sl_No',	align: 'left', sortable: true,	value: 's_id'},
 				{ text: 'Name', value: 'name' },
-				{ text: 'Date of birth ', value: 'dob' },
-				{ text: 'Email', value: 'email' },
-				{ text: 'Contact Number', value: 'contact' },
+				{ text: 'Date of birth ', value: 's_dob' },
+				{ text: 'Email', value: 's_email' },
+				{ text: 'Contact Number', value: 's_contact' },
 				{ text: 'Stream', value: 'stream' },
-				{ text: 'Section', value: 'section' }
+				{ text: 'Section', value: 'class_id' }
 			],
 			[
 				{ text: 'Sl_No', align: 'left', sortable: true, value: 'id'},
@@ -109,15 +109,6 @@ export default {
 			stream: '--',
 			section: '24'
 		},
-		defaultItem: {
-			id: '1',
-			name : '--',
-			dob: '--',
-			email: '--',
-			contact: '--',
-			stream: '--',
-			section: ''
-		},
 		selected: []
   	}),
 	computed: {
@@ -134,57 +125,15 @@ export default {
 		this.initialize()
 	},
 	methods: {
-		initialize () {
+		async initialize () {
+			const student_response = await this.$axios.get('/api/students')
+			const teacher_response = await this.$axios.get('/api/teachers')
+			const staff_response = await this.$axios.get('/api/staffs')
 			this.Serial_No =
 			{
-				student_data: [
-					{
-						id: '1',
-						name : '--',
-						dob: '--',
-						email: '--',
-						contact: '--',
-						stream: '--',
-						section: '24'
-					},
-					{
-						id: '2',
-						name : '--',
-						dob: '--',
-						email: '--',
-						contact: '--',
-						stream: '--',
-						section: '24'
-					},
-					{
-						id: '3',
-						name : '--',
-						dob: '--',
-						email: '--',
-						contact: '--',
-						stream: '--',
-						section: '24'
-					},
-					{
-						id: '4',
-						name : '--',
-						dob: '--',
-						email: '--',
-						contact: '--',
-						stream: '--',
-						section: '24'
-					}
-				],
-				teacher_data : [
-					{
-						id: '2',
-						name: '--',
-						dob: '--',
-						email: '--',
-						contact: '--',
-						subject: '--'
-					},
-				]
+				student_data: student_response.data,
+				teacher_data : teacher_response.data,
+				staff_data: staff_response.data
 			}
 		},
 		selectUser(n) {
