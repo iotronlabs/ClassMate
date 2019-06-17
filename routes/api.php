@@ -19,7 +19,7 @@ Route::group([ 'prefix' =>'/auth',
                  Route::post('/register','Auth\RegisterController@register');
                  Route::post('/login','Auth\LoginController@login');
              }
-    
+
 );
 
 Route::group([ 'prefix' =>'/admins',
@@ -28,7 +28,7 @@ Route::group([ 'prefix' =>'/admins',
                  Route::post('/register','admins\Auth\RegisterController@register');
                  Route::post('/login','admins\Auth\LoginController@login');
              }
-    
+
 );
 
 Route::group([ 'prefix' =>'/students',
@@ -36,8 +36,9 @@ Route::group([ 'prefix' =>'/students',
              {
                  Route::post('/register','students\Auth\RegisterController@register');
                  Route::post('/login','students\Auth\LoginController@login');
+                 Route::get('/','students\StudentController@index');
              }
-    
+
 );
 
 Route::group([ 'prefix' =>'/teachers',
@@ -45,8 +46,9 @@ Route::group([ 'prefix' =>'/teachers',
              {
                  Route::post('/register','teachers\Auth\RegisterController@register');
                  Route::post('/login','teachers\Auth\LoginController@login');
+                 Route::get('/','teachers\TeacherController@index');
              }
-    
+
 );
 
 Route::group([ 'prefix' =>'/staffs',
@@ -54,8 +56,9 @@ Route::group([ 'prefix' =>'/staffs',
              {
                  Route::post('/register','staffs\Auth\RegisterController@register');
                  Route::post('/login','staffs\Auth\LoginController@login');
+                 Route::get('/','staffs\StaffController@index');
              }
-    
+
 );
 
 
@@ -70,7 +73,7 @@ Route::group([ 'prefix' =>'/forum'],function()
 
 
              }
-    
+
 );
 
 
@@ -84,9 +87,9 @@ Route::group([ 'prefix' =>'/classes',
             ],function()
              {
                  Route::post('/register','classes\RegisterClassController@register');
-                
+
              }
-    
+
 );
 
 Route::group([ 'prefix' =>'/courses',
@@ -95,6 +98,6 @@ Route::group([ 'prefix' =>'/courses',
                  Route::post('/register','courses\RegisterCourseController@register');
                 // Route::post('/login','classes\LoginController@login');
              }
-    
+
 );
 
