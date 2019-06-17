@@ -7,20 +7,19 @@
         <v-tab v-for="i in 2" :key="i" :href="'#tab-' + i" >
           Q {{ i }}
         </v-tab>
-
-        <v-tabs-items>
+		<v-tabs-items>
           <v-tab-item
-            v-for="texts in textss" :key="i" :value="'tab-' + i" >
-              <v-card flat>
-                <v-card-text>{{ texts }}</v-card-text>
+             v-for="i in 2" :key="i" :value="'tab-' + i" >
+              <v-card flat v-for="texts in textss" :key="texts.text">
+                <v-card-text>{{ texts.text }}</v-card-text>
               </v-card>
 
               <v-card flat>
-				{{contents[i-1]}}
+				{{contents[i-1].text}}
 
               </v-card>
            </v-tab-item>
-        </v-tabs-items>
+		</v-tabs-items>
     </v-tabs>
 
   </v-container>
