@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\forum;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Thread extends Model
+class forum_save extends Model
 {
     //
 }

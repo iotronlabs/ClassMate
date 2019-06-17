@@ -16,9 +16,10 @@ class CreateRepliesTable extends Migration
         Schema::create('forum_replies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('user_id');
-            $table->string('thread_id');
-             $table->string('t_ref_id')->length(10);
+            $table->string('forum_thread_id');
+            $table->string('t_ref_id')->length(10);
             $table->text('body');
+            $table->tinyInteger('t_authentication')->length(1);
             $table->timestamps();
         });
     }

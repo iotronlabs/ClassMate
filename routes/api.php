@@ -60,9 +60,24 @@ Route::group([ 'prefix' =>'/staffs',
 
 
 
+Route::group([ 'prefix' =>'/forum'],function()
+             {
+
+                 Route::post('/threads','forum\ThreadsController@store');
+                 Route::get('/threads','forum\ThreadsController@index');
+                 Route::get('/threads/{thread}','forum\ThreadsController@show');
+                 Route::post('/threads/{thread}/replies','forum\RepliesController@store');
+
+
+             }
+    
+);
+
+
+
 // Route::post('/register','api\classes\RegisterClassController@register');
 // Route::post('/login','staffs\Auth\LoginController@login');
-           
+
 
 //Route::group(['middleware' => 'cors'], function () {
 Route::group([ 'prefix' =>'/classes',
