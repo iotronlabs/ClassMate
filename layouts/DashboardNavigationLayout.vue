@@ -17,7 +17,7 @@
 						<v-flex xs10 sm10 md10 lg10>
 							<UserProfile />
 						</v-flex>
-						<v-flex xs2 sm2 lg2 md2>
+						<!-- <v-flex xs2 sm2 lg2 md2>
 							<v-list>
 								<v-list-tile-action>
 									<v-btn icon
@@ -26,7 +26,7 @@
 									</v-btn>
 								</v-list-tile-action>
 							</v-list>
-						</v-flex>
+						</v-flex> -->
 					</v-layout>
 				</div>
 				<hr>
@@ -85,7 +85,7 @@
 			<v-toolbar-title>Classmate</v-toolbar-title>
 			<v-spacer />
 		
-			<span class="toolbar-icons">
+			<span class="toolbar-icons"> 
 			<v-menu offset-y>
 			<template v-slot:activator="{ on }">
 				<v-badge
@@ -93,9 +93,9 @@
 			color="orange"
 			>
 				<template v-slot:badge>
-					<span>2</span>
+					<span class="badge-text">2</span>
 				</template>
-				<v-btn icon v-on="on"><font-awesome-icon :icon="['far', 'bell']"/></v-btn>
+				<font-awesome-icon v-on="on" :icon="['far', 'bell']" size="2x"/>
 			</v-badge>
 				
 			</template>
@@ -116,10 +116,10 @@
 			</v-menu>
 			</span>
 			
-			<v-menu :nudge-width="100">
+			<v-menu offset-y>
 				<template v-slot:activator="{ on }">
 				<v-toolbar-title v-on="on">
-					<span class="toolbar-icons"><v-btn icon><font-awesome-icon :icon="['fas', 'cog']"/></v-btn></span>
+					<span class="toolbar-icons"><v-btn icon><font-awesome-icon :icon="['fas', 'cog']" size="2x"/></v-btn></span>
 				</v-toolbar-title>
 				</template>
 
@@ -132,7 +132,7 @@
 				</v-list-tile>
 				<v-list-tile
 				>
-					<v-list-tile-action><v-btn icon><font-awesome-icon :icon="['fas', 'sign-out-alt']"/></v-btn></v-list-tile-action>
+					<v-list-tile-action><font-awesome-icon :icon="['fas', 'sign-out-alt']"/></v-list-tile-action>
 					<v-list-tile-title >Logout</v-list-tile-title>
 				</v-list-tile>
 				</v-list>
@@ -253,8 +253,9 @@ export default {
 // 	color: $primary-gradient;
 // }
 .toolbar-icons {
-	margin: 10px;
+	margin: 5px;
 }
-
-
+.badge-text {
+	font-size: 10px;
+}
 </style>
