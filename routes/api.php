@@ -19,7 +19,7 @@ Route::group([ 'prefix' =>'/auth',
                  Route::post('/register','Auth\RegisterController@register');
                  Route::post('/login','Auth\LoginController@login');
              }
-    
+
 );
 
 Route::group([ 'prefix' =>'/admins',
@@ -28,7 +28,7 @@ Route::group([ 'prefix' =>'/admins',
                  Route::post('/register','admins\Auth\RegisterController@register');
                  Route::post('/login','admins\Auth\LoginController@login');
              }
-    
+
 );
 
 Route::group([ 'prefix' =>'/students',
@@ -36,8 +36,16 @@ Route::group([ 'prefix' =>'/students',
              {
                  Route::post('/register','students\Auth\RegisterController@register');
                  Route::post('/login','students\Auth\LoginController@login');
+                 Route::get('/','students\StudentController@index');
+                  Route::get('/{s_id}/show',  'students\StudentController@show');
+                 Route::get('/{s_id}/edit', 'students\StudentController@edit');
+
+                Route::post('/{s_id}','students\StudentController@update');
+
+                 
+                 Route::delete('/{s_id}','students\StudentController@destroy');
              }
-    
+
 );
 
 Route::group([ 'prefix' =>'/teachers',
@@ -45,12 +53,19 @@ Route::group([ 'prefix' =>'/teachers',
              {
                  Route::post('/register','teachers\Auth\RegisterController@register');
                  Route::post('/login','teachers\Auth\LoginController@login');
-                 Route::get('/show',      'teachers\Auth\TeacherUpdateController@show');
-                 Route::get('/{t_id}/edit',  'teachers\Auth\TeacherUpdateController@edit');
 
-                Route::patch('/{t_id}','teachers\Auth\TeacherUpdateController@update');
+                 Route::get('/{t_id}/show',  'teachers\TeacherController@show');
+                 Route::get('/{t_id}/edit', 'teachers\TeacherController@edit');
+
+                Route::post('/{t_id}','teachers\TeacherController@update');
+
+                 
+                 Route::delete('/{t_id}','teachers\TeacherController@destroy');
+
+                 Route::get('/','teachers\TeacherController@index');
+
              }
-    
+
 );
 
 Route::group([ 'prefix' =>'/staffs',
@@ -58,8 +73,18 @@ Route::group([ 'prefix' =>'/staffs',
              {
                  Route::post('/register','staffs\Auth\RegisterController@register');
                  Route::post('/login','staffs\Auth\LoginController@login');
+                 Route::get('/','staffs\StaffController@index');
+
+                 Route::get('/{st_id}/show',  'staffs\StaffController@show');
+                 Route::get('/{st_id}/edit', 'staffs\StaffController@edit');
+
+                Route::post('/{st_id}','staffs\StaffController@update');
+
+                 
+                 Route::delete('/{st_id}','staffs\StaffController@destroy');
+
              }
-    
+
 );
 
 
@@ -73,7 +98,7 @@ Route::group([ 'prefix' =>'/forum'],function()
 
 
              }
-    
+
 );
 
 
@@ -87,9 +112,9 @@ Route::group([ 'prefix' =>'/classes',
             ],function()
              {
                  Route::post('/register','classes\RegisterClassController@register');
-                
+
              }
-    
+
 );
 
 Route::group([ 'prefix' =>'/courses',
@@ -98,6 +123,6 @@ Route::group([ 'prefix' =>'/courses',
                  Route::post('/register','courses\RegisterCourseController@register');
                 // Route::post('/login','classes\LoginController@login');
              }
-    
+
 );
 

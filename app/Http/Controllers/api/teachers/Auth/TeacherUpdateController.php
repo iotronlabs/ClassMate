@@ -45,32 +45,50 @@ class TeacherUpdateController extends Controller
            ],200);
   }
 
-  public function update($t_id)
-  {
+			  public function update(Request $request, $t_id)
+			  {
 
 
-    $project = user_teacher::findorFail($t_id);
-    //dd($t_id);
-    //dd($project);
+						  	$task = user_teacher::findOrFail($t_id);
 
-    $project->t_fname = request('t_fname');
-    // $project->t_fname  = request('t_fname');
-    // // $project->t_gender = request('t_gender');
-    // // $project->t_mname=   request('t_mname');
+						    $this->validate($request, [
+						        't_email' => 'required',
+						        't_gender' => 'required'
+						    ]);
 
-     $project->save();
+						    $input = $request->all();
 
-    // //$user_teacher= user_teacher::all();
+						    $task->fill($input)->save();
 
-    //   return response()->json
-    //        ([
-    //            'success' =>  true,
-    //            'data' => $user_teacher,
-               
-    //        ],200);
-    //dd($project->t_fname);
-     return redirect('api/teachers/Auth/TeacherUpdateController');
 
-  }
-}
+						     return response()->json
+						           ([
+						               'success' =>  true,
+						               'data' => $task,
+						               
+						           ],200);
+					
+
+			  }
+
+
+
+
+			  public function destroy($t_id)
+			{
+					    $task = user_teacher::findOrFail($t_id);
+
+					    $task->delete();
+
+			   	dd($task);
+			   	 return response()->json
+						           ([
+						               'success' =>  true,
+						               'data' => 'You have Successfully delete the details',
+						               
+						           ],200);
+
+			    //return redirect()->route('api/teachers/Auth/teacherController');
+			}
+}	
 

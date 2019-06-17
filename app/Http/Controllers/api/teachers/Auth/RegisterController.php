@@ -35,51 +35,6 @@ class RegisterController extends Controller
           $this->middleware('guest:user_teachers');
     }
 
-    public function show()
-    {
-
-
-      $user_teacher= user_teacher::all();
-
-      return response()->json
-           ([
-               'success' =>  true,
-               'data' => $user_teacher,
-               
-           ],200);
-
-
-      
-      
-    } 
-
-  public function edit($t_id)
-  {
-
-     $project = user_teacher::find($t_id);
-
-     return response()->json
-           ([
-               'success' =>  true,
-               'data' => $project,
-               
-           ],200);
-  }
-
-  public function update($t_id)
-  {
-
-
-    $project = user_teacher::find($t_id);
-
-    $project->t_fname  = request('t_fname');
-    $project->t_gender = request('t_gender');
-
-    $project->save();
-
-    redirect('/register');
-
-  }
     
   //   return redirect('/user_teacher/register');
 

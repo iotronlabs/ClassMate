@@ -15,6 +15,7 @@ class user_staff extends Authenticatable implements JWTSubject
 {
      use Notifiable;
      protected $guard = 'user_staffs';
+     protected $primaryKey = 'st_id';
     /**
      * The attributes that are mass assignable.
      *
