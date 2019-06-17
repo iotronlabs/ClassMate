@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import { interopDefault } from './utils'
 
 const _41238cca = () => interopDefault(import('..\\pages\\addStaff.vue' /* webpackChunkName: "pages_addStaff" */))
+const _10ba2036 = () => interopDefault(import('..\\pages\\assessment-results.vue' /* webpackChunkName: "pages_assessment-results" */))
 const _1cd40663 = () => interopDefault(import('..\\pages\\chat.vue' /* webpackChunkName: "pages_chat" */))
 const _a8fa52ce = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages_dashboard" */))
 const _cc0fadb4 = () => interopDefault(import('..\\pages\\forum.vue' /* webpackChunkName: "pages_forum" */))
@@ -94,6 +95,10 @@ export function createRouter() {
       path: "/addStaff",
       component: _41238cca,
       name: "addStaff"
+    }, {
+      path: "/assessment-results",
+      component: _10ba2036,
+      name: "assessment-results"
     }, {
       path: "/chat",
       component: _1cd40663,
