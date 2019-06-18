@@ -20,7 +20,7 @@ class CreateUserTeachersTable extends Migration
 
            $table->bigIncrements('t_id')->length(7)->unique();
 
-            $table->string('t_ref_id')->length(10)->nullable();
+            $table->string('t_ref_id')->length(10)->nullable()->default('111');
             $table->string('t_fname')->length(100);
             $table->string('t_mname')->lenth(100);
             $table->string('t_surname')->length(100);
@@ -48,11 +48,18 @@ class CreateUserTeachersTable extends Migration
             $table->integer('t_authentication')->length(1)->default('2');
 
            // $table->string('t_profile_picture')->nullable();
+<<<<<<< HEAD
+
+            //$table->string('t_profile_picture')->nullable();
+=======
         });
+>>>>>>> eddad2c4a2b38633eda01ee26bafaaf93fca314b
 
 
-       DB::statement("ALTER TABLE user_teachers AUTO_INCREMENT = 170200;");
-    }
+       
+    });
+    DB::statement("ALTER TABLE user_teachers AUTO_INCREMENT = 170200;");
+}
 
     /**
      * Reverse the migrations.

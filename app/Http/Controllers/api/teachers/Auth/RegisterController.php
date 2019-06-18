@@ -35,18 +35,17 @@ class RegisterController extends Controller
           $this->middleware('guest:user_teachers');
     }
 
+
       protected function guard()
     {
         return Auth::guard('teachers');
     }
 
+    
+  //   return redirect('/user_teacher/register');
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
+  // }
+
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -106,15 +105,15 @@ class RegisterController extends Controller
     protected function create(array $data)
     {   
 
-             $request = request();
+            //  $request = request();
 
-            $profileImage = $request->file('t_profile_picture');
-            $profileImageSaveAsName = time() . Auth::id() . "-profile." . 
-                                      $profileImage->getClientOriginalExtension();
+            // $profileImage = $request->file('t_profile_picture');
+            // $profileImageSaveAsName = time() . Auth::id() . "-profile." . 
+            //                           $profileImage->getClientOriginalExtension();
 
-            $upload_path = 'profile_images/teacher/';
-            $profile_image_url = $upload_path . $profileImageSaveAsName;
-            $success = $profileImage->move($upload_path, $profileImageSaveAsName);
+            // $upload_path = 'profile_images/teacher/';
+            // $profile_image_url = $upload_path . $profileImageSaveAsName;
+            // $success = $profileImage->move($upload_path, $profileImageSaveAsName);
 
 
         return user_teacher::create([
