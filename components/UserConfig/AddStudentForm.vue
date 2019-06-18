@@ -332,6 +332,14 @@
 // import axios from 'axios'
 import { Promise } from 'q';
 export default {
+	props: {
+		mode: {
+			type: String
+		},
+		details: {
+			type: Object
+		}
+	},
 	data() {
 		return{
 			firstname:'',
@@ -382,6 +390,8 @@ export default {
 				required: v => !!v || 'Required.',
 				emailValid : v=> /.+@.+/.test(v) || 'E-mail must be valid'
 			},
+
+			user_details: {}
 		}
 	},
 	methods:{
@@ -433,7 +443,31 @@ export default {
 				s_profile_picture: this.imageUrl,
 				class_id: '123'
 			})
-			console.log(response.data)
+		}
+	},
+	beforeUpdate() {
+		if(this.mode=="edit")
+		{
+			this.firstname = this.details.s_fname
+			this.middlename = this.details.s_mname
+			this.lastname = this.details.s_surname
+			this.email = this.details.s_email
+			this.s_gender = this.details.s_gender
+			this.contact = this.details.s_contact
+			this.date = this.details.s_dob
+			this.religion = this.details.s_religion
+			this.nationality = this.details.s_nationality
+			this.street = this.details.s_address
+			this.pincode = this.details.address.s_address_pin
+			this.s_state = this.details.s_address_state
+			this.gfirstname = this.details.guardian_fname
+			this.gmiddlename = this.details.guardian_mname
+			this.glastname = guardian_surname
+			this.gemail = this.details.guardian_email
+			this.gcontact = this.details.guardian_contact
+			this.gstreet = this.details.guardian_address
+			this.gpincode = this.details.guardian_pin
+			this.g_state = this.details.guardian_state
 		}
 	}
 }

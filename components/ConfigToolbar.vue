@@ -24,7 +24,7 @@
 						<v-icon>close</v-icon>
 					</v-btn>
 				</v-toolbar>
-				<div v-if="n==1 && id=='user'"><AddStudentForm /></div>
+				<div v-if="n==1 && id=='user'"><AddStudentForm mode="add" :details={} /></div>
 				<div v-if="n==2 && id=='user'"><AddTeacherForm /></div>
 				<div v-if="n==3 && id=='user'"><AddStudentForm /></div>
 
