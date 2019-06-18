@@ -123,6 +123,13 @@ Route::group([ 'prefix' =>'/classes',
             ],function()
              {
                  Route::post('/register','classes\RegisterClassController@register');
+                  Route::get('/{class_id}/show',  'classes\ClassesUpdateController@show');
+                 Route::get('/{class_id}/edit', 'classes\ClassesUpdateController@edit');
+                 Route::post('/{class_id}','classes\ClassesUpdateController@update');  
+                 Route::delete('/{sub_id}','classes\ClassesUpdateController@destroy');
+                 Route::get('/',           'classes\ClassesUpdateController@index');
+                 
+
 
              }
 
@@ -132,9 +139,28 @@ Route::group([ 'prefix' =>'/courses',
             ],function()
              {
                  Route::post('/register','courses\RegisterCourseController@register');
+                 Route::get('/{sub_id}/show',  'courses\CourseUpdateController@show');
+                 Route::get('/{sub_id}/edit', 'courses\CourseUpdateController@edit');
+                 Route::post('/{sub_id}','courses\CourseUpdateController@update');  
+                 Route::delete('/{sub_id}','courses\CourseUpdateController@destroy');
+                 Route::get('/',           'courses\CourseUpdateController@index');
                 // Route::post('/login','classes\LoginController@login');
              }
 
 );
 
+
+Route::group([ 'prefix' =>'/backlog',
+            ],function()
+             {
+                 Route::post('/register','backlog\InsertBacklogController@register');
+                 // Route::get('/{sub_id}/show',  'courses\CourseUpdateController@show');
+                 // Route::get('/{sub_id}/edit', 'courses\CourseUpdateController@edit');
+                 // Route::post('/{sub_id}','courses\CourseUpdateController@update');  
+                 // Route::delete('/{sub_id}','courses\CourseUpdateController@destroy');
+                 // Route::get('/',           'courses\CourseUpdateController@index');
+                // Route::post('/login','classes\LoginController@login');
+             }
+
+);
  

@@ -47,17 +47,15 @@ class CreateUserTeachersTable extends Migration
 
             $table->integer('t_authentication')->length(1)->default('2');
 
-           // $table->string('t_profile_picture')->nullable();
-<<<<<<< HEAD
 
             //$table->string('t_profile_picture')->nullable();
-=======
+
         });
->>>>>>> eddad2c4a2b38633eda01ee26bafaaf93fca314b
+
 
 
        
-    });
+
     DB::statement("ALTER TABLE user_teachers AUTO_INCREMENT = 170200;");
 }
 

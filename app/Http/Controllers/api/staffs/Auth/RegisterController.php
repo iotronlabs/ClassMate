@@ -104,15 +104,15 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-      $request = request();
+      // $request = request();
 
-            $profileImage = $request->file('st_profile_picture');
-            $profileImageSaveAsName = time() . Auth::id() . "-profile." . 
-                                      $profileImage->getClientOriginalExtension();
+      //       $profileImage = $request->file('st_profile_picture');
+      //       $profileImageSaveAsName = time() . Auth::id() . "-profile." . 
+      //                                 $profileImage->getClientOriginalExtension();
 
-            $upload_path = 'profile_images/staff/';
-            $profile_image_url = $upload_path . $profileImageSaveAsName;
-            $success = $profileImage->move($upload_path, $profileImageSaveAsName);
+      //       $upload_path = 'profile_images/staff/';
+      //       $profile_image_url = $upload_path . $profileImageSaveAsName;
+      //       $success = $profileImage->move($upload_path, $profileImageSaveAsName);
 
       
         return user_staff::create([

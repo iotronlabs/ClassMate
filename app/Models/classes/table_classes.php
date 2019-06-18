@@ -17,6 +17,8 @@ class table_classes extends Authenticatable
 
     protected $guarded =[
         'class_id'];
+         protected $primaryKey = 'class_id';
+
 
     /**
      * The attributes that should be hidden for arrays.

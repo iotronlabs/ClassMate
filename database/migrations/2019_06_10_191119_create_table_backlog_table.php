@@ -15,11 +15,11 @@ class CreateTableBacklogTable extends Migration
     {
         Schema::create('table_backlog', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('u_id')->length(10)->unique();
-            $table->string('t_ref_id')->length(10);
+            $table->string('student_id')->length(10)->unique();
+            $table->string('t_ref_id')->length(10)->nullable();
             $table->string('class_id')->length(10);
-            $table->string('s_id')->length(10);
-            $table->string('s_name',100);
+            $table->string('sub_id')->length(10);
+            $table->string('sub_name',100);
             $table->tinyinteger('current_sem')->length(2);
             $table->timestamps();
         });

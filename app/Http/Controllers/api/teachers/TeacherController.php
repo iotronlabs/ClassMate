@@ -51,7 +51,7 @@ public function update(Request $request, $t_id)
 
 		    $this->validate($request, [
 		        't_email' => 'required',
-		        't_gender' => 'required'
+		        't_gender' => 'required'      // all required field need to be added here whatever data to be edited is required.   Admin pay attention here//
 		    ]);
 
 		    $input = $request->all();

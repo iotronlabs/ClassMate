@@ -50,8 +50,9 @@ public function update(Request $request, $st_id)
 		  	$task = user_staff::findOrFail($st_id);
 
 		    $this->validate($request, [
-		        't_email' => 'required',
-		        't_gender' => 'required'
+		        'st_email' => 'required',
+		        'st_gender' => 'required'   // all required field need to be added here whatever data to be edited is required.   Admin pay attention here//
+		   
 		    ]);
 
 		    $input = $request->all();

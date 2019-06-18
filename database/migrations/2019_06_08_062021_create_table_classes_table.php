@@ -33,7 +33,7 @@ class CreateTableClassesTable extends Migration
 
         });
 
-         //DB::statement("ALTER TABLE user_students AUTO_INCREMENT = EXWE-170500;");
+         DB::statement("ALTER TABLE table_classes AUTO_INCREMENT = 1001");
     }
 
     /**

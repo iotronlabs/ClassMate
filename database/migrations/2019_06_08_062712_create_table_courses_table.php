@@ -17,12 +17,12 @@ class CreateTableCoursesTable extends Migration
 
             $table->engine = 'InnoDB';
 
-            $table->bigIncrements('s_id')->unique();
+            $table->bigIncrements('sub_id')->unique();
             //$table->string('u_id')->length(10)->unique();
             $table->string('t_ref_id')->length(10)->nullable();
             $table->string('class_id')->length(10);
             $table->string('t_id')->length(10);
-            $table->string('s_name',100);
+            $table->string('sub_name',100);
             $table->tinyinteger('c_day')->length(1);
             $table->tinyinteger('sem')->length(2);
             $table->tinyinteger('current_sem')->length(2);
@@ -34,6 +34,7 @@ class CreateTableCoursesTable extends Migration
 /*
              */
         });
+         DB::statement("ALTER TABLE table_courses AUTO_INCREMENT = 1001;");
     }
 
     /**
