@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api\forum;
 use App\Http\Controllers\Controller;
 use App\Models\forum\forum_thread;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth;
 
 class RepliesController extends Controller
@@ -12,23 +13,23 @@ class RepliesController extends Controller
 
     public function __construct()
     {
-    	$this->middleware('auth:students');
-    	$this->middleware('auth:user_teachers');
+    	$this->middleware('guest:students');
+    	$this->middleware('guest:user_teachers');
     }
 
     public function store(forum_thread $thread)
     {
       
-      $user = Auth::user();
+       $user = Auth::user();
  
        if(Auth::guard('students')->check())
        {
-       	 $user = Auth::user();
+       	 $user = Auth::guard('students')->user();
        }
 
         if(Auth::guard('user_teachers')->check())
        {
-       	 $user = Auth::user();
+       	 $user = Auth::guard('user_teachers')->user();
        }
 
       $thread->addReply([

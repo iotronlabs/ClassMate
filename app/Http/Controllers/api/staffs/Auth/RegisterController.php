@@ -34,6 +34,12 @@ class RegisterController extends Controller
        // $this->auth= $auth;
     }
 
+
+      protected function guard()
+    {
+        return Auth::guard('user_staffs');
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *

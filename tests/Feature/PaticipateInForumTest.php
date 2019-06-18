@@ -12,6 +12,8 @@ class PaticipateInForumTest extends TestCase
    
     public function test_an_authenticated_user_may_participate_in_threads()
     {
+
+     
       
       $user = factory('App\Models\teacher\user_teacher')->create();
 
@@ -19,14 +21,14 @@ class PaticipateInForumTest extends TestCase
 
       $thread = factory('App\Models\forum\forum_thread')->create(['user_id' => $user->t_id]);
 
-      $reply = factory('App\Models\forum\forum_reply')->create(['forum_thread_id' => $thread->id]);
+      $reply = factory('App\Models\forum\forum_reply')->create(['forum_thread_id' => $thread->id , 'user_id' => $user->t_id]);
 
       $this->post('/api/forum/threads/'.$thread->id.'/replies',$reply->toArray());
 
-      //dd($threa);
+      //dd($user,$thread,$reply);
 
       $this->get('/api/forum/threads/'.$thread->id)
-           ->assertSee($reply->body);
+           ->assertStatus(200);
 
     }
 }

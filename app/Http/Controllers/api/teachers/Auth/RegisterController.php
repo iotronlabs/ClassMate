@@ -35,10 +35,10 @@ class RegisterController extends Controller
           $this->middleware('guest:user_teachers');
     }
 
-    //   protected function guard()
-    // {
-    //     return Auth::guard('teachers');
-    // }
+      protected function guard()
+    {
+        return Auth::guard('teachers');
+    }
 
 
     /**

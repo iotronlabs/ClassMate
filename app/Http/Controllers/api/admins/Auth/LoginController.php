@@ -31,6 +31,11 @@ class LoginController extends Controller
          $this->middleware('guest:user_admins');
     }
 
+      protected function guard()
+    {
+        return Auth::guard('user_admins');
+    }
+
 
 public function login(Request $request)
     {

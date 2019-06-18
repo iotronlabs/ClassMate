@@ -5,9 +5,16 @@ namespace App\Http\Controllers\api\forum;
 use App\Http\Controllers\Controller;
 use App\Models\forum\forum_thread;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ThreadsController extends Controller
 {
+     public function __construct()
+    {
+      $this->middleware('auth_users');
+     // $this->middleware('guest:user_teachers');
+    }
+
     public function index()
     {
 
@@ -38,9 +45,12 @@ class ThreadsController extends Controller
 
     public function store(Request $request)
     {
+
+      $user = Auth::user();
+
     	$thread = forum_thread::create([
       
-         'user_id' => request('user_id'),
+         'user_id' => $user->id, // request('user_id'),
          'title'  => request('title'),
          'body' => request('body'),
          'channel_id' => request('channel_id'),

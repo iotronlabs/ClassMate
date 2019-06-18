@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 use Illuminate\Http\Request;
 
@@ -13,17 +13,17 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group([ 'prefix' =>'/auth',
-             [ 'middleware' =>'assign.guard:admins','jwt.auth' ]],function()
-             {
-                 Route::post('/register','Auth\RegisterController@register');
-                 Route::post('/login','Auth\LoginController@login');
-             }
+// Route::group([ 'prefix' =>'/auth',
+//              [ 'middleware' =>'assign.guard:admins','jwt.auth' ]],function()
+//              {
+//                  Route::post('/register','Auth\RegisterController@register');
+//                  Route::post('/login','Auth\LoginController@login');
+//              }
     
-);
+// );
 
 Route::group([ 'prefix' =>'/admins',
-             [ 'middleware' =>'user_admins','jwt.auth']],function()
+             [ 'middleware' =>'auth_users','jwt.auth']],function()
              {
                  Route::post('/register','admins\Auth\RegisterController@register');
                  Route::post('/login','admins\Auth\LoginController@login');
@@ -32,7 +32,7 @@ Route::group([ 'prefix' =>'/admins',
 );
 
 Route::group([ 'prefix' =>'/students',
-             [ 'middleware' =>'students','jwt.auth' ]],function()
+             [ 'middleware' =>'auth_users','jwt.auth' ]],function()
              {
                  Route::post('/register','students\Auth\RegisterController@register');
                  Route::post('/login','students\Auth\LoginController@login');
@@ -41,7 +41,7 @@ Route::group([ 'prefix' =>'/students',
 );
 
 Route::group([ 'prefix' =>'/teachers',
-             [ 'middleware' =>'user_teachers','jwt.auth' ]],function()
+             [ 'middleware' =>'auth_users','jwt.auth' ]],function()
              {
                  Route::post('/register','teachers\Auth\RegisterController@register');
                  Route::post('/login','teachers\Auth\LoginController@login');
@@ -50,7 +50,7 @@ Route::group([ 'prefix' =>'/teachers',
 );
 
 Route::group([ 'prefix' =>'/staffs',
-             [ 'middleware' =>'user_staffs','jwt.auth' ]],function()
+             [ 'middleware' =>'auth_users','jwt.auth' ]],function()
              {
                  Route::post('/register','staffs\Auth\RegisterController@register');
                  Route::post('/login','staffs\Auth\LoginController@login');
@@ -59,8 +59,8 @@ Route::group([ 'prefix' =>'/staffs',
 );
 
 
-
-Route::group([ 'prefix' =>'/forum'],function()
+Route::group([ 'prefix' =>'/forum',
+             ['middleware' =>'auth_users']],function()
              {
 
                  Route::post('/threads','forum\ThreadsController@store');
@@ -98,3 +98,4 @@ Route::group([ 'prefix' =>'/courses',
     
 );
 
+ 

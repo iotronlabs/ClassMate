@@ -30,6 +30,6 @@ class forum_thread extends Model
 
       public function creator()
     {
-        return $this->belongsTo(user_teacher::class, 'user_id');
+        return $this->belongsTo(user_teacher::class, 'user_id' , 't_id');
     }
 }

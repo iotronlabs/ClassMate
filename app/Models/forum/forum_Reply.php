@@ -12,6 +12,6 @@ class forum_reply extends Model
 
     public function owner()
     {
-    	return $this->belongsTo(user_teacher::class, 'user_id');
+    	return $this->belongsTo(user_teacher::class, 'user_id' , 't_id');
     }
 }
