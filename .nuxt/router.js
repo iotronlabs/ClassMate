@@ -2,20 +2,20 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _41238cca = () => interopDefault(import('..\\pages\\addStaff.vue' /* webpackChunkName: "pages_addStaff" */))
-const _10ba2036 = () => interopDefault(import('..\\pages\\assessment-results.vue' /* webpackChunkName: "pages_assessment-results" */))
-const _1cd40663 = () => interopDefault(import('..\\pages\\chat.vue' /* webpackChunkName: "pages_chat" */))
-const _a8fa52ce = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages_dashboard" */))
-const _cc0fadb4 = () => interopDefault(import('..\\pages\\forum.vue' /* webpackChunkName: "pages_forum" */))
-const _ad948d5a = () => interopDefault(import('..\\pages\\table.vue' /* webpackChunkName: "pages_table" */))
-const _5127500d = () => interopDefault(import('..\\pages\\take-assessment.vue' /* webpackChunkName: "pages_take-assessment" */))
-const _48012767 = () => interopDefault(import('..\\pages\\addUsersForms\\addStudent.vue' /* webpackChunkName: "pages_addUsersForms_addStudent" */))
-const _1e99458e = () => interopDefault(import('..\\pages\\addUsersForms\\addTeacher.vue' /* webpackChunkName: "pages_addUsersForms_addTeacher" */))
-const _37a5a32e = () => interopDefault(import('..\\pages\\user\\admin.vue' /* webpackChunkName: "pages_user_admin" */))
-const _2344be16 = () => interopDefault(import('..\\pages\\user\\audit.vue' /* webpackChunkName: "pages_user_audit" */))
-const _4eb5bd7a = () => interopDefault(import('..\\pages\\user\\staff.vue' /* webpackChunkName: "pages_user_staff" */))
-const _4c7e7cfc = () => interopDefault(import('..\\pages\\user\\teacher.vue' /* webpackChunkName: "pages_user_teacher" */))
-const _20caf752 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
+const _810188ce = () => interopDefault(import('..\\pages\\addStaff.vue' /* webpackChunkName: "pages_addStaff" */))
+const _6fc0d845 = () => interopDefault(import('..\\pages\\assessment-results.vue' /* webpackChunkName: "pages_assessment-results" */))
+const _3585169c = () => interopDefault(import('..\\pages\\chat.vue' /* webpackChunkName: "pages_chat" */))
+const _0ec5fcac = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages_dashboard" */))
+const _4286f692 = () => interopDefault(import('..\\pages\\forum.vue' /* webpackChunkName: "pages_forum" */))
+const _240bd638 = () => interopDefault(import('..\\pages\\table.vue' /* webpackChunkName: "pages_table" */))
+const _11ff2a5e = () => interopDefault(import('..\\pages\\take-assessment.vue' /* webpackChunkName: "pages_take-assessment" */))
+const _04ad1078 = () => interopDefault(import('..\\pages\\addUsersForms\\addStudent.vue' /* webpackChunkName: "pages_addUsersForms_addStudent" */))
+const _4975a2c2 = () => interopDefault(import('..\\pages\\addUsersForms\\addTeacher.vue' /* webpackChunkName: "pages_addUsersForms_addTeacher" */))
+const _5368d93a = () => interopDefault(import('..\\pages\\user\\admin.vue' /* webpackChunkName: "pages_user_admin" */))
+const _5d994bc6 = () => interopDefault(import('..\\pages\\user\\audit.vue' /* webpackChunkName: "pages_user_audit" */))
+const _841d2f6a = () => interopDefault(import('..\\pages\\user\\staff.vue' /* webpackChunkName: "pages_user_staff" */))
+const _490a90e6 = () => interopDefault(import('..\\pages\\user\\teacher.vue' /* webpackChunkName: "pages_user_teacher" */))
+const _345edfe8 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
 Vue.use(Router)
 
@@ -93,59 +93,59 @@ export function createRouter() {
 
     routes: [{
       path: "/addStaff",
-      component: _41238cca,
+      component: _810188ce,
       name: "addStaff"
     }, {
       path: "/assessment-results",
-      component: _10ba2036,
+      component: _6fc0d845,
       name: "assessment-results"
     }, {
       path: "/chat",
-      component: _1cd40663,
+      component: _3585169c,
       name: "chat"
     }, {
       path: "/dashboard",
-      component: _a8fa52ce,
+      component: _0ec5fcac,
       name: "dashboard"
     }, {
       path: "/forum",
-      component: _cc0fadb4,
+      component: _4286f692,
       name: "forum"
     }, {
       path: "/table",
-      component: _ad948d5a,
+      component: _240bd638,
       name: "table"
     }, {
       path: "/take-assessment",
-      component: _5127500d,
+      component: _11ff2a5e,
       name: "take-assessment"
     }, {
       path: "/addUsersForms/addStudent",
-      component: _48012767,
+      component: _04ad1078,
       name: "addUsersForms-addStudent"
     }, {
       path: "/addUsersForms/addTeacher",
-      component: _1e99458e,
+      component: _4975a2c2,
       name: "addUsersForms-addTeacher"
     }, {
       path: "/user/admin",
-      component: _37a5a32e,
+      component: _5368d93a,
       name: "user-admin"
     }, {
       path: "/user/audit",
-      component: _2344be16,
+      component: _5d994bc6,
       name: "user-audit"
     }, {
       path: "/user/staff",
-      component: _4eb5bd7a,
+      component: _841d2f6a,
       name: "user-staff"
     }, {
       path: "/user/teacher",
-      component: _4c7e7cfc,
+      component: _490a90e6,
       name: "user-teacher"
     }, {
       path: "/",
-      component: _20caf752,
+      component: _345edfe8,
       name: "index"
     }],
 

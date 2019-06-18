@@ -458,11 +458,11 @@ export default {
 			this.religion = this.details.s_religion
 			this.nationality = this.details.s_nationality
 			this.street = this.details.s_address
-			this.pincode = this.details.address.s_address_pin
+			this.pincode = this.details.s_address_pin
 			this.s_state = this.details.s_address_state
 			this.gfirstname = this.details.guardian_fname
 			this.gmiddlename = this.details.guardian_mname
-			this.glastname = guardian_surname
+			this.glastname = this.details.guardian_surname
 			this.gemail = this.details.guardian_email
 			this.gcontact = this.details.guardian_contact
 			this.gstreet = this.details.guardian_address
