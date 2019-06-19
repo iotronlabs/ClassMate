@@ -628,8 +628,6 @@ export default {
 			}
 		},
 		async submitForm() {
-			console.log(this.editedItem.s_dob)
-			console.log(this.date)
 			let response
 			if(this.editedIndex == -1)
 			{
