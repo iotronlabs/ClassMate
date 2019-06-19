@@ -16,7 +16,7 @@ class CreateUserStaffsTable extends Migration
             $table->bigIncrements('st_id')->length(7)->unique();
             $table->integer('t_ref_id')->length(10)->nullable();
             $table->string('st_fname');
-            $table->string('st_mname');
+            $table->string('st_mname')->nullable();
             $table->string('st_surname');
             $table->string('st_dob');
             $table->string('st_age');
@@ -24,9 +24,10 @@ class CreateUserStaffsTable extends Migration
             $table->string('st_email')->unique();
             $table->char('st_gender',1);
             $table->string('st_nationality')->length(50);
-            $table->string('st_religion');
+            $table->string('st_religion')->nullable();
             $table->string('st_address')->length(200);
-            $table->string('st_address_pin')->length(6);
+            $table->string('st_address_pin')->length(6)->nullable();
+            $table->string('st_address_city')->length(100)->nullable();
             $table->string('st_address_state')->length(50)->nullable();
             //$table->unsignedInteger('contact')->length(15);
           //  $table->timestamp('email_verified_at')->nullable();

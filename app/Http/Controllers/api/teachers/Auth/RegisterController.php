@@ -136,6 +136,7 @@ class RegisterController extends Controller
             't_address_pin' => $data['t_address_pin'],
             't_address_state' => $data['t_address_state'],
             't_sub' => $data['t_sub'],
+            't_address_city' => $data['t_address_city'],
             //'t_status' => $data['t_status'],
             //'t_authentication'  => $data['t_authentication'],
             //'t_profile_picture' => $profile_image_url,

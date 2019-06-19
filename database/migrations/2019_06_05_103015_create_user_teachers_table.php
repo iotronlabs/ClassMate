@@ -22,7 +22,7 @@ class CreateUserTeachersTable extends Migration
 
             $table->string('t_ref_id')->length(10)->nullable()->default('111');
             $table->string('t_fname')->length(100);
-            $table->string('t_mname')->lenth(100);
+            $table->string('t_mname')->lenth(100)->nullable();
             $table->string('t_surname')->length(100);
             $table->string('t_dob');
             $table->integer('t_age');
@@ -31,11 +31,11 @@ class CreateUserTeachersTable extends Migration
             $table->unsignedBiginteger('t_contact')->length(10);
 
             $table->string('t_nationality')->length(100);
-            $table->string('t_religion')->length(30);
+            $table->string('t_religion')->length(30)->nullable();
             $table->string('t_address')->length(100);
             $table->integer('t_address_pin')->length(6);
             $table->string('t_address_state')->length(100)->nullable();
-
+            $table->string('t_address_city')->length(100)->nullable();
 
             $table->string('password');
             $table->string('t_sub')->length(200);
