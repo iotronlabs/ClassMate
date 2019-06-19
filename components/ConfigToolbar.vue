@@ -24,9 +24,9 @@
 						<v-icon>close</v-icon>
 					</v-btn>
 				</v-toolbar>
-				<div v-if="n==1 && id=='user'"><AddStudentForm mode="add" :details={} /></div>
+				<!-- <div v-if="n==1 && id=='user'"><AddStudentForm mode="add" :details={} /></div>
 				<div v-if="n==2 && id=='user'"><AddTeacherForm /></div>
-				<div v-if="n==3 && id=='user'"><AddStudentForm /></div>
+				<div v-if="n==3 && id=='user'"><AddStudentForm /></div> -->
 
 				<div v-if="n==1 && id=='course'"><DepartmentConfigForm /></div>
 				<div v-if="n==2 && id=='course'"><SubjectConfigForm /></div>
@@ -37,9 +37,9 @@
 </template>
 
 <script>
-import AddStudentForm from '@/components/UserConfig/AddStudentForm'
-import AddTeacherForm from '@/components/UserConfig/AddTeacherForm'
-import AddStaffForm from '@/components/UserConfig/AddStaffForm'
+// import AddStudentForm from '@/components/UserConfig/AddStudentForm'
+// import AddTeacherForm from '@/components/UserConfig/AddTeacherForm'
+// import AddStaffForm from '@/components/UserConfig/AddStaffForm'
 
 import DepartmentConfigForm from '@/components/CourseConfig/DepartmentConfigForm'
 import SubjectConfigForm from '@/components/CourseConfig/SubjectConfigForm'
@@ -47,9 +47,9 @@ import ClassConfigForm from '@/components/CourseConfig/ClassConfigForm'
 
 export default {
 	components: {
-		AddStudentForm,
-		AddTeacherForm,
-		AddStaffForm,
+		// AddStudentForm,
+		// AddTeacherForm,
+		// AddStaffForm,
 		DepartmentConfigForm,
 		SubjectConfigForm,
 		ClassConfigForm
@@ -57,7 +57,8 @@ export default {
 	data() {
 		return {
 			dialog: false,
-			search: ''
+			search: '',
+
 		}
 	},
 	props: {
