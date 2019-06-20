@@ -96,13 +96,13 @@ $factory->define(App\Models\forum\forum_channel::class, function ($faker) {
 });
 
 
-$factory->define(App\Models\forum\forum_reply::class, function ($faker) {
+$factory->define(App\Models\forum\forum_Reply::class, function ($faker) {
     return [
         'forum_thread_id' => function () {
             return factory('App\Models\forum\forum_thread')->create()->id;
         },
         'user_id' => function () {
-            return factory('App\Models\teacher\user_teacher')->create()->id;
+            return factory('App\Models\teacher\user_teacher')->create()->t_id;
         },
         'body'  => $faker->paragraph,
         't_authentication' => 1,

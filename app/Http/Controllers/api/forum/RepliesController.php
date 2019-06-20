@@ -10,34 +10,43 @@ use Illuminate\Support\Facades\Auth;
 
 class RepliesController extends Controller
 {
-
     public function __construct()
     {
     	$this->middleware('guest:students');
     	$this->middleware('guest:user_teachers');
     }
 
-    public function store(forum_thread $thread)
+    public function store($channelId , forum_thread $thread)
     {
       
        $user = Auth::user();
+
+       $id = 0;
+       // Auth::guard('students')->user()->s_id;
  
        if(Auth::guard('students')->check())
        {
        	 $user = Auth::guard('students')->user();
+
+         $id = $user->s_id;
+        
        }
 
         if(Auth::guard('user_teachers')->check())
        {
        	 $user = Auth::guard('user_teachers')->user();
+//
+          $id = $user->s_id;
        }
+
+        dd($user);
 
       $thread->addReply([
 
        'body' => request('body'),
-       'user_id' =>  $user->id, // request('user_id'), //to be changed  $user->id(),
+       'user_id' =>  $id, // request('user_id'), //to be changed  $user->id(),
        't_authentication' => 1,
-       't_ref_id' => request('t_ref_id')  //to be changed
+       't_ref_id' =>  1 //request('t_ref_id')  //to be changed
     
       ]);
 

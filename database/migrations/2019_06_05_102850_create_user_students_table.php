@@ -51,7 +51,7 @@ class CreateUserStudentsTable extends Migration
             $table->integer('s_authentication')->default('1')->length(1);
             $table->rememberToken();
             $table->timestamps();
-            //$table->string('s_profile_picture')->nullable();
+            $table->string('s_profile_picture')->nullable();
 
         });
 

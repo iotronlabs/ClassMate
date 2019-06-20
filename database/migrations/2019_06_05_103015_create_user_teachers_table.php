@@ -48,7 +48,7 @@ class CreateUserTeachersTable extends Migration
             $table->integer('t_authentication')->length(1)->default('2');
 
 
-            //$table->string('t_profile_picture')->nullable();
+            // $table->string('t_profile_picture')->nullable();
 
         });
 

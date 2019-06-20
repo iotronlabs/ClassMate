@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class PaticipateInForumTest extends TestCase
 {
-    use RefreshDatabase;
+     use RefreshDatabase;
    
     public function test_an_authenticated_user_may_participate_in_threads()
     {

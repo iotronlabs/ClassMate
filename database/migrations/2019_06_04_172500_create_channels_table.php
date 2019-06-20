@@ -17,7 +17,7 @@ class CreateChannelsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('slug');
-             $table->string('t_ref_id')->length(10);
+            $table->string('t_ref_id')->length(10);
             $table->timestamps();
         });
     }

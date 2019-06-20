@@ -104,8 +104,11 @@ Route::group([ 'prefix' =>'/forum',
 
                  Route::post('/threads','forum\ThreadsController@store');
                  Route::get('/threads','forum\ThreadsController@index');
-                 Route::get('/threads/{thread}','forum\ThreadsController@show');
-                 Route::post('/threads/{thread}/replies','forum\RepliesController@store');
+                 Route::get('/threads/{channel}','forum\ThreadsController@index');
+                 Route::get('/channels','forum\ChannelsController@index');
+                 Route::get('/channels/{channel}/','forum\ChannelsController@show');
+                 Route::get('/threads/{channel}/{thread}','forum\ThreadsController@show');
+                 Route::post('/threads/{channel}/{thread}/replies','forum\RepliesController@store');
 
 
              }

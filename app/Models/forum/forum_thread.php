@@ -3,6 +3,7 @@
 namespace App\Models\forum;
 
 use App\Models\forum\forum_Reply;
+use App\Models\forum\forum_channel;
 use App\Models\teacher\user_teacher;
 use Illuminate\Database\Eloquent\Model;
 
@@ -32,4 +33,12 @@ class forum_thread extends Model
     {
         return $this->belongsTo(user_teacher::class, 'user_id' , 't_id');
     }
+
+
+    public function channel()
+    {
+        return $this->belongsTo(forum_channel::class);
+    }
 }
+
+
