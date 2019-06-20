@@ -11,8 +11,8 @@
 				<v-card flat>
 					<v-card-text>
 						<div v-if="n==1"><TableStudent /></div>
-						<div v-if="n==2"></div>
-						<div v-if="n==3"></div>
+						<div v-if="n==2"><TableTeacher /></div>
+						<div v-if="n==3"><TableStaff /></div>
 					</v-card-text>
 				</v-card>
 			</v-tab-item>

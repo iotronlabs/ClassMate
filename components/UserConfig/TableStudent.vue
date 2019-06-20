@@ -409,13 +409,13 @@
 						:input-value="props.selected"
 					></v-checkbox>
 				</td>
-				<td>{{ props.item.s_id }}</td>
-				<td>{{ props.item.s_fname + ' ' + props.item.s_mname + ' ' + props.item.s_surname}}</td>
-				<td>{{ props.item.s_dob }}</td>
-				<td>{{ props.item.s_email }}</td>
-				<td>{{ props.item.s_contact }}</td>
-				<td>{{ props.item.stream }}</td>
-				<td>{{ props.item.class_id }}</td>
+				<td class="text-xs-center">{{ props.item.s_id }}</td>
+				<td class="text-xs-right">{{ props.item.s_fname + ' ' + props.item.s_mname + ' ' + props.item.s_surname}}</td>
+				<td class="text-xs-right">{{ props.item.s_dob }}</td>
+				<td class="text-xs-right">{{ props.item.s_email }}</td>
+				<td class="text-xs-right">{{ props.item.s_contact }}</td>
+				<td class="text-xs-right">{{ props.item.stream }}</td>
+				<td class="text-xs-right">{{ props.item.class_id }}</td>
 				<td class="justify-center layout px-0">
 					<span v-if="deleteMode==false">
 						<v-menu offset-y>
@@ -656,6 +656,7 @@ export default {
 				index=this.user_details.map((e) => e.s_id).indexOf(id)
 				this.user_details.splice(index,1)
 			}
+			this.deleteMode=false
 		},
 		close () {
 			this.dialog = false
@@ -663,14 +664,6 @@ export default {
 			this.editedItem = Object.assign({}, this.defaultItem)
 			this.editedIndex = -1
 			}, 300)
-		},
-		save () {
-			if (this.editedIndex > -1) {
-				Object.assign(this.user_details[this.editedIndex], this.editedItem)
-			} else {
-				this.user_details.push(this.editedItem)
-			}
-			this.close()
 		},
 		changed(value) {
 			this.selectedAction = value
@@ -724,6 +717,7 @@ export default {
 				})
 				if(response.data.success==true)
 				{
+					// this.user_details.push(this.editedItem)
 					this.dialog = false
 					this.message="New Student added successfully"
 					this.snackbar=true
