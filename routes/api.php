@@ -166,4 +166,50 @@ Route::group([ 'prefix' =>'/backlog',
              }
 
 );
+
+
+Route::group([ 'prefix' =>'/Departments',
+            ],function()
+             {
+                 Route::post('/register','Departments\UpdateDepartmentController@register');
+                 Route::get('/{stream_id}/show',  'Departments\UpdateDepartmentController@show');
+                 Route::get('/{stream_id}/edit', 'Departments\UpdateDepartmentController@edit');
+                 Route::post('/{stream_id}','Departments\UpdateDepartmentController@update');  
+                
+                 Route::get('/',           'Departments\UpdateDepartmentController@index');
+                // Route::post('/login','classes\LoginController@login');
+             }
+
+);
+ 
+
+
+Route::group([ 'prefix' =>'/subjects',
+            ],function()
+             {
+                 Route::post('/register','subjects\UpdateSubjectController@register');
+                 Route::get('/{subject_id}/show',  'subjects\UpdateSubjectController@show');
+                 Route::get('/{subject_id}/edit', 'subjects\UpdateSubjectController@edit');
+                 Route::post('/{subject_id}','subjects\UpdateSubjectController@update');  
+                
+                 Route::get('/',           'subjects\UpdateSubjectController@index');
+                // Route::post('/login','classes\LoginController@login');
+             }
+
+);
+
+
+Route::group([ 'prefix' =>'/topics',
+            ],function()
+             {
+                 Route::post('/register','topics\UpdateTopicController@register');
+                 Route::get('/{topic_id}/show',  'topics\UpdateTopicController@show');
+                 Route::get('/{topic_id}/edit', 'topics\UpdateTopicController@edit');
+                 Route::post('/{topic_id}',     'topics\UpdateTopicController@update');  
+                
+                 Route::get('/',           'topics\UpdateTopicController@index');
+                // Route::post('/login','classes\LoginController@login');
+             }
+
+);
  
