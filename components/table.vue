@@ -18,10 +18,6 @@
 			</v-tab-item>
         </v-tabs>
 
-        <div class="text-xs-center mt-3">
-          <v-btn @click="next">next tab</v-btn>
-         </div>
-         <br><br><br>
  	</v-container>
 </div>
 </template>

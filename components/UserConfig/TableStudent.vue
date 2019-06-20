@@ -3,9 +3,10 @@
 	<v-toolbar flat color="lightgrey">
       	<v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
       	<v-spacer></v-spacer>
+		<v-btn v-if="deleteMode==false" color="error" @click="deleteMode=true" dark v-on="on">Delete</v-btn>
 		<v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
 			<template v-slot:activator="{ on }">
-				<v-btn color="primary" dark v-on="on">Add New</v-btn>
+				<v-btn color="primary" @click="addItem" dark v-on="on">Add New</v-btn>
 			</template>
 			<v-card>
 				<v-toolbar dark color="primary">
@@ -46,6 +47,7 @@
 									type="text"
 									placeholder="First"
 									required
+									:disabled="disabled"
 								>
 								</v-text-field>
 							</v-flex>
@@ -55,6 +57,7 @@
 									v-model="editedItem.s_mname"
 									type="text"
 									placeholder="Middle"
+									:disabled="disabled"
 								>
 								</v-text-field>
 							</v-flex>
@@ -64,6 +67,7 @@
 									v-model="editedItem.s_surname"
 									type="text"
 									placeholder="Last"
+									:disabled="disabled"
 								>
 								</v-text-field>
 							</v-flex>
@@ -76,9 +80,11 @@
 										:key="gender.value"
 										:label="gender.label"
 										:value="gender.value"
+										:disabled="disabled"
 									></v-radio>
 								</v-radio-group>
 							</v-flex>
+
 							<v-flex xs12 sm6 md3>
 								<v-menu
 									ref="menu"
@@ -91,6 +97,7 @@
 									offset-y
 									full-width
 									min-width="290px"
+									:disabled="disabled"
 								>
 									<template v-slot:activator="{ on }">
 										<v-text-field
@@ -116,6 +123,7 @@
 									type="text"
 									label="Age"
 									placeholder="Age"
+									:disabled="disabled"
 								></v-text-field>
 							</v-flex>
 						</v-layout>
@@ -132,6 +140,7 @@
 									placeholder="Enter Email id"
 									autocomplete="off"
 									required
+									:disabled="disabled"
 								></v-text-field>
 							</v-flex>
 							<!-- contact  -->
@@ -140,6 +149,7 @@
 									v-model="editedItem.s_contact"
 									type="tel"
 									label="Contact no"
+									:disabled="disabled"
 								></v-text-field>
 							</v-flex>
 						</v-layout>
@@ -149,12 +159,14 @@
 								<v-text-field
 									v-model="editedItem.s_religion"
 									label="Religion"
+									:disabled="disabled"
 								></v-text-field>
 							</v-flex>
 							<v-flex xs12 sm6 md3>
 								<v-text-field
 									v-model="editedItem.s_nationality"
 									label="Nationality"
+									:disabled="disabled"
 								></v-text-field>
 							</v-flex>
 						</v-layout>
@@ -167,6 +179,7 @@
 									label=" Address"
 									placeholder="Street address"
 									autocomplete="off"
+									:disabled="disabled"
 								></v-text-field>
 							</v-flex>
 						<br>
@@ -176,6 +189,7 @@
 									v-model="editedItem.s_address_city"
 									type="text"
 									placeholder="City"
+									:disabled="disabled"
 								></v-text-field>
 							</v-flex>
 							<v-flex xs12 sm6 md3>
@@ -183,6 +197,7 @@
 									v-model="editedItem.s_address_pin"
 									type="text"
 									placeholder="Pin/zip code"
+									:disabled="disabled"
 								> </v-text-field>
 							</v-flex>
 							<v-flex xs12 sm6 md3>
@@ -192,6 +207,7 @@
 									:items="states"
 									label="State"
 									solo
+									:disabled="disabled"
 								></v-select>
 							</v-flex>
 						</v-layout>
@@ -212,6 +228,7 @@
 								type="text"
 								placeholder="First"
 								required
+								:disabled="disabled"
 							>
 							</v-text-field>
 							</v-flex>
@@ -221,6 +238,7 @@
 									v-model="editedItem.guardian_mname"
 									type="text"
 									placeholder="Middle"
+									:disabled="disabled"
 								></v-text-field>
 							</v-flex>
 
@@ -229,6 +247,7 @@
 									v-model="editedItem.guardian_surname"
 									type="text"
 									placeholder="Last"
+									:disabled="disabled"
 								>
 								</v-text-field>
 							</v-flex>
@@ -245,7 +264,9 @@
 									label=" Email id"
 									placeholder="enter email id"
 									autocomplete="off"
-									required>
+									required
+									:disabled="disabled"
+								>
 								</v-text-field>
 							</v-flex>
 							<br>
@@ -255,6 +276,7 @@
 									v-model="editedItem.guardian_contact"
 									type="tel"
 									label="Contact no"
+									:disabled="disabled"
 								></v-text-field>
 							</v-flex>
 						</v-layout>
@@ -267,6 +289,7 @@
 									label="Address"
 									placeholder="street address"
 									autocomplete="off"
+									:disabled="disabled"
 								></v-text-field>
 							</v-flex>
 						<v-layout row wrap>
@@ -275,6 +298,7 @@
 									v-model="editedItem.guardian_city"
 									type="text"
 									placeholder="city"
+									:disabled="disabled"
 								></v-text-field>
 							</v-flex>
 							<v-flex xs12 sm6 md3>
@@ -282,6 +306,7 @@
 									v-model="editedItem.guardian_pin"
 									type="text"
 									placeholder="pin/zip code"
+									:disabled="disabled"
 								> </v-text-field>
 							</v-flex>
 							<v-flex xs12 sm6 md3>
@@ -291,6 +316,7 @@
 									:items="states"
 									label="State"
 									solo
+									:disabled="disabled"
 								></v-select>
 							</v-flex>
 						</v-layout>
@@ -306,6 +332,7 @@
 									label="Department"
 									required
 									solo
+									:disabled="disabled"
 								></v-select>
 							</v-flex>
 							<v-flex xs12 sm12 md4>
@@ -315,6 +342,7 @@
 									label="Streams"
 									required
 									solo
+									:disabled="disabled"
 								></v-select>
 							</v-flex>
 							<v-flex xs12 sm12 md4>
@@ -324,12 +352,13 @@
 									label="Class"
 									required
 									solo
+									:disabled="disabled"
 								></v-select>
 							</v-flex>
 						</v-layout>
 						<v-spacer></v-spacer><br>
-						<v-btn round @click.prevent="submitForm" color="success" light type="submit" form="form" >Submit</v-btn>
-						<v-btn  round color="primary" type="submit" form="form"  @click.prevent="reset">Clear form</v-btn>
+						<v-btn round @click.prevent="submitForm" color="success" light type="submit" form="form" :disabled="disabled" >Submit</v-btn>
+						<v-btn  round color="primary" type="submit" form="form"  @click.prevent="reset" :disabled="disabled">Clear form</v-btn>
 					</v-container>
 				</v-form>
 			</v-card>
@@ -337,24 +366,58 @@
     </v-toolbar>
 
 
-    <v-data-table :headers="headers" :items="user_details"  class="elevation-1">
-		<template v-slot:headers="props">
+    <v-data-table :headers="headers" :items="user_details" item-key="s_id" v-model="selected" select-All class="elevation-1">
+	 	<template v-slot:headers="props">
 			<tr>
-				<th>
+				<th v-if="deleteMode==true">
 					<v-checkbox
 						:input-value="props.all"
 						:indeterminate="props.indeterminate"
 						primary
 						hide-details
-						@click="selectAll"
+						@click.stop="toggleAll"
 					></v-checkbox>
 				</th>
 				<th
+					v-if="deleteMode==false"
 					v-for="header in props.headers"
 					:key="header.text"
 				>
+
 					{{ header.text }}
-					<span v-if="header.name=='Actions'">
+				</th>
+
+				<th>
+					<div v-if="deleteMode">
+					<v-layout>
+						<v-flex>
+							{{selected.length}} rows selected
+							<v-btn color="warning" @click="deleteItem">Confirm</v-btn>
+							<v-btn color="info" @click="deleteMode=false" class="btn-cancel">Cancel</v-btn>
+						</v-flex>
+					</v-layout>
+				</div>
+				</th>
+			</tr>
+	 	</template>
+		<template v-slot:items="props">
+			<tr :active="props.selected" @click="props.selected = !props.selected">
+				<td v-if="deleteMode">
+					<v-checkbox
+						primary
+						hide-details
+						:input-value="props.selected"
+					></v-checkbox>
+				</td>
+				<td>{{ props.item.s_id }}</td>
+				<td>{{ props.item.s_fname + ' ' + props.item.s_mname + ' ' + props.item.s_surname}}</td>
+				<td>{{ props.item.s_dob }}</td>
+				<td>{{ props.item.s_email }}</td>
+				<td>{{ props.item.s_contact }}</td>
+				<td>{{ props.item.stream }}</td>
+				<td>{{ props.item.class_id }}</td>
+				<td class="justify-center layout px-0">
+					<span v-if="deleteMode==false">
 						<v-menu offset-y>
 							<template v-slot:activator="{ on }">
 								<v-btn dark	v-on="on">Actions</v-btn>
@@ -365,49 +428,17 @@
 									:key="index"
 									@click="changed(item.title)"
 								>
-								<v-list-tile-title>{{ item.title }}</v-list-tile-title>
+								<v-list-tile-title @click="item.title=='Edit' ? editItem(props.item) : viewItem(props.item)">{{ item.title }}</v-list-tile-title>
 								</v-list-tile>
 							</v-list>
 							</v-menu>
 					</span>
-				</th>
+				</td>
 			</tr>
+      	</template>
+		<template v-slot:no-data>
+			<div>No data </div>
 		</template>
-      	<template v-slot:items="props">
-			  <td><v-checkbox
-					v-model="props.selected"
-					primary
-					hide-details
-					:input-value="props.selected"
-				></v-checkbox>
-			</td>
-			<td>{{ props.item.s_id }}</td>
-			<td>{{ props.item.s_fname + ' ' + props.item.s_mname + ' ' + props.item.s_surname}}</td>
-			<td>{{ props.item.s_dob }}</td>
-			<td>{{ props.item.s_email }}</td>
-			<td>{{ props.item.s_contact }}</td>
-			<td>{{ props.item.stream }}</td>
-			<td>{{ props.item.class_id }}</td>
-			<td class="justify-center layout px-0">
-			<v-icon
-				v-if="editMode"
-				small
-				class="mr-2"
-				@click="editItem(props.item)"
-			>
-				edit
-			</v-icon>
-			<v-icon
-				small
-				@click="deleteItem(props.item)"
-			>
-				delete
-			</v-icon>
-			</td>
-      </template>
-      <template v-slot:no-data>
-        <div>No data </div>
-      </template>
     </v-data-table>
 
 	<!-- snackbar -->
@@ -442,8 +473,9 @@ export default {
 		config: ['View','Edit'],
 		viewMode: false,
 		editMode: false,
+		deleteMode: false,
+		disabled: false,
 		selected: [],
-
 		settings :
 		[
 			{ title: 'View' },
@@ -451,14 +483,13 @@ export default {
 		],
 
 		headers: [
-		  	{ text: 'Sl_No',	align: 'left', sortable: true,	value: 's_id'},
-			{ text: 'Name' },
-			{ text: 'Date of birth ', value: 's_dob' },
-			{ text: 'Email', value: 's_email' },
-			{ text: 'Contact Number', value: 's_contact' },
-			{ text: 'Stream', value: 'stream' },
-			{ text: 'Section', value: 'class_id' },
-			{ name: 'Actions'}
+		  	{ text: 'Sl_No', align: 'left', sortable: true,	value: 's_id'},
+			{ text: 'Name', sortable: false},
+			{ text: 'Date of birth ', value: 's_dob', sortable: false },
+			{ text: 'Email', value: 's_email', sortable: false },
+			{ text: 'Contact Number', value: 's_contact', sortable: false },
+			{ text: 'Stream', value: 'stream', sortable: false },
+			{ text: 'Section', value: 'class_id', sortable: true }
 		],
 		date: new Date().toISOString().substr(0, 10),
 		menu: false,
@@ -586,14 +617,45 @@ export default {
 			const student_response = await this.$axios.get('/api/students')
 			this.user_details = student_response.data
 		},
+		addItem() {
+			this.disabled=false
+		},
+		viewItem(item) {
+			this.editedIndex = this.user_details.indexOf(item)
+			this.editedItem = Object.assign({}, item)
+			this.disabled=true
+			this.dialog=true
+		},
 		editItem (item) {
+			this.disabled=false
 			this.editedIndex = this.user_details.indexOf(item)
 			this.editedItem = Object.assign({}, item)
 			this.dialog = true
 		},
-		deleteItem (item) {
-			const index = this.user_details.indexOf(item)
-			confirm('Are you sure you want to delete this item?') && this.user_details.splice(index, 1)
+		async deleteItem () {
+			var i
+			let response
+			let id
+			let index
+			for(i=0;i<(this.selected.length);i++)
+			{
+				id=this.selected[i].s_id
+				response = await this.$axios.delete(`/api/students/${id}`)
+				if(response.data.success==true)
+				{
+					if(this.selected.length!=1)
+					{
+						this.message=`${this.selected.length} item deleted`
+					}
+					else
+					{
+						this.message=`${this.selected.length} items deleted`
+					}
+					this.snackbar=true
+				}
+				index=this.user_details.map((e) => e.s_id).indexOf(id)
+				this.user_details.splice(index,1)
+			}
 		},
 		close () {
 			this.dialog = false
@@ -610,10 +672,6 @@ export default {
 			}
 			this.close()
 		},
-		selectAll () {
-			if (this.selected.length) this.selected = []
-			// else this.selected = this.user_details.slice()
-		},
 		changed(value) {
 			this.selectedAction = value
 			if(value=='Edit')
@@ -627,6 +685,11 @@ export default {
 				this.editMode=false
 			}
 		},
+		toggleAll () {
+			if (this.selected.length) this.selected = []
+			else this.selected = this.user_details.slice()
+		},
+
 		async submitForm() {
 			let response
 			if(this.editedIndex == -1)
@@ -709,7 +772,6 @@ export default {
 </script>
 
 <style scoped>
-
 .select-action
 {
 	width: 100%;
