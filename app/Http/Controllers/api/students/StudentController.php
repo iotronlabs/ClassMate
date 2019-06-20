@@ -25,11 +25,11 @@ class StudentController extends Controller
            ([
                'success' =>  true,
                'data' => $user,
-               
+
            ],200);
-   
-      
-    } 
+
+
+    }
 
   public function edit($s_id)
   {
@@ -40,7 +40,7 @@ class StudentController extends Controller
            ([
                'success' =>  true,
                'data' => $project,
-               
+
            ],200);
   }
 
@@ -52,7 +52,31 @@ public function update(Request $request, $s_id)
 
 		    $this->validate($request, [
 		        's_email' => 'required',
-		        's_gender' => 'required'     // all required field need to be added here whatever data to be edited is required.   Admin pay attention here//
+		        's_gender' => 'required',
+		        's_fname' =>  'required',
+		        // 's_mname' =>  'required',
+		        's_contact'  => 'required',
+		        's_dob' =>    'required',
+		        's_age' => 'required',
+		        's_nationality' => 'required',
+		        's_religion' => 'required',
+		        's_address'  => 'required',
+		        's_religion' => 'required',
+		        's_address_pin' => 'required',
+		        'guardian_fname' => 'required',
+		        // 'guardian_mname' => 'required',
+		      'guardian_surname' => 'required',
+		        'guardian_email' => 'required',
+		        'guardian_contact' => 'required',
+		        'guardian_address' => 'required',
+		        // 'guardian_state' => 'required',
+		        'guardian_pin' => 'required',
+		        // 'guardian_state' => 'required',
+		        'guardian_city' => 'required',
+		        's_address_city' => 'required',
+		        's_surname' => 'required'
+
+		           //edit here if required to update content//
 		    ]);
 
 		    $input = $request->all();
@@ -64,9 +88,9 @@ public function update(Request $request, $s_id)
 		           ([
 		               'success' =>  true,
 		               'data' => $task,
-		               
+
 		           ],200);
-	
+
 
 }
 
@@ -82,7 +106,7 @@ public function destroy($s_id)
 		           ([
 		               'success' =>  true,
 		               'data' => '$task',
-		               
+
 		           ],200);
 
 //return redirect()->route('api/teachers/Auth/teacherController');

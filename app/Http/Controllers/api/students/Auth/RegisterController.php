@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use  Tymon\JWTAuth\Facades\JWTAuth;
-use Config; 
+use Config;
 use Auth;
 
 class RegisterController extends Controller
@@ -34,12 +34,12 @@ class RegisterController extends Controller
 
        $this->middleware('guest:students');
        $this->middleware('guest');
-      
+
       // $this->auth= $auth;
-       
+
     }
-     
-    
+
+
       protected function guard()
     {
         return Auth::guard('students');
@@ -61,13 +61,13 @@ class RegisterController extends Controller
             's_gender' => ['required', 'max:1'],
             's_contact' => ['required', 'min:10'],
             's_dob' => ['required'],
-            
+
 
         ]);
     }
 
-    
-     
+
+
     /*
       * Handle a registration request for the application.
      *
@@ -77,18 +77,18 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         $validator=$this->validator($request->all());
-        
+
        if(!$validator->fails())
        {
            $user= $this->create($request->all());
-           
-           // Config::set('jwt.user', 'App\Models\student\user_student'); 
+
+           // Config::set('jwt.user', 'App\Models\student\user_student');
            // Config::set('auth.providers.users.model', \App\Models\student\user_student::class);
-           
+
            $token= Auth::guard('students')->attempt($request->only('s_email','password'));
-           
-           
-           
+
+
+
            return response()->json
            ([
                'success' =>  true,
@@ -97,15 +97,15 @@ class RegisterController extends Controller
            ],200);
        }
        return response()->json([
-           
+
            'success' =>false,
            'errors' => $validator->errors()
-           
+
        ]);
     }
 
-   
-    
+
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -113,21 +113,21 @@ class RegisterController extends Controller
      * @return \App\Models\admin\user_admin
      */
     protected function create(array $data)
-    { 
+    {
 
 
 
       $request = request();
 
               // $profileImage = $request->file('s_profile_picture');
-              // $profileImageSaveAsName = time() . Auth::id() . "-profile." . 
+              // $profileImageSaveAsName = time() . Auth::id() . "-profile." .
               //                           $profileImage->getClientOriginalExtension();
 
               // $upload_path = 'profile_images/student/';
               // $profile_image_url = $upload_path . $profileImageSaveAsName;
               // $success = $profileImage->move($upload_path, $profileImageSaveAsName);
 
-      
+
 
         return user_student::create([
             's_fname' => $data['s_fname'],
@@ -138,11 +138,6 @@ class RegisterController extends Controller
             's_gender' => $data['s_gender'],
             's_contact' => $data['s_contact'],
             's_dob' => $data['s_dob'],
-            //'s_id' => $data['s_id'],
-            //'t_ref_id' => $data['t_ref_id'],
-            
-            
-            //'status' => $data['status'],
             's_age' => $data['s_age'],
             's_nationality' => $data['s_nationality'],
             's_address' => $data['s_address'],
@@ -155,10 +150,13 @@ class RegisterController extends Controller
             'guardian_email' => $data['guardian_email'],
             'guardian_contact' => $data['guardian_contact'],
             'guardian_address' => $data['guardian_address'],
+            'guardian_city' => $data['guardian_city'],
             'guardian_pin' => $data['guardian_pin'],
             'guardian_state' => $data['guardian_state'],
             'class_id' => $data['class_id'],
- // 's_profile_picture' => $profile_image_url,
+            's_address_city' => $data['s_address_city'],
+
+            // 's_profile_picture' => $profile_image_url,
 
 
 

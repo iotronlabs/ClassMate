@@ -22,7 +22,7 @@ class CreateUserStudentsTable extends Migration
            // $table->string('s_id')->length(10)->unique();
             $table->string('t_ref_id')->length(10)->nullable();
             $table->string('s_fname',100);
-            $table->string('s_mname',100);
+            $table->string('s_mname',100)->nullable();
             $table->string('s_surname',100);
             $table->string('s_email',100)->unique();
             $table->char('s_gender',1);
@@ -33,13 +33,15 @@ class CreateUserStudentsTable extends Migration
             $table->string('s_religion')->length(30);
             $table->string('s_address')->length(200);
             $table->string('s_address_pin')->length(6);
+            $table->string('s_address_city')->length(100);
             $table->string('s_address_state')->length(20)->nullable();
             $table->string('guardian_fname')->length(100);
-            $table->string('guardian_mname')->length(100);
+            $table->string('guardian_mname')->length(100)->nullable();
             $table->string('guardian_surname')->length(100);
             $table->string('guardian_email')->lenght(30);
             $table->string('guardian_contact')->length(10);
             $table->string('guardian_address')->length(100);
+            $table->string('guardian_city')->length(100);
             $table->integer('guardian_pin')->length(6);
             $table->string('guardian_state')->length(50)->nullable();
 
@@ -57,7 +59,7 @@ class CreateUserStudentsTable extends Migration
 
       DB::statement("ALTER TABLE user_students AUTO_INCREMENT = 170500;");
 
-        
+
     }
 
     /**

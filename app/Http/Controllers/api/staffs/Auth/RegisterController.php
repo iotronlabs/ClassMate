@@ -135,6 +135,7 @@ class RegisterController extends Controller
             'st_surname' => $data['st_surname'],
             //'st_authentication' => $data['st_authentication'],
             'st_religion' => $data['st_religion'],
+            'st_address_city' => $data['st_address_city'],
            // 'st_profile_picture' => $profile_image_url,
 
         ]);
