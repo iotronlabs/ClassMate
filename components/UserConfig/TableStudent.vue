@@ -392,7 +392,7 @@
 					<v-layout>
 						<v-flex>
 							{{selected.length}} rows selected
-							<v-btn color="warning" @click="deleteItem">Confirm</v-btn>
+							<v-btn color="error" @click="deleteItem">Confirm</v-btn>
 							<v-btn color="info" @click="deleteMode=false" class="btn-cancel">Cancel</v-btn>
 						</v-flex>
 					</v-layout>
