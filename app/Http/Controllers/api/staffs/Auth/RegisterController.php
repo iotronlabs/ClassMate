@@ -28,7 +28,7 @@ class RegisterController extends Controller
    */
 
     public function __construct()
-    { 
+    {
       $this->middleware('guest');
          $this->middleware('guest:user_staffs');
        // $this->auth= $auth;
@@ -59,8 +59,8 @@ class RegisterController extends Controller
         ]);
     }
 
-    
-     
+
+
     /*
       * Handle a registration request for the application.
      *
@@ -70,15 +70,15 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         $validator=$this->validator($request->all());
-        
+
        if(!$validator->fails())
        {
            $user= $this->create($request->all());
-           
-           
+
+
             $token= Auth::guard('user_staffs')->attempt($request->only('st_email','password'));
-           
-           
+
+
            return response()->json
            ([
                'success' =>  true,
@@ -87,14 +87,14 @@ class RegisterController extends Controller
            ],200);
        }
        return response()->json([
-           
+
            'success' =>false,
            'errors' => $validator->errors()
-           
+
        ]);
     }
 
-    
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -107,14 +107,14 @@ class RegisterController extends Controller
       // $request = request();
 
       //       $profileImage = $request->file('st_profile_picture');
-      //       $profileImageSaveAsName = time() . Auth::id() . "-profile." . 
+      //       $profileImageSaveAsName = time() . Auth::id() . "-profile." .
       //                                 $profileImage->getClientOriginalExtension();
 
       //       $upload_path = 'profile_images/staff/';
       //       $profile_image_url = $upload_path . $profileImageSaveAsName;
       //       $success = $profileImage->move($upload_path, $profileImageSaveAsName);
 
-      
+
         return user_staff::create([
             'st_fname' => $data['st_fname'],
             'st_email' => $data['st_email'],
@@ -131,7 +131,6 @@ class RegisterController extends Controller
             'st_address' => $data['st_address'],
             'st_address_pin' => $data['st_address_pin'],
             'st_address_state' => $data['st_address_state'],
-            'st_sub' => $data['st_sub'],
             'st_surname' => $data['st_surname'],
             //'st_authentication' => $data['st_authentication'],
             'st_religion' => $data['st_religion'],
