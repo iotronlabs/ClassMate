@@ -14,13 +14,12 @@ class CreateTopicsTable extends Migration
     public function up()
     {
         Schema::create('topics', function (Blueprint $table) {
+ 
             $table->bigIncrements('topic_id');
             $table->string('topic_name');
-            $table->integer('sub_id');
+            $table->unsignedInteger('sub_id');
             $table->string('t_ref_id')->nullable();
             $table->string('status')->default('Active');
-            
-
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class CreateTopicsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('topics');
+        Schema::('topics');
     }
 }
