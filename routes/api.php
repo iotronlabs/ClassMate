@@ -213,3 +213,18 @@ Route::group([ 'prefix' =>'/topics',
 
 );
  
+
+Route::group([ 'prefix' =>'/streams',
+            ],function()
+             {
+                 Route::post('/register','streams\UpdateStreamController@register');
+                 Route::get('/{id}/show',  'streams\UpdateStreamController@show');
+                 Route::get('/{id}/edit', 'streams\UpdateStreamController@edit');
+                 Route::post('/{id}',     'streams\UpdateStreamController@update');  
+                
+                 Route::get('/',           'streams\UpdateStreamController@index');
+                // Route::post('/login','classes\LoginController@login');
+             }
+
+);
+ 

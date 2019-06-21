@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\api\subjects;
+namespace App\Http\Controllers\api\streams;
 
 
-use App\Models\subject\subject;
+use App\Models\Stream\stream;
 use \Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -13,14 +13,14 @@ use  Tymon\JWTAuth\Facades\JWTAuth;
 use Config; 
 use Auth;
 
-class UpdateSubjectController extends Controller
+class UpdateStreamController extends Controller
 {
    protected function validator(array $data)
     {
         return Validator::make($data, [
            // 'class_id' => ['required', 'string', 'max:255'],
-            'sub_name' => ['required', 'string',  'max:255'],
-            'sub_code'  =>      ['required'],
+            'stream_name' => ['required', 'string',  'max:255'],
+            'stream_code'  =>      ['required'],
 
 
 
@@ -72,30 +72,35 @@ class UpdateSubjectController extends Controller
 
     protected function create(array $data)
     { 
-        return subject::create([
+        return stream::create([
             //'dept_name' => $data['dept_name'],
-             'sub_name' => $data['sub_name'],
-             'sub_code' => $data['sub_code'],
+             'stream_name' => $data['stream_name'],
+             'stream_code' => $data['stream_code'],
+             'department_code' => $data['department_code'],
+             'department_name' => $data['department_name'],
+             'course_length' => $data['course_length'],
+             'Assign_Subject' => $data['Assign_Subject'],
             // 'stream_id' => $data['']
               //'dept_name' => $data['dept_name'],
            // 'dept_id' => $data['dept_id'],
-            'status' => $data['status'],
+           // 'status' => $data['status'],
            // 'department_id' => $data['department_id'],
             //'stream_id' => $data['stream_id'],
+
 
      
         ]);
     }
      public function index()
         {
-            $details=subject::all();
+            $details=stream::all();
             return $details;
         }
 
 
      public function show(Request $request,$id)
     {
-      $user= subject::findorfail($subject_id);
+      $user= stream::findorfail($subject_id);
       return response()->json
            ([
                'success' =>  true,
@@ -108,7 +113,7 @@ class UpdateSubjectController extends Controller
 
   public function edit($id)
   {
-         $project = subject::find($id);
+         $project = stream::find($id);
          return response()->json
                ([
                    'success' =>  true,
@@ -119,14 +124,14 @@ class UpdateSubjectController extends Controller
 
 public function update(Request $request, $id)
 {
-        $task = subject::findOrFail($id);
+        $task = stream::findOrFail($id);
         $this->validate($request, [
           //'t_email' => 'required',
-            'sub_code' => 'required',
-            'sub_name' => 'required',
-            'sub_stream' => 'required',
-            'sub_department' => 'required',
-            'status' => 'required',
+            'stream_code' => 'required',
+            'stream_name' => 'required',
+            'department_code' => 'required',
+            'department_name' => 'required',
+            //'status' => 'required',
 
 
         ]);

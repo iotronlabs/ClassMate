@@ -16,7 +16,7 @@ class CreateTopicsTable extends Migration
         Schema::create('topics', function (Blueprint $table) {
             $table->bigIncrements('topic_id');
             $table->string('topic_name');
-            $table->integer('subject_id');
+            $table->integer('sub_id');
             $table->string('t_ref_id')->nullable();
             $table->string('status')->default('Active');
             

@@ -20,7 +20,7 @@ class UpdateTopicController extends Controller
         return Validator::make($data, [
            // 'class_id' => ['required', 'string', 'max:255'],
             'topic_name' => ['required', 'string',  'max:255'],
-            'subject_id'  => ['unique:topics'],
+            'sub_id'  => ['required'],
 
 
   
@@ -61,7 +61,7 @@ class UpdateTopicController extends Controller
     { 
         return topic::create([
             'topic_name' => $data['topic_name'],
-             'subject_id' => $data['subject_id'],
+             'sub_id' => $data['sub_id'],
             //   'stream_name' => $data['stream_name'],
             // 'course_length' => $data['course_length'],
             'status' => $data['status'],

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Department;
+namespace App\Models\Stream;
 //amespace App\Models\classes;
 
 //use Illuminate\Database\Eloquent\Model;
@@ -11,10 +11,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 //use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class department extends Authenticatable 
+class stream extends Authenticatable 
 {
      use Notifiable;
-      //protected $primaryKey = '';
+     // protected $primaryKey = 'topic_id';
 
 
     protected $guarded =[

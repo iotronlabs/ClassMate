@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
+ use Illuminate\Database\Migrations\Migration;
 
 class CreateDepartmentsTable extends Migration
 {
@@ -14,13 +14,10 @@ class CreateDepartmentsTable extends Migration
     public function up()
     {
         Schema::create('departments', function (Blueprint $table) {
-            $table->increments('dept_id');
-           //  $table->integer('dept_id')->unsigned();
-           // $table->foreign('dept_id')->references('id')->on('departments');
-            $table->string('dept_name');
-            $table->string('stream_id');
-            $table->string('stream_name');
-            $table->string('course_length');
+            $table->increments('id');
+            $table->string('department_name')->unique();
+            $table->string('department_code')->unique();
+            
             $table->string('status')->default('Active');
             $table->string('t_ref_id')->nullable();
 
