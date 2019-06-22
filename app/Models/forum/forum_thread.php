@@ -2,6 +2,7 @@
 
 namespace App\Models\forum;
 
+use App\Forum\Filters\ThreadFilters;
 use App\Models\forum\forum_Reply;
 use App\Models\forum\forum_channel;
 use App\Models\teacher\user_teacher;
@@ -10,6 +11,19 @@ use Illuminate\Database\Eloquent\Model;
 class forum_thread extends Model
 {
     protected $guarded = [];
+
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope('replyCount' , function($builder)
+        {
+              
+              $builder->withCount('replies');
+           
+        });
+    }
 
     public function path()
     {
@@ -38,6 +52,12 @@ class forum_thread extends Model
     public function channel()
     {
         return $this->belongsTo(forum_channel::class);
+    }
+
+    public function scopeFilter($query,ThreadFilters $filters)
+    {
+
+        return $filters->apply($query);
     }
 }
 

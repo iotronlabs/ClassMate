@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api\forum;
 
+use App\Forum\Filters\ThreadFilters;
 use App\Http\Controllers\Controller;
 use App\Models\forum\forum_channel;
 use App\Models\forum\forum_thread;
@@ -16,26 +17,22 @@ class ThreadsController extends Controller
      // $this->middleware('guest:user_teachers');
     }
 
-    public function index(forum_channel $channel)
+    public function index(forum_channel $channel, ThreadFilters $filters)
     {
       // if($channelSlug)
       // {
         // $channelId = forum_channel::where('slug',$channelSlug)->first()->id;
-
         // $threads = forum_thread::where('channel_id',$channelId)->latest()->get();
-
-        if ($channel->exists) {
-
-        $threads = $channel->threads()->get();
-
-      }
-      
-
+      //   if ($channel->exists) {
+      //   $threads = $channel->threads()->get();
       // }
-      else
-      {
-        $threads = forum_thread::latest()->get();
-      }
+      // // }
+      // else
+      // {
+      //   $threads = forum_thread::latest()->get();
+      // }
+
+       $threads = $this->getThreads($channel, $filters);
 
       return response()->json
       ([
@@ -81,6 +78,18 @@ class ThreadsController extends Controller
     	]);
 
     	return redirect('/api/forum/threads');
+    }
+
+
+     protected function getThreads(forum_channel $channel, ThreadFilters $filters)
+    {
+        $threads = forum_thread::latest()->filter($filters);
+
+        if ($channel->exists) {
+            $threads->where('forum_channel_id', $channel->id);
+        }
+
+        return $threads->paginate(20);
     }
 
     
