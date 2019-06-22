@@ -134,7 +134,7 @@ $factory->define(user_student::class, function (Faker $faker) {
         'guardian_mname' => $faker->name,
         'guardian_surname' => $faker->name,
         'guardian_address' => $faker->address,
-        'guardian_pin' => $faker->randomDigit,
+        'guardian_pin' => $faker->randomDigit, 
         'guardian_email' => $faker->unique()->safeEmail,
         'guardian_contact' => $faker->randomDigit,
         'guardian_state' => $faker->city,
