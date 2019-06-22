@@ -497,6 +497,8 @@ class ComposerStaticInit027345a21b1f8c7a82a8ca87a554c9e0
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Models\\Department\\department' => __DIR__ . '/../..' . '/app/Models/Department/department.php',
+        'App\\Models\\Exam\\examination' => __DIR__ . '/../..' . '/app/Models/Exam/examination.php',
+        'App\\Models\\Exam\\question' => __DIR__ . '/../..' . '/app/Models/Exam/question.php',
         'App\\Models\\Stream\\stream' => __DIR__ . '/../..' . '/app/Models/Stream/stream.php',
         'App\\Models\\Topic\\topic' => __DIR__ . '/../..' . '/app/Models/Topic/topic.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',

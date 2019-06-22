@@ -67,63 +67,63 @@ class UpdateDepartmentController extends Controller
      
         ]);
       }
-//     }
-// 		 public function index()
-// 		    {
-// 		        $details=department::all();
-// 		        return $details;
-// 		    }
+    }
+		 public function index()
+		    {
+		        $details=department::all();
+		        return $details;
+		    }
 
 
-//      public function show(Request $request,$id)
-//     {
-//       $user= department::findorfail($id);
-//       return response()->json
-//            ([
-//                'success' =>  true,
-//                'data' => $user,
+     public function show(Request $request,$id)
+    {
+      $user= department::findorfail($id);
+      return response()->json
+           ([
+               'success' =>  true,
+               'data' => $user,
                
-//            ],200);
+           ],200);
    
       
-//     } 
+    } 
 
-//   public function edit($id)
-//   {
-// 		     $project = department::find($id);
-// 		     return response()->json
-// 		           ([
-// 		               'success' =>  true,
-// 		               'data' => $project,
+  public function edit($id)
+  {
+		     $project = department::find($id);
+		     return response()->json
+		           ([
+		               'success' =>  true,
+		               'data' => $project,
 		               
-// 		           ],200);
-//   }
+		           ],200);
+  }
 
-// public function update(Request $request, $id)
-// {
-// 		  	$task = department::findOrFail($id);
-// 		    $this->validate($request, [
-// 		    	,
-// 		        'department_name' => 'required',
-// 		        'department_code' => 'required',
+public function update(Request $request, $id)
+{
+		  	$task = department::findOrFail($id);
+		    $this->validate($request, [
+		    	,
+		        'department_name' => 'required',
+		        'department_code' => 'required',
 		       
-// 		        'status' => 'required',
+		        'status' => 'required',
 
 
-// 		    ]);
+		    ]);
 
-// 		    $input = $request->all();
-// 		    $task->fill($input)->save();
-// 		     return response()->json
-// 		           ([
-// 		               'success' =>  true,
-// 		               'data' => $task,
+		    $input = $request->all();
+		    $task->fill($input)->save();
+		     return response()->json
+		           ([
+		               'success' =>  true,
+		               'data' => $task,
 		               
-// 		           ],200);
+		           ],200);
 	
 
-// }		
+}		
 
-// // Delete the stream and Delete the department is not be alvalable for any users//
-// //Only can be activated and deactivate//
+// Delete the stream and Delete the department is not be alvalable for any users//
+//Only can be activated and deactivate//
 }

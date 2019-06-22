@@ -75,6 +75,9 @@ Route::group([ 'prefix' =>'/teachers',
 
                  Route::get('/','teachers\TeacherController@index');
 
+                 Route::get('/{t_id
+                 }','teachers\TeacherController@get_exam');
+
              }
 
 );
@@ -224,6 +227,28 @@ Route::group([ 'prefix' =>'/streams',
                 
                  Route::get('/',           'streams\UpdateStreamController@index');
                 // Route::post('/login','classes\LoginController@login');
+             }
+
+);
+ 
+
+
+Route::group([ 'prefix' =>'/exams',
+            ],function()
+             {
+                 Route::post('/addexam','exams\ExaminationController@addexam');
+                  Route::get('/{teacher_id_created}/show',  'exams\ExaminationController@show');
+                 // Route::get('/{id}/edit', 'streams\UpdateStreamController@edit');
+                 // Route::post('/{id}',     'streams\UpdateStreamController@update');  
+                
+                  Route::get('/',           'exams\ExamUpdateController@index');
+                // Route::post('/login','classes\LoginController@login');
+                  Route::get('/{exam_code}/show', 'exams\ExamUpdateController@show');
+                  Route::post('/{exam_code}', 'exams\QuestionController@add_question');
+                  Route::get('/','exams\QuestionController@get_question');
+                  
+
+
              }
 
 );

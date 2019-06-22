@@ -31,6 +31,6 @@ class CreateTopicsTable extends Migration
      */
     public function down()
     {
-        Schema::('topics');
+        // Schema::('topics');
     }
 }

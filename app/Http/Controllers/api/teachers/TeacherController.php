@@ -5,6 +5,8 @@ namespace App\Http\Controllers\api\teachers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\teacher\user_teacher;
+use \DB;
+use App\Models\Exam\examination;
 
 class TeacherController extends Controller
 {
@@ -74,12 +76,12 @@ public function update(Request $request, $t_id)
 		    $task->fill($input)->save();
 
 
-		     return response()->json
-		           ([
-		               'success' =>  true,
-		               'data' => $task,
-		               
-		           ],200);
+											     return response()->json
+											           ([
+											               'success' =>  true,
+											               'data' => $task,
+											               
+											           ],200);
 	
 
 }
@@ -101,4 +103,13 @@ public function destroy($t_id)
 
 //return redirect()->route('api/teachers/Auth/teacherController');
 }
+
+		// public function get_exam(Request $request,$t_id)
+		// 	{
+		// 		// $data = examination::where('t_id', $id);
+		// 		// dd($data);
+		// 		$song = DB::table('examination')->where('teacher_id_created', $t_id)->first();
+				
+		// 	}
+
 }
