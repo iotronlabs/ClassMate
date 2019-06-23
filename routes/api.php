@@ -242,7 +242,7 @@ Route::group([ 'prefix' =>'/exams',
                   Route::get('/','exams\ExamUpdateController@index');
                 // Route::post('/login','classes\LoginController@login');
                   Route::get('/{exam_code}/show', 'exams\ExamUpdateController@show');
-                  Route::post('/{exam_code}', 'exams\QuestionController@add_question');
+                  Route::post('/{exam}', 'exams\QuestionController@add_question');
                   Route::get('/{exam}','exams\ExaminationController@get_question');
                   
 

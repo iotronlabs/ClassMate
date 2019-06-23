@@ -22,29 +22,26 @@ class QuestionController extends Controller
             
             'type'  => ['required'],
             'question' => ['required'],
-            
-
-
-
-  
+ 
         ]);
     }
 
-    public function add_question(Request $request)
+    public function add_question(Request $request,examination $exam)
     {
-        $validator=$this->validator($request->all());
+       $validator=$this->validator($request->all());
         
        if(!$validator->fails())
        {
-           $user= $this->create($request->all());
-           
-           
+           $user= $this->create($request->all(),$exam);
+          
+
            
            return response()->json
            ([
            		
            		
                'success' =>  true,
+               'Id' => $user->question_id,
                'data' =>  $user,
                
                //'token' => $token
@@ -60,13 +57,13 @@ class QuestionController extends Controller
 
 
 
-    protected function create(array $data)
+    protected function create(array $data,examination $exam)
     { 
         return question::create([
 
-        		'question_id'  => 'EX-'.mt_rand(1000,9999).'',
-	        	'exam_id' => '$exam_code',
-	            'type' => $data['type'],
+        		 'question_id'  => 'EX-'.mt_rand(1000,9999).'',
+	        	 'exam_id' => $exam->exam_code,
+	           'type' => $data['type'],
              'question' => $data['question'],
               'option_1' => $data['option_1'],
               'option_2' => $data['option_2'],

@@ -14,6 +14,8 @@ class CreateQuestionsTable extends Migration
     public function up()
     {
         Schema::create('questions', function (Blueprint $table) {
+
+           //$table->increments('q_id');
            $table->string('question_id')->primary();
            $table->string('exam_id');
            $table->string('type');
@@ -25,6 +27,8 @@ class CreateQuestionsTable extends Migration
            $table->string('answer');
            $table->timestamps();
         });
+
+         DB::statement("ALTER TABLE questions AUTO_INCREMENT = 1000;");
     }
 
     /**
