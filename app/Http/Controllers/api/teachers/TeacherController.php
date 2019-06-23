@@ -97,19 +97,28 @@ public function destroy($t_id)
 	 return response()->json
 		           ([
 		               'success' =>  true,
-		               'data' => '$task',
+		               'data' => $task,
 		               
 		           ],200);
 
 //return redirect()->route('api/teachers/Auth/teacherController');
 }
 
-		// public function get_exam(Request $request,$t_id)
-		// 	{
-		// 		// $data = examination::where('t_id', $id);
-		// 		// dd($data);
-		// 		$song = DB::table('examination')->where('teacher_id_created', $t_id)->first();
+		public function get_exam(user_teacher $teacher)
+			{
+				// $data = examination::where('t_id', $id);
+				// dd($data);
+				// $song = DB::table('examination')->where('teacher_id_created', $t_id)->first();
+
+				$exams = $teacher->exams()->get();
+                 
+                return response()->json
+		           ([
+		               'success' =>  true,
+		               'data' => $exams,
+		               
+		           ],200);
 				
-		// 	}
+			}
 
 }

@@ -72,20 +72,11 @@ class QuestionController extends Controller
               'option_2' => $data['option_2'],
               'option_3' => $data['option_3'],
               'option_4' => $data['option_4'],
-              'answer' => $data['answer'],
-              
-
-            
+              'answer' => $data['answer'],  
      
         ]);
       }
 
-      public function get_question()
-      {	
-      		$exam_code = 'EX-4057';
-      	$question = Examination::where('exam_code',$exam_code)->question;
 
-      	dd($question);
-      }
 
 }

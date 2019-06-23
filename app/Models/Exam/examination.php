@@ -2,25 +2,28 @@
 
 namespace App\Models\Exam;
 //amespace App\Models\classes;
-use Illuminate\Database\Eloquent\Model;
 use App\Models\Exam\examination;
-//use Tymon\JWTAuth\Contracts\JWTSubject;
 use App\Models\Exam\question;
+use Illuminate\Database\Eloquent\Model;
+
 
 class examination extends Model
 {
     
 
-    protected $guarded =[
-        ];
+    protected $guarded =[];
 
-    public function question()
+    public function questions()
     {
-        return $this->hasMany(Question::class);
+        return $this->hasMany(question::class,'exam_id','exam_code');
     }
 
+  
+    public function getRouteKeyName()
+    {
 
-
+    	return 'exam_code';
+    }
 
     
     
