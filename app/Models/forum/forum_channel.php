@@ -15,7 +15,6 @@ class forum_channel extends Model
 
     public function getRouteKeyName()
     {
-
     	return 'slug';
     }
 }

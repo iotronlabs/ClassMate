@@ -110,7 +110,6 @@ Route::group([ 'prefix' =>'/forum',
                  Route::get('/threads/{channel}/{thread}','forum\ThreadsController@show');
                  Route::post('/threads/{channel}/{thread}/replies','forum\RepliesController@store');
 
-
              }
 
 );
