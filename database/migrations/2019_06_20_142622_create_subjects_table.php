@@ -14,7 +14,7 @@ class CreateSubjectsTable extends Migration
     public function up()
     {
         Schema::create('subjects', function (Blueprint $table) {
-            $table->Increments('id');
+            $table->increments('id');
             $table->string('sub_code')->unique();
             $table->string('sub_name')->unique();
             $table->string('sub_stream')->nullable();

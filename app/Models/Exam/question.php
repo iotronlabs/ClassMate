@@ -11,17 +11,11 @@ class question extends Model
      protected $primaryKey = 'question_id';
 
 
-    protected $guarded =[
-        ];
+    protected $guarded =[];
 
         public function examination()
         {
-            return $this->belongsTo(Examination::class);
+            return $this->belongsTo(examination::class,'exam_code','exam_id');
         }
-
-
-    
-
-    
-    
+  
 }

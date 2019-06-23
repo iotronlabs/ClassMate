@@ -139,5 +139,17 @@ class ExaminationController extends Controller
 // // Delete the stream and Delete the department is not be alvalable for any users//
 // //Only can be activated and deactivate//
 
+   public function get_question(examination $exam)
+      { 
+         //$exam_code = 'EX-4057';
+         $questions = $exam->questions()->get();
 
+             return response()->json
+              ([
+                  'success' =>  true,
+                  'data' => $questions,
+                   
+              ],200);
+         
+      }
 }
