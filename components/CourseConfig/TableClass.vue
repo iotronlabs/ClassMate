@@ -239,7 +239,7 @@ export default {
 			  // { text: 'Sl_No', align: 'left', sortable: true,	value: 'sub_code'},
 			{ text:'Class Id', value: 'class_id'},
 			{ text: 'Class Name ', value: 'class_name', sortable: false },
-			{ text: 'Sections', value: '', sortable: false},
+			// { text: 'Sections', value: '', sortable: false},
 			{ text: 'Stream', value: 'class_stream', sortable: false },
 			{ text: 'Teacher', value: 'class_teacher', sortable: false },
 			{ text: 'Start Date' , value: 'start_date' },
@@ -373,7 +373,7 @@ export default {
 			let response
 			if(this.editedIndex == -1)
 			{
-				response = await this.$axios.post(`/api/subjects/register`,{
+				response = await this.$axios.post(`/api/classes/register`,{
 					class_name: this.editedItem.class_name,
 					class_teacher: this.editedItem.class_teacher,
 					class_stream: this.editedItem.class_stream,
@@ -392,7 +392,7 @@ export default {
 			else
 			{
 				var id= this.editedItem.class_id
-				response = await this.$axios.post(`/api/subjects/${id}`,{
+				response = await this.$axios.post(`/api/classes/${id}`,{
 					class_name: this.editedItem.class_name,
 					class_teacher: this.editedItem.class_teacher,
 					class_stream: this.editedItem.class_stream,
