@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use  Tymon\JWTAuth\Facades\JWTAuth;
-use Config; 
+use Config;
 use Auth;
 
 class UpdateDepartmentController extends Controller
@@ -23,51 +23,50 @@ class UpdateDepartmentController extends Controller
             'department_code'  => ['unique:departments' ,'required'],
 
 
-  
+
         ]);
     }
 
     public function register(Request $request)
     {
         $validator=$this->validator($request->all());
-        
+
        if(!$validator->fails())
        {
            $user= $this->create($request->all());
-           
-           
-           
+
+
+
            return response()->json
            ([
-           		
-           		
+
+
                'success' =>  true,
                'data' => $user,
-               
+
                //'token' => $token
            ],200);
        }
        return response()->json([
-           
+
            'success' =>false,
            'errors' => $validator->errors()
-           
+
        ]);
     }
 
 
 
     protected function create(array $data)
-    { 
+    {
         return department::create([
             'department_name' => $data['department_name'],
              'department_code' => $data['department_code'],
-              
+
             'status' => $data['status'],
-     
+
         ]);
       }
-    }
 		 public function index()
 		    {
 		        $details=department::all();
@@ -82,11 +81,11 @@ class UpdateDepartmentController extends Controller
            ([
                'success' =>  true,
                'data' => $user,
-               
+
            ],200);
-   
-      
-    } 
+
+
+    }
 
   public function edit($id)
   {
@@ -95,7 +94,7 @@ class UpdateDepartmentController extends Controller
 		           ([
 		               'success' =>  true,
 		               'data' => $project,
-		               
+
 		           ],200);
   }
 
@@ -103,10 +102,9 @@ public function update(Request $request, $id)
 {
 		  	$task = department::findOrFail($id);
 		    $this->validate($request, [
-		    	,
-		        'department_name' => 'required',
+		    	'department_name' => 'required',
 		        'department_code' => 'required',
-		       
+
 		        'status' => 'required',
 
 
@@ -118,11 +116,11 @@ public function update(Request $request, $id)
 		           ([
 		               'success' =>  true,
 		               'data' => $task,
-		               
-		           ],200);
-	
 
-}		
+		           ],200);
+
+
+}
 
 // Delete the stream and Delete the department is not be alvalable for any users//
 //Only can be activated and deactivate//
