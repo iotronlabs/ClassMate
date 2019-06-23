@@ -90,5 +90,7 @@ class TeacherUpdateController extends Controller
 
 			    //return redirect()->route('api/teachers/Auth/teacherController');
 			}
+
+			
 }	
 

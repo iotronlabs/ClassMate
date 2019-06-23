@@ -13,12 +13,12 @@ class CreateAddForiegnKey extends Migration
      */
     public function up()
     {
-         Schema::table('topics', function ($table) {
+        //  Schema::table('topics', function ($table) {
 
-           // $table->engine = 'InnoDB';
+        //    // $table->engine = 'InnoDB';
 
-           $table->foreign('sub_id')->references('id')->on('subjects')->onDelete('cascade');
-        });
+        //    $table->foreign('sub_id')->references('id')->on('subjects')->onDelete('cascade');
+        // });
 
        //  Schema::table('streams', function ($table) {
 

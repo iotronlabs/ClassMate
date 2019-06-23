@@ -2,11 +2,11 @@
 
 namespace App\Models\teacher;
 
-//use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\Models\Exam\examination;
 
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
@@ -30,7 +30,7 @@ class user_teacher extends Authenticatable implements JWTSubject
      * @var array
      */
 
-    protected  $guarded = [ 't_id'];
+    protected  $guarded = [];
     protected $hidden = [
         'password', 'remember_token',
     ];
@@ -54,4 +54,10 @@ class user_teacher extends Authenticatable implements JWTSubject
       return [];
 
     }
+
+    public function exam()
+    {
+        return $this->hasMany(examination::class, 'teacher_id_created','t_id');
+    }
+
 }
