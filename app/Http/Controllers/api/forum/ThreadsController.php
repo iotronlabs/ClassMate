@@ -62,8 +62,11 @@ class ThreadsController extends Controller
     {
 
 
-      // dd($request->all());
-      //$user = Auth::user();
+     request()->validate([
+            'title' => 'required',
+            'body' => 'required',
+            'channel_id' => 'required|exists:channels,id',
+     ]);
 
     	$thread = forum_thread::create([
       

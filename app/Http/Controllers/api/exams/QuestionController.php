@@ -41,7 +41,7 @@ class QuestionController extends Controller
            		
            		
                'success' =>  true,
-               'Id' => $user->question_id,
+               'Id' => $user->question_code,
                'data' =>  $user,
                
                //'token' => $token
@@ -61,10 +61,10 @@ class QuestionController extends Controller
     { 
         return question::create([
 
-        		 'question_id'  => 'EX-'.mt_rand(1000,9999).'',
-	        	 'exam_id' => $exam->exam_code,
-	           'type' => $data['type'],
-             'question' => $data['question'],
+        		  'question_code'  => 'EX-'.mt_rand(1000,9999).'',
+	        	  'exam_id' => $exam->exam_code,
+	            'type' => $data['type'],
+              'question' => $data['question'],
               'option_1' => $data['option_1'],
               'option_2' => $data['option_2'],
               'option_3' => $data['option_3'],

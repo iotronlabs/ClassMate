@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2019 at 09:19 AM
+-- Generation Time: Jun 24, 2019 at 05:55 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -69,7 +69,8 @@ CREATE TABLE `examinations` (
 
 INSERT INTO `examinations` (`exam_code`, `topic`, `subject`, `exam_name`, `date`, `duration`, `pass_mark`, `re_exam`, `description`, `status`, `class_id`, `teacher_id_created`, `created_at`, `updated_at`) VALUES
 ('Ex-4075', 'ABc', 'Daa', 'sem 1', '2019-06-23', 60, 33, 33, 'abcdefghijklmnopqrstuvwxyz', '123', '123', '2', '2019-06-22 18:30:00', '2019-06-22 18:30:00'),
-('Ex-4076', 'AMisha', 'Daa', 'sem 1', '2019-06-23', 60, 33, 33, 'abcdefghijklmnopqrstuvwxyz', '123', '123', '2', '2019-06-22 18:30:00', '2019-06-22 18:30:00');
+('Ex-4076', 'AMisha', 'Daa', 'sem 1', '2019-06-23', 60, 33, 33, 'abcdefghijklmnopqrstuvwxyz', '123', '123', '2', '2019-06-22 18:30:00', '2019-06-22 18:30:00'),
+('EX-7040', 'DBMS', 'DBMS', 'sem 2', '2019-06-24', 60, 33, 33, 'ashkrwiubn fcn jkakakshi mamisha ananad sapatarstshi samsuntyua', '111', '2345', '5', '2019-06-23 22:18:35', '2019-06-23 22:18:35');
 
 -- --------------------------------------------------------
 
@@ -287,7 +288,7 @@ CREATE TABLE `password_resets` (
 --
 
 CREATE TABLE `questions` (
-  `question_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `question_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `exam_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `question` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -304,7 +305,7 @@ CREATE TABLE `questions` (
 -- Dumping data for table `questions`
 --
 
-INSERT INTO `questions` (`question_id`, `exam_id`, `type`, `question`, `option_1`, `option_2`, `option_3`, `option_4`, `answer`, `created_at`, `updated_at`) VALUES
+INSERT INTO `questions` (`question_code`, `exam_id`, `type`, `question`, `option_1`, `option_2`, `option_3`, `option_4`, `answer`, `created_at`, `updated_at`) VALUES
 ('EX-1764', 'Ex-4075', 'ABC', 'WHy so serious??', 'option_1', 'option_1', 'option_1', 'option_1', 'option_1', '2019-06-23 01:13:19', '2019-06-23 01:13:19'),
 ('EX-4629', '$exam_code', 'ABC', 'WHy so serious??', 'option_1', 'option_1', 'option_1', 'option_1', 'option_1', '2019-06-23 00:49:10', '2019-06-23 00:49:10'),
 ('EX-4952', '$exam_code', 'ABC', 'WHy so serious??', 'option_1', 'option_1', 'option_1', 'option_1', 'option_1', '2019-06-23 00:47:09', '2019-06-23 00:47:09'),
@@ -760,7 +761,7 @@ ALTER TABLE `password_resets`
 -- Indexes for table `questions`
 --
 ALTER TABLE `questions`
-  ADD UNIQUE KEY `question_id` (`question_id`);
+  ADD PRIMARY KEY (`question_code`);
 
 --
 -- Indexes for table `streams`

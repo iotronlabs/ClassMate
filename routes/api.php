@@ -234,7 +234,7 @@ Route::group([ 'prefix' =>'/streams',
 Route::group([ 'prefix' =>'/exams',
             ],function()
              {
-                 Route::post('/addexam','exams\ExaminationController@addexam');
+                 Route::post('/{teacher}/addexam','exams\ExaminationController@addexam');
                   Route::get('/{teacher_id_created}/show',  'exams\ExaminationController@show');
                  // Route::get('/{id}/edit', 'streams\UpdateStreamController@edit');
                  // Route::post('/{id}',     'streams\UpdateStreamController@update');  

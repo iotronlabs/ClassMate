@@ -3,15 +3,16 @@
 namespace App\Http\Controllers\api\exams;
 
 
-use App\Models\Exam\examination;
-use \Illuminate\Http\Request;
+use  Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
+use App\Models\Exam\examination;
+use App\Models\teacher\user_teacher;
+use Auth;
+use Config;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
-use  Tymon\JWTAuth\Facades\JWTAuth;
-use Config; 
-use Auth;
+use \Illuminate\Http\Request;
 
 class ExaminationController extends Controller
 {
@@ -21,7 +22,7 @@ class ExaminationController extends Controller
            // 'class_id' => ['required', 'string', 'max:255'],
             'exam_name' => ['required', 'string',  'max:255'],
             'topic'  => ['required'],
-            'subject_1' => ['required'],
+            'subject' => ['required'],
             'date' => ['required'],
             'pass_mark' => ['required'],
 
@@ -31,13 +32,13 @@ class ExaminationController extends Controller
         ]);
     }
 
-    public function addexam(Request $request)
+    public function addexam(Request $request, user_teacher $teacher)
     {
         $validator=$this->validator($request->all());
         
        if(!$validator->fails())
        {
-           $user= $this->create($request->all());
+           $user= $this->create($request->all(),$teacher);
            
            
            
@@ -61,15 +62,15 @@ class ExaminationController extends Controller
 
 
 
-    protected function create(array $data)
+    protected function create(array $data,user_teacher $teacher)
     { 
         return examination::create([
 
         		
-	        	'exam_code' => 'EX-'.mt_rand(1000,9999).'',
+	        	  'exam_code' => 'EX-'.mt_rand(1000,9999).'',
 	            'topic' => $data['topic'],
-             'exam_name' => $data['exam_name'],
-              'subject' => $data['subject_1'],
+              'exam_name' => $data['exam_name'],
+              'subject' => $data['subject'],
               'date' => $data['date'],
               'duration' => $data['duration'],
               'pass_mark' => $data['pass_mark'],
@@ -77,7 +78,7 @@ class ExaminationController extends Controller
               'description' => $data['description'],
               'status' => $data['status'],
               'class_id' => $data['class_id'],
-              'teacher_id_created' => $data['teacher_id_created'],
+              'teacher_id_created' => $teacher->t_id,//$data['teacher_id_created'],
 
             
      

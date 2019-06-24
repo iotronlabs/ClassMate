@@ -39,7 +39,11 @@ class RepliesController extends Controller
           $id = $user->s_id;
        }
 
-        dd($user);
+        request()->validate([
+            'title' => 'required',
+        ]);
+
+        // dd($user);
 
       $thread->addReply([
 
