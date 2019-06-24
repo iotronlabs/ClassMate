@@ -3,14 +3,17 @@ import Router from 'vue-router'
 import { interopDefault } from './utils'
 
 const _810188ce = () => interopDefault(import('..\\pages\\addStaff.vue' /* webpackChunkName: "pages_addStaff" */))
-const _6fc0d845 = () => interopDefault(import('..\\pages\\assessment-results.vue' /* webpackChunkName: "pages_assessment-results" */))
 const _3585169c = () => interopDefault(import('..\\pages\\chat.vue' /* webpackChunkName: "pages_chat" */))
 const _0ec5fcac = () => interopDefault(import('..\\pages\\dashboard.vue' /* webpackChunkName: "pages_dashboard" */))
+const _0d137c69 = () => interopDefault(import('..\\pages\\exam\\index.vue' /* webpackChunkName: "pages_exam_index" */))
+const _5d328a89 = () => interopDefault(import('..\\pages\\exam2.vue' /* webpackChunkName: "pages_exam2" */))
 const _4286f692 = () => interopDefault(import('..\\pages\\forum.vue' /* webpackChunkName: "pages_forum" */))
 const _240bd638 = () => interopDefault(import('..\\pages\\table.vue' /* webpackChunkName: "pages_table" */))
-const _11ff2a5e = () => interopDefault(import('..\\pages\\take-assessment.vue' /* webpackChunkName: "pages_take-assessment" */))
 const _04ad1078 = () => interopDefault(import('..\\pages\\addUsersForms\\addStudent.vue' /* webpackChunkName: "pages_addUsersForms_addStudent" */))
 const _4975a2c2 = () => interopDefault(import('..\\pages\\addUsersForms\\addTeacher.vue' /* webpackChunkName: "pages_addUsersForms_addTeacher" */))
+const _35d90f89 = () => interopDefault(import('..\\pages\\exam\\exam1.vue' /* webpackChunkName: "pages_exam_exam1" */))
+const _495e0a16 = () => interopDefault(import('..\\pages\\exam\\result.vue' /* webpackChunkName: "pages_exam_result" */))
+const _7ce1fbe4 = () => interopDefault(import('..\\pages\\exam\\rules.vue' /* webpackChunkName: "pages_exam_rules" */))
 const _5368d93a = () => interopDefault(import('..\\pages\\user\\admin.vue' /* webpackChunkName: "pages_user_admin" */))
 const _5d994bc6 = () => interopDefault(import('..\\pages\\user\\audit.vue' /* webpackChunkName: "pages_user_audit" */))
 const _841d2f6a = () => interopDefault(import('..\\pages\\user\\staff.vue' /* webpackChunkName: "pages_user_staff" */))
@@ -96,10 +99,6 @@ export function createRouter() {
       component: _810188ce,
       name: "addStaff"
     }, {
-      path: "/assessment-results",
-      component: _6fc0d845,
-      name: "assessment-results"
-    }, {
       path: "/chat",
       component: _3585169c,
       name: "chat"
@@ -107,6 +106,14 @@ export function createRouter() {
       path: "/dashboard",
       component: _0ec5fcac,
       name: "dashboard"
+    }, {
+      path: "/exam",
+      component: _0d137c69,
+      name: "exam"
+    }, {
+      path: "/exam2",
+      component: _5d328a89,
+      name: "exam2"
     }, {
       path: "/forum",
       component: _4286f692,
@@ -116,10 +123,6 @@ export function createRouter() {
       component: _240bd638,
       name: "table"
     }, {
-      path: "/take-assessment",
-      component: _11ff2a5e,
-      name: "take-assessment"
-    }, {
       path: "/addUsersForms/addStudent",
       component: _04ad1078,
       name: "addUsersForms-addStudent"
@@ -127,6 +130,18 @@ export function createRouter() {
       path: "/addUsersForms/addTeacher",
       component: _4975a2c2,
       name: "addUsersForms-addTeacher"
+    }, {
+      path: "/exam/exam1",
+      component: _35d90f89,
+      name: "exam-exam1"
+    }, {
+      path: "/exam/result",
+      component: _495e0a16,
+      name: "exam-result"
+    }, {
+      path: "/exam/rules",
+      component: _7ce1fbe4,
+      name: "exam-rules"
     }, {
       path: "/user/admin",
       component: _5368d93a,

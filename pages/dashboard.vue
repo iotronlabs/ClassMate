@@ -17,8 +17,8 @@
 <script>
 import Table from '../components/table'
 //import Calendar from '../components/DashboardCalendar/Calendar'
-import exam from '@/components/exam'
-import exam2 from '@/components/exam2'
+// import exam from '@/components/exam'
+// import exam2 from '@/components/exam2'
 
 export default {
 	components: {
