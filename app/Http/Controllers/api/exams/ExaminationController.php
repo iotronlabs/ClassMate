@@ -7,6 +7,7 @@ use  Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
 use App\Models\Exam\examination;
 use App\Models\teacher\user_teacher;
+use App\Models\student\user_student;
 use Auth;
 use Config;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -32,6 +33,14 @@ class ExaminationController extends Controller
         ]);
     }
 
+    public function index()
+    {
+
+        $details = examination::all();
+
+        return $details; 
+
+    }
     public function addexam(Request $request, user_teacher $teacher)
     {
         $validator=$this->validator($request->all());
@@ -67,7 +76,7 @@ class ExaminationController extends Controller
         return examination::create([
 
         		
-	        	  'exam_code' => 'EX-'.mt_rand(1000,9999).'',
+	        	  'exam_code' => 'EX-'.mt_rand(0001,9999).'',
 	            'topic' => $data['topic'],
               'exam_name' => $data['exam_name'],
               'subject' => $data['subject'],
@@ -153,4 +162,49 @@ class ExaminationController extends Controller
               ],200);
          
       }
+
+      public function edit_exam(examination $exam)
+      {
+       $details = $exam;
+       return response()->json
+              ([
+                  'success' =>  true,
+                  'data' => $details,
+                   
+              ],200);
+
+      }
+
+
+        public function update(Request $request,examination $exam)
+        {
+          $details = $exam->exam_code;
+          $this->validate($request, [
+         
+           'topic' => 'required',
+           'subject' => 'required',
+           
+           'pass_mark' => 'required',
+
+
+       ]);
+          // dd($details);
+
+       $input = $request->all();
+       //dd($input);
+
+
+       $exam->update($input);
+
+       // $details->fill($input)->save();
+        return response()->json
+              ([
+                  'success' =>  true,
+                  'data' => $exam,
+                   
+              ],200);
+  
+
+
+        }
 }

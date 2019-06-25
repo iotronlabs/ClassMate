@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 class examination extends Model
 {
     
+    protected $primaryKey = 'exam_code';
 
     protected $guarded =[];
 

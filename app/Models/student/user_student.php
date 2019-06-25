@@ -6,7 +6,7 @@ namespace App\Models\student;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\Models\Exam\examination;
 
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
@@ -58,5 +58,11 @@ class user_student extends Authenticatable implements JWTSubject
     {
       return [];
 
+    }
+
+    
+    public function exams()
+    {
+        return $this->hasMany(examination::class, 'class_id','class_id');
     }
 }

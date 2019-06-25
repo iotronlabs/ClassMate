@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers\api\exams;
 
-use App\Models\Exam\question;
-use App\Models\Exam\examination;
-use \Illuminate\Http\Request;
+use  Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\api\exams\edit_question;
+use App\Models\Exam\examination;
+use App\Models\Exam\question;
+use App\Models\teacher\user_teacher;
+use Auth;
+use Config;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
-use  Tymon\JWTAuth\Facades\JWTAuth;
-use Config; 
-use Auth;
+use \Illuminate\Http\Request;
 
 class QuestionController extends Controller
 {
@@ -61,7 +63,7 @@ class QuestionController extends Controller
     { 
         return question::create([
 
-        		  'question_code'  => 'EX-'.mt_rand(1000,9999).'',
+        		  'question_code'  => 'QES-'.mt_rand(0001,9999).'',
 	        	  'exam_id' => $exam->exam_code,
 	            'type' => $data['type'],
               'question' => $data['question'],
@@ -74,6 +76,23 @@ class QuestionController extends Controller
         ]);
       }
 
+      public function edit_question(question $question)
+     
+       {
+        
+       $details = $question;
+       dd($details);
+       // return response()->json
+       //        ([
+       //            'success' =>  true,
+       //            'data' => $details,
+                   
+       //        ],200);
+
+      }
+
+
+      
 
 
 }

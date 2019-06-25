@@ -55,6 +55,8 @@ Route::group([ 'prefix' =>'/students',
 
                  
                  Route::delete('/{s_id}','students\StudentController@destroy');
+
+                  Route::get('/{student}','students\StudentController@get_exam');
              }
 
 );
@@ -235,16 +237,16 @@ Route::group([ 'prefix' =>'/exams',
             ],function()
              {
                  Route::post('/{teacher}/addexam','exams\ExaminationController@addexam');
-                  Route::get('/{teacher_id_created}/show',  'exams\ExaminationController@show');
-                 // Route::get('/{id}/edit', 'streams\UpdateStreamController@edit');
-                 // Route::post('/{id}',     'streams\UpdateStreamController@update');  
+                 
                 
-                  Route::get('/','exams\ExamUpdateController@index');
-                // Route::post('/login','classes\LoginController@login');
-                  Route::get('/{exam_code}/show', 'exams\ExamUpdateController@show');
+                  Route::get('/','exams\ExaminationController@index');
+                 Route::get('/{exam}/edit', 'exams\ExaminationController@edit_exam');
                   Route::post('/{exam}', 'exams\QuestionController@add_question');
                   Route::get('/{exam}','exams\ExaminationController@get_question');
+
+                  Route::post('/{exam}/update','exams\ExaminationController@update');
                   
+                   Route::get('/edit/{question}','exams\QuestionController@edit_question');
 
 
              }

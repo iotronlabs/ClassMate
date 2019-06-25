@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\api\students;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\student\user_student;
+
+use App\Models\Exam\examination;
 
 class StudentController extends Controller
 {
@@ -111,5 +112,21 @@ public function destroy($s_id)
 
 //return redirect()->route('api/teachers/Auth/teacherController');
 }
+
+	public function get_exam(user_student $student)
+			{
+				
+
+				$exams = $student->exams()->get();
+                 
+                return response()->json
+		           ([
+		               'success' =>  true,
+		               'data' => $exams,
+		               
+		           ],200);
+				
+			}
+
 }
 
