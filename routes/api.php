@@ -113,6 +113,7 @@ Route::group([ 'prefix' =>'/forum',
                  Route::get('/channels/{channel}/','forum\ChannelsController@show');
                  Route::get('/threads/{channel}/{thread}','forum\ThreadsController@show');
                  Route::post('/threads/{channel}/{thread}/replies','forum\RepliesController@store');
+                 Route::post('/replies/{reply}/saved','forum\SavedController@store');
 
              }
 

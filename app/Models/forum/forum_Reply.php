@@ -14,4 +14,10 @@ class forum_reply extends Model
     {
     	return $this->belongsTo(user_teacher::class, 'user_id' , 't_id');
     }
+
+    public function saves()
+    {
+
+    	return $this->morphMany(forum_save::class,'saved');
+    }
 }

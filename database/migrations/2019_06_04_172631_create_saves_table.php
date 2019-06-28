@@ -17,11 +17,12 @@ class CreateSavesTable extends Migration
             $table->bigIncrements('id');
             $table->string('user_id');
             $table->string('saved_id');
-             $table->string('t_ref_id')->length(10);
+            $table->string('saved_type',50);
+            $table->string('t_ref_id')->length(10)->nullable();
             $table->timestamps();
 
 
-            $table->unique(['user_id','saved_id']);
+            $table->unique(['user_id','saved_id','saved_type']);
         });
     }
 

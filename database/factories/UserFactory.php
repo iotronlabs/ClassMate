@@ -68,7 +68,7 @@ $factory->define(forum_thread::class, function ($faker) {
         'user_id' => function () {
             return factory('App\Models\teacher\user_teacher')->create()->t_id;
         },
-        'channel_id' => function () {
+        'forum_channel_id' => function () {
             return factory('App\Models\forum\forum_channel')->create()->id;
         },
         'title' => $title,
