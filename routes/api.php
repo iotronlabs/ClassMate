@@ -196,7 +196,7 @@ Route::group([ 'prefix' =>'/subjects',
                  Route::get('/{subject_id}/edit', 'subjects\UpdateSubjectController@edit');
                  Route::post('/{subject_id}','subjects\UpdateSubjectController@update');  
                 
-                 Route::get('/',           'subjects\UpdateSubjectController@index');
+                 Route::get('/','subjects\UpdateSubjectController@index');
                 // Route::post('/login','classes\LoginController@login');
              }
 

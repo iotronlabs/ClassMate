@@ -71,15 +71,15 @@ class UpdateStreamController extends Controller
 
 
     protected function create(array $data)
-    { 
-        return stream::create([
+    {
+        $create_stream =  stream::create([
             //'dept_name' => $data['dept_name'],
              'stream_name' => $data['stream_name'],
              'stream_code' => $data['stream_code'],
              'department_code' => $data['department_code'],
              'department_name' => $data['department_name'],
              'course_length' => $data['course_length'],
-             'Assign_Subject' => $data['Assign_Subject'],
+            //  'Assign_Subject' => $data['Assign_Subject'],
             // 'stream_id' => $data['']
               //'dept_name' => $data['dept_name'],
            // 'dept_id' => $data['dept_id'],
@@ -90,6 +90,14 @@ class UpdateStreamController extends Controller
 
      
         ]);
+
+        
+        foreach ($data['subjects'] as $subject) {
+           $task =    subject:: where(['sub_name'=> $subject]);
+           $task->sub_stream = $data['stream_name'];
+           $task->sub_department= $data['department_name'];
+           $task->save();
+        }
     }
      public function index()
         {
@@ -100,7 +108,7 @@ class UpdateStreamController extends Controller
 
      public function show(Request $request,$id)
     {
-      $user= stream::findorfail($subject_id);
+      $user= stream::findorfail($id);
       return response()->json
            ([
                'success' =>  true,
