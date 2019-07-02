@@ -13,7 +13,7 @@ class ThreadsController extends Controller
 {
      public function __construct()
     {
-      //$this->middleware('auth_users');
+      $this->middleware('auth_users');
      // $this->middleware('guest:user_teachers');
     }
 

@@ -3,15 +3,16 @@
 namespace App\Http\Controllers\api\subjects;
 
 
-use App\Models\subject\subject;
+use Auth;
+use Config; 
+use App\Models\Topic\topic;
 use \Illuminate\Http\Request;
+use App\Models\subject\subject;
+use  Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use  Tymon\JWTAuth\Facades\JWTAuth;
-use Config; 
-use Auth;
 
 class UpdateSubjectController extends Controller
 {
@@ -70,21 +71,34 @@ class UpdateSubjectController extends Controller
 
 
 
-    protected function create(array $data)
-    { 
-        return subject::create([
+    protected function create(array $data )
+    {
+        $create_subject = subject::create([
             //'dept_name' => $data['dept_name'],
              'sub_name' => $data['sub_name'],
              'sub_code' => $data['sub_code'],
             // 'stream_id' => $data['']
               //'dept_name' => $data['dept_name'],
            // 'dept_id' => $data['dept_id'],
-            'status' => $data['status'],
+            'status' => 'Active',
+
+            
            // 'department_id' => $data['department_id'],
             //'stream_id' => $data['stream_id'],
 
-     
         ]);
+
+        foreach ($data['topics'] as $topic) {
+             topic::create([
+            'topic_name' => $topic,
+            'sub_id' => $create_subject->id,
+        ]);
+                
+        
+        }
+
+        return $create_subject;
+      
     }
      public function index()
         {
@@ -95,7 +109,7 @@ class UpdateSubjectController extends Controller
 
      public function show(Request $request,$id)
     {
-      $user= subject::findorfail($subject_id);
+      $user= subject::findorfail($id);
       return response()->json
            ([
                'success' =>  true,
@@ -124,15 +138,44 @@ public function update(Request $request, $id)
           //'t_email' => 'required',
             'sub_code' => 'required',
             'sub_name' => 'required',
-            'sub_stream' => 'required',
-            'sub_department' => 'required',
-            'status' => 'required',
+            // 'sub_stream' => 'required',
+            // 'sub_department' => 'required',
+            // 'status' => 'required',
+        ]);
+             $input_code = $request->sub_code;
+             $input_name = $request->sub_name;
+
+            $task->sub_code= $input_code;
+            $task->sub_name = $input_name;
+
+            $task->save();
 
 
+		    //  return response()->json
+		    //        ([
+		    //            'success' =>  true,
+		    //            'data' => $task,
+
+		    //        ],200);
+
+        // $input = $request->
+
+        $data = $request->all();
+
+        $task_3 = topic::where(['sub_id' => $id]);
+            
+        $task_3->delete();
+
+        
+        foreach ($data['topics'] as $topic) {
+            topic::create([
+            'topic_name' => $topic,
+            'sub_id' => $id,
         ]);
 
-        $input = $request->all();
-        $task->fill($input)->save();
+        
+        }
+        
          return response()->json
                ([
                    'success' =>  true,

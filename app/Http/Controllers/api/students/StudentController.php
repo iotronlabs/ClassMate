@@ -8,7 +8,7 @@ use App\Models\student\user_student;
 use App\Models\Exam\examination;
 
 class StudentController extends Controller
-{
+{	
     public function index()
     {
         $user_details=user_student::all();
