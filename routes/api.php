@@ -172,7 +172,7 @@ Route::group([ 'prefix' =>'/backlog',
 );
 
 
-Route::group([ 'prefix' =>'/Departments',
+Route::group([ 'prefix' =>'/departments',
             ],function()
              {
                  Route::post('/register','Departments\UpdateDepartmentController@register');

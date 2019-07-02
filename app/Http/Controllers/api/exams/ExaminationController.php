@@ -16,7 +16,16 @@ use Illuminate\Support\Facades\Validator;
 use \Illuminate\Http\Request;
 
 class ExaminationController extends Controller
-{
+{   
+
+
+    /**
+     * Class constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('authteachers');
+    }
    protected function validator(array $data)
     {
         return Validator::make($data, [

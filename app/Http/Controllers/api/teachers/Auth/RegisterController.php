@@ -36,7 +36,7 @@ class RegisterController extends Controller
     }
 
 
-      protected function guard()
+    protected function guard()
     {
         return Auth::guard('teachers');
     }
@@ -58,6 +58,7 @@ class RegisterController extends Controller
         ]);
     }
 
+    
     
      
     /*
