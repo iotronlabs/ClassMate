@@ -276,6 +276,15 @@ export default {
 		async initialize () {
 			const dept_response = await this.$axios.get('/api/departments')
 			this.dept_details = dept_response.data
+			for(var i in dept_response.data)
+			{
+				this.departments.push(dept_response.data[i].department_name)
+			}
+			const sub_response = await this.$axios.get('/api/subjects')
+			for(var i in sub_response.data)
+			{
+				this.subjects.push(sub_response.data[i].sub_name)
+			}
 		},
 		addItem() {
 			this.disabled=false
@@ -355,19 +364,18 @@ export default {
 			let response
 			if(this.editedIndex == -1)
 			{
-				// response = await this.$axios.post(`/api/subjects/register`,{
-				// 	department_code: this.editedItem.department_code,
-				// 	department_name: this.editedItem.department_name,
-				// 	stream_code: this.editedItem.stream_code,
-				// 	stream_name: this.editedItem.stream_name,
-				// 	course_length: this.editedItem.course_length,
-				// 	subject: this.editedItem.subject
-				// })
+				response = await this.$axios.post(`/api/streams/register`,{
+					department_code: this.editedItem.department_code,
+					department_name: this.editedItem.department_name,
+					stream_code: this.editedItem.stream_code,
+					stream_name: this.editedItem.stream_name,
+					course_length: this.editedItem.course_length,
+				})
 				if(response.data.success==true)
 				{
 					// this.dept_details.push(this.editedItem)
 					this.dialog = false
-					this.message="New Subject added successfully"
+					this.message="New Department and Stream added successfully"
 					this.snackbar=true
 				}
 			}
@@ -391,16 +399,16 @@ export default {
 			}
 		},
 		async submitAddForm() {
-			// const response = await this.$axios.post('/api/',{
-			// 	department_name: this.dept_name,
-			// 	department_code: this.dept_code
-			// })
-			if(true)
+			const response = await this.$axios.post('/api/departments/register',{
+				department_name: this.dept_name,
+				department_code: this.dept_code
+			})
+			if(response.data.success==true)
 			{
 				this.message="New Department Added"
 				this.addDialog=false
 				this.snackbar=true
-				this.departments.push(this.department_name)
+				this.departments.push(this.dept_name)
 			}
 		}
     }

@@ -38,8 +38,8 @@
 							<v-layout>
 								<v-flex xs12 sm6 md12>
 									<v-combobox
-										v-model="editedItem.sub_topic"
-										:items="topics"
+										v-model="editedItem.topics"
+
 										label="Enter the topics"
 										multiple
 										chips
@@ -171,9 +171,6 @@ export default {
 			{ title: 'Edit' }
 		],
 
-		topics: [],
-		teachers: [],
-
 		headers: [
 		  	// { text: 'Sl_No', align: 'left', sortable: true,	value: 'sub_code'},
 			{ text: 'Subject Code ', value: 'sub_code', sortable: false },
@@ -189,16 +186,18 @@ export default {
 		sub_details: [],
 		editedIndex: -1,
 		editedItem: {
+			id:'',
 			sub_code: '',
 			sub_name: '',
 			sub_teacher: [],
-			sub_topic: []
+			topics: []
 		},
 		defaultItem: {
+			id: '',
 			sub_code: '',
 			sub_name: '',
 			sub_teacher: [],
-			sub_topic: []
+			topics: []
 		}
 	}),
 	computed: {
@@ -239,6 +238,8 @@ export default {
 			this.disabled=false
 			this.editedIndex = this.sub_details.indexOf(item)
 			this.editedItem = Object.assign({}, item)
+			// const response = this.$axios.get('/api/')
+			// this.editedItem.topics = response.data
 			this.dialog = true
 		},
 		async deleteItem () {
@@ -301,14 +302,14 @@ export default {
 		},
 
 		async submitForm() {
+			console.log(this.editedItem.topics)
 			let response
 			if(this.editedIndex == -1)
 			{
 				response = await this.$axios.post(`/api/subjects/register`,{
 					sub_code: this.editedItem.sub_code,
 					sub_name: this.editedItem.sub_name,
-					sub_teacher: this.editedItem.sub_teacher,
-					sub_topic: this.editedItem.sub_topic
+					topics: this.editedItem.topics
 				})
 				if(response.data.success==true)
 				{
@@ -320,12 +321,11 @@ export default {
 			}
 			else
 			{
-				var id= this.editedItem.sub_code
-				response = await this.$axios.post(`/api/subjects/${id}`,{
+				var sub_id= this.editedItem.id
+				response = await this.$axios.post(`/api/subjects/${sub_id}`,{
 					sub_code: this.editedItem.sub_code,
 					sub_name: this.editedItem.sub_name,
-					sub_teacher: this.editedItem.sub_teacher,
-					sub_topic: this.editedItem.sub_topic
+					topics: this.editedItem.topics
 				})
 				if(response.data.success==true)
 				{
