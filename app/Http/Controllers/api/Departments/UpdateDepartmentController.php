@@ -63,7 +63,7 @@ class UpdateDepartmentController extends Controller
             'department_name' => $data['department_name'],
              'department_code' => $data['department_code'],
 
-            'status' => $data['status'],
+            'status' => 'Active',
 
         ]);
       }
