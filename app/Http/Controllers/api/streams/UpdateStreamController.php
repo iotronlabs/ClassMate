@@ -3,16 +3,18 @@
 namespace App\Http\Controllers\api\streams;
 
 
-use App\Models\Stream\stream;
-use App\Models\Department\department;
+use Auth;
+use Config;
 use \Illuminate\Http\Request;
+use App\Models\Stream\stream;
+use App\Models\subject\subject;
+use  Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Department\department;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use  Tymon\JWTAuth\Facades\JWTAuth;
-use Config;
-use Auth;
+use \DB;
 
 class UpdateStreamController extends Controller
 {
@@ -73,15 +75,22 @@ class UpdateStreamController extends Controller
 
     protected function create(array $data)
     {
-        $dept = department::where(['department_name' => $data['department_name']]);
-        dd($dept);
+          
 
+    $code = department::where('department_name',$data['department_name'])->first();
+
+
+      
+     
+      $user = $code->toArray();
+
+       
         $create_stream =  stream::create([
 
             //'dept_name' => $data['dept_name'],
              'stream_name' => $data['stream_name'],
              'stream_code' => $data['stream_code'],
-             'department_code' => $dept->department_code,
+             'department_code' => $user['department_code'],  //$data['department_code'],
              'department_name' => $data['department_name'],
              'course_length' => $data['course_length'],
             //  'Assign_Subject' => $data['Assign_Subject'],
@@ -92,16 +101,20 @@ class UpdateStreamController extends Controller
            // 'department_id' => $data['department_id'],
             //'stream_id' => $data['stream_id'],
 
-
-
         ]);
 
 
         foreach ($data['subjects'] as $subject) {
-           $task =    subject:: where(['sub_name'=> $subject]);
-           $task->sub_stream = $data['stream_name'];
-           $task->sub_department= $data['department_name'];
-           $task->save();
+
+             $task = subject::where(['sub_name' => $subject])->get();
+        
+         DB::table('subjects')
+            ->where('sub_name',$subject)
+            ->update([
+                "sub_stream" => $data['stream_name'],
+                "sub_department" => $data['department_name'],
+                
+        ]);
         }
     }
      public function index()

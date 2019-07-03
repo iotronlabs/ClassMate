@@ -7,11 +7,11 @@ namespace App\Models\Department;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use Illuminate\Database\Eloquent\Model;
 
 //use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class department extends Authenticatable 
+class department extends Model 
 {
      use Notifiable;
       //protected $primaryKey = '';
@@ -29,23 +29,9 @@ class department extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-      //  'email_verified_at' => 'datetime',
-    ];
     
-    
-    public function getJWTIdentifier()
+    public function stream()
     {
-      return $this->getkey();
-    }
-    public function getJWTCustomClaims()
-    {
-      return [];
-
+      return $this->belongsTo(stream::classs,department_code,department_code);
     }
 }
