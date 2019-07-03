@@ -18,7 +18,7 @@ class CreateStreamsTable extends Migration
 
             $table->string('stream_code')->unique();
             $table->string('stream_name')->unique();
-            $table->integer('course_length');
+            $table->string('course_length');
             // $table->string('Assign_Subject');
               $table->string('department_code');
               $table->string('department_name');
