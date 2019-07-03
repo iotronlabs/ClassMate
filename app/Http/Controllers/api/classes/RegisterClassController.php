@@ -73,17 +73,22 @@ class RegisterClassController extends Controller
     protected function create(array $data)
     {
         $t_name = $data['class_teacher'];
-        $ct_id = user_techer::select('SELECT t_id FROM user_teachers WHERE t_fname=?',[$t_name]);
+        // $ct_id = user_techer::select('SELECT t_id FROM user_teachers WHERE t_fname=?',[$t_name]);
+
+        $ct_id = user_teacher::where('t_fname',$data['t_fname'])
+                       ->where('t_mname',$data['t_mname'])
+                       ->where('t_surname',$data['t_surname'])
+                       ->first('t_id');
+
         return table_classes::create([
             'class_name' => $data['class_name'],
             'start_date' => $data['start_date'],
             'end_date' => $data['end_date'],
             'class_stream' => $data['class_stream'],
             'ct_id' => $ct_id,
-            'status' => $data['status'],
+            'status' => 111,//$data['status'],
             // 'standard' => $data['standard'],
             // 'section' => $data['section'],
-
         ]);
     }
 

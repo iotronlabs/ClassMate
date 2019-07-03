@@ -17,9 +17,9 @@ class CreateSubjectsTable extends Migration
             $table->increments('id');
             $table->string('sub_code')->unique();
             $table->string('sub_name')->unique();
-            $table->string('sub_stream')->nullable();
-            $table->string('sub_department')->nullable();
-            $table->string('status')->default('Active');
+            // $table->string('sub_stream')->nullable();
+            // $table->string('sub_department')->nullable();
+            // $table->string('status')->default('Active');
             $table->string('t_ref_id')->nullable();
 
 

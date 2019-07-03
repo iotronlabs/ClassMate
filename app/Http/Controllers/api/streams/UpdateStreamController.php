@@ -3,18 +3,19 @@
 namespace App\Http\Controllers\api\streams;
 
 
-use Auth;
-use Config;
-use \Illuminate\Http\Request;
-use App\Models\Stream\stream;
-use App\Models\subject\subject;
 use  Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
 use App\Models\Department\department;
-use Illuminate\Support\Facades\Validator;
+use App\Models\Stream\stream;
+use App\Models\Stream\subject_stream;
+use App\Models\subject\subject;
+use Auth;
+use Config;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use \DB;
+use \Illuminate\Http\Request;
 
 class UpdateStreamController extends Controller
 {
@@ -77,12 +78,8 @@ class UpdateStreamController extends Controller
     {
           
 
-    $code = department::where('department_name',$data['department_name'])->first();
-
-
-      
-     
-      $user = $code->toArray();
+        $code = department::where('department_name',$data['department_name'])->first();
+        $user = $code->toArray();
 
        
         $create_stream =  stream::create([
@@ -106,17 +103,37 @@ class UpdateStreamController extends Controller
 
         foreach ($data['subjects'] as $subject) {
 
-             $task = subject::where(['sub_name' => $subject])->get();
+             $task = subject::where(['sub_name' => $subject])->first('sub_code');
+
+             $task->toArray();
+
+             //  get sub_name and sub_code from subject in $task
         
-         DB::table('subjects')
-            ->where('sub_name',$subject)
-            ->update([
-                "sub_stream" => $data['stream_name'],
-                "sub_department" => $data['department_name'],
-                
-        ]);
+              //  DB::table('subject_stream')
+              //     ->where('sub_name',$subject)
+              //     ->update([
+              //         "sub_stream" => $data['stream_name'],
+              //         "sub_department" => $data['department_name'],
+                      
+              // ]);
+
+             // Insert into subject_stream $task['sub_name'] and $task['sub_code'], $data['stream_name'] and $data['department_name']
+
+            $user_insert =  subject_stream::create([
+
+                'sub_name' => $subject,
+                'sub_code' => $task['sub_code'],
+                'stream_name' => $data['stream_name'],
+                'department_name' => $data['department_name'],
+
+             ]);
+
         }
+        return $user_insert;
+
     }
+
+
      public function index()
         {
             $details=stream::all();
@@ -151,25 +168,96 @@ class UpdateStreamController extends Controller
 public function update(Request $request, $id)
 {
         $task = stream::findOrFail($id);
+
+        $duplicate_stream_name = $task->stream_name;
+        $duplicate_dept_name = $task->department_name;
+
+
+
         $this->validate($request, [
           //'t_email' => 'required',
             'stream_code' => 'required',
             'stream_name' => 'required',
-            'department_code' => 'required',
+            // 'department_code' => 'required',
             'department_name' => 'required',
+            'course_length' => 'required',
             //'status' => 'required',
-
-
         ]);
 
-        $input = $request->all();
-        $task->fill($input)->save();
-         return response()->json
-               ([
-                   'success' =>  true,
-                   'data' => $task,
 
-               ],200);
+        $code = department::where('department_name',$request->department_name)->first();
+        $user = $code->toArray();
+
+        $task->stream_code = $request->stream_code;
+        $task->stream_name = $request->stream_name;
+        $task->department_name = $request->department_name;
+        $task->course_length = $request->course_length;
+        $task->department_code = $user['department_code'];
+
+        $task->save(); 
+
+
+        
+        //  $data = $task->stream_name;
+
+        //  DB::table('subjects')
+        //     ->where('sub_stream',$data)
+        //     ->update([
+        //         "sub_stream" => NULL, 
+        //         "sub_department" => NULL,
+        // ]);
+
+         // $input = $request->all();
+
+
+
+         
+      
+         foreach ($request->subjects as $subject) {
+
+           // $task = subject::where(['sub_name' => $subject])->get();
+        
+          //  DB::table('subjects')
+          //     ->where('sub_name',$subject)
+          //     ->update([
+          //         "sub_stream" => $request->stream_name,
+          //         "sub_department" => $request->department_name,           
+          // ]);
+
+          // Update subject_stream table
+           $task = subject_stream::where('sub_name',$subject)
+                                ->where('stream_name',$duplicate_stream_name)
+                                ->where('department_name',$duplicate_dept_name)
+                                ->get();
+
+
+            DB::table('subject_stream')
+                    ->where('sub_name',$subject)
+                    ->where('stream_name',$duplicate_stream_name)
+                    ->where('department_name',$duplicate_dept_name)
+                    ->update([
+                        "stream_name" => $request->stream_name,
+                        "department_name"=> $request->department_name,
+                        ]);
+
+
+
+          
+
+        }
+
+         
+
+         
+        // $task->fill($input)->save();
+        //  return response()->json
+        //        ([
+        //            'success' =>  true,
+        //            'data' => $task,
+
+        //        ],200);
+
+
 
 
 }

@@ -3,16 +3,17 @@
 namespace App\Http\Controllers\api\subjects;
 
 
-use Auth;
-use Config; 
-use App\Models\Topic\topic;
-use \Illuminate\Http\Request;
-use App\Models\subject\subject;
 use  Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
+use App\Models\Stream\subject_stream;
+use App\Models\Topic\topic;
+use App\Models\subject\subject;
+use Auth;
+use Config;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use \Illuminate\Http\Request;
 
 class UpdateSubjectController extends Controller
 {
@@ -74,13 +75,14 @@ class UpdateSubjectController extends Controller
     protected function create(array $data )
     {
         $create_subject = subject::create([
-            //'dept_name' => $data['dept_name'],
-             'sub_name' => $data['sub_name'],
-             'sub_code' => $data['sub_code'],
+
+          'sub_name' => $data['sub_name'],
+          'sub_code' => $data['sub_code'],
+            //'dept_name' => $data['dept_name'], 
             // 'stream_id' => $data['']
-              //'dept_name' => $data['dept_name'],
-           // 'dept_id' => $data['dept_id'],
-            'status' => 'Active',
+            //'dept_name' => $data['dept_name'],
+            // 'dept_id' => $data['dept_id'],
+            // 'status' => 'Active',
 
             
            // 'department_id' => $data['department_id'],
@@ -190,7 +192,7 @@ public function update(Request $request, $id)
 public function getSubjects($stream_name)
 {
   
-   $data = subject::where('sub_stream',$stream_name)->get('sub_name');
+   $data = subject_stream::where('stream_name',$stream_name)->get('sub_name');
 
    return $data;
 }
