@@ -365,7 +365,7 @@ export default {
 			{label: 'Others',value: 'O'}
 		],
 
-		subjects: ['A','B','C'],
+		subjects: [],
 
 		rules: {
 			required: v => !!v || 'Required.',
@@ -452,6 +452,12 @@ export default {
 		async initialize () {
 			const teacher_response = await this.$axios.get('/api/teachers')
 			this.user_details = teacher_response.data
+			const subjects_data = await this.$axios.get('/api/subjects')
+			this.subjects = new Array()
+			for(var i in subjects_data.data)
+			{
+				this.subjects.push(subjects_data.data[i].sub_name)
+			}
 		},
 		addItem() {
 			this.disabled=false

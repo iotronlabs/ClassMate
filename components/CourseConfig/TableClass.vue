@@ -20,14 +20,14 @@
 						<v-container fluid>
 							<v-layout>
 								<v-flex xs12 sm6 md4>
-									<v-text-field v-model="editedItem.class_name" label="Class Name"></v-text-field>
+									<v-text-field :disabled="disabled" v-model="editedItem.class_name" label="Class Name"></v-text-field>
 								</v-flex>
 								<v-flex xs12 sm6 md4>
-									<v-select v-model="editedItem.class_stream" :items="streams" label="Assign Stream"></v-select>
+									<v-select :disabled="disabled" v-model="editedItem.class_stream" :items="streams" label="Assign Stream"></v-select>
 								</v-flex>
 
 								<v-flex xs12 sm6 md4>
-									<v-text-field v-model="editedItem.class_teacher" label="Class Teacher"></v-text-field>
+									<v-text-field :disabled="disabled" v-model="editedItem.class_teacher" label="Class Teacher"></v-text-field>
 								</v-flex>
 
 								<v-flex xs12 sm6 md4>
@@ -45,6 +45,7 @@
 							<v-layout>
 								<v-flex xs12 sm6 md3>
 									<v-menu
+										:disabled="disabled"
 										ref="menu1"
 										v-model="editedItem.start_date"
 										:close-on-content-click="false"
@@ -75,6 +76,7 @@
 
 								<v-flex xs12 sm6 md3>
 									<v-menu
+										:disabled="disabled"
 										ref="menu2"
 										v-model="editedItem.end_date"
 										:close-on-content-click="false"
@@ -371,6 +373,16 @@ export default {
 
 		async submitForm() {
 			let response
+			// Send classteacher by splitting into fname,mname,surname
+			let teacher = this.editedItem.class_teacher.split(" ")
+			if(teacher.length == 2)
+			{
+				// mname is null
+			}
+			else if(teacher.length == 3)
+			{
+
+			}
 			if(this.editedIndex == -1)
 			{
 				response = await this.$axios.post(`/api/classes/register`,{

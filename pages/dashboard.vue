@@ -23,8 +23,8 @@ import Table from '../components/table'
 export default {
 	components: {
 		//Calendar,
-		exam,
-		exam2,
+		// exam,
+		// exam2,
 		Table,
 	},
 	layout: 'DashboardNavigationLayout'

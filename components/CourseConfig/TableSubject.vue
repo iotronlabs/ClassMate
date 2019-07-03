@@ -20,10 +20,10 @@
 						<v-container fluid>
 							<v-layout>
 								<v-flex xs12 sm6 md4>
-									<v-text-field v-model="editedItem.sub_code" label="Code"></v-text-field>
+									<v-text-field :disabled="disabled" v-model="editedItem.sub_code" label="Code"></v-text-field>
 								</v-flex>
 								<v-flex xs12 sm6 md6>
-									<v-text-field v-model="editedItem.sub_name" label="Subject Name"></v-text-field>
+									<v-text-field :disabled="disabled" v-model="editedItem.sub_name" label="Subject Name"></v-text-field>
 								</v-flex>
 								<!-- <v-flex xs12 sm6 md4>
 									<v-select
@@ -39,7 +39,7 @@
 								<v-flex xs12 sm6 md12>
 									<v-combobox
 										v-model="editedItem.topics"
-
+										:disabled="disabled"
 										label="Enter the topics"
 										multiple
 										chips
@@ -228,18 +228,30 @@ export default {
 		addItem() {
 			this.disabled=false
 		},
-		viewItem(item) {
+		async viewItem(item) {
 			this.editedIndex = this.sub_details.indexOf(item)
 			this.editedItem = Object.assign({}, item)
+			const response = await this.$axios.get(`/api/subjects/stream/${item.stream_name}`)
+			let i
+			this.editedItem.subjects= new Array()
+			for(i=0;i<(response.data.length);i++)
+			{
+				this.editedItem.subjects.push(response.data[i].sub_name)
+			}
 			this.disabled=true
 			this.dialog=true
 		},
-		editItem (item) {
+		async editItem (item) {
 			this.disabled=false
 			this.editedIndex = this.sub_details.indexOf(item)
 			this.editedItem = Object.assign({}, item)
-			// const response = this.$axios.get('/api/')
-			// this.editedItem.topics = response.data
+			const response = await this.$axios.get(`/api/subjects/stream/${item.stream_name}`)
+			let i
+			this.editedItem.subjects= new Array()
+			for(i=0;i<(response.data.length);i++)
+			{
+				this.editedItem.subjects.push(response.data[i].sub_name)
+			}
 			this.dialog = true
 		},
 		async deleteItem () {

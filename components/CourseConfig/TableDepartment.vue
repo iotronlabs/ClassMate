@@ -20,10 +20,10 @@
 						<v-container fluid>
 							<v-layout>
 								<v-flex xs12 sm6 md4>
-									<v-select v-model="editedItem.department_name" :items="departments" label="Assign Department"></v-select>
+									<v-select :disabled="disabled" v-model="editedItem.department_name" :items="departments" label="Assign Department"></v-select>
 								</v-flex>
 								<!-- Add new department option that will pop up another modal -->
-								<v-dialog v-model="addDialog" persistent max-width="500px">
+								<v-dialog :disabled="disabled" v-model="addDialog" persistent max-width="500px">
 									<template v-slot:activator="{ on }">
 										<v-btn flat v-on="on"><v-icon>add</v-icon>Add New<br>Department</v-btn>
 									</template>
@@ -65,13 +65,13 @@
 							</v-layout>
 							<v-layout>
 								<v-flex xs12 sm6 md4>
-									<v-text-field v-model="editedItem.stream_code" label="Stream Code"></v-text-field>
+									<v-text-field :disabled="disabled" v-model="editedItem.stream_code" label="Stream Code"></v-text-field>
 								</v-flex>
 								<v-flex xs12 sm6 md4>
-									<v-text-field v-model="editedItem.stream_name" label="Stream Name"></v-text-field>
+									<v-text-field :disabled="disabled" v-model="editedItem.stream_name" label="Stream Name"></v-text-field>
 								</v-flex>
 								<v-flex xs12 sm6 md4>
-									<v-select v-model="editedItem.course_length" :items="course_lengths" label="Assign course length"></v-select>
+									<v-select :disabled="disabled" v-model="editedItem.course_length" :items="course_lengths" label="Assign course length"></v-select>
 								</v-flex>
 
 							</v-layout>
@@ -79,12 +79,13 @@
 
 								<v-flex xs12 sm12 md12>
 									<v-select
-										v-model="editedItem.subject"
+										v-model="editedItem.subjects"
 										:items="subjects"
 										:menu-props="{ maxHeight: '400' }"
 										label="Assign subjects"
 										multiple
 										chips
+										:disabled="disabled"
 									></v-select>
 								</v-flex>
 								<v-flex xs12 sm6 md4>
@@ -147,7 +148,7 @@
 				<td class="text-xs-center">{{ props.item.department_code }}</td>
 				<td class="text-xs-right">{{ props.item.department_name }}</td>
 				<td class="text-xs-right">{{ props.item.stream_code }}</td>
-				<td class="text-xs-right">{{ props.item.stream_nanme }}</td>
+				<td class="text-xs-right">{{ props.item.stream_name }}</td>
 				<td class="text-xs-right">{{ props.item.course_length }}</td>
 				<td class="justify-center layout px-0">
 					<span v-if="deleteMode==false">
@@ -238,19 +239,17 @@ export default {
 		editedIndex: -1,
 		editedItem: {
 			department_name: '',
-			department_code: '',
 			stream_name: '',
 			stream_code: '',
 			course_length: '',
-			subject: []
+			subjects: []
 		},
 		defaultItem: {
 			department_name: '',
-			department_code: '',
 			stream_name: '',
 			stream_code: '',
 			course_length: '',
-			subject: []
+			subjects: []
 		}
 	}),
 	computed: {
@@ -274,7 +273,7 @@ export default {
 			this.$refs.addForm.reset()
 		},
 		async initialize () {
-			const dept_response = await this.$axios.get('/api/departments')
+			const dept_response = await this.$axios.get('/api/streams')
 			this.dept_details = dept_response.data
 			for(var i in dept_response.data)
 			{
@@ -289,16 +288,30 @@ export default {
 		addItem() {
 			this.disabled=false
 		},
-		viewItem(item) {
+		async viewItem(item) {
 			this.editedIndex = this.dept_details.indexOf(item)
 			this.editedItem = Object.assign({}, item)
+			const response = await this.$axios.get(`/api/subjects/stream/${item.stream_name}`)
+			let i
+			this.editedItem.subjects= new Array()
+			for(i=0;i<(response.data.length);i++)
+			{
+				this.editedItem.subjects.push(response.data[i].sub_name)
+			}
 			this.disabled=true
 			this.dialog=true
 		},
-		editItem (item) {
+		async editItem (item) {
 			this.disabled=false
 			this.editedIndex = this.dept_details.indexOf(item)
 			this.editedItem = Object.assign({}, item)
+			const response = await this.$axios.get(`/api/subjects/stream/${item.stream_name}`)
+			let i
+			this.editedItem.subjects= new Array()
+			for(i=0;i<(response.data.length);i++)
+			{
+				this.editedItem.subjects.push(response.data[i].sub_name)
+			}
 			this.dialog = true
 		},
 		async deleteItem () {
@@ -365,11 +378,11 @@ export default {
 			if(this.editedIndex == -1)
 			{
 				response = await this.$axios.post(`/api/streams/register`,{
-					department_code: this.editedItem.department_code,
 					department_name: this.editedItem.department_name,
 					stream_code: this.editedItem.stream_code,
 					stream_name: this.editedItem.stream_name,
 					course_length: this.editedItem.course_length,
+					subjects: this.editedItem.subjects
 				})
 				if(response.data.success==true)
 				{
@@ -381,21 +394,20 @@ export default {
 			}
 			else
 			{
-				var id= this.editedItem.department_code
-				// response = await this.$axios.post(`/api/subjects/${id}`,{
-				// 	department_code: this.editedItem.department_code,
-				// 	department_name: this.editedItem.department_name,
-				// 	stream_code: this.editedItem.stream_code,
-				// 	stream_name: this.editedItem.stream_name,
-				// 	course_length: this.editedItem.course_length,
-				// 	subject: this.editedItem.subject
-				// })
-				// if(response.data.success==true)
-				// {
-				// 	this.dialog=false
-				// 	this.message="Subject successfully updated"
-				// 	this.snackbar=true
-				// }
+				var id= this.editedItem.id
+				response = await this.$axios.post(`/api/streams/${id}`,{
+					department_name: this.editedItem.department_name,
+					stream_code: this.editedItem.stream_code,
+					stream_name: this.editedItem.stream_name,
+					course_length: this.editedItem.course_length,
+					subjects: this.editedItem.subjects
+				})
+				if(response.data.success==true)
+				{
+					this.dialog=false
+					this.message="Department and Stream successfully updated"
+					this.snackbar=true
+				}
 			}
 		},
 		async submitAddForm() {
