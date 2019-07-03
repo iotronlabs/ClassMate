@@ -186,6 +186,15 @@ public function update(Request $request, $id)
 
 }   
 
+
+public function getSubjects($stream_name)
+{
+  
+   $data = subject::where('sub_stream',$stream_name)->get('sub_name');
+
+   return $data;
+}
+
 // Delete the stream and Delete the department is not be alvalable for any users//
 //Only can be activated and deactivate//
 }
