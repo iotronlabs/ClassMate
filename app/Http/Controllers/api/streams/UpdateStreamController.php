@@ -196,9 +196,29 @@ public function update(Request $request, $id)
         $task->department_code = $user['department_code'];
 
         $task->save();
+    
+        $data = subject_stream::where('stream_name',$duplicate_stream_name)
+                              ->where('department_name',$duplicate_dept_name)
+                              ->get('sub_name');
+        
+        $data->toArray();
 
+        
+        for ($i=0; $i < sizeof($data) ; $i++) { 
 
+          if(!in_array($data[$i]['sub_name'],$request->subjects))
+          {
+             DB::table('subject_stream')
+                    ->where('sub_name',$data[$i]['sub_name'])
+                    ->where('stream_name',$duplicate_stream_name)
+                    ->where('department_name',$duplicate_dept_name)
+                    ->delete();
 
+                    
+          } 
+         
+        }
+  
         //  $data = $task->stream_name;
 
         //  DB::table('subjects')
@@ -260,7 +280,7 @@ public function update(Request $request, $id)
                 ]);
             }
 
-
+          
 
 
 
@@ -269,11 +289,12 @@ public function update(Request $request, $id)
 
 
 
+
         // $task->fill($input)->save();
          return response()->json
                ([
                    'success' =>  true,
-                   'data' => $task,
+                   //'data' => $task,
 
                ],200);
 

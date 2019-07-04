@@ -20,8 +20,8 @@ class CreateTableClassesTable extends Migration
             $table->bigIncrements('class_id')->length(10)->unique();
             $table->string('class_name')->length(30);
             $table->string('t_ref_id')->length(10)->nullable();
-            $table->integer('start_date')->length(4);
-            $table->integer('end_date')->length(4);
+            $table->date('start_date');
+            $table->date('end_date');
             $table->string('class_stream')->length(50);
             // $table->unsignedInteger('standard')->length(2);
             // $table->char('section',1);

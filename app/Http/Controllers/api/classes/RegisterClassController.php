@@ -19,12 +19,12 @@ class RegisterClassController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'start_date' => ['required', 'string', 'max:255'],
-            'end_date' => ['required', 'string',  'max:255'],
+            'start_date' => ['required'],
+            'end_date' => ['required'],
             // 'standard' => ['required', 'string', 'min:1'],
             // 'section' => ['required', 'max:1'],
 
-            'ct_id' => ['required'],
+            // 'ct_id' => ['required'],
 
 
         ]);
@@ -49,7 +49,7 @@ class RegisterClassController extends Controller
 
                 'start_date'=> 	$user->start_date,
                 // 'standard' =>      $user->standard,
-                'class_id'  => 'DEP - '.$user->id.'',
+                'class_id'  => 'DEP - '.$user->class_id.'',
                	//'t_ref_id' => $user-?t_ref_id,
                	'end_date' => $user->end_date,
                	// 'section'  => $user->section,
@@ -72,7 +72,7 @@ class RegisterClassController extends Controller
 
     protected function create(array $data)
     {
-        $t_name = $data['class_teacher'];
+        //$t_name = $data['class_teacher'];
         // $ct_id = user_techer::select('SELECT t_id FROM user_teachers WHERE t_fname=?',[$t_name]);
 
         $ct_id = user_teacher::where('t_fname',$data['t_fname'])
@@ -80,12 +80,14 @@ class RegisterClassController extends Controller
                        ->where('t_surname',$data['t_surname'])
                        ->first('t_id');
 
+        $ct_id->toArray();               
+
         return table_classes::create([
             'class_name' => $data['class_name'],
             'start_date' => $data['start_date'],
             'end_date' => $data['end_date'],
             'class_stream' => $data['class_stream'],
-            'ct_id' => $ct_id,
+            'ct_id' => $ct_id['t_id'],
             'status' => 111,//$data['status'],
             // 'standard' => $data['standard'],
             // 'section' => $data['section'],
