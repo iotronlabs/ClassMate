@@ -85,14 +85,18 @@ export default {
 	methods: {
 		...mapActions('dashboard',['getActiveUser']),
 		async checkLogin() {
-			await this.getActiveUser(this.id)
+			// await this.getActiveUser(this.id)
 			let response
 			if(this.id=='student')
 			{
-				response = await this.$axios.post('/api/students/login',{
-					s_email: this.email,
-					password: this.password
-				})
+				// response = await this.$axios.post('/api/students/login',{
+				// 	s_email: this.email,
+				// 	password: this.password
+				// })
+				// await this.$auth.studentLogin(
+
+				// )
+				// this.$router.push({path: '/dashboard'})
 			}
 			else if(this.id=='teacher')
 			{

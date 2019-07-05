@@ -50,7 +50,8 @@ export default {
   */
   modules: [
 	'@nuxtjs/pwa',
-  '@nuxtjs/axios',
+	'@nuxtjs/axios',
+	'@nuxtjs/auth',
     [
       'nuxt-fontawesome', {
         imports: [
@@ -70,14 +71,36 @@ export default {
       }
     ]
 ],
-  axios: {
+axios: {
 	// baseURL: 'http://api.thebutick.com/public',
 	baseURL: 'http://localhost:8000',
 	proxyHeaders: false,
 	credentials: false,
-    proxy: false,
-    debug: true
-  },
+	proxy: false,
+	debug: true
+},
+
+auth: {
+	strategies: {
+		local: {
+			endpoints: {
+				studentLogin: { url: '/api/students/login', method='post', propertyName: 'meta.token'},
+				teacherLogin: { url: '/api/teachers/login', method="post", propertyName: 'meta.token'},
+				staffLogin: { url: '/api/staffs/login', method="post", propertyName: 'meta.token'},
+				adminLogin: { url: '/api/admins/login', method="post", propertyName: 'meta.token'},
+				userStudent: { url: '/api/students/me', method="get", propertyName: 'data'},
+				userTeacher: { url: '/api/teachers/me', method="get", propertyName: 'data'},
+				userStaff: { url: '/api/staffs/me', method="get", propertyName: 'data'},
+				userAdmin: { url: '/api/admins/me', method="get", propertyName: 'data'},
+				studentLogout: {url: '/api/students/out', method="post"},
+				teacherLogout: {url: '/api/teachers/out', method="post"},
+				staffLogout: {url: '/api/staffs/out', method="post"},
+				adminLogout: {url: '/api/admins/out', method="post"}
+			}
+		}
+	}
+},
+
   /*
   ** Build configuration
   */
