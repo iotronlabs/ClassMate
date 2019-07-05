@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\api\students;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\student\user_student;
-
 use App\Models\Exam\examination;
+use App\Models\student\user_student;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {	
@@ -127,6 +127,29 @@ public function destroy($s_id)
 		           ],200);
 				
 			}
+
+	public function usercheck(Request $request)	
+	{
+		return response()->json
+           ([
+               'success' =>  true,
+               'data' => Auth::guard('students')->user(),
+               // 'token' => $token
+           ],200);
+	}	
+
+
+	public function userlogout()
+	{
+		Auth::guard('students')->logout();
+
+		return response()->json
+           ([
+               'success' =>  true,
+               // 'data' => $request->user(),
+               // 'token' => $token
+           ],200);
+	}
 
 }
 
