@@ -39,7 +39,7 @@
 				color="primary"
 				type="submit"
 				form="login-form"
-				:class="disabled ? btn-login : btn-login-color"
+				:class="disabled ? 'btn-login' : 'btn-login-color'"
 			>LogIn</v-btn>
 
 
@@ -89,10 +89,10 @@ export default {
 			let response
 			if(this.id=='student')
 			{
-				// response = await this.$axios.post('/api/students/login',{
-				// 	s_email: this.email,
-				// 	password: this.password
-				// })
+				response = await this.$axios.post('/api/students/login',{
+					s_email: this.email,
+					password: this.password
+				})
 				// await this.$auth.studentLogin(
 
 				// )

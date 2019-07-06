@@ -27,7 +27,11 @@ export default {
 		// exam2,
 		Table,
 	},
-	layout: 'DashboardNavigationLayout'
+	layout: 'DashboardNavigationLayout',
+	mounted() {
+		console.log(this.loggedIn)
+		console.log(this.user)
+	}
 }
 </script>
 

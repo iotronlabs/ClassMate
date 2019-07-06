@@ -42,7 +42,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/vuetify'
+	'@/plugins/vuetify',
+	'~plugins/mixins/user.js'
   ],
 
   /*
@@ -84,18 +85,29 @@ auth: {
 	strategies: {
 		local: {
 			endpoints: {
-				studentLogin: { url: '/api/students/login', method='post', propertyName: 'meta.token'},
-				teacherLogin: { url: '/api/teachers/login', method="post", propertyName: 'meta.token'},
-				staffLogin: { url: '/api/staffs/login', method="post", propertyName: 'meta.token'},
-				adminLogin: { url: '/api/admins/login', method="post", propertyName: 'meta.token'},
-				userStudent: { url: '/api/students/me', method="get", propertyName: 'data'},
-				userTeacher: { url: '/api/teachers/me', method="get", propertyName: 'data'},
-				userStaff: { url: '/api/staffs/me', method="get", propertyName: 'data'},
-				userAdmin: { url: '/api/admins/me', method="get", propertyName: 'data'},
-				studentLogout: {url: '/api/students/out', method="post"},
-				teacherLogout: {url: '/api/teachers/out', method="post"},
-				staffLogout: {url: '/api/staffs/out', method="post"},
-				adminLogout: {url: '/api/admins/out', method="post"}
+				login: {
+					url: '/api/students/login',
+					method: 'post',
+					propertyName: 'meta.token'
+				},
+				user: {
+					url: '/api/students',
+					method: 'get',
+					propertyName: 'data'
+				},
+          		logout: {}
+				// studentLogin: { url: '/api/students/login', method='post', propertyName: 'meta.token'},
+				// teacherLogin: { url: '/api/teachers/login', method="post", propertyName: 'meta.token'},
+				// staffLogin: { url: '/api/staffs/login', method="post", propertyName: 'meta.token'},
+				// adminLogin: { url: '/api/admins/login', method="post", propertyName: 'meta.token'},
+				// userStudent: { url: '/api/students/me', method="get", propertyName: 'data'},
+				// userTeacher: { url: '/api/teachers/me', method="get", propertyName: 'data'},
+				// userStaff: { url: '/api/staffs/me', method="get", propertyName: 'data'},
+				// userAdmin: { url: '/api/admins/me', method="get", propertyName: 'data'},
+				// studentLogout: {url: '/api/students/out', method="post"},
+				// teacherLogout: {url: '/api/teachers/out', method="post"},
+				// staffLogout: {url: '/api/staffs/out', method="post"},
+				// adminLogout: {url: '/api/admins/out', method="post"}
 			}
 		}
 	}
