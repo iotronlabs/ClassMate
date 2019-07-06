@@ -8,9 +8,8 @@ const _bc39a9a6 = () => interopDefault(import('..\\pages\\dashboard.vue' /* webp
 const _7d75512c = () => interopDefault(import('..\\pages\\exam\\index.vue' /* webpackChunkName: "pages_exam_index" */))
 const _5db7ed8c = () => interopDefault(import('..\\pages\\exam2.vue' /* webpackChunkName: "pages_exam2" */))
 const _417c308c = () => interopDefault(import('..\\pages\\forum.vue' /* webpackChunkName: "pages_forum" */))
-const _23011032 = () => interopDefault(import('..\\pages\\table.vue' /* webpackChunkName: "pages_table" */))
-const _4524580a = () => interopDefault(import('..\\pages\\addUsersForms\\addStudent.vue' /* webpackChunkName: "pages_addUsersForms_addStudent" */))
-const _97f41bbc = () => interopDefault(import('..\\pages\\addUsersForms\\addTeacher.vue' /* webpackChunkName: "pages_addUsersForms_addTeacher" */))
+const _4d916cd8 = () => interopDefault(import('..\\pages\\config\\course.vue' /* webpackChunkName: "pages_config_course" */))
+const _49d8bcf8 = () => interopDefault(import('..\\pages\\config\\user.vue' /* webpackChunkName: "pages_config_user" */))
 const _b38a3768 = () => interopDefault(import('..\\pages\\exam\\exam1.vue' /* webpackChunkName: "pages_exam_exam1" */))
 const _3592649a = () => interopDefault(import('..\\pages\\exam\\result.vue' /* webpackChunkName: "pages_exam_result" */))
 const _31f0d6d1 = () => interopDefault(import('..\\pages\\exam\\rules.vue' /* webpackChunkName: "pages_exam_rules" */))
@@ -119,17 +118,13 @@ export function createRouter() {
       component: _417c308c,
       name: "forum"
     }, {
-      path: "/table",
-      component: _23011032,
-      name: "table"
+      path: "/config/course",
+      component: _4d916cd8,
+      name: "config-course"
     }, {
-      path: "/addUsersForms/addStudent",
-      component: _4524580a,
-      name: "addUsersForms-addStudent"
-    }, {
-      path: "/addUsersForms/addTeacher",
-      component: _97f41bbc,
-      name: "addUsersForms-addTeacher"
+      path: "/config/user",
+      component: _49d8bcf8,
+      name: "config-user"
     }, {
       path: "/exam/exam1",
       component: _b38a3768,

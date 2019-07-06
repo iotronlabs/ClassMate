@@ -27,9 +27,9 @@
 </template>
 
 <script>
-import TableSubject from '../components/CourseConfig/TableSubject'
-import TableDepartment from '../components/CourseConfig/TableDepartment'
-import TableClass from '../components/CourseConfig/TableClass'
+import TableSubject from '@/components/CourseConfig/TableSubject'
+import TableDepartment from '@/components/CourseConfig/TableDepartment'
+import TableClass from '@/components/CourseConfig/TableClass'
 
 export default {
 	layout: 'DashboardNavigationLayout',

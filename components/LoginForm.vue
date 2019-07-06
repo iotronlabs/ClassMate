@@ -1,4 +1,5 @@
 <template>
+<div>
 	<v-form @submit.prevent="checkLogin" id="login-form" class="login-form" method="post">
 		<v-text-field
 			prepend-icon="person"
@@ -45,6 +46,23 @@
 
 		{{message}}
 	</v-form>
+	<!-- snackbar -->
+	<v-snackbar
+		v-model="snackbar"
+		:timeout="timeout"
+		top
+		vertical
+    >
+		{{ message }}
+		<v-btn
+			color="pink"
+			flat
+			@click="snackbar = false"
+		>
+			Close
+		</v-btn>
+    </v-snackbar>
+</div>
 </template>
 
 <script>
@@ -58,6 +76,7 @@ export default {
 		return {
 			email: '',
 			password: '',
+			authentication: '',
 			show: false,
 			rules: {
 				required: v => !!v || 'Required.',
@@ -66,6 +85,8 @@ export default {
 			},
 			checkbox: false,
 			button: 'btn-login',
+			snackbar: false,
+			timeout: 3000,
 			message: '',
 			url : ''
 		}
@@ -85,52 +106,104 @@ export default {
 	methods: {
 		...mapActions('dashboard',['getActiveUser']),
 		async checkLogin() {
-			// await this.getActiveUser(this.id)
-			let response
-			if(this.id=='student')
+			this.$toast.show('Logging in...', {icon: "fingerprint"});
+			if(this.id== "student")
 			{
-				response = await this.$axios.post('/api/students/login',{
-					s_email: this.email,
-					password: this.password
-				})
-				// await this.$auth.studentLogin(
-
-				// )
-				// this.$router.push({path: '/dashboard'})
+				this.authentication="student"
 			}
-			else if(this.id=='teacher')
+			else if(this.id == "teacher")
 			{
-				response = await this.$axios.post('/api/teachers/login',{
-					t_email: this.email,
-					password: this.password
-				})
+				this.authentication="teacher"
 			}
-			else if(this.id=='staff')
+			else if(this.id ="staff")
 			{
-				response = await this.$axios.post('/api/staffs/login',{
-					st_email: this.email,
-					password: this.password
-				})
+				this.authentication="staff"
 			}
-			else if(this.id=='admin')
+			else if(this.id == "admin")
 			{
-				response = await this.$axios.post('/api/admins/login',{
-					email: this.email,
-					password: this.password
-				})
+				this.authentication="admin"
 			}
-
-			if(response.data.success == true)
+			await this.$auth.loginWith('local', {
+				data: {
+					"email": this.email,
+					"password": this.password,
+					"authentication" : this.authentication
+				}
+			}).catch(e => {
+				this.$toast.error('Failed Logging In', {icon: "error_outline"});
+			});
+			if (this.$auth.loggedIn)
 			{
-				this.$router.push('/dashboard')
+				this.$toast.success('Successfully Logged In', {icon: "done"});
+			}
+			this.check()
+		},
+		check(){
+			if(this.$auth.loggedIn)
+			{
+				this.$router.push('/dashboard');
 			}
 			else
 			{
-				this.message = response.data.message
+				this.message = "Invalid email or password"
+				this.snackbar = true
 			}
-			// this.message = response.data.data
-			// this.$router.push('/dashboard')
-		}
+		},
+		// async checkLogin() {
+		// 	// await this.getActiveUser(this.id)
+		// 	let response
+		// 	let authentication
+		// 	if(this.id=='student')
+		// 	{
+		// 		// response = await this.$axios.post('/api/students/login',{
+		// 		// 	s_email: this.email,
+		// 		// 	password: this.password
+		// 		// })
+		// 		await this.$auth.loginWith('local', {
+		// 			data: {
+		// 				email: this.email,
+		// 				password:this.password,
+		// 				authentication: "student"
+		// 			}
+		// 		})
+		// 		console.log(access_token)
+		// 		// console.log(response)
+
+		// 		// this.$router.push({path: '/dashboard'})
+		// 	}
+		// 	// else if(this.id=='teacher')
+		// 	// {
+		// 	// 	response = await this.$axios.post('/api/teachers/login',{
+		// 	// 		t_email: this.email,
+		// 	// 		password: this.password
+		// 	// 	})
+		// 	// }
+		// 	// else if(this.id=='staff')
+		// 	// {
+		// 	// 	response = await this.$axios.post('/api/staffs/login',{
+		// 	// 		st_email: this.email,
+		// 	// 		password: this.password
+		// 	// 	})
+		// 	// }
+		// 	// else if(this.id=='admin')
+		// 	// {
+		// 	// 	response = await this.$axios.post('/api/admins/login',{
+		// 	// 		email: this.email,
+		// 	// 		password: this.password
+		// 	// 	})
+		// 	// }
+
+		// 	// if(response.data.success == true)
+		// 	// {
+		// 	// 	this.$router.push('/dashboard')
+		// 	// }
+		// 	// else
+		// 	// {
+		// 	// 	this.message = response.data.message
+		// 	// }
+		// 	// this.message = response.data.data
+		// 	// this.$router.push('/dashboard')
+		// }
 	}
 }
 </script>

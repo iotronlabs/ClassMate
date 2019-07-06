@@ -28,7 +28,12 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: {
+	name: 'chasing-dots',
+  	color: '#white',
+  	background: 'white',
+	  height: '4px'
+},
 
   /*
   ** Global CSS
@@ -42,8 +47,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-	'@/plugins/vuetify',
-	'~plugins/mixins/user.js'
+	'@/plugins/vuetify'
   ],
 
   /*
@@ -53,6 +57,7 @@ export default {
 	'@nuxtjs/pwa',
 	'@nuxtjs/axios',
 	'@nuxtjs/auth',
+	'@nuxtjs/toast',
     [
       'nuxt-fontawesome', {
         imports: [
@@ -72,6 +77,11 @@ export default {
       }
     ]
 ],
+
+toast: {
+    position: 'top-right',
+    duration: 2000
+},
 axios: {
 	// baseURL: 'http://api.thebutick.com/public',
 	baseURL: 'http://localhost:8000',
@@ -82,33 +92,38 @@ axios: {
 },
 
 auth: {
+	redirect: {
+		home: '/',
+		logout: '/',
+		login: '/',
+		callback: '/dashboard',
+	},
+	watchLoggedIn: true,
+	refresh_token: {
+		prefix: '_refresh_token.',
+	},
+	token: {
+		prefix: '_token.',
+	},
+	localStorage: false,
+	cookie: {
+		prefix: 'auth.',
+		options: {
+		  path: '/',
+		  expires: 5,
+		  // domain: '',
+		  // secure - false,
+		},
+	},
 	strategies: {
 		local: {
 			endpoints: {
-				login: {
-					url: '/api/students/login',
-					method: 'post',
-					propertyName: 'meta.token'
-				},
-				user: {
-					url: '/api/students',
-					method: 'get',
-					propertyName: 'data'
-				},
-          		logout: {}
-				// studentLogin: { url: '/api/students/login', method='post', propertyName: 'meta.token'},
-				// teacherLogin: { url: '/api/teachers/login', method="post", propertyName: 'meta.token'},
-				// staffLogin: { url: '/api/staffs/login', method="post", propertyName: 'meta.token'},
-				// adminLogin: { url: '/api/admins/login', method="post", propertyName: 'meta.token'},
-				// userStudent: { url: '/api/students/me', method="get", propertyName: 'data'},
-				// userTeacher: { url: '/api/teachers/me', method="get", propertyName: 'data'},
-				// userStaff: { url: '/api/staffs/me', method="get", propertyName: 'data'},
-				// userAdmin: { url: '/api/admins/me', method="get", propertyName: 'data'},
-				// studentLogout: {url: '/api/students/out', method="post"},
-				// teacherLogout: {url: '/api/teachers/out', method="post"},
-				// staffLogout: {url: '/api/staffs/out', method="post"},
-				// adminLogout: {url: '/api/admins/out', method="post"}
-			}
+				login: {url: '/api/auth/login',	method: 'post',	propertyName: 'token'},
+				user: {url: '/api/auth/me',method: 'get',propertyName: 'data'},
+          		logout: {url: '/api/students/out'}
+			},
+			tokenRequired: true,
+        	tokenType: 'Bearer',
 		}
 	}
 },

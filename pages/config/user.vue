@@ -3,11 +3,7 @@
 		<v-container fluid>
 			<v-layout align-center justify-center>
 				<v-flex xs12>
-
-						<!-- <Table /> -->
-					 <!--<Calendar /> -->
-					<!-- <exam /> -->
-					<!-- <exam2 /> -->
+					<Table />
 				</v-flex>
 			</v-layout>
 		</v-container>
@@ -15,18 +11,11 @@
 </template>
 
 <script>
-// import Table from '../components/table'
-//import Calendar from '../components/DashboardCalendar/Calendar'
-// import exam from '@/components/exam'
-// import exam2 from '@/components/exam2'
-
+import Table from '@/components/table'
 export default {
 	middleware: ['auth'],
 	components: {
-		//Calendar,
-		// exam,
-		// exam2,
-		// Table,
+		Table,
 	},
 	layout: 'DashboardNavigationLayout',
 	mounted() {

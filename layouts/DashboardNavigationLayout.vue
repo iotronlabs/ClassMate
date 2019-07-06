@@ -50,24 +50,24 @@
 							</v-list-tile-content>
 						</v-list-tile>
 					</template>
-						
+
 						<v-list-tile
-							
+
 							v-for="subItem in item.items"
 							:key="subItem.title"
 						>
-						
+
 							<v-list-tile-content>
-								
+
 								<v-list  class="menu-sublist">
 									<v-list-tile>
 										{{ subItem.title }}
 									</v-list-tile>
 								</v-list>
 							</v-list-tile-content>
-							
+
 						</v-list-tile>
-						
+
 				</v-list-group>
 			</v-list>
 			<!-- <v-list align-end justify-start class="dark-switch">
@@ -84,8 +84,8 @@
 			></v-toolbar-side-icon>
 			<v-toolbar-title>Classmate</v-toolbar-title>
 			<v-spacer />
-		
-			<span class="toolbar-icons"> 
+
+			<span class="toolbar-icons">
 			<v-menu offset-y>
 			<template v-slot:activator="{ on }">
 				<v-badge
@@ -97,7 +97,7 @@
 				</template>
 				<font-awesome-icon v-on="on" :icon="['far', 'bell']" size="2x"/>
 			</v-badge>
-				
+
 			</template>
 			<v-list>
 				<v-list-tile>
@@ -115,7 +115,7 @@
 			</v-list>
 			</v-menu>
 			</span>
-			
+
 			<v-menu offset-y>
 				<template v-slot:activator="{ on }">
 				<v-toolbar-title v-on="on">
@@ -127,17 +127,17 @@
 				<v-list-tile
 				>
 					<v-list-tile-action><v-switch v-model="dark" primary color="indigo" :label="switchLabel"></v-switch></v-list-tile-action>
-					
-					
+
+
 				</v-list-tile>
 				<v-list-tile
 				>
 					<v-list-tile-action><font-awesome-icon :icon="['fas', 'sign-out-alt']"/></v-list-tile-action>
-					<v-list-tile-title >Logout</v-list-tile-title>
+					<v-btn flat @click="userLogout"><v-list-tile-title >Logout</v-list-tile-title></v-btn>
 				</v-list-tile>
 				</v-list>
      		</v-menu>
-		
+
 		</v-toolbar>
 
 
@@ -219,6 +219,14 @@ export default {
 	methods: {
 		closeDrawerModel() {
 			this.primaryDrawer.model = !this.primaryDrawer.model
+		},
+		async userLogout() {
+			await this.$auth.logout()
+			.then(() => this.$toast.success('Thank You. You are successfully logged out', {icon: "done"}))
+			.catch(e => {
+				this.$toast.error('Failed Logging Out. Please try again', {icon: "error_outline"});
+			});
+			console.log(this.$auth.loggedIn)
 		}
 	},
 	created() {
@@ -229,7 +237,7 @@ export default {
 
 
 <style lang="scss" scoped >
-@import '~/assets/scss/_variables.scss'; 
+@import '~/assets/scss/_variables.scss';
 
 .menu-sublist
 {
