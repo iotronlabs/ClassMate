@@ -85,6 +85,18 @@ public function update(Request $request, $t_id)
 	
 
 }
+	
+
+	public function usercheck(Request $request)	
+	{	
+			// dd('hell');
+		return response()->json
+           ([
+               'success' =>  true,
+               'data' => Auth::guard('user_teachers')->user(),
+               // 'token' => $token
+           ],200);
+	}	
 
 
 public function destroy($t_id)

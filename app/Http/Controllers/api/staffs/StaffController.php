@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\api\staffs;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\staff\user_staff;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StaffController extends Controller
 {
@@ -82,6 +83,17 @@ public function update(Request $request, $st_id)
 	
 
 }
+	
+	public function usercheck(Request $request)	
+	{	
+			// dd('hell');
+		return response()->json
+           ([
+               'success' =>  true,
+               'data' => Auth::guard('user_staffs')->user(),
+               // 'token' => $token
+           ],200);
+	}	
 
 
 public function destroy($st_id)

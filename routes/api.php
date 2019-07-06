@@ -33,6 +33,16 @@ use Illuminate\Http\Request;
 // );
 
 
+Route::group([ 'prefix' =>'/auth']
+             ,function()
+             {
+                
+                 Route::post('/login','AuthLoginController@loginRoute');
+                 Route::get('/me', 'AuthLoginController@check_user');
+             }
+
+);
+
 Route::group([ 'prefix' =>'/admins',
              [ 'middleware' =>'auth_users','jwt.auth']],function()
              {
@@ -46,7 +56,7 @@ Route::group([ 'prefix' =>'/students',
              [ 'middleware' =>'auth_users','jwt.auth' ]],function()
              {
                  Route::post('/register','students\Auth\RegisterController@register');
-                 Route::post('/login','students\Auth\LoginController@login');
+                 Route::get('/login','students\Auth\LoginController@login');
                  Route::get('/','students\StudentController@index');
                  Route::get('/me','students\StudentController@usercheck');
                  Route::post('/out','students\StudentController@userlogout');  
@@ -69,8 +79,8 @@ Route::group([ 'prefix' =>'/teachers',
              [ 'middleware' =>'auth_users','jwt.auth' ]],function()
              {
                  Route::post('/register','teachers\Auth\RegisterController@register');
-                 Route::post('/login','teachers\Auth\LoginController@login');
-
+                 Route::get('/login','teachers\Auth\LoginController@login');
+                   Route::get('/me','teachers\TeacherController@usercheck');
                  Route::get('/{t_id}/show',  'teachers\TeacherController@show');
                  Route::get('/{t_id}/edit', 'teachers\TeacherController@edit');
 
@@ -91,7 +101,8 @@ Route::group([ 'prefix' =>'/staffs',
              [ 'middleware' =>'auth_users','jwt.auth' ]],function()
              {
                  Route::post('/register','staffs\Auth\RegisterController@register');
-                 Route::post('/login','staffs\Auth\LoginController@login');
+                 Route::get('/login','staffs\Auth\LoginController@login');
+                Route::get('/me','staffs\StaffController@usercheck');
                  Route::get('/','staffs\StaffController@index');
 
                  Route::get('/{st_id}/show',  'staffs\StaffController@show');
