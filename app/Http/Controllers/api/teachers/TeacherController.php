@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\api\teachers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\teacher\user_teacher;
-
 use App\Models\Exam\examination;
+use App\Http\Controllers\Controller;
+
+use App\Models\teacher\user_teacher;
+use Illuminate\Support\Facades\Auth;
 
 class TeacherController extends Controller
 {

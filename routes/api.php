@@ -80,7 +80,7 @@ Route::group([ 'prefix' =>'/teachers',
              {
                  Route::post('/register','teachers\Auth\RegisterController@register');
                  Route::get('/login','teachers\Auth\LoginController@login');
-                   Route::get('/me','teachers\TeacherController@usercheck');
+                 Route::get('/me','teachers\TeacherController@usercheck');
                  Route::get('/{t_id}/show',  'teachers\TeacherController@show');
                  Route::get('/{t_id}/edit', 'teachers\TeacherController@edit');
 

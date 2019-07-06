@@ -103,7 +103,7 @@ public function login(Request $request)
     return response()->json
            ([
                'success' =>true,
-               'data' => $request->all(),
+            //    'data' => $request->all(),
                'token' =>$token
                ],200);
 
