@@ -16,6 +16,13 @@
   * @license MIT
   */
 
+/*!
+ * cookie
+ * Copyright(c) 2012-2014 Roman Shtylman
+ * Copyright(c) 2015 Douglas Christopher Wilson
+ * MIT Licensed
+ */
+
 /**
  * vue-meta v1.6.0
  * (c) 2019 Declan de Wet & Sébastien Chopin (@Atinux)
