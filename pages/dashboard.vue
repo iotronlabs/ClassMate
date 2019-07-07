@@ -4,7 +4,7 @@
 			<v-layout align-center justify-center>
 				<v-flex xs12>
 
-						<!-- <Table /> -->
+						<!--<Table /> -->
 					 <!--<Calendar /> -->
 					<!-- <exam /> -->
 					<!-- <exam2 /> -->
@@ -19,6 +19,7 @@
 //import Calendar from '../components/DashboardCalendar/Calendar'
 // import exam from '@/components/exam'
 // import exam2 from '@/components/exam2'
+ //import Table from '../components/studentexamtable'
 
 export default {
 	middleware: ['auth'],
@@ -26,7 +27,7 @@ export default {
 		//Calendar,
 		// exam,
 		// exam2,
-		// Table,
+		 //Table,
 	},
 	layout: 'DashboardNavigationLayout',
 	mounted() {
