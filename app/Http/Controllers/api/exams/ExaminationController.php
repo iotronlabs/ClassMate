@@ -25,6 +25,7 @@ class ExaminationController extends Controller
     public function __construct()
     {
         $this->middleware('authteachers');
+        $this->middleware('authstudents')->only('show_rules');
     }
    protected function validator(array $data)
     {
@@ -85,39 +86,23 @@ class ExaminationController extends Controller
         return examination::create([
 
         		
-	        	  'exam_code' => 'EX-'.mt_rand(0001,9999).'',
-	            'topic' => $data['topic'],
-              'exam_name' => $data['exam_name'],
-              'subject' => $data['subject'],
-              'date' => $data['date'],
-              'duration' => $data['duration'],
-              'pass_mark' => $data['pass_mark'],
-              're_exam' => $data['re_exam'],
-              'description' => $data['description'],
-              'status' => $data['status'],
-              'class_id' => $data['class_id'],
-              'teacher_id_created' => $teacher->t_id,//$data['teacher_id_created'],
+            'exam_code' => 'EX-'.mt_rand(0001,9999).'',
+            'topic' => $data['topic'],
+            'exam_name' => $data['exam_name'],
+            'subject' => $data['subject'],
+            'date' => $data['date'],
+            'duration' => $data['duration'],
+            'pass_mark' => $data['pass_mark'],
+            're_exam' => $data['re_exam'],
+            'description' => $data['description'],
+            'status' => $data['status'],
+            'class_id' => $data['class_id'],
+            'teacher_id_created' => $teacher->t_id,//$data['teacher_id_created'],
 
             
      
         ]);
       } 
-
-        // public function get_exam()
-        // {
-        //   $data = DB:: table('user_teachers')
-        //               ->join('examinations','examinations.teacher_id_created','=','user_teachers.t_id')
-        //               ->select('user_teachers.t_fname')
-        //               ->get();
-        // }
-    
-		 // public function index()
-		 //    {
-		 //        $details=examination:all();
-		 //        return $details;
-		 //    }
-
-
 
 //   public function edit($id)
 //   {
@@ -216,4 +201,32 @@ class ExaminationController extends Controller
 
 
         }
+
+        public function destroy (examination $exam)
+        {
+            $exam->delete();
+             return response()->json
+              ([
+                  'success' =>  true,
+                  
+                   
+              ],200);
+        }
+
+        public function deactivate_exam(Request $request, examination $exam)
+        {   
+            
+            $exam->update(['status' => $request->status]);
+            return response()->json([
+                'success' => true,
+            ]);
+
+        }
+
+    public function show_rules(examination $exam)
+	{
+		$details = $exam->exams()->get();
+		dd($details);
+	}
+
 }

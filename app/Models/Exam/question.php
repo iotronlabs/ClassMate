@@ -8,7 +8,8 @@ use App\Models\Exam\examination;
 class question extends Model 
 {
      
-     protected $primaryKey = 'question_code';
+     protected $primaryKey = 'question_id';
+     public $incrementing = false;
 
 
     protected $guarded =[];
@@ -19,7 +20,7 @@ class question extends Model
         }
         public function getRouteKeyName()
         {
-        	 return 'question_code';
+        	 return 'question_id';
         }
   
 }
