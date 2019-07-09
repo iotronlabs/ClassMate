@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class = "select-action">
   <v-container fluid>
 
     <v-tabs v-model="active" color="cyan" dark slider-color="yellow" >
@@ -20,6 +20,11 @@
                     </v-flex>
               </v-layout>
               <v-subheader large > Question</v-subheader>
+              <v-layout  wrap v-if = "n==2">
+                  <v-flex xs12 sm6 md9 d-flex>
+                    <v-text-field label="Enter Question" solo outline ></v-text-field>
+                  </v-flex>
+              </v-layout>
               <v-layout  wrap v-if = "n==1">
                   <v-flex xs12 sm6 md9 d-flex>
                     <v-text-field label="Enter Question" solo outline ></v-text-field>
@@ -30,7 +35,7 @@
              <v-text-field
              v-model="a"
               type="text"
-             placeholder="Enter exam name"         
+             placeholder="  Enter Option 1"         
              required
              outline
              solo
@@ -44,7 +49,7 @@
              <v-text-field
              v-model="a"
               type="text"
-             placeholder="Enter exam name"         
+             placeholder="  Enter Option 2"         
              required
              outline
          
@@ -57,7 +62,7 @@
              <v-text-field
              v-model="a"
               type="text"
-             placeholder="Enter exam name"         
+             placeholder=" Enter Option 3"         
              required
              outline
          
@@ -70,7 +75,7 @@
              <v-text-field
              v-model="a"
               type="text"
-             placeholder="Enter exam name"         
+             placeholder=" Enter Option 4"         
              required
              outline
          
@@ -121,13 +126,14 @@
 
 <script>
 export default{
+  layout: 'DashboardNavigationLayout',
   data: () => ({
 
  heading : ['Multiple choice' , 'Filling blanks'],
 
 
  answer:[],
- items:['A','B' ,'C','D'],
+ items:[],
 
  
 
@@ -145,6 +151,12 @@ export default{
 .card-content{
   padding : 10px 20px 10px 20px;
 
+}
+.select-action
+{
+	width: 100%;
+	padding-left: 2%;
+	padding-right: 2%;
 }
 
   </style>

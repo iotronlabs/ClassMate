@@ -1,6 +1,6 @@
 <template>
-<v-app >
-    
+<v-app class = "select-action">
+   
  <v-card class = "card-content" >
   	<v-toolbar >
 	 <span class="toolbar-text">Add Exam</span>
@@ -11,7 +11,7 @@
 
         <v-layout col wrap>
 
-          <v-flex xs12 sm6 md9 >
+          <v-flex xs12 sm12 md6 lg6 >
               <h3>Exam Name</h3><br>
              <v-text-field
              v-model="examname"
@@ -26,7 +26,7 @@
            >
            </v-text-field>
           </v-flex>
-          <v-flex xs12 sm6 md9 >
+          <v-flex xs12 sm12 md6 lg6 >
               <h3>Exam Duration (Minutes)</h3><br>
              <v-text-field
              v-model="examduration"
@@ -41,7 +41,7 @@
            >
            </v-text-field>
           </v-flex>
-          <v-flex xs12 sm6 md9 >
+          <v-flex xs12 sm12 md6 lg6 >
               <h3>Passmark (%)</h3><br>
              <v-text-field
              v-model="passmark"
@@ -57,7 +57,7 @@
            </v-text-field>
           </v-flex>
          
-          <v-flex xs12 sm6 md9 >
+          <v-flex xs12 sm12 md6 lg6 >
            <h3>RE exam (if you take exam then show it again after some days)</h3><br>
               
               
@@ -76,7 +76,7 @@
           </v-flex>
            
            
-              <v-flex xs12 sm6 md9>
+              <v-flex xs12 sm12 md6 lg6>
                   <h3> Select Deadline </h3><br>
                 <v-menu
                   ref="menu"
@@ -107,7 +107,7 @@
                   </v-date-picker>
                 </v-menu>
               </v-flex>
-          <v-flex xs12 sm6 md9>
+          <v-flex xs12 sm12 md6 lg6>
             <h3>Select Subject</h3><br>
         <v-select
          v-model="subject"
@@ -118,7 +118,7 @@
         >
         </v-select>
         </v-flex>
-         <v-flex xs12 sm6 md9>
+         <v-flex xs12 sm12 md6 lg6>
                <h3>Select Category</h3><br>
         <v-select
          v-model="category"
@@ -130,7 +130,7 @@
         </v-select>
         </v-flex>
 
-          <v-flex xs12 sm6 md9>
+          <v-flex xs12 sm12 md6 lg6>
               <h3>Terms and Conditions</h3><br>
            <v-textarea
           outline
@@ -214,6 +214,12 @@ export default {
 .card-content{
   padding : 50px 20px 10px 20px;
 
+}
+.select-action
+{
+	width: 100%;
+	padding-left: 2%;
+	padding-right: 2%;
 }
 
   </style>
