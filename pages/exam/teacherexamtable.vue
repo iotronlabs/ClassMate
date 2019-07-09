@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="select-action">
     <br><br><br><br>
 	<v-toolbar flat color="lightgrey">
       	<v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
@@ -21,10 +21,10 @@
 						<v-container fluid>
 							<v-layout>
 								<v-flex xs12 sm6 md4>
-									<v-text-field :disabled="disabled" v-model="editedItem.sub_code" label="Code"></v-text-field>
+									<v-text-field :disabled="disabled" v-model="editedItem.t_name" label="Code"></v-text-field>
 								</v-flex>
 								<v-flex xs12 sm6 md6>
-									<v-text-field :disabled="disabled" v-model="editedItem.sub_name" label="Subject Name"></v-text-field>
+									<v-text-field :disabled="disabled" v-model="editedItem.t_cat" label="Subject Name"></v-text-field>
 								</v-flex>
 								<!-- <v-flex xs12 sm6 md4>
 									<v-select
@@ -58,7 +58,7 @@
     </v-toolbar>
 
 
-    <v-data-table :headers="headers" :items="exm_details" item-key="sub_code" v-model="selected" select-All class="elevation-1">
+    <v-data-table :headers="headers" :items="exm_details" item-key="t_name" v-model="selected" select-All class="elevation-1">
 	 	<template v-slot:headers="props">
 			<tr>
 				<th v-if="deleteMode==true">
@@ -180,7 +180,7 @@ export default {
         items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
 
 		headers: [
-		  	// { text: 'Sl_No', align: 'left', sortable: true,	value: 'sub_code'},
+		  	// { text: 'Sl_No', align: 'left', sortable: true,	value: 't_name'},
 			{ text: 'Name ', value: 't_name', sortable: false },
 			{ text: 'Category', value: 't_cat' ,sortable: false},
 			{ text: 'Subject', value: 't_sub', sortable: false },
@@ -267,13 +267,13 @@ export default {
 		},
 		async initialize () {
 			const sub_response = await this.$axios.get('/api/subjects')
-			this.sub_details = sub_response.data
+			this.exm_details = sub_response.data
 		},
 		addItem() {
 			this.disabled=false
 		},
 		async viewItem(item) {
-			this.editedIndex = this.sub_details.indexOf(item)
+			this.editedIndex = this.exm_details.indexOf(item)
 			this.editedItem = Object.assign({}, item)
 			const response = await this.$axios.get(`/api/subjects/stream/${item.stream_name}`)
 			let i
@@ -287,7 +287,7 @@ export default {
 		},
 		async editItem (item) {
 			this.disabled=false
-			this.editedIndex = this.sub_details.indexOf(item)
+			this.editedIndex = this.exm_details.indexOf(item)
 			this.editedItem = Object.assign({}, item)
 			const response = await this.$axios.get(`/api/subjects/stream/${item.stream_name}`)
 			let i
@@ -305,7 +305,7 @@ export default {
 			let index
 			for(i=0;i<(this.selected.length);i++)
 			{
-				id=this.selected[i].sub_code
+				id=this.selected[i].t_name
 				response = await this.$axios.delete(`/api/subjects/${id}`)
 				if(response.data.success==true)
 				{
@@ -319,8 +319,8 @@ export default {
 					}
 					this.snackbar=true
 				}
-				index=this.sub_details.map((e) => e.sub_code).indexOf(id)
-				this.sub_details.splice(index,1)
+				index=this.exm_details.map((e) => e.t_name).indexOf(id)
+				this.exm_details.splice(index,1)
 			}
 			this.deleteMode=false
 		},
@@ -333,9 +333,9 @@ export default {
 		},
 		save () {
 			if (this.editedIndex > -1) {
-				Object.assign(this.sub_details[this.editedIndex], this.editedItem)
+				Object.assign(this.exm_details[this.editedIndex], this.editedItem)
 			} else {
-				this.sub_details.push(this.editedItem)
+				this.exm_details.push(this.editedItem)
 			}
 			this.close()
 		},
@@ -354,7 +354,7 @@ export default {
 		},
 		toggleAll () {
 			if (this.selected.length) this.selected = []
-			else this.selected = this.sub_details.slice()
+			else this.selected = this.exm_details.slice()
 		},
 
 		async submitForm() {
@@ -363,13 +363,13 @@ export default {
 			if(this.editedIndex == -1)
 			{
 				response = await this.$axios.post(`/api/subjects/register`,{
-					sub_code: this.editedItem.sub_code,
-					sub_name: this.editedItem.sub_name,
+					t_name: this.editedItem.t_name,
+					t_cat: this.editedItem.t_cat,
 					topics: this.editedItem.topics
 				})
 				if(response.data.success==true)
 				{
-					// this.sub_details.push(this.editedItem)
+					// this.exm_details.push(this.editedItem)
 					this.dialog = false
 					this.message="New Subject added successfully"
 					this.snackbar=true
@@ -379,8 +379,8 @@ export default {
 			{
 				var sub_id= this.editedItem.id
 				response = await this.$axios.post(`/api/subjects/${sub_id}`,{
-					sub_code: this.editedItem.sub_code,
-					sub_name: this.editedItem.sub_name,
+					t_name: this.editedItem.t_name,
+					t_cat: this.editedItem.t_cat,
 					topics: this.editedItem.topics
 				})
 				if(response.data.success==true)
@@ -399,8 +399,8 @@ export default {
 .select-action
 {
 	width: 100%;
-	padding-left: 20%;
-	padding-right: 20%;
+	padding-left: 2%;
+	padding-right: 2%;
 }
 </style>
 

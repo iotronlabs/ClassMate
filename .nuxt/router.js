@@ -10,6 +10,8 @@ const _16829912 = () => interopDefault(import('..\\pages\\exam2.vue' /* webpackC
 const _cfe6d980 = () => interopDefault(import('..\\pages\\forum.vue' /* webpackChunkName: "pages_forum" */))
 const _50ae34ce = () => interopDefault(import('..\\pages\\config\\course.vue' /* webpackChunkName: "pages_config_course" */))
 const _53e0133e = () => interopDefault(import('..\\pages\\config\\user.vue' /* webpackChunkName: "pages_config_user" */))
+const _8ae852c0 = () => interopDefault(import('..\\pages\\exam\\addexam.vue' /* webpackChunkName: "pages_exam_addexam" */))
+const _59d84908 = () => interopDefault(import('..\\pages\\exam\\addQuestions.vue' /* webpackChunkName: "pages_exam_addQuestions" */))
 const _2ace444e = () => interopDefault(import('..\\pages\\exam\\exam1_student.vue' /* webpackChunkName: "pages_exam_exam1_student" */))
 const _01666275 = () => interopDefault(import('..\\pages\\exam\\exam1_teacher.vue' /* webpackChunkName: "pages_exam_exam1_teacher" */))
 const _5e033f6d = () => interopDefault(import('..\\pages\\exam\\result.vue' /* webpackChunkName: "pages_exam_result" */))
@@ -128,6 +130,14 @@ export function createRouter() {
       path: "/config/user",
       component: _53e0133e,
       name: "config-user"
+    }, {
+      path: "/exam/addexam",
+      component: _8ae852c0,
+      name: "exam-addexam"
+    }, {
+      path: "/exam/addQuestions",
+      component: _59d84908,
+      name: "exam-addQuestions"
     }, {
       path: "/exam/exam1_student",
       component: _2ace444e,

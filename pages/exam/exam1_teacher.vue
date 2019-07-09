@@ -67,6 +67,8 @@
 
 <script>
 export default {
+
+      layout: 'DashboardNavigationLayout',
   data: () => ({
 		content: [
 			{text: '1. aabbaabb'},

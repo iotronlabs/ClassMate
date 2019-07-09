@@ -1,5 +1,6 @@
 <template>
-<div>
+<div class="select-action">
+	<br><br><br><br>
 	<v-toolbar flat color="lightgrey" >
       	<v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details ></v-text-field>
       	
@@ -146,8 +147,8 @@ export default {
 .select-action
 {
 	width: 100%;
-	padding-left: 20%;
-	padding-right: 20%;
+	padding-left: 2%;
+	padding-right: 2%;
 }
 </style>
 
