@@ -1,5 +1,6 @@
 <template>
-<div class = "select-action">
+<div >
+  <v-content class = "global-font">
   <v-container fluid>
 
     <v-tabs v-model="active" color="cyan" dark slider-color="yellow" >
@@ -120,6 +121,7 @@
 
 
   </v-container>
+  </v-content>
 </div>
 </template>
 

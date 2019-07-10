@@ -1,5 +1,6 @@
 <template>
 <div>
+	<v-content class = "global-font">
   	<v-container fluid>
     	<v-tabs dark color="cyan" show-arrows >
 			<v-tabs-slider color="yellow"></v-tabs-slider>
@@ -60,6 +61,7 @@
     		</v-tabs>
 
   </v-container>
+	</v-content>
 </div>
 </template>
 
