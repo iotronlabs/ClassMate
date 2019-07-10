@@ -220,6 +220,5 @@ export default {
 }
 .btn-login {
 	border-radius: 10px;
-	width:50%;
 }
 </style>

@@ -1,10 +1,10 @@
 <template>
-<v-app class = "select-action">
-   
+<v-content class = "global-font">
+
  <v-card class = "card-content" >
   	<v-toolbar >
 	 <span class="toolbar-text">Add Exam</span>
-					
+
 		</v-toolbar>
     <v-form  ref="addexam">
       <v-container fluid>
@@ -15,14 +15,14 @@
               <h3>Exam Name</h3><br>
              <v-text-field
              v-model="examname"
-             
-           
+
+
              type="text"
-             placeholder="Enter exam name"         
+             placeholder="Enter exam name"
              required
              outline
              solo
-         
+
            >
            </v-text-field>
           </v-flex>
@@ -30,14 +30,14 @@
               <h3>Exam Duration (Minutes)</h3><br>
              <v-text-field
              v-model="examduration"
-             
-           
+
+
              type="number"
-             placeholder="Enter exam duration"         
+             placeholder="Enter exam duration"
              required
              outline
              solo
-         
+
            >
            </v-text-field>
           </v-flex>
@@ -46,36 +46,36 @@
              <v-text-field
              v-model="passmark"
               placeholder="Enter passmark"
-            
+
              type="number"
-            
-             outline  
-             solo       
+
+             outline
+             solo
              required
-         
+
            >
            </v-text-field>
           </v-flex>
-         
+
           <v-flex xs12 sm12 md6 lg6 >
            <h3>RE exam (if you take exam then show it again after some days)</h3><br>
-              
-              
+
+
              <v-text-field
              v-model="reexam"
-             
-             
+
+
              type="number"
-             placeholder="Enter days to attempt"   
+             placeholder="Enter days to attempt"
              solo
-             outline      
+             outline
              required
-         
+
            >
            </v-text-field>
           </v-flex>
-           
-           
+
+
               <v-flex xs12 sm12 md6 lg6>
                   <h3> Select Deadline </h3><br>
                 <v-menu
@@ -95,7 +95,7 @@
                       v-model="date"
                      outline
                       placeholder="-select deadline"
-                      
+
                       readonly
                       v-on="on"
                     ></v-text-field>
@@ -138,19 +138,19 @@
           name="terms"
           v-model="terms"
           placeholder="enter terms and conditions"
-         
+
         ></v-textarea>
       </v-flex>
     </v-layout>
-       
-       
 
 
-         
 
-         
-        
-        
+
+
+
+
+
+
 
       <v-spacer></v-spacer><br>
       	<v-btn round color="success" light type="submit" form="login-form" >Submit</v-btn>
@@ -160,21 +160,20 @@
 
 
 
-  
-
-        
 
 
 
-        
 
-     
+
+
+
+
+
     </v-container>
   </v-form>
 
 </v-card>
-    
-</v-app>
+</v-content>
 </template>
 <script>
 export default {
@@ -206,7 +205,7 @@ export default {
      reset () {
         this.$refs.addexam.reset()
       },
-    
+
 }
 }
 </script>
