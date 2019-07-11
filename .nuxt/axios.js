@@ -44,35 +44,6 @@ const extendAxiosInstance = axios => {
   }
 }
 
-const log = (level, ...messages) => console[level]('[Axios]', ...messages)
-
-const setupDebugInterceptor = axios => {
-  // request
-  axios.onRequestError(error => {
-    log('error', 'Request error:', error)
-  })
-
-  // response
-  axios.onResponseError(error => {
-    log('error', 'Response error:', error)
-  })
-  axios.onResponse(res => {
-      log(
-        'info',
-        '[' + (res.status + ' ' + res.statusText) + ']',
-        '[' + res.config.method.toUpperCase() + ']',
-        res.config.url)
-
-      if (process.browser) {
-        console.log(res)
-      } else {
-        console.log(JSON.stringify(res.data, undefined, 2))
-      }
-
-      return res
-  })
-}
-
 const setupProgress = (axios, ctx) => {
   if (process.server) {
     return
@@ -135,8 +106,8 @@ const setupProgress = (axios, ctx) => {
 export default (ctx, inject) => {
   // baseURL
   const baseURL = process.browser
-      ? 'http://localhost:8000'
-      : (process.env._AXIOS_BASE_URL_ || 'http://localhost:8000')
+      ? 'http://api.thebutick.com/public'
+      : (process.env._AXIOS_BASE_URL_ || 'http://api.thebutick.com/public')
 
   // Create fresh objects for all default header scopes
   // Axios creates only one which is shared across SSR requests!
@@ -170,7 +141,6 @@ export default (ctx, inject) => {
   extendAxiosInstance(axios)
 
   // Setup interceptors
-  setupDebugInterceptor(axios)
 
   setupProgress(axios, ctx)
 
