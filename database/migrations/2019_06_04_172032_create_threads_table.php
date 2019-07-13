@@ -20,7 +20,7 @@ class CreateThreadsTable extends Migration
             $table->unsignedInteger('replies_count')->default(0);
             $table->string('title');
             $table->text('body');
-            $table->string('t_ref_id')->length(10);
+            $table->string('t_ref_id')->nullable();
             $table->string('slug');
             $table->timestamps();
             $table->tinyInteger('t_authentication')->length(1);

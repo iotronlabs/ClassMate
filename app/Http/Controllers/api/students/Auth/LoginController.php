@@ -100,6 +100,10 @@ public function login(Request $request)
 
         }
 
+        // $value = Cookie::make('student',$user,$minute);
+        
+        // return $value;
+
     return response()->json
            ([
                'success' =>true,

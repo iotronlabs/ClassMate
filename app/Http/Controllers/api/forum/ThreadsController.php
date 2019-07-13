@@ -9,12 +9,13 @@ use App\Models\forum\forum_thread;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class ThreadsController extends Controller
 {
      public function __construct()
     {
-      $this->middleware('auth_users');
-     // $this->middleware('guest:user_teachers');
+      // $this->middleware('auth_users');
+     $this->middleware('authstudents');
     }
 
     public function index(forum_channel $channel, ThreadFilters $filters)
@@ -32,7 +33,7 @@ class ThreadsController extends Controller
       //   $threads = forum_thread::latest()->get();
       // }
 
-       $threads = $this->getThreads($channel, $filters);
+      $threads = $this->getThreads($channel, $filters);
 
       return response()->json
       ([
@@ -65,17 +66,17 @@ class ThreadsController extends Controller
      request()->validate([
             'title' => 'required',
             'body' => 'required',
-            'channel_id' => 'required|exists:channels,id',
+            'channel_id' => 'required',
      ]);
 
     	$thread = forum_thread::create([
       
-         'user_id' => request('user_id'),//$user->id,
+         'user_id' => Auth::guard('students')->id(),//$user->id,
          'title'  => request('title'),
          'body' => request('body'),
-         'channel_id' => request('channel_id'),
+         'forum_channel_id' => request('channel_id'),
          'slug' => request('slug'),
-         't_ref_id' => request('t_ref_id'),
+         // 't_ref_id' => request('t_ref_id'),
          't_authentication' => 1
 
     	]);

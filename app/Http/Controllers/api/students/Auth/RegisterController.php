@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers\api\students\Auth;
 
-use App\Models\student\user_student;
-use \Illuminate\Http\Request;
+use  Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
+use App\Models\student\user_student;
+use Auth;
+use Config;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\withCookie;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
-use  Tymon\JWTAuth\Facades\JWTAuth;
-use Config;
-use Auth;
+use \Illuminate\Http\Request;
+use \Illuminate\Http\Response;
+use App\Http\Requests;
+
 
 class RegisterController extends Controller
 {
@@ -87,13 +92,18 @@ class RegisterController extends Controller
 
            $token= Auth::guard('students')->attempt($request->only('s_email','password'));
 
+            $minute = 60;
+           // $response = new Response($user);
+           // $response->withCookie(cookie('name','virat',$minute));
 
-
+           // return $response;
+          
+           
+         
+           
            return response()->json
            ([
-               'success' =>  true,
-               'data' => $user,
-               'token' => $token
+               // 'success' =>  true,
            ],200);
        }
        return response()->json([

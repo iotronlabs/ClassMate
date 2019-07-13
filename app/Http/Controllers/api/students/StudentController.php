@@ -6,6 +6,7 @@ use App\Models\Exam\examination;
 use App\Models\student\user_student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 
 class StudentController extends Controller
 {	
@@ -130,12 +131,18 @@ public function destroy($s_id)
 
 	public function usercheck(Request $request)	
 	{
-		return response()->json
-           ([
-               'success' =>  true,
-               'data' => Auth::guard('students')->user(),
-               // 'token' => $token
-           ],200);
+		$minute = 60;
+		$user = Auth::guard('students')->user();
+
+		$value = Cookie::make('student',$user,$minute);
+        
+        return $value;
+		// return response()->json
+  //          ([
+  //              'success' =>  true,
+  //              'data' => ,
+  //              // 'token' => $token
+  //          ],200);
 	}	
 
 
