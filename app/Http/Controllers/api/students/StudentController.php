@@ -114,7 +114,7 @@ public function destroy($s_id)
 //return redirect()->route('api/teachers/Auth/teacherController');
 }
 
-	public function get_exam(user_student $student)
+	public function show_exam(user_student $student)
 			{
 				
 
@@ -158,5 +158,6 @@ public function destroy($s_id)
            ],200);
 	}
 
+	
 }
 
