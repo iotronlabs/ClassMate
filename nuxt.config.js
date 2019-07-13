@@ -83,7 +83,7 @@ toast: {
     duration: 2000
 },
 axios: {
-	baseURL: 'http://api.thebutick.com/public',
+	baseURL: 'https://api.thebutick.com/public',
 	// baseURL: 'http://localhost:8000',
 	proxyHeaders: false,
 	credentials: false,
