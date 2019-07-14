@@ -129,7 +129,8 @@ export default {
 					"password": this.password,
 					"authentication" : this.authentication
 				}
-			}).catch(e => {
+			})
+			.catch(e => {
 				this.$toast.error('Failed Logging In', {icon: "error_outline"});
 			});
 			if (this.$auth.loggedIn)
