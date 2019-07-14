@@ -5,11 +5,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Exam\examination;
 use App\Models\student\user_student;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 
 class StudentController extends Controller
-{	
+{
     public function index()
     {
         $user_details=user_student::all();
@@ -116,34 +117,37 @@ public function destroy($s_id)
 
 	public function show_exam(user_student $student)
 			{
-				
+
 
 				$exams = $student->exams()->get();
-                 
+
                 return response()->json
 		           ([
 		               'success' =>  true,
 		               'data' => $exams,
-		               
+
 		           ],200);
-				
+
 			}
 
-	public function usercheck(Request $request)	
+	public function usercheck(Request $request)
 	{
-		$minute = 60;
-		$user = Auth::guard('students')->user();
+		// $minute = 60;
+		// $user = Auth::guard('students')->user();
 
-		$value = Cookie::make('student',$user,$minute);
-        
-        return $value;
-		// return response()->json
-  //          ([
-  //              'success' =>  true,
-  //              'data' => ,
-  //              // 'token' => $token
-  //          ],200);
-	}	
+		// $value = Cookie::make('student',$user,$minute);
+
+        // return $value;
+        $response = new Response('student');
+        $response->withCookie(cookie()->forever('user_student',Auth::guard('students')->user()));
+		return response()->json
+           ([
+               'success' =>  true,
+            //    'data' => Auth::guard('students')->user(),
+                'data' => $response
+            //    'token' => $token
+           ],200);
+	}
 
 
 	public function userlogout()
@@ -158,6 +162,6 @@ public function destroy($s_id)
            ],200);
 	}
 
-	
+
 }
 
