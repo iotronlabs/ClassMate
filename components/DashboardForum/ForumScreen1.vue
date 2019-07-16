@@ -1,9 +1,11 @@
 <template>
 <div>
-	<v-card class="forum-content-card" color="grey">
-		<v-card-text>
+	<v-card class="forum-content-card" color="grey" v-for="department_detail in department_details">
+		<v-card-text >
 			<v-subheader class="forum-content-subheader">
-				Electronic and Telecommunication
+
+					{{department_detail}}
+
 			</v-subheader>
 			<v-chip
 				v-for="chip in chips"
@@ -19,6 +21,8 @@
 		</v-card-text>
 		<hr>
 	</v-card>
+	<br>
+
 </div>
 </template>
 
@@ -36,13 +40,31 @@ export default {
 					title: 'Stream 2',
 					id: 'Stream 2'
 				}
-			]
+			],
+			
+			department_details: []
 		}
+
+		
+	},
+
+	created () {
+		this.initialize()
 	},
 	methods: {
 		...mapActions('forum',['getActiveForumMenu']),
 		activeStream(branch) {
 			this.getActiveForumMenu('Stream')
+		},
+
+		async initialize () {
+			const forum1_response = await this.$axios.get('/api/departments/')
+			for(var i in forum1_response.data)
+			{
+				this.department_details.push(forum1_response.data[i].department_name)
+			}
+			
+			console.log(this.department_details)
 		}
 	}
 }

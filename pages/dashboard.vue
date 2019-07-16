@@ -20,6 +20,7 @@
 // import exam from '@/components/exam'
 // import exam2 from '@/components/exam2'
  //import Table from '../components/studentexamtable'
+ 
 
 export default {
 	middleware: 'auth',
