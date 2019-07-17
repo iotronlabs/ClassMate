@@ -8,6 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Stream\stream;
 
 //use Tymon\JWTAuth\Contracts\JWTSubject;
 
@@ -16,7 +17,7 @@ class department extends Model
      use Notifiable;
       //protected $primaryKey = '';
 
-
+  
     protected $guarded =[
         ];
 
@@ -29,9 +30,14 @@ class department extends Model
         'password', 'remember_token',
     ];
 
-    
-    public function stream()
+    public function getRouteKeyName()
     {
-      return $this->belongsTo(stream::classs,department_code,department_code);
+        return 'department_code';
+    }
+
+    
+    public function streams()
+    {
+      return $this->belongsTo(stream::class,'department_code','department_code');
     }
 }

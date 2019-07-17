@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use  Tymon\JWTAuth\Facades\JWTAuth;
+
 use Config;
 use Auth;
 
@@ -121,6 +122,19 @@ public function update(Request $request, $id)
 
 
 }
+
+  public function show_stream(department $department)
+  {
+    $stream = $department->streams()->get();
+     return response()->json
+               ([
+                   'success' =>  true,
+                   'data' => $stream,
+                   
+               ],200);
+        
+
+  }
 
 // Delete the stream and Delete the department is not be alvalable for any users//
 //Only can be activated and deactivate//

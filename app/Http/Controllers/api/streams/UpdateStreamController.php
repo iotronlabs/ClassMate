@@ -305,4 +305,7 @@ public function update(Request $request, $id)
 
 // Delete the stream and Delete the department is not be alvalable for any users//
 //Only can be activated and deactivate//
+  
+  
+
 }

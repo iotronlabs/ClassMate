@@ -27,7 +27,7 @@ class stream extends Model
 
     public function department()
     {
-      return $this->hasMany(department::class,department_code,department_code);
+      return $this->hasMany(department::class,'department_code','department_code');
     }
 }
       

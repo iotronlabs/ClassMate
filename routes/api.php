@@ -194,6 +194,7 @@ Route::group([ 'prefix' =>'/departments',
                  Route::post('/{stream_id}','Departments\UpdateDepartmentController@update');  
                 
                  Route::get('/',           'Departments\UpdateDepartmentController@index');
+                 Route::get('/{department}/show_stream', 'Departments\UpdateDepartmentController@show_stream');
                 // Route::post('/login','classes\LoginController@login');
              }
 
