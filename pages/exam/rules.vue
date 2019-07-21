@@ -100,7 +100,7 @@
 						<v-divider></v-divider>
 						<v-card-text> You are good to go</v-card-text>
 						<v-btn color="blue"
-							to="exam1"
+							to="student-exam"
 							nuxt
 						>Retake Assessment</v-btn>
 					</v-card>

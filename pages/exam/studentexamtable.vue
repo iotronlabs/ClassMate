@@ -7,7 +7,7 @@
 			
     </v-toolbar>
 
-
+	
     <v-data-table :headers="headers" :items="exm_details" item-key="sub_code" v-model="selected" select-All class="elevation-1">
 	 	
 		<template v-slot:items="props">
@@ -16,7 +16,7 @@
 				<td >{{ props.item.exm_sub }}</td>
 				<td >{{ props.item.exm_dead }}</td>
 				<td >{{ props.item.exm_sta }}</td>
-				<td ><v-btn>Take Assessment</v-btn></td>
+				<nuxt-link to = "result" ><td ><v-btn>Take Assessment</v-btn></td></nuxt-link>
 				<td class="justify-center layout px-0">
 	
 				</td>
