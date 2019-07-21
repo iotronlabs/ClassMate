@@ -118,9 +118,11 @@
 								<v-list-tile
 									v-for="(item, index) in settings"
 									:key="index"
-									@click="changed(item.title)"
+									
+									:to = "item.to"
 								>
-								<v-list-tile-title @click="item.title=='Edit' ? editItem(props.item) : viewItem(props.item)">{{ item.title }}</v-list-tile-title>
+							
+								<v-list-tile-title >{{ item.title }}</v-list-tile-title>
 								</v-list-tile>
 							</v-list>
 							</v-menu>
@@ -171,11 +173,12 @@ export default {
 		selected: [],
 		settings :
 		[
-			{ title: 'Make Inactive' },
-            { title: 'Edit Exam' },
-            { title: 'View Questions' },
-            { title: 'Add questions ' },
-            { title: 'Drop Exam' }
+			{ title: 'Make Inactive' ,to: ''},
+			{ title: 'Edit Exam' ,to: 'add-exam'},
+			{ title: 'Add Exam' , to : 'add-exam'},
+            { title: 'View Questions', to: 'teacher-exam' },
+            { title: 'Add questions ', to: 'add-questions'  },
+            { title: 'Drop Exam' , to: ''}
         ],
         items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
 
