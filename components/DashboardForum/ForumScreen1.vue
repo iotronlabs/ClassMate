@@ -21,7 +21,7 @@
 		</v-card-text>
 		<hr>
 	</v-card>
-	<br>
+	
 
 </div>
 </template>
@@ -42,7 +42,8 @@ export default {
 				}
 			],
 			
-			department_details: []
+			department_details: [],
+			department_details1: []
 		}
 
 		
@@ -62,9 +63,24 @@ export default {
 			for(var i in forum1_response.data)
 			{
 				this.department_details.push(forum1_response.data[i].department_name)
+				this.department_details1.push(forum1_response.data[i].department_code)
 			}
 			
 			console.log(this.department_details)
+			console.log(this.department_details1)
+		},
+		
+		async streamname ()
+		{
+			var streams_response 
+			for (var i in department_details1)
+			{
+				 streams_response.push( await this.$axios.get(`api/department/${department_details1[i]} /show_stream`))
+					
+
+			}
+			console.log(streams_response)
+		
 		}
 	}
 }

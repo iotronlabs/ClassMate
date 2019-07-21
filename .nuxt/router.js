@@ -10,13 +10,13 @@ const _16829912 = () => interopDefault(import('..\\pages\\exam2.vue' /* webpackC
 const _cfe6d980 = () => interopDefault(import('..\\pages\\forum.vue' /* webpackChunkName: "pages_forum" */))
 const _50ae34ce = () => interopDefault(import('..\\pages\\config\\course.vue' /* webpackChunkName: "pages_config_course" */))
 const _53e0133e = () => interopDefault(import('..\\pages\\config\\user.vue' /* webpackChunkName: "pages_config_user" */))
-const _8ae852c0 = () => interopDefault(import('..\\pages\\exam\\addexam.vue' /* webpackChunkName: "pages_exam_addexam" */))
-const _59d84908 = () => interopDefault(import('..\\pages\\exam\\addQuestions.vue' /* webpackChunkName: "pages_exam_addQuestions" */))
-const _2ace444e = () => interopDefault(import('..\\pages\\exam\\exam1_student.vue' /* webpackChunkName: "pages_exam_exam1_student" */))
-const _01666275 = () => interopDefault(import('..\\pages\\exam\\exam1_teacher.vue' /* webpackChunkName: "pages_exam_exam1_teacher" */))
+const _21cca01b = () => interopDefault(import('..\\pages\\exam\\add-exam.vue' /* webpackChunkName: "pages_exam_add-exam" */))
+const _d7a4d1fe = () => interopDefault(import('..\\pages\\exam\\add-questions.vue' /* webpackChunkName: "pages_exam_add-questions" */))
 const _5e033f6d = () => interopDefault(import('..\\pages\\exam\\result.vue' /* webpackChunkName: "pages_exam_result" */))
 const _255245d7 = () => interopDefault(import('..\\pages\\exam\\rules.vue' /* webpackChunkName: "pages_exam_rules" */))
+const _8663307e = () => interopDefault(import('..\\pages\\exam\\student-exam.vue' /* webpackChunkName: "pages_exam_student-exam" */))
 const _87cc05f8 = () => interopDefault(import('..\\pages\\exam\\studentexamtable.vue' /* webpackChunkName: "pages_exam_studentexamtable" */))
+const _8db3ec0c = () => interopDefault(import('..\\pages\\exam\\teacher-exam.vue' /* webpackChunkName: "pages_exam_teacher-exam" */))
 const _ba184a86 = () => interopDefault(import('..\\pages\\exam\\teacherexamtable.vue' /* webpackChunkName: "pages_exam_teacherexamtable" */))
 const _91a7c5fa = () => interopDefault(import('..\\pages\\user\\admin.vue' /* webpackChunkName: "pages_user_admin" */))
 const _7d46e0e2 = () => interopDefault(import('..\\pages\\user\\audit.vue' /* webpackChunkName: "pages_user_audit" */))
@@ -131,21 +131,13 @@ export function createRouter() {
       component: _53e0133e,
       name: "config-user"
     }, {
-      path: "/exam/addexam",
-      component: _8ae852c0,
-      name: "exam-addexam"
+      path: "/exam/add-exam",
+      component: _21cca01b,
+      name: "exam-add-exam"
     }, {
-      path: "/exam/addQuestions",
-      component: _59d84908,
-      name: "exam-addQuestions"
-    }, {
-      path: "/exam/exam1_student",
-      component: _2ace444e,
-      name: "exam-exam1_student"
-    }, {
-      path: "/exam/exam1_teacher",
-      component: _01666275,
-      name: "exam-exam1_teacher"
+      path: "/exam/add-questions",
+      component: _d7a4d1fe,
+      name: "exam-add-questions"
     }, {
       path: "/exam/result",
       component: _5e033f6d,
@@ -155,9 +147,17 @@ export function createRouter() {
       component: _255245d7,
       name: "exam-rules"
     }, {
+      path: "/exam/student-exam",
+      component: _8663307e,
+      name: "exam-student-exam"
+    }, {
       path: "/exam/studentexamtable",
       component: _87cc05f8,
       name: "exam-studentexamtable"
+    }, {
+      path: "/exam/teacher-exam",
+      component: _8db3ec0c,
+      name: "exam-teacher-exam"
     }, {
       path: "/exam/teacherexamtable",
       component: _ba184a86,
