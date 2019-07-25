@@ -36,11 +36,11 @@ class CreateUserStaffsTable extends Migration
             $table->unsignedTinyinteger('status')->default('111');
             $table->rememberToken();
             $table->timestamps();
-            $table->integer('st_authentication')->length(2)->default('3');
+            $table->integer('authentication')->length(2)->default('3');
            // $table->string('st_profile_picture')->nullable();
         });
 
-        
+
         DB::statement("ALTER TABLE user_staffs AUTO_INCREMENT = 170300;");
     }
 

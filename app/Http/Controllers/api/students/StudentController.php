@@ -138,13 +138,13 @@ public function destroy($s_id)
 		// $value = Cookie::make('student',$user,$minute);
 
         // return $value;
-        $response = new Response('student');
-        $response->withCookie(cookie()->forever('user_student',Auth::guard('students')->user()));
+        // $response = new Response('student');
+        // $response->withCookie(cookie()->forever('user_student',Auth::guard('students')->user()));
 		return response()->json
            ([
                'success' =>  true,
-            //    'data' => Auth::guard('students')->user(),
-                'data' => $response
+               'data' => Auth::guard('students')->user(),
+                // 'data' => $response
             //    'token' => $token
            ],200);
 	}

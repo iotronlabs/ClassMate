@@ -50,7 +50,7 @@ class CreateUserStudentsTable extends Migration
             //$table->string('guardian_id')->length(10);
             $table->string('class_id')->length(10);
             $table->unsignedTinyinteger('status')->length(3)->default('111');
-            $table->integer('s_authentication')->default('1')->length(1);
+            $table->integer('authentication')->default('1')->length(1);
             $table->rememberToken();
             $table->timestamps();
             $table->string('s_profile_picture')->nullable();

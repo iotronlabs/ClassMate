@@ -14,23 +14,26 @@ class CreateUserAdminsTable extends Migration
     public function up()
     {
         Schema::create('user_admins', function (Blueprint $table) {
-           
+
            $table->engine = 'InnoDB';
 
 
             $table->bigIncrements('id');
 
-            $table->integer('u_id')->length(10)->unique();
-          
+
+
             $table->string('name');
             $table->string('email')->unique();
             $table->char('gender',1);
-            $table->unsignedInteger('contact')->length(15);
+            $table->unsignedBigInteger('contact')->length(15);
            // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-          
+            $table->integer('authentication')->default('4')->length(1);
+
             $table->rememberToken();
             $table->timestamps();
+
+            $table->integer('t_ref_id')->length(10)->nullable();
 
 
 
