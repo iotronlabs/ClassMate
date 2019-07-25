@@ -103,6 +103,12 @@ export default {
 			}
 		}
 	},
+	created() {
+		if(this.$auth.loggedIn)
+		{
+			this.$router.push('/dashboard')
+		}
+	},
 	methods: {
 		...mapActions('dashboard',['getActiveUser']),
 		async checkLogin() {

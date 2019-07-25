@@ -20,7 +20,7 @@
 // import exam from '@/components/exam'
 // import exam2 from '@/components/exam2'
  //import Table from '../components/studentexamtable'
- 
+
 
 export default {
 	middleware: 'auth',
@@ -38,8 +38,9 @@ export default {
 		}
 		else
 		{
-			console.log('Cookie')
-			console.log(this.$cookiz.get('user_student'))
+			// console.log('Cookie')
+			// console.log(this.$cookiz.get('user_student'))
+			console.log(this.$auth.user)
 		}
 	}
 }

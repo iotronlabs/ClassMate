@@ -38,7 +38,7 @@ const studentItems = {
 
 		{
 			icon: {
-				prefix:'far', 
+				prefix:'far',
 				name:'calendar-alt'
 			},
 			title: 'Calendar',
@@ -179,7 +179,7 @@ const teacherItems = {
 				}
 			]
 		},
-		{	
+		{
 			icon: {
 				prefix: 'far',
 				name: 'question-circle'

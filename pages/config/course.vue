@@ -44,7 +44,20 @@ export default {
 
 		dialog: false,
 
-  	})
+	}),
+	mounted() {
+		if(this.$auth.loggedIn==false)
+		{
+			this.$router.go('/')
+		}
+		else
+		{
+			if(this.$auth.user.authentication!=4)
+			{
+				this.$router.push('/dashboard')
+			}
+		}
+	}
 }
 </script>
 

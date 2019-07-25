@@ -1,5 +1,5 @@
 export default  {
-	getActiveUser({commit},user) {
-		commit('setActiveUser',user)
+	getActiveUser({commit},payload) {
+		commit('setActiveUser',payload)
 	}
 }

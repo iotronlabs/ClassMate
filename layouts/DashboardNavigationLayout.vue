@@ -151,7 +151,7 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapState, mapActions} from 'vuex'
 import UserProfile from '@/components/UserProfile.vue'
 
 export default {
@@ -217,6 +217,7 @@ export default {
 		}
 	},
 	methods: {
+		...mapActions('dashboard',['getActiveUser']),
 		closeDrawerModel() {
 			this.primaryDrawer.model = !this.primaryDrawer.model
 		},
@@ -226,11 +227,14 @@ export default {
 			.catch(e => {
 				this.$toast.error('Failed Logging Out. Please try again', {icon: "error_outline"});
 			});
-			console.log(this.$auth.loggedIn)
 		}
 	},
 	created() {
 		this.primaryDrawer.model = false
+		// if(this.$auth.loggedIn)
+		// {
+		// 	this.getActiveUser(this.$auth.user.authentication)
+		// }
 	}
 }
 </script>

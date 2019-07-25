@@ -18,9 +18,22 @@ export default {
 		Table,
 	},
 	layout: 'DashboardNavigationLayout',
-	mounted() {
-		console.log(this.$auth.loggedIn)
-		console.log(this.$auth.user)
+	// mounted() {
+	// 	console.log(this.$auth.loggedIn)
+	// 	console.log(this.$auth.user)
+	// }
+	created() {
+		if(this.$auth.loggedIn==false)
+		{
+			this.$router.go('/')
+		}
+		else
+		{
+			if(this.$auth.user.authentication!=4)
+			{
+				this.$router.push('/dashboard')
+			}
+		}
 	}
 }
 </script>

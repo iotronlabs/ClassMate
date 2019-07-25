@@ -1,8 +1,8 @@
 import state from './state'
 import { exportDefaultSpecifier } from '@babel/types';
 export default {
-	setActiveUser({},user) {
-		if(user=='student')
+	setActiveUser({},payload) {
+		if(payload==1)
 		{
 			state.studentItems.active=true
 			state.teacherItems.active=false
@@ -10,7 +10,7 @@ export default {
 			state.adminItems.active=false
 			state.auditItems.active=false
 		}
-		if(user == 'teacher')
+		if(payload == 2)
 		{
 			state.studentItems.active=false
 			state.teacherItems.active = true
@@ -18,7 +18,7 @@ export default {
 			state.adminItems.active=false
 			state.auditItems.active=false
 		}
-		if(user == 'staff')
+		if(payload == 3)
 		{
 			state.studentItems.active=false
 			state.teacherItems.active = false
@@ -26,7 +26,7 @@ export default {
 			state.adminItems.active=false
 			state.auditItems.active=false
 		}
-		if(user == 'admin')
+		if(payload == 4)
 		{
 			state.studentItems.active=false
 			state.teacherItems.active = false
@@ -34,13 +34,13 @@ export default {
 			state.adminItems.active = true
 			state.auditItems.active=false
 		}
-		if(user == 'audit')
-		{
-			state.studentItems.active=false
-			state.teacherItems.active = false
-			state.staffItems.active = false
-			state.adminItems.active = false
-			state.auditItems.active = true
-		}
+		// if(payload == 5)
+		// {
+		// 	state.studentItems.active=false
+		// 	state.teacherItems.active = false
+		// 	state.staffItems.active = false
+		// 	state.adminItems.active = false
+		// 	state.auditItems.active = true
+		// }
 	}
 }
