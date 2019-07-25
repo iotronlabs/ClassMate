@@ -77,9 +77,9 @@ export default {
 			{
 				 streams_response.push( await this.$axios.get(`api/department/${department_details1[i]} /show_stream`))
 					
-
+				console.log(streams_response)
 			}
-			console.log(streams_response)
+			
 		
 		}
 	}
