@@ -60,6 +60,7 @@ export default {
 
 		async initialize () {
 			const forum1_response = await this.$axios.get('/api/departments/')
+			
 			for(var i in forum1_response.data)
 			{
 				this.department_details.push(forum1_response.data[i].department_name)
@@ -75,7 +76,7 @@ export default {
 			var streams_response 
 			for (var i in department_details1)
 			{
-				 streams_response.push( await this.$axios.get(`api/department/${department_details1[i]} /show_stream`))
+				 streams_response.push( await this.$axios.get(`api/departments/${department_details1[i]} /show_stream`))
 					
 				console.log(streams_response)
 			}
