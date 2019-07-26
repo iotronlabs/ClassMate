@@ -19,33 +19,23 @@ class AdminController extends Controller
     }
     public function usercheck(Request $request)
 	{
-		// $minute = 60;
-		// $user = Auth::guard('students')->user();
-
-		// $value = Cookie::make('student',$user,$minute);
-
-        // return $value;
-        // $response = new Response('student');
-        // $response->withCookie(cookie()->forever('user_student',Auth::guard('students')->user()));
+		
 		return response()->json(
             [
                'success' =>  true,
-               'data' => Auth::guard('admins')->user(),
-                // 'data' => $response
-            //    'token' => $token
+               'data' => Auth::guard('user_admins')->user(),
+              
            ],200);
 	}
 
 
 	public function userlogout()
 	{
-		Auth::guard('admins')->logout();
+		Auth::guard('user_admins')->logout();
 
 		return response()->json
            ([
                'success' =>  true,
-               // 'data' => $request->user(),
-               // 'token' => $token
            ],200);
 	}
 }

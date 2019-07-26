@@ -47,7 +47,11 @@ Route::group([ 'prefix' =>'/admins',
              [ 'middleware' =>'auth_users','jwt.auth']],function()
              {
                  Route::post('/register','admins\Auth\RegisterController@register');
-                 Route::post('/login','admins\Auth\LoginController@login');
+                 Route::get('/login','admins\Auth\LoginController@login');
+                 Route::get('/me','admins\AdminController@usercheck');
+                 Route::post('/out','admins\AdminController@userlogout');  
+
+
              }
 
 );
