@@ -1,17 +1,15 @@
 <template>
 <div>
-	<v-card class="forum-content-card" color="grey" v-for="department_detail in department_details">
+	<v-card class="forum-content-card" color="grey" v-for="(department_detail, index) in department_details" :key="department_detail.department_name">
 		<v-card-text >
 			<v-subheader class="forum-content-subheader">
-
-					{{department_detail}}
-
+				{{department_detail.department_name}}
 			</v-subheader>
 			<v-chip
-				v-for="chip in chips"
-				v-bind:key="chip.id"
-				@click="activeStream(chip.id)">
-				{{chip.title}}
+				v-for="stream in stream_details[index]"
+				v-bind:key="stream.id"
+			>
+				{{stream.stream_code}}
 			</v-chip>
 			<v-card-text>
 				Top Authors
@@ -21,8 +19,8 @@
 		</v-card-text>
 		<hr>
 	</v-card>
-	
-
+	{{ stream_details
+	}}
 </div>
 </template>
 
@@ -31,26 +29,14 @@ import {mapActions} from 'vuex'
 export default {
 	data() {
 		return {
-			chips: [
-				{
-					title: 'Stream 1',
-					id: 'Stream 1'
-				},
-				{
-					title: 'Stream 2',
-					id: 'Stream 2'
-				}
-			],
-			
 			department_details: [],
-			department_details1: []
+			stream_details: []
 		}
-
-		
 	},
 
-	created () {
-		this.initialize()
+	async created () {
+		await this.initialize()
+		await this.streamname()
 	},
 	methods: {
 		...mapActions('forum',['getActiveForumMenu']),
@@ -60,28 +46,24 @@ export default {
 
 		async initialize () {
 			const forum1_response = await this.$axios.get('/api/departments/')
-			
-			for(var i in forum1_response.data)
+			for(var i=0; i<forum1_response.data.length;i++)
 			{
-				this.department_details.push(forum1_response.data[i].department_name)
-				this.department_details1.push(forum1_response.data[i].department_code)
+				this.department_details.push(forum1_response.data[i])
 			}
-			
-			console.log(this.department_details)
-			console.log(this.department_details1)
+
 		},
-		
+
 		async streamname ()
 		{
-			var streams_response 
-			for (var i in department_details1)
+			for (var i=0; i< this.department_details.length;i++)
 			{
-				 streams_response.push( await this.$axios.get(`api/departments/${department_details1[i]} /show_stream`))
-					
-				console.log(streams_response)
+				var streams_response=await this.$axios.get(`/api/departments/${this.department_details[i].department_code}/show_stream`)
+				this.stream_details[i]=new Array()
+				for(var j=0;j<streams_response.data.data.length;j++)
+				{
+					this.stream_details[i].push(streams_response.data.data[j])
+				}
 			}
-			
-		
 		}
 	}
 }

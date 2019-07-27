@@ -13,7 +13,7 @@
 <script>
 import Table from '@/components/table'
 export default {
-	// middleware: ['auth'],
+	middleware: 'auth',
 	components: {
 		Table,
 	},

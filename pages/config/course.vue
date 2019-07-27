@@ -32,6 +32,7 @@ import TableDepartment from '@/components/CourseConfig/TableDepartment'
 import TableClass from '@/components/CourseConfig/TableClass'
 
 export default {
+	middleware: 'auth',
 	layout: 'DashboardNavigationLayout',
 	components: {
 		TableSubject,
@@ -50,12 +51,9 @@ export default {
 		{
 			this.$router.go('/')
 		}
-		else
+		else if(this.$auth.user.authentication!=4)
 		{
-			if(this.$auth.user.authentication!=4)
-			{
-				this.$router.push('/dashboard')
-			}
+			this.$router.push('/dashboard')
 		}
 	}
 }

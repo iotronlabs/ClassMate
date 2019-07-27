@@ -32,15 +32,16 @@ export default {
 	},
 	layout: 'DashboardNavigationLayout',
 	mounted() {
-		if(this.$auth.loggedIn==false)
+		if(this.$auth.loggedIn)
 		{
-			this.$router.go('/');
+			console.log(this.$auth.user)
 		}
 		else
 		{
+			this.$router.go('/');
 			// console.log('Cookie')
 			// console.log(this.$cookiz.get('user_student'))
-			console.log(this.$auth.user)
+
 		}
 	}
 }

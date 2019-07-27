@@ -97,7 +97,7 @@ auth: {
 		home: '/',
 		logout: '/',
 		login: '/',
-		// callback: '/dashboard',
+		callback: '/dashboard',
 	},
 	watchLoggedIn: true,
 	refresh_token: {

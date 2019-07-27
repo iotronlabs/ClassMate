@@ -16,9 +16,9 @@
 							</template>
 						</v-breadcrumbs>
 						<v-subheader class="forum-heading">
-							<span v-if="breadcrumbs.subject.active">Analog Electronics</span>
+							<!-- <span v-if="breadcrumbs.subject.active">Analog Electronics</span>
 							<span v-else-if="breadcrumbs.stream.active">Electronics and Telecommunication</span>
-							<span v-else-if="breadcrumbs.forum.active">School of Electronics Engineering</span>
+							<span v-else-if="breadcrumbs.forum.active">School of Electronics Engineering</span> -->
 							<v-spacer />
 							<v-btn>Subscribe</v-btn>
 						</v-subheader>

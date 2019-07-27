@@ -15,7 +15,7 @@
 				<div>
 					<v-layout row>
 						<v-flex xs10 sm10 md10 lg10>
-							<UserProfile />
+							<div v-if="authenticated"><UserProfile /></div>
 						</v-flex>
 						<!-- <v-flex xs2 sm2 lg2 md2>
 							<v-list>
@@ -34,7 +34,6 @@
 					class="tile"
 					v-for="(item, i) in selectItems"
 					:key="i"
-					:to="item.to"
 					router
 					exact
 				>
@@ -59,10 +58,12 @@
 
 							<v-list-tile-content>
 
-								<v-list  class="menu-sublist">
-									<v-list-tile>
-										{{ subItem.title }}
-									</v-list-tile>
+								<v-list class="menu-sublist">
+									<nuxt-link :to="subItem.to">
+										<v-list-tile>
+											{{ subItem.title }}
+										</v-list-tile>
+									</nuxt-link>
 								</v-list>
 							</v-list-tile-content>
 
@@ -155,11 +156,13 @@ import {mapState, mapActions} from 'vuex'
 import UserProfile from '@/components/UserProfile.vue'
 
 export default {
+	middleware: 'auth',
 	name: 'DashboardNavigationLayout',
 	components: {
 		UserProfile
 	},
     data: () => ({
+		authenticated: false,
 		dark: true,
 		primaryDrawer: {
 			model: null,
@@ -231,10 +234,11 @@ export default {
 	},
 	created() {
 		this.primaryDrawer.model = false
-		// if(this.$auth.loggedIn)
-		// {
-		// 	this.getActiveUser(this.$auth.user.authentication)
-		// }
+		if(this.$auth.loggedIn)
+		{
+			this.authenticated=true
+			this.getActiveUser(this.$auth.user.authentication)
+		}
 	}
 }
 </script>

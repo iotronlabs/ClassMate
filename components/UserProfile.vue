@@ -34,6 +34,9 @@ export default {
         ...mapState({
 			studentItems : state => state.dashboard.studentItems,
 			teacherItems : state => state.dashboard.teacherItems,
+			staffItems : state => state.dashboard.staffItems,
+			adminItems : state => state.dashboard.adminItems,
+			auditItems : state => state.dashboard.auditItems
 		}),
         selectItems() {
 			if(this.studentItems.active==true)
@@ -43,6 +46,18 @@ export default {
 			else if(this.teacherItems.active==true)
 			{
 				return this.teacherItems.chipdata
+			}
+			else if(this.staffItems.active==true)
+			{
+				return this.staffItems.chipdata
+			}
+			else if(this.adminItems.active==true)
+			{
+				return this.adminItems.chipdata
+			}
+			else if(this.auditItems.active==true)
+			{
+				return this.auditItems.chipdata
 			}
         }
     }
