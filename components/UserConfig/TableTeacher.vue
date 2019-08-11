@@ -271,7 +271,7 @@
 				</td>
 				<td class="text-xs-center">{{ props.item.t_id }}</td>
 				<td class="text-xs-right">{{ props.item.t_fname + ' ' + props.item.t_mname + ' ' + props.item.t_surname}}</td>
-				<td class="text-xs-right">{{ props.item.t_dob }}</td>
+				<!--<td class="text-xs-right">{{ props.item.t_dob }}</td>-->
 				<td class="text-xs-right">{{ props.item.t_email }}</td>
 				<td class="text-xs-right">{{ props.item.t_contact }}</td>
 				<td class="text-xs-right">{{ props.item.t_sub }}</td>
@@ -344,7 +344,7 @@ export default {
 		headers: [
 		  	{ text: 'Sl_No', align: 'left', sortable: true,	value: 't_id'},
 			{ text: 'Name', sortable: false},
-			{ text: 'Date of birth ', value: 't_dob', sortable: false },
+			//{ text: 'Date of birth ', value: 't_dob', sortable: false },
 			{ text: 'Email', value: 't_email', sortable: false },
 			{ text: 'Contact Number', value: 't_contact', sortable: false },
 			{ text: 'Subject', value: 't_sub', sortable: false }

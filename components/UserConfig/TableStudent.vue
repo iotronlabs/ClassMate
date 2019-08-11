@@ -411,7 +411,7 @@
 				</td>
 				<td class="text-xs-center">{{ props.item.s_id }}</td>
 				<td class="text-xs-right">{{ props.item.s_fname + ' ' + props.item.s_mname + ' ' + props.item.s_surname}}</td>
-				<td class="text-xs-right">{{ props.item.s_dob }}</td>
+				<!--<td class="text-xs-right">{{ props.item.s_dob }}</td>-->
 				<td class="text-xs-right">{{ props.item.s_email }}</td>
 				<td class="text-xs-right">{{ props.item.s_contact }}</td>
 				<td class="text-xs-right">{{ props.item.stream }}</td>
@@ -485,7 +485,7 @@ export default {
 		headers: [
 		  	{ text: 'Sl_No', align: 'left', sortable: true,	value: 's_id'},
 			{ text: 'Name', sortable: false},
-			{ text: 'Date of birth ', value: 's_dob', sortable: false },
+			//{ text: 'Date of birth ', value: 's_dob', sortable: false },
 			{ text: 'Email', value: 's_email', sortable: false },
 			{ text: 'Contact Number', value: 's_contact', sortable: false },
 			{ text: 'Stream', value: 'stream', sortable: false },
